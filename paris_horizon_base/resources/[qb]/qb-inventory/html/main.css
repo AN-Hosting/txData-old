@@ -1,0 +1,721 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+body {
+    background: none !important;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Inventory container */
+.inventory-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Player inventory styles */
+.player-inventory-header {
+    position: relative;
+    width: 28vw;
+    background: rgba(23, 23, 23, 0.8);
+    border-radius: 4px;
+    margin-bottom: 2px;
+    padding: 8px;
+    border: 1px solid #1a4c6e;
+    position: absolute;
+    top: 20.8vh;
+    left: 14vw;
+}
+
+.player-inventory {
+    position: relative;
+    width: 28vw;
+    background: rgba(23, 23, 23, 0.8);
+    border-radius: 4px;
+    padding: 8px;
+    border: 1px solid #1a4c6e;
+    position: absolute;
+    top: 26vh;
+    left: 14vw;
+    height: 47.16vh;
+    overflow-y: auto;
+}
+
+/* Item grid */
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Item slot */
+.item-slot {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: rgba(15, 15, 15, 0.4);
+    margin: 0;
+    border: 1px solid #1a4c6e;
+}
+
+.item-slot:hover {
+    background: rgba(30, 30, 30, 0.4);
+    border: 1px solid #2980b9;
+}
+
+.item-slot-img {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-slot-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Weight bar */
+.weight-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(15, 15, 15, 0.8);
+    margin-top: 4px;
+    border-radius: 2px;
+}
+
+.weight-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.2s ease-in-out;
+}
+
+.weight-bar-fill.low {
+    background: #3498db;
+}
+
+.weight-bar-fill.medium {
+    background: #2980b9;
+}
+
+.weight-bar-fill.high {
+    background: #c0392b;
+}
+
+/* Labels */
+.labels-container {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 12px;
+}
+
+.inventory-label p {
+    font-weight: 600;
+    color: #3498db;
+}
+
+.current-weight p {
+    color: #bdc3c7;
+}
+
+/* Item amount */
+.item-slot-amount {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+/* Durability bar */
+.item-slot-durability {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(15, 15, 15, 0.8);
+}
+
+.item-slot-durability-fill {
+    height: 100%;
+    transition: width 0.2s ease-in-out;
+}
+
+.item-slot-durability-fill.high {
+    background: #3498db;
+}
+
+.item-slot-durability-fill.medium {
+    background: #2980b9;
+}
+
+.item-slot-durability-fill.low {
+    background: #c0392b;
+}
+
+/* Hotbar */
+.hotbar-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hotbar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    background: rgba(23, 23, 23, 0.8);
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #1a4c6e;
+}
+
+/* Input container */
+.input-container {
+    width: 120px;
+    position: absolute;
+    top: 45vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 120px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 8px;
+    background: rgba(23, 23, 23, 0.8);
+    border: 1px solid #1a4c6e;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Custom tooltip */
+.custom-tooltip {
+    background: rgba(23, 23, 23, 0.95);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #1a4c6e;
+    max-width: 250px;
+    z-index: 1000;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip-header {
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.tooltip-divider {
+    border: none;
+    border-top: 1px solid #1a4c6e;
+    margin: 5px 0;
+}
+
+.tooltip-info {
+    color: #bdc3c7;
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+.tooltip-description {
+    color: #95a5a6;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.tooltip-weight {
+    color: #3498db;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* Floating Vue tooltip styles */
+.v-popper__popper {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s, visibility 0.15s;
+}
+
+.v-popper__popper.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.v-popper--theme-tooltip {
+    background: rgba(23, 23, 23, 0.95) !important;
+    border: 1px solid #1a4c6e !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    max-width: 250px !important;
+    z-index: 10000 !important;
+    pointer-events: none !important;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.v-popper--theme-tooltip .v-popper__inner {
+    background: rgba(23, 23, 23, 0.95) !important;
+    border: none !important;
+    color: white !important;
+    padding: 0 !important;
+}
+
+/* Item slot hover behavior */
+.item-slot-img:hover + .v-popper__popper {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Other Inventory Styles */
+
+.other-inventory {
+    position: absolute;
+    top: 26vh;
+    right: 14vw;
+    width: 28vw;
+    height: 47.16vh;
+    background: rgba(23, 23, 23, 0.8);
+    border-radius: 4px;
+    padding: 8px;
+    border: 1px solid #1a4c6e;
+    overflow-y: auto;
+}
+
+.other-inventory-header {
+    position: absolute;
+    top: 20.8vh;
+    right: 14vw;
+    width: 28vw;
+    background: rgba(23, 23, 23, 0.8);
+    border-radius: 4px;
+    margin-bottom: 2px;
+    padding: 8px;
+    border: 1px solid #1a4c6e;
+}
+
+/* Centered Styles */
+
+.centered-player-inventory {
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.centered-inventory-header {
+    box-sizing: border-box;
+    position: absolute;
+    top: 20.8vh;
+    width: 27.9vw;
+    left: 50vw;
+    transform: translateX(-50%);
+    height: fit-content;
+    font-weight: bolder;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-slot-key {
+    font-weight: bolder;
+    color: #000000;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+}
+
+.item-slot-label {
+    position: absolute;
+    white-space: nowrap;
+    bottom: 0;
+    height: 1vh;
+    width: 100%;
+    background-color: #cccccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+}
+
+.item-slot-label > p {
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #000000;
+    font-size: 0.7vh;
+    text-align: center;
+}
+
+/* Notification Styles */
+
+.notification-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(23, 23, 23, 0.8);
+    border: 1px solid #1a4c6e;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.notification-slot {
+    position: relative;
+    width: 10vh;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.notification-title p {
+    color: #3498db;
+    font-size: 1.2vh;
+    font-weight: 600;
+}
+
+/* Ajustement de l'image de notification */
+.notification-slot .item-slot-img {
+    width: 6vh;
+    height: 6vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification-slot .item-slot-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.notification-slot .item-slot-amount {
+    position: absolute;
+    bottom: 0.5vh;
+    right: 0.5vh;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+.notification-slot .item-slot-label {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1vh;
+    margin-top: 2px;
+}
+
+.required-item-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.required-item {
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+    padding: 0 10px;
+}
+
+.required-item .item-slot {
+    margin-left: 10px;
+}
+
+.context-menu {
+    position: absolute;
+    font-size: 1vh;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    border: 1px solid #000;
+    z-index: 1000;
+    width: fit-content;
+    cursor: pointer;
+    color: #ffffff;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 8%), 0 2px 2px rgb(0 0 0 / 3%), 0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%), 0 15px 15px rgb(0 0 0 / 6%), 0 30px 30px rgb(0 0 0 / 7%), 0 70px 65px rgb(0 0 0 / 9%);
+}
+
+.context-menu li {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.context-menu li:hover {
+    background-color: #444444;
+}
+
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    font-size: 0.9vh;
+    background-color: #2c2c2c;
+    border: 1px solid #000;
+    border-radius: 4px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 8%), 0 2px 2px rgb(0 0 0 / 3%), 0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%), 0 15px 15px rgb(0 0 0 / 6%), 0 30px 30px rgb(0 0 0 / 7%), 0 70px 65px rgb(0 0 0 / 9%);
+    z-index: 1001;
+}
+
+.context-menu li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.submenu li:hover {
+    background-color: #444444;
+}
+
+.weapon-attachments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    height: 21vh;
+    border-radius: 50%;
+    margin: 0 auto;
+    top: 50%;
+    left: 15%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.weapon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attachment-slot {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attachment-slot img {
+    width: 75%;
+    height: auto;
+}
+
+.attachment-slot:nth-child(0) {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
+}
+
+.attachment-slot:nth-child(1) {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
+}
+
+.attachment-slot:nth-child(2) {
+    transform: rotate(60deg) translate(150px) rotate(-60deg);
+}
+
+.attachment-slot:nth-child(3) {
+    transform: rotate(120deg) translate(150px) rotate(-120deg);
+}
+
+.attachment-slot:nth-child(4) {
+    transform: rotate(180deg) translate(150px) rotate(-180deg);
+}
+
+.attachment-slot:nth-child(5) {
+    transform: rotate(240deg) translate(150px) rotate(-240deg);
+}
+
+.attachment-slot:nth-child(6) {
+    transform: rotate(300deg) translate(150px) rotate(-300deg);
+}
+
+.attachment-slot:nth-child(7) {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 15, 15, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a4c6e;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* Dragged item styles */
+.dragged-item {
+    position: fixed !important;
+    pointer-events: none;
+    z-index: 9999;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    transform: translate(-50%, -50%) translateZ(0);
+    opacity: 0.85;
+    background: rgba(23, 23, 23, 0.8);
+    border: 1px solid #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Adjust item slot during drag */
+.item-slot.drag-over {
+    background: rgba(52, 152, 219, 0.2);
+    border: 1px solid #3498db;
+}
+
+/* Ensure dragged item stays visible */
+.item-slot.dragged-item .item-slot-img,
+.item-slot.dragged-item .item-slot-amount,
+.item-slot.dragged-item .item-slot-label {
+    pointer-events: none;
+}
+
+/* Remove any transitions from item movement */
+.item-slot-img,
+.item-slot-amount,
+.item-slot-label {
+    transition: none;
+}
+
+/* Manual tooltip styles */
+#manual-tooltip {
+    background: rgba(23, 23, 23, 0.95);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #1a4c6e;
+    max-width: 250px;
+    z-index: 10000;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+#manual-tooltip .tooltip-header {
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+#manual-tooltip .tooltip-divider {
+    border: none;
+    border-top: 1px solid #1a4c6e;
+    margin: 5px 0;
+}
+
+#manual-tooltip .tooltip-info {
+    color: #bdc3c7;
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+#manual-tooltip .tooltip-description {
+    color: #95a5a6;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+#manual-tooltip .tooltip-weight {
+    color: #3498db;
+    font-size: 11px;
+    margin-top: 5px;
+}

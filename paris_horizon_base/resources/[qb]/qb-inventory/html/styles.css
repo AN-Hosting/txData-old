@@ -1,0 +1,28 @@
+.item-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #0066cc;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    z-index: 9999;
+    pointer-events: none;
+    min-width: 200px;
+}
+
+.tooltip-header {
+    font-weight: bold;
+    color: #0066cc;
+    margin-bottom: 5px;
+}
+
+.tooltip-weight {
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.tooltip-description {
+    margin-top: 5px;
+    color: #ccc;
+} 
