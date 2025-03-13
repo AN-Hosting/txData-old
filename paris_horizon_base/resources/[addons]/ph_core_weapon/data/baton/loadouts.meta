@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CPedInventoryLoadOutManager>
+  <LoadOuts>
+    <Item>
+      <Name>LOADOUT_CHEAT_0</Name>
+      <Items>
+		<Item type="CLoadOutWeapon">
+          <WeaponName>WEAPON_TONFA</WeaponName>
+          <Ammo value="1" />
+          <Flags />
+          <ComponentNames />
+        </Item>
+
+        <Item type="CLoadOutWeapon">
+              <WeaponName>WEAPON_BATON</WeaponName>
+              <Ammo value="1" />
+              <Flags />
+              <ComponentNames />
+            </Item>
+
+            <Item type="CLoadOutWeapon">
+                  <WeaponName>WEAPON_MATRAQUE</WeaponName>
+                  <Ammo value="1" />
+                  <Flags />
+                  <ComponentNames />
+                </Item>
+
+            <Item type="CLoadOutWeapon">
+                  <WeaponName>WEAPON_BATON2</WeaponName>
+                  <Ammo value="1" />
+                  <Flags />
+                  <ComponentNames />
+                </Item>
+
+            <Item type="CLoadOutWeapon">
+                  <WeaponName>WEAPON_TONFA2</WeaponName>
+                  <Ammo value="1" />
+                  <Flags />
+                  <ComponentNames />
+                </Item>
+
+
+	  </Items>
+    </Item>
+    <Item>
+      <Name>LOADOUT_CHEAT_1</Name>
+      <Items>
+		<Item type="CLoadOutWeapon">
+          <WeaponName>WEAPON_TONFA</WeaponName>
+          <Ammo value="1" />
+          <Flags />
+          <ComponentNames />
+        </Item>
+        
+        <Item type="CLoadOutWeapon">
+              <WeaponName>WEAPON_BATON</WeaponName>
+              <Ammo value="1" />
+              <Flags />
+              <ComponentNames />
+            </Item>
+
+            <Item type="CLoadOutWeapon">
+                  <WeaponName>WEAPON_MATRAQUE</WeaponName>
+                  <Ammo value="1" />
+                  <Flags />
+                  <ComponentNames />
+                </Item>
+
+            <Item type="CLoadOutWeapon">
+                  <WeaponName>WEAPON_BATON2</WeaponName>
+                  <Ammo value="1" />
+                  <Flags />
+                  <ComponentNames />
+                </Item>
+
+            <Item type="CLoadOutWeapon">
+                  <WeaponName>WEAPON_TONFA2</WeaponName>
+                  <Ammo value="1" />
+                  <Flags />
+                  <ComponentNames />
+                </Item>
+
+
+	  </Items>
+    </Item>
+  </LoadOuts>
+</CPedInventoryLoadOutManager>
