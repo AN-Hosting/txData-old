@@ -1,0 +1,7 @@
+default/data
+default/logs
+paris_horizon_base/cache
+paris_horizon_base/db
+paris_horizon_base/.replxx_history
+paris_horizon_base/server.cfg.bkp
+paris_horizon_base/resources/\[qb]/qb-doorlock/saves/doorstates.json
