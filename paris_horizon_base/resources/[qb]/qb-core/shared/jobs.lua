@@ -20,7 +20,7 @@ QBShared.Jobs = {
 	police_nationale = {
 		label = 'Police Nationale',
 		type = 'leo',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Gardien de la Paix', payment = 1500 },
@@ -33,7 +33,7 @@ QBShared.Jobs = {
 	tabac = {
 		label = 'Tabac',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Apprenti  ', payment = 1500 },
@@ -46,7 +46,7 @@ QBShared.Jobs = {
 	mairie = {
 		label = 'Mairie',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire ', payment = 1500 },
@@ -59,7 +59,7 @@ QBShared.Jobs = {
 	gendarmerie_nationale = {
 		label = 'Gendarmerie Nationale',
 		type = 'leo',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Gendarme', payment = 1500 },
@@ -72,7 +72,7 @@ QBShared.Jobs = {
 	samu_75 = {
 		label = 'Samu 75',
 		type = 'ems',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Interne ', payment = 1500 },
@@ -85,7 +85,7 @@ QBShared.Jobs = {
 	pompiers_de_paris = {
 		label = 'Pompiers de Paris',
 		type = 'ems',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Sapeur 2ᵉ Classe', payment = 1500 },
@@ -97,7 +97,7 @@ QBShared.Jobs = {
 	},
 	orpi = {
 		label = 'Orpi',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Assistant Commercial', payment = 1500 },
@@ -109,7 +109,7 @@ QBShared.Jobs = {
 	},
 	taxi = {
 		label = 'Taxi',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire Taxi', payment = 1500 },
@@ -121,7 +121,7 @@ QBShared.Jobs = {
 	},
 	concessionnaire = {
 		label = 'Concessionnaire',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire ', payment = 1500 },
@@ -134,7 +134,7 @@ QBShared.Jobs = {
 	norauto = {
 		label = 'Norauto',
 		type = 'mechanic',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Apprenti Mécanicien', payment = 1500 },
@@ -147,7 +147,7 @@ QBShared.Jobs = {
 	midas = {
 		label = 'Midas',
 		type = 'mechanic',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Apprenti Mécanicien', payment = 1500 },
@@ -160,7 +160,7 @@ QBShared.Jobs = {
 	vinci = {
 		label = 'Vinci',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Ouvrier', payment = 1500 },
@@ -173,7 +173,7 @@ QBShared.Jobs = {
 	otacos = {
 		label = 'Otacos',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire Cuisine', payment = 1500 },
@@ -186,7 +186,7 @@ QBShared.Jobs = {
 	kfc = {
 		label = 'KFC',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire Cuisine', payment = 1500 },
@@ -199,7 +199,7 @@ QBShared.Jobs = {
 	pizza = {
 		label = 'Pizza',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire Cuisine', payment = 1500 },
@@ -212,7 +212,7 @@ QBShared.Jobs = {
 	avocats_de_paris = {
 		label = 'Avocats de Paris',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire en Droit', payment = 1500 },
@@ -225,7 +225,7 @@ QBShared.Jobs = {
 	vigneron = {
 		label = 'Vigneron',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Ouvrier Viticole', payment = 1500 },
@@ -238,7 +238,7 @@ QBShared.Jobs = {
 	brinks = {
 		label = 'Brinks',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Agent de Sécurité', payment = 1500 },
@@ -251,7 +251,7 @@ QBShared.Jobs = {
 	burgerking = {
 		label = 'Burger King',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire Cuisine', payment = 1500 },
@@ -264,7 +264,7 @@ QBShared.Jobs = {
 	tf1 = {
 		label = 'TF1',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Stagiaire Journaliste', payment = 1500 },
@@ -277,7 +277,7 @@ QBShared.Jobs = {
 	dir = {
 		label = 'Dir',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Agent Routier', payment = 1500 },
@@ -290,7 +290,7 @@ QBShared.Jobs = {
 	casino = {
 		label = 'Casino',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Croupier', payment = 1500 },
@@ -303,7 +303,7 @@ QBShared.Jobs = {
 	xpo = {
 		label = 'XPO Logistics',
 		type = '',
-		defaultDuty = true,
+		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
 			['0'] = { name = 'Chauffeur-Livreur', payment = 1500 },
@@ -316,8 +316,8 @@ QBShared.Jobs = {
 }
 
 
-            -- Jobs Creator integration (jobs_creator)
-            RegisterNetEvent("jobs_creator:injectJobs", function(jobs)
-                QBShared.Jobs = jobs
-            end)
+-- Jobs Creator integration (jobs_creator)
+RegisterNetEvent("jobs_creator:injectJobs", function(jobs)
+    QBShared.Jobs = jobs
+end)
         
