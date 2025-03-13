@@ -1,0 +1,60 @@
+<CodeWalkerProject>
+  <Name>New CodeWalker Project</Name>
+  <Version value="1" />
+  <YmapFilenames>
+    <Item>stream\[garage]\int_green_milo_.ymap</Item>
+    <Item>stream\[garage]\lr_sc1_11_strm_2.ymap</Item>
+    <Item>stream\[garage]\lr_sc1_occl_02.ymap</Item>
+    <Item>stream\[ymap map]\hei_fwy_04.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_19.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_19_long_0.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_19_strm_0.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_lod.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_occl_01.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_rd.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_rd_critical_1.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_rd_long_1.ymap</Item>
+    <Item>stream\[ymap map]\hei_hw1_rd_strm_6.ymap</Item>
+    <Item>stream\[ymap]\felixpyat2.ymap</Item>
+    <Item>stream\[ymap]\felixpyat6.ymap</Item>
+    <Item>stream\[ymap]\felixyat4.ymap</Item>
+    <Item>stream\[ymap]\felix_1.ymap</Item>
+    <Item>stream\[ymap]\felix_pyat_milo.ymap</Item>
+  </YmapFilenames>
+  <YtypFilenames>
+    <Item>stream\bloc_a.ytyp</Item>
+    <Item>stream\bloc_b.ytyp</Item>
+    <Item>stream\felix_pyat_cite.ytyp</Item>
+    <Item>stream\[garage]\int_green.ytyp</Item>
+    <Item>stream\[ymap map]\v_int_31b.ytyp</Item>
+  </YtypFilenames>
+  <YbnFilenames>
+    <Item>stream\[garage]\int_green.ybn</Item>
+    <Item>stream\[ymap map]\hei_hw1_rd_10.ybn</Item>
+    <Item>stream\[ymap map]\hei_hw1_rd_3.ybn</Item>
+    <Item>stream\[ymap map]\hw1_19_0.ybn</Item>
+    <Item>stream\[ymap map]\hw1_19_1.ybn</Item>
+    <Item>stream\[ymap map]\hw1_19_2.ybn</Item>
+    <Item>stream\[ymap map]\hw1_19_3.ybn</Item>
+  </YbnFilenames>
+  <YndFilenames />
+  <YnvFilenames />
+  <TrainsFilenames />
+  <ScenarioFilenames />
+  <AudioRelFilenames />
+  <YdrFilenames>
+    <Item>stream\[garage]\greenroom1.ydr</Item>
+    <Item>stream\[garage]\greenroom2.ydr</Item>
+    <Item>stream\[garage]\greenroom3.ydr</Item>
+    <Item>stream\[garage]\greenshell.ydr</Item>
+    <Item>stream\[ydr]\bloc_a.ydr</Item>
+    <Item>stream\[ydr]\bloc_b.ydr</Item>
+    <Item>stream\[ydr]\felix_pyat_cite.ydr</Item>
+    <Item>stream\[ymap map]\hw1_19_propsb.ydr</Item>
+  </YdrFilenames>
+  <YddFilenames />
+  <YftFilenames />
+  <YtdFilenames>
+    <Item>stream\[ydr]\felix_pyat_cite.ytd</Item>
+  </YtdFilenames>
+</CodeWalkerProject>

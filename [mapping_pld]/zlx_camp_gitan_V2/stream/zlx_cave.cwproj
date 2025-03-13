@@ -1,0 +1,30 @@
+<CodeWalkerProject>
+  <Name>New CodeWalker Project</Name>
+  <Version value="1" />
+  <YmapFilenames>
+    <Item>hei_sm_occl_01.ymap</Item>
+    <Item>zlx_cave_cgymap.ymap</Item>
+    <Item>hei_sm_27_strm_0.ymap</Item>
+  </YmapFilenames>
+  <YtypFilenames>
+    <Item>zlx_cave_cgytyp.ytyp</Item>
+  </YtypFilenames>
+  <YbnFilenames>
+    <Item>hi@sm_27_0.ybn</Item>
+    <Item>sm_27_0.ybn</Item>
+    <Item>zlx_cave_cg_col.ybn</Item>
+  </YbnFilenames>
+  <YndFilenames />
+  <YnvFilenames />
+  <TrainsFilenames />
+  <ScenarioFilenames />
+  <AudioRelFilenames />
+  <YdrFilenames>
+    <Item>sm_27_build5.ydr</Item>
+    <Item>zlx_cave_cg.ydr</Item>
+    <Item>zlx_stairs.ydr</Item>
+  </YdrFilenames>
+  <YddFilenames />
+  <YftFilenames />
+  <YtdFilenames />
+</CodeWalkerProject>
