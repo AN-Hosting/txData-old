@@ -1,0 +1,26 @@
+Locales["de"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] – Pflanze verbrennen',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] – Pflanze tragen',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] – Abgestorbene Pflanzen entfernen',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] – Pflanze ernten',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Typ:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Ernährung:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Gesundheit:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Wachsende Pflanze...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Pflanze entfernen...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Pflanze pflanzen...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Futterpflanze...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Sie haben die Anlagenposition geändert',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Die Anlage geriet vollständig in Brand',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Es gibt keinen Platz für die Pflanze',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Sie befinden sich nicht zu Hause oder in einer sicheren Zone',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Diese Pflanze benötigt keine weitere Nahrung',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Das Objekt wurde nicht gefunden oder ist kaputt',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Sie haben die Pflanze richtig geerntet',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Die Pflanze existiert nicht mehr',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Sie haben nicht genügend Beutel, um die gesamte Pflanze zu ernten',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Es ist weder Ihre Pflanze, noch können Sie die Pflanze eines anderen Spielers ernten',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Sie können in diesem Haus nicht mehr Pflanzen pflanzen',
+}

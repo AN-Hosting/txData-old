@@ -1,0 +1,26 @@
+Locales["ro"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Arde planta',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Purtați planta',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Îndepărtați planta moartă',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Planta de recoltare',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Tip:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Nutriţie:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Sănătate:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Planta in crestere...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Se indeparteaza planta...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Planta de plantare...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Planta de hrănire...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Ai schimbat poziția plantei',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Planta a luat foc complet',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Nu există loc unde să pui planta',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Nu sunteți acasă sau într-o zonă sigură',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Această plantă nu are nevoie de mai multă hrană',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Obiectul nu a fost găsit sau este rupt',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Ați recoltat planta corect',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Planta nu mai există',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Nu aveți destui saci pentru a recolta întreaga plantă',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Nu este planta ta și nici nu poți recolta planta altui jucător',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Nu puteți pune mai multe plante în această casă',
+}

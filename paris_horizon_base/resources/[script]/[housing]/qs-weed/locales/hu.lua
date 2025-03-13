@@ -1,0 +1,26 @@
+Locales["hu"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Égess el egy növényt',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Növényhordozó',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Távolítsa el az elhalt növényt',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Betakarítás növény',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Típus:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Táplálás:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Egészség:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Növekvő növény...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Növény eltávolítása...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Növény ültetése...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Etető üzem...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Megváltoztatta az üzem pozícióját',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Az üzem teljesen kigyulladt',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Nincs hová tenni a növényt',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Nem tartózkodik otthonában vagy biztonságos zónában',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Ennek a növénynek nincs szüksége több táplálékra',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'A tárgy nem található, vagy elromlott',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Helyesen betakarította a növényt',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Az üzem már nem létezik',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Nincs elég zacskója az egész növény betakarításához',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Ez nem a te növényed, és nem is betakaríthatod egy másik játékos növényét',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Nem tehet több növényt ebbe az otthonba',
+}

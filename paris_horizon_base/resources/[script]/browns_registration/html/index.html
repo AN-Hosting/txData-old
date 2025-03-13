@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="text/javascript" src="./script.js"></script>
+    <title>Carte Grise & Assurance</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header-cg">
+            <img class="rf-logo" src="./img/prefecture.png" alt="République Française">
+            <h1>CERTIFICAT D'IMMATRICULATION</h1>
+        </div>
+        <div class="content-cg">
+            <div class="info-group">
+                <h3 id="date"></h3>
+                <h4 id="msg"></h4>
+                <div class="vehicle-info">
+                    <h2 id="plate" class="plate-number"></h2>
+                    <h2 id="owner" class="owner-info"></h2>
+                    <h2 id="vin" class="vin-number"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ins-container">
+        <div class="header-insurance">
+            <h1>CARTE INTERNATIONALE D'ASSURANCE</h1>
+            <h2>Carte Verte</h2>
+        </div>
+        <div class="content-insurance">
+            <div class="info-group">
+                <h3 id="ins-date"></h3>
+                <h4 id="ins-msg"></h4>
+                <div class="vehicle-info">
+                    <h2 id="ins-plate" class="plate-number"></h2>
+                    <h2 id="ins-owner" class="owner-info"></h2>
+                    <h2 id="ins-vin" class="vin-number"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

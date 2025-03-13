@@ -1,0 +1,26 @@
+Locales["ca"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Cremar planta',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Portar planta',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Eliminar la planta morta',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Planta de verema',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Tipus:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Nutrició:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Salut:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Planta en creixement...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Eliminant planta...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Plantar planta...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Planta d\'alimentació...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Has canviat la posició de la planta',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'La planta es va incendiar completament',
+["WEED_NOTIFICATION_NO_PLACE"] = 'No hi ha lloc per posar la planta',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'No estàs a casa teva ni en una zona segura',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Aquesta planta no necessita més nutrició',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'L\'objecte no s\'ha trobat o està trencat',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Has collit correctament la planta',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'La planta ja no existeix',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'No teniu prou bosses per collir tota la planta',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'No és la teva planta ni pots collir la planta d\'un altre jugador',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'No podeu posar més plantes en aquesta casa',
+}

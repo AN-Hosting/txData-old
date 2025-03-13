@@ -1,0 +1,26 @@
+Locales["no"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Brenn plante',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Bær plante',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Fjern døde plante',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Høsteplante',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Type:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Ernæring:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Helse:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Voksende plante...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Fjerner planten...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Plante plante...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Matplante...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Du endret anleggsposisjonen',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Anlegget tok fullstendig fyr',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Det er ikke noe sted å sette planten',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Du er ikke hjemme eller i en trygg sone',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Denne planten trenger ikke mer næring',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Gjenstanden ble ikke funnet eller er ødelagt',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Du har høstet planten riktig',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Planten eksisterer ikke lenger',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Du har ikke nok poser til å høste hele planten',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Det er ikke din plante, og du kan heller ikke høste en annen spillers plante',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Du kan ikke sette flere planter i dette hjemmet',
+}

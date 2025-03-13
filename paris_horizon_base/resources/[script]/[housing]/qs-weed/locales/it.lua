@@ -1,0 +1,26 @@
+Locales["it"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Brucia la pianta',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Trasportare la pianta',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Rimuovere la pianta morta',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Pianta da raccogliere',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Tipo:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Nutrizione:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Salute:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Pianta in crescita...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Rimozione pianta...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Piantare una pianta...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Pianta da nutrire...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Hai cambiato la posizione della pianta',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'L\'impianto ha preso fuoco completamente',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Non c\'è posto dove mettere la pianta',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Non sei a casa tua o in una zona sicura',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Questa pianta non ha bisogno di più nutrimento',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'L\'oggetto non è stato trovato o è rotto',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Hai raccolto la pianta correttamente',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'L\'impianto non esiste più',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Non hai abbastanza sacchi per raccogliere l\'intera pianta',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Non è la tua pianta né puoi raccogliere la pianta di un altro giocatore',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Non puoi mettere più piante in questa casa',
+}
