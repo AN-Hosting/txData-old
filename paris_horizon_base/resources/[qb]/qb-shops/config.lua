@@ -645,7 +645,7 @@ Config.Locations = {
 
     ['propstore'] = {
         ['label'] = 'Magasin d\'Accessoires',
-        ['coords'] = vector4(-580.49, -1001.96, 21.33, 270.52),
+        ['coords'] = vector4(-580.49, -1001.42, 22.33, 268.43),
         ['ped'] = 'a_f_m_eastsa_02',
         ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
         ['radius'] = 1.5,
