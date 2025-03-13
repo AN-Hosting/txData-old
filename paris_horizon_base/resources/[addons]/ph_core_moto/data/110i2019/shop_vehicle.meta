@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ShopVehicleDataArray>
+	<Vehicles>
+		<Item>
+			<lockHash>CU_110I2019_VEH</lockHash>
+			<modelNameHash>110i2019tcub</modelNameHash>
+			<cost value ="100"/>
+			<textLabel>110I2019</textLabel>
+			<vehicleMods></vehicleMods>
+		</Item>
+	</Vehicles>	
+</ShopVehicleDataArray>
