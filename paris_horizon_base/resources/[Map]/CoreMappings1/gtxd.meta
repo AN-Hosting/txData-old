@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CMapParentTxds>
+  <txdRelationships>
+    <Item>
+      <parent>velodrome_1</parent>
+      <child>velodrome</child>
+    </Item>
+  </txdRelationships>
+</CMapParentTxds>
+
+<CMapParentTxds>
+  <txdRelationships>
+    <Item>
+      <parent>prompt_paleto_fire_dep_2</parent>
+      <child>prompt_paleto_fire_dep</child>
+    </Item>
+    <Item>
+      <parent>prompt_paleto_fire_dep_3</parent>
+      <child>prompt_paleto_fire_dep_2</child>
+    </Item>
+  </txdRelationships>
+</CMapParentTxds>
