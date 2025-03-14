@@ -486,3 +486,55 @@ Config.healthMin = 2000.0 -- Minimum health of vehicle to be able to push it.
 Config.blacklist = { -- blacklist vehicle models from being pushed.
     [`phantom`] = true
 }
+
+-- Menu Perso
+Config.ServiceCommands = {
+    gendarmerie_nationale = '19',
+    samu_75 = '15',
+    pompiers_de_paris = '18',
+    avocats_de_paris = '115',
+    police_nationale = '17',
+    norauto = '116',
+    midas = '117',
+    concessionnaire = '118',
+    taxi = '119',
+    orpi = '120'
+}
+
+-- Towing
+Config.whitelist = { -- when adding add-on cars simply use their spawn name
+    'FLATBED',
+    'BENSON',
+    'WASTLNDR', -- WASTELANDER
+    'MULE',
+    'MULE2',
+    'MULE3',
+    'MULE4',
+    'TRAILER', -- TRFLAT
+    'ARMYTRAILER',
+    'BOATTRAILER',
+    'TOW',
+    'SLAMTRUCK',
+    'TR2',
+    'freighttrailer',
+    '20fttrailer',
+}
+
+Config.offsets = { -- when adding add-on cars simply use their spawn name
+    {model = 'FLATBED', offset = {x = 0.0, y = -9.0, z = -1.25}}, -- x -> Left/Right adjustment | y -> Forward/Backward adjustment | z -> Height adjustment
+    {model = 'BENSON', offset = {x = 0.0, y = 0.0, z = -1.25}},
+    {model = 'WASTLNDR', offset = {x = 0.0, y = -7.2, z = -0.9}},
+    {model = 'MULE', offset = {x = 0.0, y = -7.0, z = -1.75}},
+    {model = 'MULE2', offset = {x = 0.0, y = -7.0, z = -1.75}},
+    {model = 'MULE3', offset = {x = 0.0, y = -7.0, z = -1.75}},
+    {model = 'MULE4', offset = {x = 0.0, y = -7.0, z = -1.75}},
+    {model = 'TRAILER', offset = {x = 0.0, y = -9.0, z = -1.25}},
+    {model = 'ARMYTRAILER', offset = {x = 0.0, y = -9.5, z = -3.0}},
+    {model = 'TOW', offset = {x = 0.0, y = -8.6, z = -1.235}},
+    {model = 'freighttrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
+    {model = 'SLAMTRUCK', offset = {x = 0.0, y = -7.0, z = -1.75}},
+    {model = 'TR2', offset = {x = 0.0, y = -9.0, z = -1.25}},
+    {model = '20fttrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
+}
+
+RampHash = 'imp_prop_flatbed_ramp'
