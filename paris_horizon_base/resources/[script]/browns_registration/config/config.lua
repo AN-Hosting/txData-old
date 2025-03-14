@@ -18,8 +18,8 @@ config.Core = {
 }
 
 config.locations = {
-    registration = vec3(-218.28, -1177.42, 23.03), -- coords to get vehicle registration
-    insurance = vec3(-218.33, -1174.92, 23.03) -- coords to get vehicle insurance
+    registration = vec3(-42.17, 6513.54, 31.49), -- coords to get vehicle registration
+    insurance = vec3(-43.52, 6512.2, 31.48) -- coords to get vehicle insurance
 }
 
 config.costs = {

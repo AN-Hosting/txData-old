@@ -4,7 +4,7 @@ Config = {}
 -- You can find a key binding control index here: https://docs.fivem.net/docs/game-references/controls/
 -- The script is using control type 0 (PLAYER_CONTROL)
 Config.OpenGarageKeyBind = 38
-Config.OpenGaragePrompt = "Garage"
+Config.OpenGaragePrompt = "Parking"
 Config.OpenImpoundKeyBind = 38
 Config.OpenImpoundPrompt = "Fourriére"
 Config.InsertVehicleKeyBind = 38
@@ -22,8 +22,8 @@ Config.EnableTransfers = {
 Config.GarageVehicleReturnCost = 550
 Config.GarageVehicleTransferCost = 550
 Config.GarageShowBlips = true
-Config.GarageBlipId = 524
-Config.GarageBlipColour = 63
+Config.GarageBlipId = 369
+Config.GarageBlipColour = 0
 Config.GarageBlipScale = 0.5
 Config.GarageUniqueBlips = false
 Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique

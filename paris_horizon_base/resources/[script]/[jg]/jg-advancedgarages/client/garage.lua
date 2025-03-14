@@ -103,7 +103,7 @@ RegisterNetEvent("jg-advancedgarages:client:NewGarageAdded", function(name, type
   SetBlipScale(blip, 0.7)
   SetBlipAsShortRange(blip, true)
   BeginTextCommandSetBlipName("STRING")
-  AddTextComponentString("Garage: " .. name)
+  AddTextComponentString("Parking: " .. name)
   EndTextCommandSetBlipName(blip)
 end)
 
@@ -196,9 +196,9 @@ CreateThread(function()
         SetBlipAsShortRange(blip, true)
         BeginTextCommandSetBlipName("STRING")
         if Config.GarageUniqueBlips then
-          AddTextComponentString("Garage: " .. id)
+          AddTextComponentString("Parking: " .. id)
         else
-          AddTextComponentString("Garage")
+          AddTextComponentString("Parking")
         end
         EndTextCommandSetBlipName(blip)
       end
