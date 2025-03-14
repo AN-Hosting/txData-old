@@ -291,14 +291,14 @@ function CreateNpc()
             distance = 1.0
         })
         KeyMasters[index].blip = AddBlipForCoord(location.x, location.y, location.z)
-        -- SetBlipSprite(KeyMasters[index].blip, 134)
-        -- SetBlipColour(KeyMasters[index].blip, 3)
-        -- --SetBlipScale(KeyMasters[index].blip, 0.8)
-        -- SetBlipDisplay(KeyMasters[index].blip, 4)
-        -- SetBlipAsShortRange(KeyMasters[index].blip, true)
-        -- BeginTextCommandSetBlipName("STRING")
-        -- AddTextComponentSubstringPlayerName(Lang:t('info.blip'))
-        -- EndTextCommandSetBlipName(KeyMasters[index].blip)
+        SetBlipSprite(KeyMasters[index].blip, 134)
+        SetBlipColour(KeyMasters[index].blip, 3)
+        --SetBlipScale(KeyMasters[index].blip, 0.8)
+        SetBlipDisplay(KeyMasters[index].blip, 4)
+        SetBlipAsShortRange(KeyMasters[index].blip, true)
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentSubstringPlayerName(Lang:t('info.blip'))
+        EndTextCommandSetBlipName(KeyMasters[index].blip)
                 
     end
 end
