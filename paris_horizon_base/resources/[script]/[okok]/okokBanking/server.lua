@@ -1,6 +1,6 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 
-local Webhook = ''
+local Webhook = 'https://discord.com/api/webhooks/1350063917279219823/oYiDRJV_gNn3CmGYopImjwpOYkEE9-8Yi1zYLshu6sCdDnxqTYHTU-bXHhNAZOryEBtS'
 
 local playerWithMenuOpen = {}
 
