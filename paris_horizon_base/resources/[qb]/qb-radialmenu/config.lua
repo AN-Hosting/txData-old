@@ -431,6 +431,61 @@ Config.JobInteractions = {
                 shouldClose = false
             }}
     }},
+    ['samu_75'] = {{
+            id = 'statuscheck',
+            title = 'Vérifier l\'état de santé',
+            icon = 'heart-pulse',
+            type = 'client',
+            event = 'hospital:client:CheckStatus',
+            shouldClose = true
+        }, {
+            id = 'revivep',
+            title = 'Réanimer',
+            icon = 'user-doctor',
+            type = 'client',
+            event = 'hospital:client:RevivePlayer',
+            shouldClose = true
+        }, {
+            id = 'treatwounds',
+            title = 'Soigner les blessures',
+            icon = 'bandage',
+            type = 'client',
+            event = 'hospital:client:TreatWounds',
+            shouldClose = true
+        }, {
+            id = 'emergencybutton2',
+            title = 'Bouton d\'urgence',
+            icon = 'bell',
+            type = 'client',
+            event = 'police:client:SendPoliceEmergencyAlert',
+            shouldClose = true
+        }, {
+            id = 'escort',
+            title = 'Escorter',
+            icon = 'user-group',
+            type = 'client',
+            event = 'police:client:EscortPlayer',
+            shouldClose = true
+        }, {
+            id = 'stretcheroptions',
+            title = 'Brancard',
+            icon = 'bed-pulse',
+            items = {{
+                id = 'spawnstretcher',
+                title = 'Faire apparaître le brancard',
+                icon = 'plus',
+                type = 'client',
+                event = 'qb-radialmenu:client:TakeStretcher',
+                shouldClose = false
+            }, {
+                id = 'despawnstretcher',
+                title = 'Retirer le brancard',
+                icon = 'minus',
+                type = 'client',
+                event = 'qb-radialmenu:client:RemoveStretcher',
+                shouldClose = false
+            }}
+    }},
     ['taxi'] = {{
             id = 'togglemeter',
             title = 'Afficher/Masquer le compteur',
