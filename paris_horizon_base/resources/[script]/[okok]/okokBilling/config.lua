@@ -73,8 +73,29 @@ Config.CityInvoicesAccessRanks = { -- Which jobs have City Invoices (They will b
 }
 
 Config.AllowedSocieties = { -- Which societies can access the Society Invoices
-	'police',
-	'ambulance'
+	'police_nationale',
+	'tabac',
+	'mairie',
+	'gendarmerie_nationale',
+	'samu_75',
+	'pompiers_de_paris',
+	'orpi',
+	'taxi',
+	'concessionnaire',
+	'norauto',
+	'midas',
+	'vinci',
+	'otacos',
+	'kfc',
+	'pizza',
+	'avocats_de_paris',
+	'vigneron',
+	'brinks',
+	'burgerking',
+	'tf1',
+	'dir',
+	'casino',
+	'xpo'
 }
 
 Config.InspectCitizenSocieties = { -- Which societies can access the Society Invoices
@@ -102,6 +123,76 @@ Config.BillsList = {
 		{'Medical treatment 3', 250},
 		{'Medical treatment 4', 400},
 	},
+	['police_nationale'] = {
+		{'Extra'},
+	},
+	['tabac'] = {
+		{'Extra'},
+	},
+	['mairie'] = {
+		{'Extra'},
+	},
+	['gendarmerie_nationale'] = {
+		{'Extra'},
+	},
+	['samu_75'] = {
+		{'Extra'},
+	},
+	['pompiers_de_paris'] = {
+		{'Extra'},
+	},
+	['orpi'] = {
+		{'Extra'},
+	},
+	['taxi'] = {
+		{'Extra'},
+	},
+	['concessionnaire'] = {
+		{'Extra'},
+	},
+	['norauto'] = {
+		{'Extra'},
+	},
+	['midas'] = {
+		{'Extra'},
+	},
+	['vinci'] = {
+		{'Extra'},
+	},
+	['otacos'] = {
+		{'Extra'},
+	},
+	['kfc'] = {
+		{'Extra'},
+	},
+	['pizza'] = {
+		{'Extra'},
+	},
+	['avocats_de_paris'] = {
+		{'Extra'},
+	},
+	['vigneron'] = {
+		{'Extra'},
+	},
+	['brinks'] = {
+		{'Extra'},
+	},
+	['burgerking'] = {
+		{'Extra'},
+	},
+	['tf1'] = {
+		{'Extra'},
+	},
+	['dir'] = {
+		{'Extra'},
+	},
+	['casino'] = {
+		{'Extra'},
+	},
+	['xpo'] = {
+		{'Extra'},
+	}
+	
 }
 
 Config.AdminGroups = {

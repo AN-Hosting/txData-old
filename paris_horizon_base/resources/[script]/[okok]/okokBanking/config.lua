@@ -36,7 +36,7 @@ Config.AnimTime = 2 -- Seconds (ATM animation)
 
 Config.UseQBManagement = false -- If true it will use the management_funds table | If false the okokbanking_societies table
 
-Config.UseQBBanking = true -- Useful for latest QBCore versions
+Config.UseQBBanking = false -- Useful for latest QBCore versions
 
 Config.RequireCreditCardForATM = true -- Set to true if you would like players to access the ATM with a card item | If false there is no item requirement
 
@@ -47,9 +47,29 @@ Config.CreditCardPrice = 100 -- How much it costs to purchase a credit card
 Config.CharInfoUpdate = true -- If you have an error on server console saying 'bad argument #1 to decode ( string expected, got nil )' set this to true
 
 Config.Societies = { -- Which societies have bank accounts
-	"police",
-	"ambulance",
-	"orpi"
+	'police_nationale',
+	'tabac',
+	'mairie',
+	'gendarmerie_nationale',
+	'samu_75',
+	'pompiers_de_paris',
+	'orpi',
+	'taxi',
+	'concessionnaire',
+	'norauto',
+	'midas',
+	'vinci',
+	'otacos',
+	'kfc',
+	'pizza',
+	'avocats_de_paris',
+	'vigneron',
+	'brinks',
+	'burgerking',
+	'tf1',
+	'dir',
+	'casino',
+	'xpo'
 }
 
 Config.ShowBankBlips = true -- True = show bank blips on the map | false = don't show blips
