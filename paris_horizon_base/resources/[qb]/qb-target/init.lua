@@ -276,20 +276,20 @@ Config.GlobalPlayerOptions = {
 					type = "client",
 					event = "hospital:client:RevivePlayer",
 					icon = "fas fa-chevron-circle-right",
-					jobType = 'ambulance',
-					label = "Revive Person",
-				},{
+					jobType = 'ems',
+					label = "Réanimer la personne",
+				}, {
 					type = "client",
 					event = "hospital:client:CheckStatus",
 					icon = "fas fa-chevron-circle-right",
-					jobType = 'ambulance',
-					label = "Check Person Health",
-				},{
+					jobType = 'ems',
+					label = "Vérifier l'état de la personne",
+				}, {
 					type = "client",
 					event = "hospital:client:TreatWounds",
 					icon = "fas fa-chevron-circle-right",
-					jobType = 'ambulance',
-					label = "Treat Wounds",
+					jobType = 'ems',
+					label = "Traiter les blessures",
 				}
 			},
 			distance = 1.5,
