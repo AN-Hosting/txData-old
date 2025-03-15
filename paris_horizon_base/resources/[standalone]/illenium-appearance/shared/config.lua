@@ -102,7 +102,7 @@ Config.Blips = {
         Show = true,
         Sprite = 73,
         Color = 0,
-        Scale = 0.7,
+        Scale = 0.4,
         Name = "Magasin de Vêtement",
     },
     ["barber"] = {
@@ -123,7 +123,7 @@ Config.Blips = {
         Show = false,
         Sprite = 102,
         Color = 4,
-        Scale = 0.7,
+        Scale = 0.4,
         Name = "Plastic Surgeon",
     }
 }
@@ -714,6 +714,23 @@ Config.ClothingRooms = {
     {
         job = "police_nationale",
         coords = vector4(363.48, -1597.58, 29.34, 135.39),
+        size = vector3(4, 4, 4),
+        rotation = 45,
+        usePoly = false,
+        points = {
+            vector3(460.41918945312, -993.11444091797, 30.69),
+            vector3(449.39508056641, -993.60614013672, 30.69),
+            vector3(449.88696289062, -990.23779296875, 30.69),
+            vector3(450.97882080078, -989.71411132812, 30.69),
+            vector3(451.0325012207, -987.89904785156, 30.69),
+            vector3(453.47863769531, -987.76928710938, 30.69),
+            vector3(454.35513305664, -988.46459960938, 30.69),
+            vector3(460.4231262207, -987.94573974609, 30.69)
+        }
+    },
+    {
+        job = "gendarmerie_nationale",
+        coords = vector4(-799.02, 6153.97, 9.47, 301.28),
         size = vector3(4, 4, 4),
         rotation = 45,
         usePoly = false,
