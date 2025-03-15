@@ -1,0 +1,194 @@
+#   ____  ____   _____
+#  / __ \|  _ \ / ____|
+# | |  | | |_) | |     ___  _ __ ___
+# | |  | |  _ <| |    / _ \| '__/ _ \
+# | |__| | |_) | |___| (_) | | |  __/
+#  \___\_\____/ \_____\___/|_|  \___|
+
+## FiveM Documentation
+## https://aka.cfx.re/server-commands
+
+## QBCore Documentation
+## https://docs.qbcore.org
+
+# ----------------------------
+# Performance Optimization Settings
+# ----------------------------
+
+# Resource Utilization
+set sv_maxThreads 16
+set sv_maxFPS 75
+set onesync_population true
+set onesync_enableAdaptiveSync true
+set onesync_distanceCullVehicles true
+set sv_memoryMaxValue 0.9
+set sv_syncFrequency 5
+
+# Memory Management
+set sv_automaticMemoryPurge true
+set sv_memoryUsageThreshold 80
+
+# Network Packet Handling
+set net_maxPackets 1500
+set net_maxFragmentSize 1500
+set sv_bandwidthFactor 1.5
+set sv_maxBandwidth 1
+set sv_minBandwidth 0.1
+
+# Entity and Distance Optimization
+set onesync_entityUpdatesPerTick 300
+set onesync_distanceCullEntities true
+set sv_entityUpdateRate 60
+
+# Logging Buffers
+set log_bufferSize 512
+set log_flushInterval 30
+
+# High Availability Monitoring
+set txAdminMonitorHeartbeatInterval 10
+set txAdminMonitorRestartCount 3
+
+# CPU Affinity
+set sv_cpuAffinity "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"
+
+# ----------------------------
+# End of Performance Optimization Settings
+# ----------------------------
+
+## You CAN edit the following:
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+sv_maxclients 64
+set steam_webApiKey "none"
+sets tags "qbcore, qb-core, fivem, rp, roleplay, français, france, gta5, gta, serveur, mod, mods, seriousrp, ville-rp, communauté, script, custom, mapping, véhicule, job, économie, whitelist, police, ambulance, mécanique, illégal, légal, administration, développement, esx, framework, optimisation, staff, anti-cheat, events, fun, multi-joueurs"
+
+## You MAY edit the following:
+sv_licenseKey "cfxk_10ryrHIUqKEAUumA35DdD_2v05px"
+sv_hostname "🌆 [FA - BETA] Paris Horizon 🇫🇷"  
+sets sv_projectName "🚧 [FA - BETA] Paris Horizon 🌍"  
+sets sv_projectDesc "✨ Paris Horizon RP | 🚓 Police | 🚑 SAMU | 🚗 Concess | 🌍 Monde vivant | 🎭 Rôleplay immersif"  
+
+sets locale "fr-FR"
+sets banner_detail "https://r2.fivemanage.com/c2TxknqLzLkvdGWY7uXAQ/images/standard.gif"
+sets banner_connecting "https://r2.fivemanage.com/c2TxknqLzLkvdGWY7uXAQ/images/standard.gif"
+
+sets ✨Discord✨ "https://discord.gg/PFxbMHgSzs"
+sets 🔥Partenaire🔥 "https://anhosting.fr"
+
+sets activitypubFeed yourUsername@fivem.social
+
+load_server_icon myLogo.png
+sv_enforceGameBuild 3095 #DLC The Chop Shop
+set resources_useSystemChat true
+set mysql_connection_string "mysql://root:YQifu8hwrQaJri@localhost/paris_horizon_base_dev?charset=utf8mb4"
+
+# Voice config
+setr voice_useNativeAudio true
+setr voice_useSendingRangeOnly true
+setr voice_defaultCycle "GRAVE"
+setr voice_defaultVolume 0.3
+setr voice_enableRadioAnim 1
+setr voice_syncData 1
+
+# QBCore locale config
+setr qb_locale "fr"
+
+# QBCore UseTarget
+setr UseTarget true
+
+# These resources will start by default.
+ensure mapmanager
+
+ensure spawnmanager
+ensure sessionmanager
+ensure basic-gamemode
+ensure hardcap
+ensure baseevents
+
+
+# QBCore & Extra stuff
+ensure ox_lib
+ensure qb-core
+ensure [qb]
+ensure [standalone]
+ensure [script]
+ensure [voice]
+ensure [Map]
+ensure [addons]
+ensure [vetements]
+
+
+## Permissions ##
+add_ace group.admin command allow # allow all commands
+add_principal identifier.fivem:7872032 group.admin #nico_du-34
+add_principal identifier.fivem:7872032 qbcore.god #nico_du-34
+add_principal identifier.fivem:14546531 group.admin #BebeToto
+add_principal identifier.fivem:14546531 qbcore.god #BebeToto
+add_principal identifier.fivem:15413848 group.admin # Minescorpio
+add_principal identifier.fivem:15413848 qbcore.god # Minescorpio
+add_principal identifier.license:52479ff86d602fad477fe2e7f0449bd9adbf7524 group.admin # ElPirato
+add_principal identifier.license:52479ff86d602fad477fe2e7f0449bd9adbf7524 qbcore.god # ElPirato
+add_principal identifier.license:31001c3e939c26f779120b1c743d856795bc523d group.admin # Tayler
+add_principal identifier.license:35f0f6ff6002a7d9089a12a20dde5c2de4dafb85 group.admin # Darwin Smith
+add_principal identifier.license:35f0f6ff6002a7d9089a12a20dde5c2de4dafb85 qbcore.god # Darwin Smith
+
+
+# Resources
+add_ace resource.qb-core command allow # Allow qb-core to execute commands
+
+# Gods
+add_ace qbcore.god command allow # Allow all commands
+
+# Inheritance
+add_principal qbcore.god group.admin # Allow gods access to the main admin group used to get all default permissions
+add_principal qbcore.god qbcore.admin # Allow gods access to admin commands
+add_principal qbcore.admin qbcore.mod # Allow admins access to mod commands
+
+# OX
+add_ace resource.ox_lib command.add_ace allow
+add_ace resource.ox_lib command.remove_ace allow
+add_ace resource.ox_lib command.add_principal allow
+add_ace resource.ox_lib command.remove_principal allow
+
+setr ox:primaryColor blue
+setr ox:primaryShade 8
+setr ox:userLocales 1 # Allow users to select their locales using /ox_lib
+
+setr illenium-appearance:locale "fr"
+
+# Creator
+add_ace qbcore.god jobcreator allow
+add_ace qbcore.god robberies_creator allow
+add_ace qbcore.god shops_creator allow
+add_ace qbcore.god farming_creator allow
+add_ace qbcore.god races_creator allow
+add_ace qbcore.god drugs_creator allow
+add_ace qbcore.god trackers_creator allow
+add_ace qbcore.god missions_creator allow
+add_ace qbcore.god doors_creator allow
+add_ace qbcore.god dealerships_creator allow
+add_ace qbcore.god blipcreator allow
+
+# Frameworks 'ox' | 'qb' | 'esx' | 'qbx'
+setr bl:framework 'qb' 
+
+# Inventories 'ox' | 'qb' | 'esx' | 'ps' | 'qs' | 'none'
+setr bl:inventory 'qb'
+
+# Context 'ox' | 'qb'
+setr bl:context 'qb'
+
+# Target 'ox' | 'qb'
+setr bl:target 'qb'
+
+# Progress 'ox' | 'qb'
+setr bl:progressbar 'ox'
+
+# Radial 'ox' | 'qb'
+setr bl:radial 'qb'
+
+# Notification 'ox' | 'qb' | 'esx'
+setr bl:notify 'ox'
+
+# TextUI 'ox' | 'qb' | 'esx'
+setr bl:textui 'ox'
