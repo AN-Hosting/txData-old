@@ -369,18 +369,18 @@ Config.Products = {
         { name = 'orangina',          price = 110, amount = 50, requiredJob = 'otacos' }
     },
     ['samu_75'] = {
-        { name = 'firstaid',        price = 1, amount = 50,,requiredJob = 'samu_75' },
-        { name = 'bandage',        price = 1, amount = 50,,requiredJob = 'samu_75' },
-        { name = 'ifaks',             price = 1, amount = 50,,requiredJob = 'samu_75' },
-        { name = 'painkillers',              price = 1, amount = 50,,requiredJob = 'samu_75' },
-        { name = 'walkstick',            price = 1, amount = 50,requiredJob = 'samu_75' }
+        { name = 'firstaid',        price = 1, amount = 50, requiredJob = 'samu_75' },
+        { name = 'bandage',        price = 1, amount = 50, requiredJob = 'samu_75' },
+        { name = 'ifaks',             price = 1, amount = 50, requiredJob = 'samu_75' },
+        { name = 'painkillers',              price = 1, amount = 50, requiredJob = 'samu_75' },
+        { name = 'walkstick',            price = 1, amount = 50, requiredJob = 'samu_75' }
     },
     ['pompiers_de_paris'] = {
-        { name = 'firstaid',        price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
-        { name = 'bandage',        price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
-        { name = 'ifaks',             price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
-        { name = 'painkillers',              price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
-        { name = 'walkstick',            price = 1, amount = 50,requiredJob = 'pompiers_de_paris' }
+        { name = 'firstaid',        price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
+        { name = 'bandage',        price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
+        { name = 'ifaks',             price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
+        { name = 'painkillers',              price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
+        { name = 'walkstick',            price = 1, amount = 50, requiredJob = 'pompiers_de_paris' }
     },
 }
 
@@ -1002,14 +1002,14 @@ Config.Locations = {
         ['delivery'] = vector4(-1830.66, -381.36, 49.4, 61.85),
     },
     ['pompiers_de_paris'] = {
-        ['label'] = 'Samu',
+        ['label'] = 'Pompier',
         ['coords'] = vector4(-1830.66, -381.36, 49.4, 61.85),
         ['ped'] = 'a_m_y_beach_01',
         ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
         ['radius'] = 1.5,
         ['targetIcon'] = 'fas fa-fish',
-        ['targetLabel'] = 'Samu',
-        ['products'] = Config.Products['samu_75'],
+        ['targetLabel'] = 'Pompier',
+        ['products'] = Config.Products['pompiers_de_paris'],
         ['showblip'] = false,
         ['blipsprite'] = 52,
         ['blipscale'] = 0.4,
