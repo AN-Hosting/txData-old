@@ -1,6 +1,6 @@
 QBShared = QBShared or {}
 QBShared.Gangs = {
-    none = { label = 'No Gang', grades = { ['0'] = { name = 'Unaffiliated' } } },
+    none = { label = 'Citoyen', grades = { ['0'] = { name = 'Modele' } } },
     barbes = {
         label = 'Cité Barbès',
         grades = {

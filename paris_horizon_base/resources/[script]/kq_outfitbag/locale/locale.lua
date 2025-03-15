@@ -3,15 +3,15 @@
 
 
 Locale = {
-    ['Open Bag'] = 'Open Bag',
-    ['Outfit bag'] = 'Outfit bag',
-    ['Pickup the bag'] = 'Pickup the bag',
-    ['Make public'] = 'Make public',
-    ['Make private'] = 'Make private',
-    ['~r~This outfit isn\'t suitable for you'] = '~r~This outfit isn\'t suitable for you',
-    ['~w~[~g~{OPEK_KEYBIND}~w~] to open [~g~{PICKUP_KEYBIND}~w~] to pickup the bag'] = '~w~[~g~{OPEK_KEYBIND}~w~] to open [~g~{PICKUP_KEYBIND}~w~] to pickup the bag',
-    ['~w~Press [~g~{PUBLIC_KEYBIND}~w~] to open make the bag ~r~private'] = '~w~Press [~g~{PUBLIC_KEYBIND}~w~] to open make the bag ~r~private',
-    ['~w~Press [~g~{PUBLIC_KEYBIND}~w~] to open make the bag ~g~public'] = '~w~Press [~g~{PUBLIC_KEYBIND}~w~] to open make the bag ~g~public',
-    ['~w~[~g~{OPEN_KEYBIND}~w~] to open the bag'] = '~w~[~g~{OPEN_KEYBIND}~w~] to open the bag',
-    ['~r~Wait a bit before you switch outfits again'] = '~r~Wait a bit before you switch outfits again',
+    ['Open Bag'] = 'Ouvrir le sac',
+    ['Outfit bag'] = 'Sac à tenues',
+    ['Pickup the bag'] = 'Ramasser le sac',
+    ['Make public'] = 'Rendre public',
+    ['Make private'] = 'Rendre privé',
+    ['~r~This outfit isn\'t suitable for you'] = '~r~Cette tenue ne vous convient pas',
+    ['~w~[~g~{OPEK_KEYBIND}~w~] to open [~g~{PICKUP_KEYBIND}~w~] to pickup the bag'] = '~w~[~g~{OPEK_KEYBIND}~w~] pour ouvrir [~g~{PICKUP_KEYBIND}~w~] pour ramasser le sac',
+    ['~w~Press [~g~{PUBLIC_KEYBIND}~w~] to open make the bag ~r~private'] = '~w~Appuyez sur [~g~{PUBLIC_KEYBIND}~w~] pour rendre le sac ~r~privé',
+    ['~w~Press [~g~{PUBLIC_KEYBIND}~w~] to open make the bag ~g~public'] = '~w~Appuyez sur [~g~{PUBLIC_KEYBIND}~w~] pour rendre le sac ~g~public',
+    ['~w~[~g~{OPEN_KEYBIND}~w~] to open the bag'] = '~w~[~g~{OPEN_KEYBIND}~w~] pour ouvrir le sac',
+    ['~r~Wait a bit before you switch outfits again'] = '~r~Attendez un peu avant de changer de tenue à nouveau',
 }

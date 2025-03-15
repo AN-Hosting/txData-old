@@ -69,60 +69,7 @@ Config.DisableControls = true
 -- These are all empty for you to fill in, refer to the .md files for help in filling these in
 
 Config.CircleZones = {
-	["concessparis"] = {
-		name = "concessparis",
-		coords = vector3(-196.22, -1169.14, 23.18),
-		radius = 1.5,
-		debugPoly = false,
-		useZ = true,
-		options = {
-			{
-				num = 1,
-				type = "command",
-				event = "directsale",
-				icon = 'fas fa-car',
-				label = 'Vendre un véhicule',
-				job = 'concessionnaire',
-			},
-			distance = 2.5
-		},
-	},
-	["concesscergy"] = {
-		name = "concesscergy",
-		coords = vector3(-57.29, 6554.1, 31.35),
-		radius = 1.5,
-		debugPoly = false,
-		useZ = true,
-		options = {
-			{
-				num = 1,
-				type = "command",
-				event = "directsale",
-				icon = 'fas fa-car',
-				label = 'Vendre un véhicule',
-				job = 'concessionnaire',
-			},
-			distance = 2.5
-		},
-	},
-	["concessevry"] = {
-		name = "concessevry",
-		coords = vector3(1136.24, 2629.94, 38.8),
-		radius = 1.5,
-		debugPoly = false,
-		useZ = true,
-		options = {
-			{
-				num = 1,
-				type = "command",
-				event = "directsale",
-				icon = 'fas fa-car',
-				label = 'Vendre un véhicule',
-				job = 'concessionnaire',
-			},
-			distance = 2.5
-		},
-	}
+	
 }
 
 Config.BoxZones = {

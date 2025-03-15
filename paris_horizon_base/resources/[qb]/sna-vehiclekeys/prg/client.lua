@@ -288,7 +288,7 @@ function CreateNpc()
                     targeticon = 'fas fa-car-side' -- This is the icon of the target itself, the icon changes to this when it turns blue on this specific option, this is OPTIONAL
                 }
             },
-            distance = 1.0
+            distance = 2.5
         })
         KeyMasters[index].blip = AddBlipForCoord(location.x, location.y, location.z)
         SetBlipSprite(KeyMasters[index].blip, 134)

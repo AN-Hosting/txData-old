@@ -31,8 +31,8 @@ QBConfig.Player.PlayerDefaults = {
     end,
     optin = true,
     charinfo = {
-        firstname = 'Firstname',
-        lastname = 'Lastname',
+        firstname = 'Prénom',
+        lastname = 'Nom',
         birthdate = '00-00-0000',
         gender = 0,
         nationality = 'FR',
@@ -41,22 +41,22 @@ QBConfig.Player.PlayerDefaults = {
     },
     job = {
         name = 'unemployed',
-        label = 'Civilian',
+        label = 'RSA',
         payment = 550,
         type = 'none',
         onduty = false,
         isboss = false,
         grade = {
-            name = 'Freelancer',
+            name = 'Demandeur d\'emploie',
             level = 0
         }
     },
     gang = {
         name = 'none',
-        label = 'No Gang Affiliation',
+        label = 'Citoyen',
         isboss = false,
         grade = {
-            name = 'none',
+            name = 'Modele',
             level = 0
         }
     },

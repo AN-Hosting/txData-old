@@ -910,7 +910,7 @@ local Vehicles = {
 
     -- Maserati
     { model = 'levante',        name = 'Levante',                                   brand = 'Maserati', price = 160000,          category = 'maserati',      type = 'automobile', shop = 'pdm' },
-
+    { model = 'alfieri',        name = 'Alfieri',                                   brand = 'Maserati', price = 180000,          category = 'maserati',      type = 'automobile', shop = 'pdm' },
     -- Mazda
     { model = '84rx7k',         name = '1984 RX-7 Stanced Version',                 brand = 'Mazda',    price = 85000,          category = 'mazda',         type = 'automobile', shop = 'pdm' },
     { model = 'fc3s',           name = 'RX7 FC3S',                                  brand = 'Mazda',    price = 75000,          category = 'mazda',         type = 'automobile', shop = 'pdm' },
@@ -937,6 +937,7 @@ local Vehicles = {
     { model = 's500w222',       name = '2014 S500 W222',                            brand = 'Mercedes', price = 140000,          category = 'mercedes',      type = 'automobile', shop = 'pdm' },
     { model = 'sl500',          name = '1995 SL500',                                brand = 'Mercedes', price = 90000,          category = 'mercedes',      type = 'automobile', shop = 'pdm' },
     { model = 'v250',           name = 'V-class 250 Bluetec LWB',                   brand = 'Mercedes', price = 120000,          category = 'mercedes',      type = 'automobile', shop = 'pdm' },
+    { model = 'rocket',         name = 'Rocket 900 Brabus',                   brand = 'Mercedes', price = 250000,          category = 'mercedes',      type = 'automobile', shop = 'pdm' },
 
     -- Mitsubishi
     { model = 'cp9a',           name = 'Lancer Evo VI T.M.E (CP9A)',                brand = 'Mitsubishi', price = 95000,        category = 'mitsubishi',    type = 'automobile', shop = 'pdm' },
@@ -959,7 +960,9 @@ local Vehicles = {
     -- Peugeot
     { model = 'yPG205t16A',     name = '205 Rally',                                 brand = 'Peugeot',  price = 60000,          category = 'peugeot',       type = 'automobile', shop = 'pdm' },
     { model = 'yPG205t16B',     name = '205 Turbo 16',                              brand = 'Peugeot',  price = 75000,          category = 'peugeot',       type = 'automobile', shop = 'pdm' },
-
+    { model = '208gt',          name = '208 GT',                                    brand = 'Peugeot',  price = 48000,          category = 'peugeot',       type = 'automobile', shop = 'pdm' },
+    { model = '508pse',         name = '508 Pse',                                   brand = 'Peugeot',  price = 85000,          category = 'peugeot',       type = 'automobile', shop = 'pdm' },
+    { model = 'p308',           name = '308',                                       brand = 'Peugeot',  price = 75000,          category = 'peugeot',       type = 'automobile', shop = 'pdm' },
     -- Porsche
     { model = '718caymans',     name = '718 Cayman S',                              brand = 'Porsche',  price = 145000,          category = 'porsche',       type = 'automobile', shop = 'pdm' },
     { model = 'cgt',            name = '2003 Carrera GT (980)',                     brand = 'Porsche',  price = 475000,          category = 'porsche',       type = 'automobile', shop = 'pdm' },
@@ -978,7 +981,11 @@ local Vehicles = {
 
     -- Renault
     { model = 'twingo',         name = 'Twingo I',                                  brand = 'Renault',  price = 25000,          category = 'renault',       type = 'automobile', shop = 'pdm' },
-
+    { model = 'ren_clio_5',     name = 'Clio V',                                    brand = 'Renault',price = 30000,            category = 'renault',       type = 'automobile', shop = 'pdm' },
+    { model = 'clio',           name = 'Clio Williams',                             brand = 'Renault',price = 12000,            category = 'renault',       type = 'automobile', shop = 'pdm' },
+    { model = 'rmaster12',      name = 'Master 2012',                               brand = 'Renault',price = 80000,            category = 'renault',       type = 'automobile', shop = 'pdm' },
+    { model = 'rencaptur',      name = 'Captur',                                    brand = 'Renault',price = 80000,            category = 'renault',       type = 'automobile', shop = 'pdm' },
+    { model = '17cliofl',       name = 'Clio III',                                  brand = 'Renault',price = 80000,            category = 'renault',       type = 'automobile', shop = 'pdm' },
     -- Rolls Royce
     { model = 'dawnonyx',       name = '2016 Dawn Onyx',                            brand = 'Rollsroyce',price = 450000,         category = 'rollsroyce',    type = 'automobile', shop = 'pdm' },
     { model = 'rculi',          name = 'Rolls Royce Cullinan',                      brand = 'Rollsroyce',price = 510000,         category = 'rollsroyce',    type = 'automobile', shop = 'pdm' },
@@ -1145,14 +1152,12 @@ local Vehicles = {
     { model = 'dir11',        name = 'dir11',  brand = 'DIR',  price = 220000,         category = 'dir',       type = 'automobile', shop = 'pdm' },
 
     -- Midas 
-    { model = '20fttrailer',        name = '20fttrailer',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'depanneuse',        name = 'depanneuse',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'mi3',        name = 'mi3',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'mi4',        name = 'mi4',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'midas1',        name = 'midas1',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'midas2',        name = 'midas2',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'midas3',        name = 'midas3',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
-    { model = 'midas4',        name = 'midas4',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
     { model = 'midas5',        name = 'midas5',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
 
     -- Norauto
@@ -1164,7 +1169,6 @@ local Vehicles = {
     { model = 'no1',        name = 'no1',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
     { model = 'no2',        name = 'no2',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
     { model = 'no3',        name = 'no3',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'no4',        name = 'no4',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
     { model = 'no5',        name = 'no5',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
     { model = 'no6',        name = 'no6',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
 
@@ -1220,13 +1224,24 @@ local Vehicles = {
     -- CONCESS
     { model = 'concess1',        name = 'concess1',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
     { model = 'concess2',        name = 'concess2',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
-    { model = 'concess3',        name = 'concess3',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
 
     -- TOP AUTO
     { model = 'topauto1',        name = 'topauto1',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
     { model = 'topauto2',        name = 'topauto2',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
-    { model = 'topauto3',        name = 'topauto3',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
 
+    { model = 'cotrailer',        name = 'cotrailer',  brand = 'Remorque',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },
+    { model = '20fttrailer',        name = '20fttrailer',  brand = 'Remorque',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },
+    { model = 'flatbed3',        name = 'flatbed3',  brand = 'Depaneuse',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },
+
+    -- Vehicules DON
+    { model = 'e63coupe',        name = 'Mercedes E 63 Coupé',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = 'rs520',        name = 'Audi Rs5 Coupé',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = '440i',        name = 'Bmw 440 i',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = 'dmc12',        name = 'Delorean',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = 'rs4avant',        name = 'Audi Rs4',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = 'rs6+',        name = 'Audi Rs6 +',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = 'e63b',        name = 'Mercedes E 63b',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
+    { model = 'cupra22f',        name = 'Cupra 22f',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
 
 }
 

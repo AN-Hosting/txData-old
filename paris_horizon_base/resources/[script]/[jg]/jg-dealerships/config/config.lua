@@ -130,96 +130,97 @@ Config.Categories = {
   toyota = "toyota", 
   volkswagen = "volkswagen", 
   volvo = "volvo", 
-  wmotors = "wmotors"
+  wmotors = "wmotors",
+  moto = "Moto /Scooter"
 }
 
 Config.DealershipLocations = {
-  ["paris"] = {
-    type = "owned", -- or "owned", "self-service"
-    openShowroom = {
-      coords = vector3(-190.56, -1162.56, 22.94),
-      size = 3
-    },
-    openManagement = {
-      coords = vector3(-199.88, -1171.61, 23.76),
-      size = 3
-    },
-    sellVehicle = {
-      coords = vector3(-199.88, -1171.61, 23.76),
-      size = 1
-    },
-    purchaseSpawn = vector4(-177.08, -1170.97, 22.35, 179.74),
-    testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
-    camera = {
-      name = "Car",
-      coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
-      positions = {5.0, 8.0, 12.0, 8.0}
-    },
-    categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors" },
-    enableTestDrive = true,
-    hideBlip = false,
-    blip = {
-      id = 326,
-      color = 0,
-      scale = 1.0
-    },
-    enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
-    sellVehiclePercent = 0.6,  -- 60% of current sale price
-    enableFinance = false,
-    hideMarkers = true,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-    showroomJobWhitelist = {},
-    showroomGangWhitelist = {},
-    societyPurchaseJobWhitelist = {},
-    societyPurchaseGangWhitelist = {},
-    disableShowroomPurchase = true,
-    job = "concessionnaire", -- Owned dealerships only
-    directSaleDistance = 50,
-    paymentOptions = {"cash", "bank"},
-  },
-  ["evry"] = {
-      type = "owned", -- or "owned", "self-service"
-      openShowroom = {
-        coords = vector3(1115.34, 2628.69, 39.38),
-        size = 3
-      },
-      openManagement = {
-        coords = vector3(1156.44, 2635.07, 41.76),
-        size = 3
-      },
-      sellVehicle = {
-        coords = vector3(-199.88, -1171.61, 23.76),
-        size = 1
-      },
-      purchaseSpawn = vector4(1123.04, 2641.99, 38.36, 89.26),
-      testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
-      camera = {
-        name = "Car",
-        coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
-        positions = {5.0, 8.0, 12.0, 8.0}
-      },
-      categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors" },
-      enableTestDrive = true,
-      hideBlip = false,
-      blip = {
-        id = 326,
-        color = 0,
-        scale = 1.0
-      },
-      enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
-      sellVehiclePercent = 0.6,  -- 60% of current sale price
-      enableFinance = true,
-      hideMarkers = true,
-      markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-      showroomJobWhitelist = {},
-      showroomGangWhitelist = {},
-      societyPurchaseJobWhitelist = {},
-      societyPurchaseGangWhitelist = {},
-      disableShowroomPurchase = true,
-      job = "concessionnaire", -- Owned dealerships only
-      directSaleDistance = 50,
-      paymentOptions = {"cash", "bank"},
-    },
+  -- ["paris"] = {
+  --   type = "owned", -- or "owned", "self-service"
+  --   openShowroom = {
+  --     coords = vector3(-190.56, -1162.56, 22.94),
+  --     size = 3
+  --   },
+  --   openManagement = {
+  --     coords = vector3(-199.88, -1171.61, 23.76),
+  --     size = 3
+  --   },
+  --   sellVehicle = {
+  --     coords = vector3(-199.88, -1171.61, 23.76),
+  --     size = 1
+  --   },
+  --   purchaseSpawn = vector4(-177.08, -1170.97, 22.35, 179.74),
+  --   testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
+  --   camera = {
+  --     name = "Car",
+  --     coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
+  --     positions = {5.0, 8.0, 12.0, 8.0}
+  --   },
+  --   categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors" },
+  --   enableTestDrive = true,
+  --   hideBlip = false,
+  --   blip = {
+  --     id = 326,
+  --     color = 0,
+  --     scale = 1.0
+  --   },
+  --   enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
+  --   sellVehiclePercent = 0.6,  -- 60% of current sale price
+  --   enableFinance = false,
+  --   hideMarkers = true,
+  --   markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  --   showroomJobWhitelist = {},
+  --   showroomGangWhitelist = {},
+  --   societyPurchaseJobWhitelist = {},
+  --   societyPurchaseGangWhitelist = {},
+  --   disableShowroomPurchase = true,
+  --   job = "concessionnaire", -- Owned dealerships only
+  --   directSaleDistance = 50,
+  --   paymentOptions = {"cash", "bank"},
+  -- },
+  -- ["evry"] = {
+  --     type = "owned", -- or "owned", "self-service"
+  --     openShowroom = {
+  --       coords = vector3(1115.34, 2628.69, 39.38),
+  --       size = 3
+  --     },
+  --     openManagement = {
+  --       coords = vector3(1156.44, 2635.07, 41.76),
+  --       size = 3
+  --     },
+  --     sellVehicle = {
+  --       coords = vector3(-199.88, -1171.61, 23.76),
+  --       size = 1
+  --     },
+  --     purchaseSpawn = vector4(1123.04, 2641.99, 38.36, 89.26),
+  --     testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
+  --     camera = {
+  --       name = "Car",
+  --       coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
+  --       positions = {5.0, 8.0, 12.0, 8.0}
+  --     },
+  --     categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors" },
+  --     enableTestDrive = true,
+  --     hideBlip = false,
+  --     blip = {
+  --       id = 326,
+  --       color = 0,
+  --       scale = 1.0
+  --     },
+  --     enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
+  --     sellVehiclePercent = 0.6,  -- 60% of current sale price
+  --     enableFinance = true,
+  --     hideMarkers = true,
+  --     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  --     showroomJobWhitelist = {},
+  --     showroomGangWhitelist = {},
+  --     societyPurchaseJobWhitelist = {},
+  --     societyPurchaseGangWhitelist = {},
+  --     disableShowroomPurchase = true,
+  --     job = "concessionnaire", -- Owned dealerships only
+  --     directSaleDistance = 50,
+  --     paymentOptions = {"cash", "bank"},
+  --   },
     ["cergy"] = {
       type = "owned", -- or "owned", "self-service"
       openShowroom = {
@@ -241,17 +242,17 @@ Config.DealershipLocations = {
         coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
         positions = {5.0, 8.0, 12.0, 8.0}
       },
-      categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors" },
+      categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors", "moto" },
       enableTestDrive = true,
       hideBlip = false,
       blip = {
         id = 326,
         color = 0,
-        scale = 1.0
+        scale = 0.8
       },
       enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
       sellVehiclePercent = 0.6,  -- 60% of current sale price
-      enableFinance = false,
+      enableFinance = true,
       hideMarkers = true,
       markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
       showroomJobWhitelist = {},

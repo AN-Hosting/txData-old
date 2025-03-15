@@ -42,6 +42,7 @@ local Translations = {
         warn_wrong_state = "%{player} (%{license}) à essayé de mettre a jour une porte à un état invalide (Sent: %{state})",
         warn_wrong_doorid_type = "%{player} (%{license}) n'a pas envoyé un ID valide (Sent: %{doorID})",
         warn_admin_privilege_used = "%{player} (%{license}) à ouvert une porte avec les privilèges administrateur"
+
     }
 }
 

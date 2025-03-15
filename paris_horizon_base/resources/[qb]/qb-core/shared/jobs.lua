@@ -14,9 +14,14 @@ QBShared.Jobs = {
 	unemployed = { 
 		label = 'RSA', 
 		defaultDuty = true, 
-		offDutyPay = false, 
+		offDutyPay = true, 
 		grades = { 
-			['0'] = { name = 'Demandeur d\'emploie', payment = 550 } } },
+			['0'] = { 
+				name = 'Demandeur d\'emploie', 
+				payment = 550 
+			} 
+		} 
+	},
 	police_nationale = {
 		label = 'Police Nationale',
 		type = 'leo',

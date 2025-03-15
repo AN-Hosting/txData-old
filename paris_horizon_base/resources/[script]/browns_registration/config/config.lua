@@ -18,8 +18,8 @@ config.Core = {
 }
 
 config.locations = {
-    registration = vec3(-42.17, 6513.54, 31.49), -- coords to get vehicle registration
-    insurance = vec3(-43.52, 6512.2, 31.48) -- coords to get vehicle insurance
+    registration = vec3(-62.39, 6560.06, 31.52), -- coords to get vehicle registration
+    insurance = vec3(-51.85, 6549.57, 31.52) -- coords to get vehicle insurance
 }
 
 config.costs = {
@@ -35,13 +35,13 @@ config.blip = {
         sprite = 326, -- the blip icon/sprite (see ref: https://docs.fivem.net/docs/game-references/blips/#blips)
         color = 2, -- the blip color (see ref: https://docs.fivem.net/docs/game-references/blips/#blip-colors)
         scale = 0.8, -- the blip scale/size (0.1 - 1.0)
-        label = 'Vehicle Registration', -- the name of the blip
+        label = 'Carte Grise Véhicule', -- the name of the blip
     },
     insurance = {
         enable = false, -- enable or disable the blip
         sprite = 408, -- the blip icon/sprite (see ref: https://docs.fivem.net/docs/game-references/blips/#blips)
         color = 5, -- the blip color (see ref: https://docs.fivem.net/docs/game-references/blips/#blip-colors)
         scale = 0.8, -- the blip scale/size (0.1 - 1.0)
-        label = 'Vehicle Insurance', -- the name of the blip
+        label = 'Assurance Véhicule', -- the name of the blip
     },
 }

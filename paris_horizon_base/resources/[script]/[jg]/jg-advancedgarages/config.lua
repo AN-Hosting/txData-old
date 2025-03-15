@@ -169,6 +169,13 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     job = "tabac",
     type = "car"
   },
+  ['Concessionnaire Cergy'] = {
+    coords = vector3(-92.72, 6506.94, 31.55),
+    spawn = vector4(-100.11, 6503.45, 31.52, 316.34),
+    distance = 5,
+    job = "concessionnaire",
+    type = "car"
+  },
   ['Burger King'] = {
     coords = vector3(44.97, -805.04, 31.5),
     spawn = vector4(37.59, -840.42, 30.9, 160.05),
@@ -205,8 +212,8 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     type = "car"
   },
   ['Norauto'] = {
-    coords = vector3(845.05, -904.17, 25.25),
-    spawn = vector4(853.52, -902.6, 25.32, 274.3),
+    coords = vector3(870.56, -892.75, 25.88),
+    spawn = vector4(870.56, -892.75, 25.88, 108.99),
     distance = 5,
     job = "norauto",
     type = "car"

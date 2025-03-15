@@ -270,7 +270,7 @@ function CreateRegistrationPed()
     
     -- Get coordinates from config
     local x, y, z = table.unpack(config.locations.registration)
-    local heading = 223.04 -- Face west, adjust as needed
+    local heading = 136.68 -- Face west, adjust as needed
     
     -- Create the ped
     local ped = CreatePed(1, hash, x, y, z - 1.0, heading, false, true)
@@ -339,7 +339,7 @@ function CreateInsurancesPed()
     
     -- Get coordinates from config
     local x, y, z = table.unpack(config.locations.insurance)
-    local heading = 223.04 -- Face west, adjust as needed
+    local heading = 131.25 -- Face west, adjust as needed
     
     -- Create the ped
     local ped = CreatePed(1, hash, x, y, z - 1.0, heading, false, true)

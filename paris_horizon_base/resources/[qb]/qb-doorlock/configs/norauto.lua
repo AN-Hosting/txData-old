@@ -27,17 +27,3 @@ Config.DoorList['norauto-2'] = {
     doorRate = 1.0,
     objCoords = vec3(844.405456, -903.537232, 25.410242),
 }
-
--- 3 créer par BebeToto14006
-Config.DoorList['norauto-3'] = {
-    authorizedJobs = { ['norauto'] = 0 },
-    objYaw = 0.0,
-    locked = true,
-    distance = 4,
-    objName = 712964523,
-    doorRate = 1.0,
-    objCoords = vec3(835.626220, -909.913940, 26.142406),
-    doorLabel = '3',
-    doorType = 'garage',
-    fixText = false,
-}

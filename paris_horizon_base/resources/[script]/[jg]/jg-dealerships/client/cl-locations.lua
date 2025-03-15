@@ -139,3 +139,28 @@ CreateThread(function()
   createDealershipZonesAndBlips()
   spawnAllDealershipDisplayVehicles()
 end)
+
+CreateThread(function()
+    while true do
+        Wait(0)
+        local playerPed = PlayerPedId()
+        local playerCoords = GetEntityCoords(playerPed)
+          exports['qb-target']:AddCircleZone("concesscergy", vector3(-57.29, 6554.1, 31.35), 1.5, {
+          name = "concesscergy",
+          debugPoly = false,
+          useZ = true,
+          }, {
+            options = {
+            {
+              type = "command",
+              event = "directsale",
+              icon = 'fas fa-car',
+              label = 'Vendre un véhicule',
+              job = 'concessionnaire',
+            },
+            },
+            distance = 2.5,
+          })
+        Wait(100)
+    end
+end)

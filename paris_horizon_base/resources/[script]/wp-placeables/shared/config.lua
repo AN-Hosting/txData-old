@@ -117,11 +117,11 @@ local pushTargetOptions = {
 
 -- Uncomment this line if you are using wp-seats
 local chairCustomTargetOptions = {
-    {
-        event = "wp-seats:client:sitOnChair",
-        icon = "fas fa-chair",
-        label = "Sit down",
-    },
+    -- {
+    --     event = "wp-seats:client:sitOnChair",
+    --     icon = "fas fa-chair",
+    --     label = "Sit down",
+    -- },
 }
 
 -- Uncomment this line if you are using wp-yogamats
@@ -179,14 +179,25 @@ local chairCustomTargetOptions = {
 ---@param customTargetOptions: Custom target options for this item, if it should do more than just pickup
 ---@param customPickupEvent: If you want to override the default pickup event, set this to the event you want to be called when the "pickup" target option is used
 Config.PlaceableProps = {
+    {item = "balise", label = "Balise", model = 'balise', isFrozen = true},
+    {item = "barriere", label = "Barrière", model = 'prop_mp_barrier_02b', isFrozen = true},
+    {item = "barriereroutebaree", label = "Barrière Route Barrée", model = 'prop_mp_barrier_02', isFrozen = true},
+    {item = "cone", label = "Cône", model = 'prop_roadcone01a', isFrozen = true},
+    {item = "panneauaccident", label = "Panneau Accident", model = 'accident', isFrozen = true},
+    {item = "panneauattention", label = "Panneau Attention", model = 'attention', isFrozen = true},
+    {item = "panneauhaltegendarmerie", label = "Panneau Halte Gendarmerie", model = 'panneauhaltegn', isFrozen = true},
+    {item = "panneauinondation", label = "Panneau Inondation", model = 'Panneau_Inondation', isFrozen = true},
+    {item = "panneausensinterdit", label = "Panneau Sens Interdit", model = 'routebarre', isFrozen = true},
+    {item = "panneautourneradroite", label = "Panneau Tourner À Droite", model = 'panneausensinterdit', isFrozen = true},
+    {item = "panneautourneragauche", label = "Panneau Tourner À Gauche", model = 'paneautourneradroite', isFrozen = true},
+    {item = "panneautravaux", label = "Panneau Travaux", model = 'paneautourneragauche', isFrozen = true},
+    {item = "routebaree", label = "Route Barrée", model = 'travaux', isFrozen = true},
     -- Constructions props
     {item = "roadworkbarrier", label = "Road Work Ahead Barrier", model = "prop_barrier_work04a", isFrozen = true},
     {item = "roadclosedbarrier", label = "Road Closed Barrier", model = "xm3_prop_xm3_road_barrier_01a", isFrozen = true},
     {item = "constructionbarrier", label = "Fold-out Barrier", model = "prop_barrier_work01a", isFrozen = false},
     {item = "constructionbarrier2", label = "Construction Barrier", model = "prop_barrier_work06a", isFrozen = true},
-    {item = "constructionbarrier3", label = "Construction Barrier", model = "prop_mp_barrier_02b", isFrozen = true},
     {item = "roadconebig", label = "Big Road Cone", model = "prop_barrier_wat_03a", isFrozen = false},
-    {item = "roadcone", label = "Road Cone", model = "prop_roadcone01a", isFrozen = false},
     {item = "roadpole", label = "Road Pole", model = "prop_roadpole_01a", isFrozen = false},
     {item = "worklight", label = "Work Light", model = "prop_worklight_01a", isFrozen = false},
     {item = "worklight2", label = "Work Light", model = "prop_worklight_04b", isFrozen = false},
@@ -303,7 +314,7 @@ Config.PlaceableProps = {
     {item = "sexdoll", label = "Sex Doll", model = "prop_defilied_ragdoll_01", isFrozen = true},
 
     -- Pushable items
-    {item = "shoppingcart1", label = "Shopping Cart (Empty)", model = "prop_rub_trolley01a", isFrozen = false, customTargetOptions = pushAndSitTargetOptions},
+    --[[{item = "shoppingcart1", label = "Shopping Cart (Empty)", model = "prop_rub_trolley01a", isFrozen = false, customTargetOptions = pushAndSitTargetOptions},
     {item = "shoppingcart2", label = "Shopping Cart (Full)", model = "prop_skid_trolley_2", isFrozen = false, customTargetOptions = pushTargetOptions},
     {item = "shoppingcart3", label = "Shopping Cart (Empty)", model = "prop_rub_trolley02a", isFrozen = false, customTargetOptions = pushAndSitTargetOptions},
     {item = "shoppingcart4", label = "Shopping Cart (Full)", model = "prop_skid_trolley_1", isFrozen = false, customTargetOptions = pushTargetOptions},
@@ -501,7 +512,7 @@ Config.PlaceableProps = {
                 animationName = "pushcar_offcliff_f",
             }
         )
-    },
+    },]]
 
     -- ADDON ITEMS
 

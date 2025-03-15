@@ -329,10 +329,62 @@ Config.Products = {
         { name = 'lighter',       price = 110, amount = 50 },
         { name = 'booster151',       price = 850, amount = 50 },
         { name = 'finescale',       price = 110, amount = 50 },
-    }
+    },
+    ['kfc'] = {
+        { name = 'glacekfc',          price = 110, amount = 50, requiredJob = 'kfc'},
+        { name = 'fritekfc',          price = 110, amount = 50, requiredJob = 'kfc'},
+        { name = 'nuggetskfc',        price = 110, amount = 50, requiredJob = 'kfc'},
+        { name = 'burgerpoulet',      price = 110, amount = 50, requiredJob = 'kfc'},
+        { name = 'coca',              price = 110, amount = 50, requiredJob = 'kfc'},
+        { name = 'icetea',            price = 110, amount = 50, requiredJob = ' kfc'},
+        { name = 'redbull',           price = 110, amount = 50, requiredJob = ' kfc'},
+        { name = 'fanta',             price = 110, amount = 50, requiredJob = ' kfc'},
+        { name = 'sprite',            price = 110, amount = 50, requiredJob = ' kfc'},
+        { name = 'monster',           price = 110, amount = 50, requiredJob = ' kfc'},
+        { name = 'orangina',          price = 110, amount = 50, requiredJob = ' kfc'}
+    },
+    ['burgerking'] = {
+        { name = 'glaceburgerking',   price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'friteburgerking',   price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'nuggetsburgerking', price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'triplechesse',      price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'coca',              price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'icetea',            price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'redbull',           price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'fanta',             price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'sprite',            price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'monster',           price = 110, amount = 50, requiredJob = 'burgerking'},
+        { name = 'orangina',          price = 110, amount = 50, requiredJob = 'burgerking'}
+    },
+    ['otacos'] = {
+        { name = 'glacetacos',        price = 850, amount = 50, requiredJob = 'otacos' },
+        { name = 'fritetacos',        price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'tacos',             price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'coca',              price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'icetea',            price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'redbull',           price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'fanta',             price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'sprite',            price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'monster',           price = 110, amount = 50, requiredJob = 'otacos' },
+        { name = 'orangina',          price = 110, amount = 50, requiredJob = 'otacos' }
+    },
+    ['samu_75'] = {
+        { name = 'firstaid',        price = 1, amount = 50,,requiredJob = 'samu_75' },
+        { name = 'bandage',        price = 1, amount = 50,,requiredJob = 'samu_75' },
+        { name = 'ifaks',             price = 1, amount = 50,,requiredJob = 'samu_75' },
+        { name = 'painkillers',              price = 1, amount = 50,,requiredJob = 'samu_75' },
+        { name = 'walkstick',            price = 1, amount = 50,requiredJob = 'samu_75' }
+    },
+    ['pompiers_de_paris'] = {
+        { name = 'firstaid',        price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
+        { name = 'bandage',        price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
+        { name = 'ifaks',             price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
+        { name = 'painkillers',              price = 1, amount = 50,,requiredJob = 'pompiers_de_paris' },
+        { name = 'walkstick',            price = 1, amount = 50,requiredJob = 'pompiers_de_paris' }
+    },
 }
 
-Config.Locations = {
+Config.Locations = { 
     -- 24/7 Locations
     ['247supermarket'] = {
         ['label'] = 'Carrefour City',
@@ -838,7 +890,8 @@ Config.Locations = {
         ['blipsprite'] = 52,
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
-        ['delivery'] = vector4(71.98, -1748.85, 29.29, 16.29)
+        ['delivery'] = vector4(71.98, -1748.85, 29.29, 16.29),
+        ['requiredJob'] = {'kfc', 'burgerking', 'pizza'}
     },
     ['viandes'] = {
         ['label'] = 'Viandes',
@@ -853,7 +906,8 @@ Config.Locations = {
         ['blipsprite'] = 52,
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
-        ['delivery'] = vector4(77.05, -1747.53, 29.29, 230.27)
+        ['delivery'] = vector4(77.05, -1747.53, 29.29, 230.27),
+        ['requiredJob'] = {'kfc', 'burgerking', 'pizza'}
     },
     ['boulangerie'] = {
         ['label'] = 'Boulangerie',
@@ -868,7 +922,8 @@ Config.Locations = {
         ['blipsprite'] = 52,
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
-        ['delivery'] = vector4(69.14, -1757.38, 29.29, 234.35)
+        ['delivery'] = vector4(69.14, -1757.38, 29.29, 234.35),
+        ['requiredJob'] = {'kfc', 'burgerking', 'pizza'}
     },
     ['tabac'] = {
         ['label'] = 'Tabac',
@@ -883,7 +938,83 @@ Config.Locations = {
         ['blipsprite'] = 52,
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
-        ['delivery'] = vector4(63.85, -1745.63, 29.29, 297.13)
+        ['delivery'] = vector4(63.85, -1745.63, 29.29, 297.13),
+        ['requiredJob'] = 'tabac'
+    },
+    ['kfc'] = {
+        ['label'] = 'KFC',
+        ['coords'] = vector4(69.11, -1742.06, 29.29, 52.7),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'KFC',
+        ['products'] = Config.Products['kfc'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(69.11, -1742.06, 29.29, 52.7),
+    },
+    ['burgerking'] = {
+        ['label'] = 'Burgerking',
+        ['coords'] = vector4(71.42, -1740.54, 29.29, 16.14),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'Burgerking',
+        ['products'] = Config.Products['burgerking'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(71.42, -1740.54, 29.29, 16.14),
+    },
+    ['otacos'] = {
+        ['label'] = 'Otacos',
+        ['coords'] = vector4(68.12, -1744.59, 29.29, 98.49),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'Otacos',
+        ['products'] = Config.Products['otacos'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(68.12, -1744.59, 29.29, 98.49),
+    },
+    ['samu_75'] = {
+        ['label'] = 'Samu',
+        ['coords'] = vector4(-1830.66, -381.36, 49.4, 61.85),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'Samu',
+        ['products'] = Config.Products['samu_75'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(-1830.66, -381.36, 49.4, 61.85),
+    },
+    ['pompiers_de_paris'] = {
+        ['label'] = 'Samu',
+        ['coords'] = vector4(-1830.66, -381.36, 49.4, 61.85),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'Samu',
+        ['products'] = Config.Products['samu_75'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(-1830.66, -381.36, 49.4, 61.85),
     },
 }
 Config.Shops = {
@@ -893,16 +1024,16 @@ Config.Shops = {
             'prop_vend_soda_01', 
             'prop_vend_soda_02' 
         },
-        ['targetIcon'] = 'fas fa-shopping-cart',
+        ['targetIcon'] = 'fas fa-shopping-cart',   vector4(-1830.66, -381.36, 49.4, 61.85)
         ['targetLabel'] = 'Utiliser le distributeur',
         ['products'] = {
-            { name = 'coca', price = 150, amount = 50 },
-            { name = 'icetea', price = 150, amount = 50 },
-            { name = 'sprite', price = 150, amount = 50 },
-            { name = 'redbull', price = 160, amount = 50 },
-            { name = 'orangina', price = 150, amount = 50 },
-            { name = 'fanta', price = 150, amount = 50 },
-            { name = 'monster', price = 150, amount = 50 },
+            { name = 'coca', price = 600, amount = 50 },
+            { name = 'icetea', price = 600, amount = 50 },
+            { name = 'sprite', price = 600, amount = 50 },
+            { name = 'redbull', price = 600, amount = 50 },
+            { name = 'orangina', price = 600, amount = 50 },
+            { name = 'fanta', price = 600, amount = 50 },
+            { name = 'monster', price = 600, amount = 50 },
         },
         ['showblip'] = false
     }
