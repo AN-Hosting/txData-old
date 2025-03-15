@@ -5,7 +5,7 @@ Config.LockpickNPCCars = true
 
 Config.KeyMasterModel = 'cs_floyd'
 Config.KeyMasterLocations = {
-    vector4(-41.04, 6514.66, 31.49, 228.47), 
+    vector4(-81.04, 6560.15, 31.52, 215.12), 
 }
 Config.KeyPrice = 300
 Config.ResetPrice = 1000

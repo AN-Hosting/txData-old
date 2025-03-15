@@ -18,44 +18,45 @@ Config.AmmoLabels = {
 }
 
 Config.Objects = {
-    cone = { model = `prop_roadcone02a`, freeze = false },
-    barrier = { model = `prop_barrier_work06a`, freeze = true },
-    roadsign = { model = `prop_snow_sign_road_06g`, freeze = true },
-    tent = { model = `prop_gazebo_03`, freeze = true },
-    light = { model = `prop_worklight_03b`, freeze = true },
+    -- cone = { model = `prop_roadcone02a`, freeze = false },
+    -- barrier = { model = `prop_barrier_work06a`, freeze = true },
+    -- roadsign = { model = `prop_snow_sign_road_06g`, freeze = true },
+    -- tent = { model = `prop_gazebo_03`, freeze = true },
+    -- light = { model = `prop_worklight_03b`, freeze = true },
 }
 
 Config.Locations = {
     duty = {
-        vector3(440.085, -974.924, 30.689),
-        vector3(-449.811, 6012.909, 31.815),
+        -- vector3(440.085, -974.924, 30.689),
+        -- vector3(-449.811, 6012.909, 31.815),
     },
     vehicle = {
-        vector4(448.159, -1017.41, 28.562, 90.654),
-        vector4(471.13, -1024.05, 28.17, 274.5),
-        vector4(-455.39, 6002.02, 31.34, 87.93),
+        -- vector4(448.159, -1017.41, 28.562, 90.654),
+        -- vector4(471.13, -1024.05, 28.17, 274.5),
+        -- vector4(-455.39, 6002.02, 31.34, 87.93),
     },
     stash = {
-        vector3(453.075, -980.124, 30.889),
+        vector3(368.19, -1604.08, 28.82), --PN
+        vector3(-835.53, 6167.85, 8.7), --GN
     },
     impound = {
-        vector3(436.68, -1007.42, 27.32),
-        vector3(-436.14, 5982.63, 31.34),
+        -- vector3(436.68, -1007.42, 27.32),
+        -- vector3(-436.14, 5982.63, 31.34),
     },
     helicopter = {
-        vector4(449.168, -981.325, 43.691, 87.234),
-        vector4(-475.43, 5988.353, 31.716, 31.34),
+        -- vector4(449.168, -981.325, 43.691, 87.234),
+        -- vector4(-475.43, 5988.353, 31.716, 31.34),
     },
     trash = {
-        vector3(439.0907, -976.746, 30.776),
+        vector3(373.49, -1597.07, 29.03), --PN
     },
     fingerprint = {
-        vector3(460.9667, -989.180, 24.92),
+        vector3(370.46, -1603.55, 29.27), --PN
+        vector3(-846.38, 6185.08, 8.87), -- GN
     },
     evidence = {
-        vector3(442.1722, -996.067, 30.689),
-        vector3(451.7031, -973.232, 30.689),
-        vector3(455.1456, -985.462, 30.689),
+        vector3(371.58, -1600.36, 29.3), --PN
+        vector3(-836.59, 6171.44, 8.89), --GN
     },
     stations = {
         -- { label = 'Police Station',        coords = vector4(428.23, -984.28, 29.76, 3.5) },
@@ -104,7 +105,7 @@ Config.SecurityCameras = {
     },
 }
 
-Config.EnableRadars = true -- alerts for flagged plates
+Config.EnableRadars = false -- alerts for flagged plates
 Config.Radars = {
     vector3(1051.42, 331.11, 84.00),
     vector3(544.43, -373.24, 33.14),

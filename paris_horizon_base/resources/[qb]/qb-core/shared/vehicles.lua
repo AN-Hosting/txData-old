@@ -1217,6 +1217,17 @@ local Vehicles = {
     { model = 'rifterdir',        name = 'rifterdir',  brand = 'ENEDIS',  price = 220000,         category = 'enedis',       type = 'automobile', shop = 'pdm' },
     { model = 'transit',        name = 'transit',  brand = 'ENEDIS',  price = 220000,         category = 'enedis',       type = 'automobile', shop = 'pdm' },
 
+    -- CONCESS
+    { model = 'concess1',        name = 'concess1',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
+    { model = 'concess2',        name = 'concess2',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
+    { model = 'concess3',        name = 'concess3',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
+
+    -- TOP AUTO
+    { model = 'topauto1',        name = 'topauto1',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
+    { model = 'topauto2',        name = 'topauto2',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
+    { model = 'topauto3',        name = 'topauto3',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
+
+
 }
 
 QBShared.VehicleHashes = QBShared.VehicleHashes or {}

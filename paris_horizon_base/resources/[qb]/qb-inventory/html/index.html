@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>QB Inventory</title>
+        <title>Inventaire QB</title>
         <link rel="stylesheet" href="main.css" />
         <link rel="stylesheet" href="https://unpkg.com/floating-vue@2.0.0-beta.20/dist/style.css" />
         <script src="https://kit.fontawesome.com/d37231be1f.js" crossorigin="anonymous"></script>
@@ -47,7 +47,6 @@
                                 <div v-else>
                                     <p>x{{ getItemInSlot(slot, 'player').amount }}</p>
                                 </div>
-                                <!--<p>x{{ getItemInSlot(slot, 'player').amount }}</p>-->
                             </div>
                             <div class="item-slot-durability" v-if="getItemInSlot(slot, 'player')">
                                 <div
@@ -62,15 +61,12 @@
                                 ></div>
                                 <div class="item-slot-durability-fill" v-else style="width: 0%"></div>
                             </div>
-                            <!-- <div class="item-slot-label" v-if="getItemInSlot(slot, 'player')">
-                                <p>{{ getItemInSlot(slot, 'player').label }}</p>
-                            </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="input-container" v-if="!isOtherInventoryEmpty">
                     <div class="input-wrapper">
-                        <input type="number" v-model="transferAmount" min="1" :placeholder="transferAmount === null ? 'amount' : ''" />
+                        <input type="number" v-model="transferAmount" min="1" :placeholder="transferAmount === null ? 'Quantit�' : ''" />
                         <button @click="clearTransferAmount" class="clear-button">
                             <i class="fas fa-times"></i>
                         </button>
@@ -212,21 +208,21 @@
                 </div>
             </div>
             <ul v-if="showContextMenu" class="context-menu" :style="{ top: contextMenuPosition.top, left: contextMenuPosition.left }">
-                <li @click="useItem(contextMenuItem)">Use</li>
+                <li @click="useItem(contextMenuItem)">Utiliser</li>
                 <li @mouseover="showSubmenu = true" @mouseleave="showSubmenu = false">
-                    Give
+                    Donner
                     <ul v-if="showSubmenu" class="submenu">
-                        <li @click="giveItem(contextMenuItem, 1)">Single</li>
-                        <li @click="giveItem(contextMenuItem, 'half')">Half</li>
-                        <li @click="giveItem(contextMenuItem, 'all')">All</li>
+                        <li @click="giveItem(contextMenuItem, 1)">Un seul</li>
+                        <li @click="giveItem(contextMenuItem, 'half')">Moitie</li>
+                        <li @click="giveItem(contextMenuItem, 'all')">Tout</li>
                     </ul>
                 </li>
                 <li @mouseover="showSubmenu = true" @mouseleave="showSubmenu = false">
-                    Drop
+                    Jeter
                     <ul v-if="showSubmenu" class="submenu">
-                        <li @click="dropItem(contextMenuItem, 1)">Single</li>
-                        <li @click="dropItem(contextMenuItem, 'half')">Half</li>
-                        <li @click="dropItem(contextMenuItem, 'all')">All</li>
+                        <li @click="dropItem(contextMenuItem, 1)">Un seul</li>
+                        <li @click="dropItem(contextMenuItem, 'half')">Moitie</li>
+                        <li @click="dropItem(contextMenuItem, 'all')">Tout</li>
                     </ul>
                 </li>
                 <li @click="splitAndPlaceItem(contextMenuItem, 'player')">Split</li>

@@ -1,5 +1,12 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+local ox_lib = exports.ox_lib
 local rentalPeds = {} -- Pour stocker les peds créés
+
+-- Vérification que ox_lib est chargée
+if not ox_lib then
+    print("Erreur: ox_lib n'est pas chargée")
+    return
+end
 
 -- Fonctions utilitaires
 local function GetVehiclesInArea(coords, maxDistance)
@@ -74,34 +81,48 @@ CreateThread(function()
     rentalPeds = {} -- Réinitialiser la table
 
     for _, v in pairs(Config.locations) do
-        local model = `a_m_m_indian_01`
-        lib.requestModel(model, 500)
+        local model = 'a_m_m_indian_01'
         
-        local ped = CreatePed(0, model, v.spawnPed.x, v.spawnPed.y, v.spawnPed.z-1, v.spawnPed.w, false, false)
-        TaskStartScenarioInPlace(ped, "WORLD_HUMAN_AA_COFFEE", 0, true)
-        FreezeEntityPosition(ped, true)
-        SetEntityInvincible(ped, true)
-        SetBlockingOfNonTemporaryEvents(ped, true)
-        table.insert(rentalPeds, ped) -- Ajouter le ped à notre table
+        -- Chargement du modèle de manière plus robuste
+        if not HasModelLoaded(model) then
+            RequestModel(model)
+            while not HasModelLoaded(model) do
+                Wait(10)
+            end
+        end
+        
+        local ped = CreatePed(4, model, v.spawnPed.x, v.spawnPed.y, v.spawnPed.z-1, v.spawnPed.w, false, false)
+        if DoesEntityExist(ped) then
+            TaskStartScenarioInPlace(ped, "WORLD_HUMAN_AA_COFFEE", 0, true)
+            FreezeEntityPosition(ped, true)
+            SetEntityInvincible(ped, true)
+            SetBlockingOfNonTemporaryEvents(ped, true)
+            table.insert(rentalPeds, ped)
 
-        exports['qb-target']:AddTargetEntity(ped, {
-            options = {
-                {
-                    type = "client",
-                    event = "qb-rental:vehiclelist",
-                    icon = "fas fa-car",
-                    label = Config.translations[Config.locale].rent,
-                    garage = v.id
+            exports['qb-target']:AddTargetEntity(ped, {
+                options = {
+                    {
+                        type = "client",
+                        event = "qb-rental:vehiclelist",
+                        icon = "fas fa-car",
+                        label = Config.translations[Config.locale].rent,
+                        garage = v.id
+                    },
+                    {
+                        type = "client",
+                        event = "qb-rental:returnvehicle",
+                        icon = "fas fa-undo",
+                        label = Config.translations[Config.locale].back,
+                    }
                 },
-                {
-                    type = "client",
-                    event = "qb-rental:returnvehicle",
-                    icon = "fas fa-undo",
-                    label = Config.translations[Config.locale].back,
-                }
-            },
-            distance = 3.5
-        })
+                distance = 3.5
+            })
+        else
+            print("^1Erreur lors de la création du PED pour la location^7")
+        end
+        
+        -- Libérer le modèle après création
+        SetModelAsNoLongerNeeded(model)
     end
 end)
 

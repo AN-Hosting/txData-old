@@ -43,10 +43,10 @@ Config.BossMenus = {
     mairie = {
         vector3(-527.21, -590.76, 34.48),
     },
-    policenational = {
+    police_nationale = {
         vector3(379.28, -1625.72, 33.54),
     },
-    samu = {
+    samu75 = {
         vector3(-1845.68, -348.49, 83.83),
     },
     concessionnaire = {
