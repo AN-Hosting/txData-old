@@ -33,6 +33,9 @@ data_file 'AUDIO_WAVEPACK' 'sfx/dlc_s63b44'
 data_file 'AUDIO_GAMEDATA' 'audioconfig/aq67merm177_game.dat'
 data_file 'AUDIO_SOUNDDATA' 'audioconfig/aq67merm177_sounds.dat'
 data_file 'AUDIO_WAVEPACK' 'sfx/dlc_aq67merm177'
+data_file 'AUDIO_GAMEDATA' 'audioconfig/batic_game.dat'
+data_file 'AUDIO_SOUNDDATA' 'audioconfig/batic_sounds.dat'
+data_file 'AUDIO_WAVEPACK' 'sfx/dlc_batic'
 
 client_scripts {
     'vehicle_names.lua',
