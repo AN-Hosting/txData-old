@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShopVehicleDataArray>
+	<Vehicles>
+	<Item>
+		<lockHash>CU_VEH_CUPRA22F</lockHash>
+		<modelNameHash>cupra22f</modelNameHash>
+		<cost value="100"/>
+		<textLabel>CUPRA22F</textLabel>
+		<textLabel></textLabel>
+	</Item>
+	</Vehicles>
+</ShopVehicleDataArray>
