@@ -1024,7 +1024,7 @@ Config.Shops = {
             'prop_vend_soda_01', 
             'prop_vend_soda_02' 
         },
-        ['targetIcon'] = 'fas fa-shopping-cart',   vector4(-1830.66, -381.36, 49.4, 61.85)
+        ['targetIcon'] = 'fas fa-shopping-cart',  -- vector4(-1830.66, -381.36, 49.4, 61.85)
         ['targetLabel'] = 'Utiliser le distributeur',
         ['products'] = {
             { name = 'coca', price = 600, amount = 50 },
