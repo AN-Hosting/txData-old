@@ -1,5 +1,7 @@
 default/data
 default/logs
+prod_server/data
+prod_server/logs
 paris_horizon_base/cache
 paris_horizon_base/db
 paris_horizon_base/.replxx_history
