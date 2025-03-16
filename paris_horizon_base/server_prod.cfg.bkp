@@ -63,7 +63,7 @@ set steam_webApiKey "none"
 sets tags "qbcore, qb-core, fivem, rp, roleplay, français, france, gta5, gta, serveur, mod, mods, seriousrp, ville-rp, communauté, script, custom, mapping, véhicule, job, économie, whitelist, police, ambulance, mécanique, illégal, légal, administration, développement, esx, framework, optimisation, staff, anti-cheat, events, fun, multi-joueurs"
 
 ## You MAY edit the following:
-sv_licenseKey "cfxk_10ryrHIUqKEAUumA35DdD_2v05px"
+sv_licenseKey "cfxk_v9WAAJ4skbuZOCJaXNpC_2OYMan"
 sv_hostname "🌆 [FA - BETA] Paris Horizon 🇫🇷"  
 sets sv_projectName "🚧 [FA - BETA] Paris Horizon 🌍"  
 sets sv_projectDesc "✨ Paris Horizon RP | 🚓 Police | 🚑 SAMU | 🚗 Concess | 🌍 Monde vivant | 🎭 Rôleplay immersif"  
