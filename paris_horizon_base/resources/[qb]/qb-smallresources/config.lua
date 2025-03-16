@@ -135,6 +135,7 @@ Config.Consumables = {
         ['orangina'] = math.random(12, 22),
         ['fanta'] = math.random(12, 22),
         ['monster'] = math.random(12, 22),
+        ['water_bottle'] = math.random(12, 22),
 
     },
     alcohol = { -- default alcohol items
@@ -518,10 +519,7 @@ Config.whitelist = { -- when adding add-on cars simply use their spawn name
     -- 'TR2',
     -- 'freighttrailer',
     '20fttrailer',
-    'cartrailer',
     'cotrailer',
-    'trailercar',
-    'trailerflat2',
 }
 
 Config.offsets = { -- when adding add-on cars simply use their spawn name
@@ -539,10 +537,7 @@ Config.offsets = { -- when adding add-on cars simply use their spawn name
     -- {model = 'SLAMTRUCK', offset = {x = 0.0, y = -7.0, z = -1.75}},
     -- {model = 'TR2', offset = {x = 0.0, y = -9.0, z = -1.25}},
     {model = '20fttrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    {model = 'cartrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
     {model = 'cotrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    {model = 'trailercar', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    {model = 'trailerflat2', offset = {x = 0.0, y = -9.0, z = -1.25}},
 }
 
 RampHash = 'imp_prop_flatbed_ramp'

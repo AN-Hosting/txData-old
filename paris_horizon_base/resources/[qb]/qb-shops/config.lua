@@ -35,6 +35,8 @@ Config.Products = {
         { name = 'repairkit',  price = 3500,   amount = 50 },
         { name = 'trimming_scissors', price = 1500, amount = 50},
         { name = 'skateboard', price = 2500, amount = 50},
+        { name = 'pickaxe', price = 250, amount = 50},
+        { name = 'axe', price = 250, amount = 50}
     },
     ['liquor'] = {
         { name = 'beer',    price = 7,  amount = 50 },
@@ -376,11 +378,10 @@ Config.Products = {
         { name = 'walkstick',            price = 1, amount = 50, requiredJob = 'samu_75' }
     },
     ['pompiers_de_paris'] = {
-        { name = 'firstaid',        price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
-        { name = 'bandage',        price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
-        { name = 'ifaks',             price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
-        { name = 'painkillers',              price = 1, amount = 50, requiredJob = 'pompiers_de_paris' },
-        { name = 'walkstick',            price = 1, amount = 50, requiredJob = 'pompiers_de_paris' }
+        { name = 'firstaid',        price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
+        { name = 'bandage',        price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
+        { name = 'ifaks',             price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
+        { name = 'painkillers',              price = 0, amount = 500, requiredJob = 'pompiers_de_paris' }
     },
 }
 
@@ -724,7 +725,6 @@ Config.Locations = {
         ['blipscale'] = 0.6,
         ['blipcolor'] = 3,
     },
-
     ['norauto'] = {
         ['label'] = 'Norauto Shop',
         ['coords'] = vector4(844.11, -907.15, 25.25, 92.86),
@@ -736,6 +736,18 @@ Config.Locations = {
         ['products'] = Config.Products['mechanic'],
         ['delivery'] = vector4(843.43, -907.17, 25.25, 273.13),
         ['requiredJob'] = 'norauto',
+    },
+    ['midas'] = {
+        ['label'] = 'Midas Fourniture',
+        ['coords'] = vector4(-933.74, -2058.45, 9.5, 61.09),
+        ['ped'] = 'mp_m_waremech_01',
+        ['scenario'] = 'WORLD_HUMAN_CLIPBOARD',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-wrench',
+        ['targetLabel'] = 'Midas Fourniture',
+        ['products'] = Config.Products['mechanic'],
+        ['delivery'] = vector4(-933.74, -2058.45, 9.5, 61.09),
+        ['requiredJob'] = 'midas',
     },
 
     ['police_nationale'] = {
@@ -955,6 +967,7 @@ Config.Locations = {
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(69.11, -1742.06, 29.29, 52.7),
+        ['requiredJob'] = 'kfc'
     },
     ['burgerking'] = {
         ['label'] = 'Burgerking',
@@ -970,6 +983,7 @@ Config.Locations = {
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(71.42, -1740.54, 29.29, 16.14),
+        ['requiredJob'] = 'burgerking'
     },
     ['otacos'] = {
         ['label'] = 'Otacos',
@@ -985,6 +999,7 @@ Config.Locations = {
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(68.12, -1744.59, 29.29, 98.49),
+        ['requiredJob'] = 'otacos'
     },
     ['samu_75'] = {
         ['label'] = 'Samu',
@@ -1003,7 +1018,7 @@ Config.Locations = {
     },
     ['pompiers_de_paris'] = {
         ['label'] = 'Pompier',
-        ['coords'] = vector4(-1830.66, -381.36, 49.4, 61.85),
+        ['coords'] = vector4(1213.89, -1486.39, 34.69, 114.59),
         ['ped'] = 'a_m_y_beach_01',
         ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
         ['radius'] = 1.5,
@@ -1014,7 +1029,7 @@ Config.Locations = {
         ['blipsprite'] = 52,
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
-        ['delivery'] = vector4(-1830.66, -381.36, 49.4, 61.85),
+        ['delivery'] = vector4(1213.26, -1486.29, 34.69, 264.39),
     },
 }
 Config.Shops = {

@@ -336,13 +336,13 @@ Config.PoliceAppJobs = {
 --- @param name 'Visible label'
 --- @param img  'Image of contact'
 Config.Jobs = {
-    { job = 'gendarmerie_nationale',    name = 'gendarmerie nationale',  img = './img/apps/gendarmerie_nationale-phone.png' },
-    { job = 'samu_75', name = 'samu 75',      img = './img/apps/samu_75-phone.png' },
-    { job = 'avocats_de_paris', name = 'avocats de paris',      img = './img/apps/ambulance.png' },
+    { job = 'gendarmerie_nationale',    name = 'gendarmerie_nationale',  img = './img/apps/gendarmerie_nationale-phone.png' },
+    { job = 'samu_75', name = 'samu_75',      img = './img/apps/samu_75-phone.png' },
+    { job = 'avocats_de_paris', name = 'avocats_de_paris',      img = './img/apps/ambulance.png' },
     { job = 'norauto',  name = 'norauto', img = './img/apps/norauto-phone.png' },
     { job = 'midas',  name = 'midas', img = './img/apps/mechanic.png' },
     { job = 'concessionnaire',  name = 'concessionnaire', img = './img/apps/concessionnaire-phone.png' },
-    { job = 'police_nationale',  name = 'police national', img = './img/apps/police_nationale-phone.png' },
+    { job = 'police_nationale',  name = 'police_nationale', img = './img/apps/police_nationale-phone.png' },
     { job = 'taxi',  name = 'taxi', img = './img/apps/taxi-phone.png' },
     { job = 'orpi',  name = 'orpi', img = './img/apps/orpi-phone.png' },
 }

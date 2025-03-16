@@ -198,14 +198,14 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     type = "car"
   },
   ['KFC'] = {
-    coords = vector3(-1178.42, -888.0, 13.81),
-    spawn = vector4(-1165.1, -887.3, 14.15, 120.01),
+    coords = vector3(-1177.31, -900.57, 13.64),
+    spawn = vector4(-1177.31, -900.57, 13.64, 299.75),
     distance = 5,
-    job = "au_siecle_dor",
+    job = "kfc",
     type = "car"
   },
   ['Midas'] = {
-    coords = vector3(-967.99, -2064.78, 9.41),
+    coords = vector3(-974.25, -2077.17, 9.47),
     spawn = vector4(-982.82, -2056.39, 9.41, 225.21),
     distance = 5,
     job = "midas",
@@ -321,6 +321,13 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     spawn = vector4(-1100.16, -260.56, 37.68, 195.17),
     distance = 5,
     job = "tf1",
+    type = "car"
+  },
+  ['Pompier de Paris'] = {
+    coords = vector3(1205.94, -1497.04, 34.1),
+    spawn = vector4(1205.94, -1497.04, 34.1, 176.87),
+    distance = 5,
+    job = "pompiers_de_paris",
     type = "car"
   }
 }

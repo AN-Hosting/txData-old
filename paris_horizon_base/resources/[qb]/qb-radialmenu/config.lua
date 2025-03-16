@@ -376,7 +376,7 @@ Config.VehicleSeats = {
 }
 
 Config.JobInteractions = {
-    ['ambulance'] = {{
+    ['samu_75'] = {{
             id = 'statuscheck',
             title = 'Vérifier l\'état de santé',
             icon = 'heart-pulse',
@@ -431,26 +431,12 @@ Config.JobInteractions = {
                 shouldClose = false
             }}
     }},
-    ['samu_75'] = {{
-            id = 'statuscheck',
-            title = 'Vérifier l\'état de santé',
-            icon = 'heart-pulse',
-            type = 'client',
-            event = 'hospital:client:CheckStatus',
-            shouldClose = true
-        }, {
+    ['pompiers_de_paris'] = {{
             id = 'revivep',
             title = 'Réanimer',
             icon = 'user-doctor',
             type = 'client',
             event = 'hospital:client:RevivePlayer',
-            shouldClose = true
-        }, {
-            id = 'treatwounds',
-            title = 'Soigner les blessures',
-            icon = 'bandage',
-            type = 'client',
-            event = 'hospital:client:TreatWounds',
             shouldClose = true
         }, {
             id = 'emergencybutton2',
@@ -531,7 +517,130 @@ Config.JobInteractions = {
         event = 'qb-tow:client:TowVehicle',
         shouldClose = true
     }},
-    ['police'] = {{
+    ['police_nationale'] = {{
+            id = 'emergencybutton',
+            title = 'Bouton d\'urgence',
+            icon = 'bell',
+            type = 'client',
+            event = 'police:client:SendPoliceEmergencyAlert',
+            shouldClose = true
+        }, {
+            id = 'checkvehstatus',
+            title = 'Vérifier l\'état de la voiture',
+            icon = 'circle-info',
+            type = 'client',
+            event = 'qb-tunerchip:client:TuneStatus',
+            shouldClose = true
+        }, {
+            id = 'resethouse',
+            title = 'Réinitialiser le verrou de la maison',
+            icon = 'key',
+            type = 'client',
+            event = 'qb-houses:client:ResetHouse',
+            shouldClose = true
+        }, {
+            id = 'takedriverlicense',
+            title = 'Révoquer le permis de conduire',
+            icon = 'id-card',
+            type = 'client',
+            event = 'police:client:SeizeDriverLicense',
+            shouldClose = true
+        }, {
+            id = 'policeinteraction',
+            title = 'Actions de la police',
+            icon = 'list-check',
+            items = {{
+                id = 'statuscheck',
+                title = 'Vérifier l\'état de santé',
+                icon = 'heart-pulse',
+                type = 'client',
+                event = 'hospital:client:CheckStatus',
+                shouldClose = true
+            }, {
+                id = 'checkstatus',
+                title = 'Vérifier l\'état',
+                icon = 'question',
+                type = 'client',
+                event = 'police:client:CheckStatus',
+                shouldClose = true
+            }, {
+                id = 'escort',
+                title = 'Escorter',
+                icon = 'user-group',
+                type = 'client',
+                event = 'police:client:EscortPlayer',
+                shouldClose = true
+            }, {
+                id = 'searchplayer',
+                title = 'Fouiller',
+                icon = 'magnifying-glass',
+                type = 'server',
+                event = 'police:server:SearchPlayer',
+                shouldClose = true
+            }, {
+                id = 'jailplayer',
+                title = 'Emprisonner',
+                icon = 'user-lock',
+                type = 'client',
+                event = 'police:client:JailPlayer',
+                shouldClose = true
+            }}
+        }, {
+        id = 'policeobjects',
+        title = 'Objets',
+        icon = 'road',
+        items = {{
+            id = 'spawnpion',
+            title = 'Cône',
+            icon = 'triangle-exclamation',
+            type = 'client',
+            event = 'police:client:spawnCone',
+            shouldClose = false
+        }, {
+            id = 'spawnhek',
+            title = 'Barrière',
+            icon = 'torii-gate',
+            type = 'client',
+            event = 'police:client:spawnBarrier',
+            shouldClose = false
+        }, {
+            id = 'spawnschotten',
+            title = 'Panneau de limitation de vitesse',
+            icon = 'sign-hanging',
+            type = 'client',
+            event = 'police:client:spawnRoadSign',
+            shouldClose = false
+        }, {
+            id = 'spawntent',
+            title = 'Tente',
+            icon = 'campground',
+            type = 'client',
+            event = 'police:client:spawnTent',
+            shouldClose = false
+        }, {
+            id = 'spawnverlichting',
+            title = 'Éclairage',
+            icon = 'lightbulb',
+            type = 'client',
+            event = 'police:client:spawnLight',
+            shouldClose = false
+        }, {
+            id = 'spikestrip',
+            title = 'Herse',
+            icon = 'caret-up',
+            type = 'client',
+            event = 'police:client:SpawnSpikeStrip',
+            shouldClose = false
+        }, {
+            id = 'deleteobject',
+            title = 'Retirer l\'objet',
+            icon = 'trash',
+            type = 'client',
+            event = 'police:client:deleteObject',
+            shouldClose = false
+        }}
+    }},
+    ['gendarmerie_nationale'] = {{
             id = 'emergencybutton',
             title = 'Bouton d\'urgence',
             icon = 'bell',

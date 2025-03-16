@@ -210,7 +210,8 @@ CreateThread(function()
                     
                     if IsControlJustPressed(0, 47) then
                         emsNotified = true
-                        TriggerServerEvent('hospital:server:ambulanceAlert', "~r~⚠️ URGENCE MÉDICALE ⚠️~w~\nUn civil nécessite une intervention immédiate")
+                        -- TriggerServerEvent('hospital:server:ambulanceAlert', "~r~⚠️ URGENCE MÉDICALE ⚠️~w~\nUn civil nécessite une intervention immédiate")
+                        exports['ps-dispatch']:InjuriedPerson()
                         QBCore.Functions.Notify('Le SAMU a été notifié de votre situation', 'success')
                     end
                 else

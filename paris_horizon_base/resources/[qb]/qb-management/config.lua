@@ -50,7 +50,7 @@ Config.BossMenus = {
         vector3(-1845.68, -348.49, 83.83),
     },
     concessionnaire = {
-        vector3(-69.87, 73.44, 75.83),
+        vector3(-71.6, 6565.59, 34.13),
     },
     xpo = {
         vector3(1210.12, -3254.59, 7.09),
@@ -66,6 +66,9 @@ Config.BossMenus = {
     },
     brinks = {
         vector3(-295.16, 6139.94, 31.56),
+    },
+    pompiers_de_paris = {
+        vector3(1204.08, -1488.74, 42.37),
     },
 }
 

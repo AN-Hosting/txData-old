@@ -123,6 +123,13 @@ Config.Locations = {
     sprite = 474, 
     scale = 0.7,
 },
+[18] = {
+    vector = vector3(1200.99, -1470.56, 34.69), 
+    text = "Pompier de Paris", 
+    color = 0, 
+    sprite = 436, 
+    scale = 0.7,
+},
 
 -- Example 
 -- [[

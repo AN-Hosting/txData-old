@@ -28,13 +28,6 @@ Config.locations = {
             vector4(259.95, -621.65, 41.33, 332.5),
             vector4(226.25, -633.01, 39.5, 157.6),
         }
-    },
-    {
-        id = 3,
-        spawnPed = vector4(-37.38, -1671.61, 29.48, 144.2),
-        spawns = {
-            vector4(-44.31, -1678.69, 29.41, 40.41),
-        }
     }
 }
 Config.translations = {

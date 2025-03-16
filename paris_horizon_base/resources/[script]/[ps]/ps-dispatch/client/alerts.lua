@@ -416,7 +416,7 @@ local function InjuriedPerson()
     local coords = GetEntityCoords(cache.ped)
 
     local dispatchData = {
-        message = locale('persondown'),
+        message = 'Civil blessé',
         codeName = 'civdown',
         code = '10-69',
         icon = 'fas fa-face-dizzy',
