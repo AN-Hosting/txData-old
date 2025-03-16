@@ -131,7 +131,8 @@ Config.Categories = {
   volkswagen = "volkswagen", 
   volvo = "volvo", 
   wmotors = "wmotors",
-  moto = "Moto /Scooter"
+  moto = "Moto / Scooter",
+  remorque = "Remorque"
 }
 
 Config.DealershipLocations = {
@@ -242,7 +243,7 @@ Config.DealershipLocations = {
         coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
         positions = {5.0, 8.0, 12.0, 8.0}
       },
-      categories = {"aston", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors", "moto" },
+      categories = {"aston", "remorque", "audi", "bentley", "bmw", "bugatti", "cadillac", "citroen", "chevrolet", "dacia", "dodge", "ferrari", "ford", "honda", "italdesign", "jaguar", "jeep", "koenigsegg", "lamborghini", "lexus", "lotus", "mazda", "mclaren", "mercedes", "mitsubishi", "nissan", "peugeot", "porsche", "quartz", "rangerover", "renault", "rollsroyce", "subaru", "suzuki", "tesla", "toyota", "volkswagen", "volvo", "wmotors", "moto" },
       enableTestDrive = true,
       hideBlip = false,
       blip = {

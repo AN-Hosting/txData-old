@@ -204,7 +204,7 @@ lib.callback.register('reg:server:AddRegistration', function(source, plate, name
 
     elseif FW == 'qb-core' then 
 
-        amount = player.PlayerData.money.cash
+        amount = player.PlayerData.money.bank
     end
 
     if amount >= config.costs.registration then 
@@ -241,7 +241,7 @@ lib.callback.register('reg:server:AddInsurance', function(source, plate, plan, n
 
     elseif FW == 'qb-core' then 
 
-        amount = player.PlayerData.money.cash
+        amount = player.PlayerData.money.bank
 
     end
 
@@ -255,7 +255,7 @@ lib.callback.register('reg:server:AddInsurance', function(source, plate, plan, n
         if FW == 'esx' then 
             player.removeAccountMoney('money', cost)
         elseif FW == 'qb-core' then
-            player.Functions.RemoveMoney('cash', cost, 'Vehicle Insurance')
+            player.Functions.RemoveMoney('bank', cost, 'Vehicle Insurance')
         end
 
         AddInsurance(source, 'vehicle_ins', plate, name, os.date(), tostring(plan))

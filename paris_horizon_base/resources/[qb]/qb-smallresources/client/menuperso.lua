@@ -59,6 +59,14 @@ RegisterCommand('ph-menuperso', function()
             }
         },
         {
+            header = 'Menu Finances',
+            icon = 'fas fa-briefcase',
+            params = {
+                event = 'ph-menuperso:client:myfinance',
+                args = {}
+            }
+        },
+        {
             header = 'Menu Actions',
             txt = 'Accéder aux différentes actions',
             icon = 'fas fa-list',
@@ -117,6 +125,11 @@ end)
 RegisterNetEvent('ph-menuperso:client:invoices', function()
     Wait(100)
     ExecuteCommand('invoices')
+end)
+
+RegisterNetEvent('ph-menuperso:client:myfinance', function()
+    Wait(100)
+    ExecuteCommand('myfinance')
 end)
 
 RegisterNetEvent('ph-menuperso:client:takeService', function(data)

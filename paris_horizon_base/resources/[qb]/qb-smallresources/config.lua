@@ -95,21 +95,22 @@ Config.RelieveWeedStress = math.random(0, 0) -- stress relief amount (100 max)
 Config.Consumables = {
     eat = { -- default food items
         ['sandwich'] = math.random(5, 10),
-        ['burgerpoulet'] = math.random(35, 55),
+        ['burgerpoulet'] = math.random(45, 65),
         ['cheeseburger'] = math.random(30, 50),
         ['frite'] = math.random(1, 1),
-        ['friteburgerking'] = math.random(15, 25),
-        ['fritekfc'] = math.random(15, 25),
-        ['fritemacdo'] = math.random(15, 25),
-        ['fritetacos'] = math.random(15, 25),
-        ['glaceburgerking'] = math.random(10, 15),
-        ['glacemacdo'] = math.random(10, 15),
-        ['glacetacos'] = math.random(10, 15),
-        ['nuggetsburgerking'] = math.random(25, 35),
-        ['nuggetskfc'] = math.random(25, 35),
+        ['friteburgerking'] = math.random(20, 30),
+        ['fritekfc'] = math.random(20, 30),
+        ['fritemacdo'] = math.random(20, 30),
+        ['fritetacos'] = math.random(20, 30),
+        ['glaceburgerking'] = math.random(15, 20),
+        ['glacekfc'] = math.random(15, 20),
+        ['glacemacdo'] = math.random(15, 20),
+        ['glacetacos'] = math.random(15, 20),
+        ['nuggetsburgerking'] = math.random(35, 45),
+        ['nuggetskfc'] = math.random(35, 45),
         ['painhamburger'] = math.random(1, 1),
         ['steakhacher'] = math.random(1, 1),
-        ['tacos'] = math.random(35, 55),
+        ['tacos'] = math.random(45, 65),
         ['triplechesse'] = math.random(55, 75),
         ['champignon'] = math.random(1, 1),
         ['chorizo'] = math.random(1, 1),
@@ -128,14 +129,14 @@ Config.Consumables = {
 
     },
     drink = { -- default drink items
-        ['coca'] = math.random(12, 22),
-        ['icetea'] = math.random(12, 22),
-        ['sprite'] = math.random(12, 22),
-        ['redbull'] = math.random(12, 22),
-        ['orangina'] = math.random(12, 22),
-        ['fanta'] = math.random(12, 22),
-        ['monster'] = math.random(12, 22),
-        ['water_bottle'] = math.random(12, 22),
+        ['coca'] = math.random(20, 30),
+        ['icetea'] = math.random(20, 30),
+        ['sprite'] = math.random(20, 30),
+        ['redbull'] = math.random(20, 30),
+        ['orangina'] = math.random(20, 30),
+        ['fanta'] = math.random(20, 30),
+        ['monster'] = math.random(20, 30),
+        ['water_bottle'] = math.random(20, 30),
 
     },
     alcohol = { -- default alcohol items
@@ -501,43 +502,3 @@ Config.ServiceCommands = {
     taxi = '119',
     orpi = '120'
 }
-
--- Towing
-Config.whitelist = { -- when adding add-on cars simply use their spawn name
-    -- 'FLATBED',
-    -- 'BENSON',
-    -- 'WASTLNDR', -- WASTELANDER
-    -- 'MULE',
-    -- 'MULE2',
-    -- 'MULE3',
-    -- 'MULE4',
-    -- 'TRAILER', -- TRFLAT
-    -- 'ARMYTRAILER',
-    -- 'BOATTRAILER',
-    -- 'TOW',
-    -- 'SLAMTRUCK',
-    -- 'TR2',
-    -- 'freighttrailer',
-    '20fttrailer',
-    'cotrailer',
-}
-
-Config.offsets = { -- when adding add-on cars simply use their spawn name
-    -- {model = 'FLATBED', offset = {x = 0.0, y = -9.0, z = -1.25}}, -- x -> Left/Right adjustment | y -> Forward/Backward adjustment | z -> Height adjustment
-    -- {model = 'BENSON', offset = {x = 0.0, y = 0.0, z = -1.25}},
-    -- {model = 'WASTLNDR', offset = {x = 0.0, y = -7.2, z = -0.9}},
-    -- {model = 'MULE', offset = {x = 0.0, y = -7.0, z = -1.75}},
-    -- {model = 'MULE2', offset = {x = 0.0, y = -7.0, z = -1.75}},
-    -- {model = 'MULE3', offset = {x = 0.0, y = -7.0, z = -1.75}},
-    -- {model = 'MULE4', offset = {x = 0.0, y = -7.0, z = -1.75}},
-    -- {model = 'TRAILER', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    -- {model = 'ARMYTRAILER', offset = {x = 0.0, y = -9.5, z = -3.0}},
-    -- {model = 'TOW', offset = {x = 0.0, y = -8.6, z = -1.235}},
-    -- {model = 'freighttrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    -- {model = 'SLAMTRUCK', offset = {x = 0.0, y = -7.0, z = -1.75}},
-    -- {model = 'TR2', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    {model = '20fttrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
-    {model = 'cotrailer', offset = {x = 0.0, y = -9.0, z = -1.25}},
-}
-
-RampHash = 'imp_prop_flatbed_ramp'
