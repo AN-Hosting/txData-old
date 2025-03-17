@@ -126,6 +126,7 @@ Config.Consumables = {
         ['pineapple'] = math.random(10, 15),
         ['orange'] = math.random(10, 15),
         ['raspberry'] = math.random(10, 15),
+        ['tosti'] = math.random(10, 15),
 
     },
     drink = { -- default drink items
