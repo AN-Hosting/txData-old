@@ -96,6 +96,68 @@ RegisterNetEvent('qb-menu:client:actionsMenu', function()
                 event = 'ph-menuperso:client:emotemenu',
                 args = {}
             }
+        },
+        {
+            header = 'Menu Editor',
+            txt = 'Ouvrir menu Rockstar Editor',
+            icon = 'fas fa-face-smile',
+            params = {
+                event = 'ph-menuperso:client:rockstareditor',
+                args = {}
+            }
+        }
+    })
+end)
+
+RegisterNetEvent('ph-menuperso:client:rockstareditor', function()
+    exports['qb-menu']:openMenu({
+        {
+            header = 'Retour',
+            icon = 'fa-solid fa-backward',
+            params = {
+                event = 'qb-menu:client:actionsMenu',
+                args = {}
+            }
+        },
+        {
+            header = 'Record',
+            icon = 'fas fa-record-vinyl',
+            params = {
+                event = 'ph-menuperso:client:record',
+                args = {}
+            }
+        },
+        {
+            header = 'Clip',
+            icon = 'fas fa-camera',
+            params = {
+                event = 'ph-menuperso:client:clip',
+                args = {}
+            }
+        },
+        {
+            header = 'Save Clip',
+            icon = 'fas fa-floppy-disk',
+            params = {
+                event = 'ph-menuperso:client:saveclip',
+                args = {}
+            }
+        },
+        {
+            header = 'Delete Clip',
+            icon = 'fas fa-trash',
+            params = {
+                event = 'ph-menuperso:client:delclip',
+                args = {}
+            }
+        },
+        {
+            header = 'Editor',
+            icon = 'fas fa-newspaper',
+            params = {
+                event = 'ph-menuperso:client:editor',
+                args = {}
+            }
         }
     })
 end)
@@ -130,6 +192,27 @@ end)
 RegisterNetEvent('ph-menuperso:client:myfinance', function()
     Wait(100)
     ExecuteCommand('myfinance')
+end)
+
+RegisterNetEvent('ph-menuperso:client:record', function()
+    Wait(100)
+    ExecuteCommand('record')
+end)
+RegisterNetEvent('ph-menuperso:client:clip', function()
+    Wait(100)
+    ExecuteCommand('clip')
+end)
+RegisterNetEvent('ph-menuperso:client:saveclip', function()
+    Wait(100)
+    ExecuteCommand('saveclip')
+end)
+RegisterNetEvent('ph-menuperso:client:delclip', function()
+    Wait(100)
+    ExecuteCommand('delclip')
+end)
+RegisterNetEvent('ph-menuperso:client:editor', function()
+    Wait(100)
+    ExecuteCommand('editor')
 end)
 
 RegisterNetEvent('ph-menuperso:client:takeService', function(data)
