@@ -8,7 +8,7 @@ Config.DoorList['concessionnairecergy-1'] = {
         {objName = -211253185, objYaw = 135.0, objCoords = vec3(-67.917976, 6536.138184, 30.520894)}
     },
     doorRate = 1.0,
-    locked = true,
+    locked = false,
     doorLabel = '1',
     distance = 3,
     doorType = 'doublesliding',
@@ -68,18 +68,4 @@ Config.DoorList['concessionnairecergy-5'] = {
     doorLabel = '5',
     doorType = 'garage',
     fixText = false,
-}
-
--- 6 créer par BebeToto14006
-Config.DoorList['concessionnairecergy-6'] = {
-    locked = true,
-    objName = -995516848,
-    objYaw = 225.01963806152,
-    authorizedJobs = { ['concessionnaire'] = 0 },
-    distance = 3,
-    doorRate = 1.0,
-    objCoords = vec3(-67.582634, 6484.911132, 30.475576),
-    fixText = false,
-    doorLabel = '6',
-    doorType = 'sliding',
 }

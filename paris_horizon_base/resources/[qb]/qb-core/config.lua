@@ -9,7 +9,7 @@ QBConfig.Money = {}
 QBConfig.Money.MoneyTypes = { cash = 0, bank = 2000, crypto = 0, blackmoney = 0, printedbills = 0 } -- type = startamount - Add or remove money types for your server (for ex. blackmoney = 0), remember once added it will not be removed from the database!
 QBConfig.Money.DontAllowMinus = { 'cash', 'crypto', 'blackmoney' } -- Money that is not allowed going in minus
 QBConfig.Money.MinusLimit = -5000                                    -- The maximum amount you can be negative 
-QBConfig.Money.PayCheckTimeOut = 30                                 -- The time in minutes that it will give the paycheck
+QBConfig.Money.PayCheckTimeOut = 20                                 -- The time in minutes that it will give the paycheck
 QBConfig.Money.PayCheckSociety = false                              -- If true paycheck will come from the society account that the player is employed at, requires qb-management
 
 QBConfig.Player = {}
@@ -42,7 +42,7 @@ QBConfig.Player.PlayerDefaults = {
     job = {
         name = 'unemployed',
         label = 'RSA',
-        payment = 550,
+        payment = 500,
         type = 'none',
         onduty = false,
         isboss = false,
