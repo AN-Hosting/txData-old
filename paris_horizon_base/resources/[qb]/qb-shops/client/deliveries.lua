@@ -60,7 +60,7 @@ local function setupZones(type, number)
             options = {
                 {
                     icon = 'fas fa-box',
-                    label = 'Start Delivering',
+                    label = 'Commencer la Mission',
                     action = function()
                         TriggerServerEvent('qb-shops:server:DoBail', true)
                     end
@@ -406,7 +406,7 @@ RegisterNetEvent('qb-shops:client:SpawnVehicle', function()
         SetVehicleEngineOn(veh, true, true, false)
         CurrentPlate = QBCore.Functions.GetPlate(veh)
         getNewLocation()
-    end, 'boxville2', coords, true)
+    end, 'chrono2', coords, true)
 end)
 
 RegisterNetEvent('qb-shops:client:Vehicle', function()

@@ -5,19 +5,20 @@ Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'
 Config.ShopsInvJsonFile = './json/shops-inventory.json'
 Config.TruckDeposit = 125
 Config.MaxDeliveries = 20
-Config.DeliveryPrice = 500
-Config.RewardItem = 'cryptostick'
+Config.DeliveryPrice = 1000
+Config.RewardItem = 'tosti'
 Config.Fuel = 'LegacyFuel'
 
 Config.DeliveryLocations = {
-    ['main'] = { label = 'GO Postal', coords = vector4(69.0862, 127.6753, 79.2123, 156.7736) },
+    ['main'] = { label = 'Chronopost', coords = vector4(69.0862, 127.6753, 79.2123, 156.7736) },
     ['vehicleWithdraw'] = vector4(71.9318, 120.8389, 79.0823, 160.5110),
     ['vehicleDeposit'] = vector3(62.7282, 124.9846, 79.0926),
     ['stores'] = {} -- auto generated
 }
 
 Config.Vehicles = {
-    ['boxville2'] = { ['label'] = 'Boxville StepVan', ['cargodoors'] = { [0] = 2, [1] = 3 }, ['trunkpos'] = 1.5 },
+    ['chrono1'] = { ['label'] = 'chrono1', ['cargodoors'] = { [0] = 2, [1] = 3 }, ['trunkpos'] = 1.5 },
+    ['chrono2'] = { ['label'] = 'chrono1', ['cargodoors'] = { [0] = 2, [1] = 3 }, ['trunkpos'] = 1.5 },
 }
 
 Config.Products = {
@@ -675,23 +676,6 @@ Config.Locations = {
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(1129.73, -989.27, 45.97, 280.98)
-    },
-
-    -- Hardware Store Locations
-    ['hardware'] = {
-        ['label'] = 'Carrefour Market',
-        ['coords'] = vector4(59.68, -1750.82, 29.29, 222.36),
-        ['ped'] = 'mp_m_waremech_01',
-        ['scenario'] = 'WORLD_HUMAN_CLIPBOARD',
-        ['radius'] = 1.5,
-        ['targetIcon'] = 'fas fa-wrench',
-        ['targetLabel'] = 'Carrefour Market',
-        ['products'] = Config.Products['hardware'],
-        ['showblip'] = true,
-        ['blipsprite'] = 59,
-        ['blipscale'] = 0.6,
-        ['blipcolor'] = 0,
-        ['delivery'] = vector4(59.68, -1741.82, 29.29, 222.36)
     },
 
     ['propstore'] = {
