@@ -201,7 +201,7 @@ local function setPlayerModel(model)
              if model == `mp_m_freemode_01` then
                 SetPedHeadBlendData(cache.ped, 0, 0, 0, 0, 0, 0, 0, 0, 0, false)
             elseif model == `mp_f_freemode_01` then
-                SetPedHeadBlendData(cache.ped, 45, 21, 0, 20, 15, 0, 0.3, 0.1, 0, false)
+                SetPedHeadBlendData(cache.ped, 0, 0, 0, 0, 0, 0, 0, 0, 0, false)
             end
         end
 
