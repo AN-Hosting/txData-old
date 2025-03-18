@@ -349,7 +349,7 @@ Config.Intl = {
 
 Config.Blip = {
 	forSale = {
-		enabled = true,
+		enabled = false,
 	},
 	owned = {
 		enabled = true,
@@ -364,11 +364,11 @@ Config.Blip = {
 		color = 2
 	},
 	rentable = {
-		enabled = true,
+		enabled = false,
 		color = 5
 	},
 	purchasable = {
-		enabled = true,
+		enabled = false,
 		color = 4
 	}
 }
@@ -418,10 +418,10 @@ Config.StomRamItem = 'police_stormram' -- Item to begin the search of a house
 
 Config.CreditEnable = true                     -- Enable or disable the mortgage option in the house contract.
 Config.CreditEq = 0.3                          -- Collection percentage for bank loans (default 0.3)
-Config.CreditTime = 5                          -- Time interval to collect bank credit (5 = 5 minutes)
+Config.CreditTime = 20                          -- Time interval to collect bank credit (5 = 5 minutes)
 Config.HireRenterCommand = 'hireRenter'        -- Command for the administrator to expel a tenant from the property (force eviction)
 
-Config.RentTime = 5                            -- Time interval to collect rent (5 = 5 minutes)
+Config.RentTime = 20                            -- Time interval to collect rent (5 = 5 minutes)
 Config.EnableRentable = true                   -- Enable or disable the rental system
 Config.CreatedRentableHousesManageable = false -- If you set this to false, realestate cannot cancel the lease or expel players.
 
