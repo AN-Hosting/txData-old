@@ -56,7 +56,7 @@ Config.BossMenus = {
         vector3(1210.12, -3254.59, 7.09),
     },
     gendarmerie = {
-        vector3(2495.34, -424.42, 98.89,),
+        vector3(2495.34, -424.42, 98.89),
     },
     vigneron = {
         vector3(-1897.41, 2068.83, 140.49),
