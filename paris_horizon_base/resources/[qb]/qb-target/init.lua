@@ -166,8 +166,7 @@ Config.GlobalPlayerOptions = {
 					type = "client",
 					event = "qs-smartphone:client:GiveContactDetails",
 					icon = 'fas fa-mobile-screen',
-					label = 'Partagé son numéro',
-					item = 'phone'
+					label = 'Partagé son numéro'
 				},{
 					type = "command",
 					event = "carry",
@@ -176,49 +175,49 @@ Config.GlobalPlayerOptions = {
 				},{
 					event = "police:client:RobPlayer",
 					icon = "fas fa-user-secret",
-					label = "Rob Person",
+					label = "Voler la personne",
 				},{
 					type = "client",
 					event = "police:client:CuffPlayer",
 					icon = "fas fa-hands",
-					label = "Handfängsla",
+					label = "Menotter",
 					jobType = "leo",
-					item = 'Handcuff Person',
+					item = 'Menotter la personne',
 				},{
 					type = "client",
 					event = "police:client:EscortPlayer",
 					icon = "fas fa-key",
-					label = "Escort Person",
+					label = "Escorter la personne",
 				},{
 					type = "client",
 					event = "police:client:PutPlayerInVehicle",
 					icon = "fas fa-chevron-circle-left",
 					jobType = 'leo',
-					label = "Put Person In Vehicle",
+					label = "Mettre la personne dans le véhicule",
 				},{
 					type = "client",
 					event = "police:client:SetPlayerOutVehicle",
 					icon = "fas fa-chevron-circle-right",
 					jobType = 'leo',
-					label = "Set Person Out Of Vehicle",
+					label = "Sortir la personne du véhicule",
 				},{
 					type = "client",
 					event = "police:client:SeizeDriverLicense",
 					icon = "fas fa-chevron-circle-right",
 					jobType = 'leo',
-					label = "Seize Driver License Of Person",
+					label = "Saisir le permis de conduire de la personne",
 				},{
 					type = "client",
 					event = "police:client:JailPlayer",
 					icon = "fas fa-chevron-circle-right",
 					jobType = 'leo',
-					label = "Send Person To Jail",
+					label = "Envoyer la personne en prison",
 				},{
 					type = "client",
 					event = "police:client:SearchPlayer",
 					icon = "fas fa-chevron-circle-right",
 					jobType = 'leo',
-					label = "Search Person",
+					label = "Fouiller la personne",
 				},{
 					type = "client",
 					event = "hospital:client:RevivePlayer",
