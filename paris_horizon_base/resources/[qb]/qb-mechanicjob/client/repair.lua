@@ -40,7 +40,7 @@ end
 RegisterNetEvent('qb-mechanicjob:client:PartsMenu', function()
     local vehicle, distance = QBCore.Functions.GetClosestVehicle()
     if vehicle == 0 or distance > 5.0 then return end
-    if not IsNearBone(vehicle, 'engine') then return end
+    -- if not IsNearBone(vehicle, 'engine') then return end
     local plate = QBCore.Functions.GetPlate(vehicle)
     if not plate then return end
     local vehicleClass = GetVehicleClass(vehicle)
