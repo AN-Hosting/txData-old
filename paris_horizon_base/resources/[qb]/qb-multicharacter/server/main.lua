@@ -29,7 +29,7 @@ local function GiveStarterItems(source)
     local Player = QBCore.Functions.GetPlayer(src)
  
     for _, v in pairs(QBCore.Shared.StarterItems) do
-        if v.item == "id_card" or v.item == "driver_license" then
+        if v.item == "id_card" then
            exports.bl_idcard:createLicense(source, v.item)
         else
            Player.Functions.AddItem(v.item, v.amount)
