@@ -8,7 +8,7 @@ Config.DoorList['povis_concessionnaire-povis_concessionnaire1'] = {
         {objName = 542428389, objYaw = 0.0, objCoords = vec3(-190.921128, -1158.997192, 23.934190)},
         {objName = 542428389, objYaw = 180.00001525878, objCoords = vec3(-188.324386, -1158.997192, 23.934190)}
     },
-    locked = true,
+    locked = false,
     doorLabel = 'povis_concessionnaire',
     doorType = 'double',
     distance = 2,
