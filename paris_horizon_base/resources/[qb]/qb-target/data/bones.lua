@@ -55,9 +55,9 @@ if Config.EnableDefaultOptions then
     Bones.Options['seat_dside_f'] = {
         ['Toggle Front Door'] = {
             icon = 'fas fa-door-open',
-            label = 'Toggle Front Door',
+            label = 'Ouvrir la porte avant',
             canInteract = function(entity)
-                return GetEntityBoneIndexByName(entity, 'door_dside_f') ~= -1
+                return GetEntityBoneIndexByName(entity, 'porte_dside_f') ~= -1
             end,
             action = function(entity)
                 ToggleDoor(entity, 0)
@@ -69,9 +69,9 @@ if Config.EnableDefaultOptions then
     Bones.Options['seat_pside_f'] = {
         ['Toggle Front Door'] = {
             icon = 'fas fa-door-open',
-            label = 'Toggle Front Door',
+            label = 'Ouvrir la porte avant',
             canInteract = function(entity)
-                return GetEntityBoneIndexByName(entity, 'door_pside_f') ~= -1
+                return GetEntityBoneIndexByName(entity, 'porte_pside_f') ~= -1
             end,
             action = function(entity)
                 ToggleDoor(entity, 1)
@@ -83,9 +83,9 @@ if Config.EnableDefaultOptions then
     Bones.Options['seat_dside_r'] = {
         ['Toggle Rear Door'] = {
             icon = 'fas fa-door-open',
-            label = 'Toggle Rear Door',
+            label = 'Ouvrir la porte arrière',
             canInteract = function(entity)
-                return GetEntityBoneIndexByName(entity, 'door_dside_r') ~= -1
+                return GetEntityBoneIndexByName(entity, 'porte_dside_r') ~= -1
             end,
             action = function(entity)
                 ToggleDoor(entity, 2)
@@ -97,9 +97,9 @@ if Config.EnableDefaultOptions then
     Bones.Options['seat_pside_r'] = {
         ['Toggle Rear Door'] = {
             icon = 'fas fa-door-open',
-            label = 'Toggle Rear Door',
+            label = 'Ouvrir la porte arrière',
             canInteract = function(entity)
-                return GetEntityBoneIndexByName(entity, 'door_pside_r') ~= -1
+                return GetEntityBoneIndexByName(entity, 'porte_pside_r') ~= -1
             end,
             action = function(entity)
                 ToggleDoor(entity, 3)
@@ -111,7 +111,7 @@ if Config.EnableDefaultOptions then
     Bones.Options['bonnet'] = {
         ['Toggle Hood'] = {
             icon = 'fa-duotone fa-engine',
-            label = 'Toggle Hood',
+            label = 'Ouvrir le capot',
             action = function(entity)
                 ToggleDoor(entity, BackEngineVehicles[GetEntityModel(entity)] and 5 or 4)
             end,
@@ -122,7 +122,7 @@ if Config.EnableDefaultOptions then
     Bones.Options['boot'] = {
         ['Toggle Trunk'] = {
             icon = 'fas fa-truck-ramp-box',
-            label = 'Toggle Trunk',
+            label = 'Ouvrir le coffre',
             action = function(entity)
                 ToggleDoor(entity, BackEngineVehicles[GetEntityModel(entity)] and 4 or 5)
             end,
