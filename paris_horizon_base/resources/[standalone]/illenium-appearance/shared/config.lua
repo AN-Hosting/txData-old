@@ -781,7 +781,7 @@ Config.ClothingRooms = {
     },
     {
         job = "concessionnaire",
-        coords = vector4(-53.15, 70.59, 71.93, 337.97),
+        coords = vector4(-199.59, -1177.48, 23.76, 2.96),
         size = vector3(4, 4, 4),
         rotation = 45,
         usePoly = false,

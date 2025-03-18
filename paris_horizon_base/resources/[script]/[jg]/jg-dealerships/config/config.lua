@@ -6,9 +6,9 @@ Config = {}
 
 -- Localisation
 Config.Locale = "fr"
-Config.NumberAndDateFormat = "en-US"
-Config.Currency = "USD"
-Config.SpeedUnit = "mph" -- or "kph"
+Config.NumberAndDateFormat = "fr-FR"
+Config.Currency = "EUR"
+Config.SpeedUnit = "kph" -- or "kph"
 
 -- Framework & Integrations
 Config.Framework = "auto" -- or "QBCore", "Qbox", "ESX"
@@ -225,18 +225,18 @@ Config.DealershipLocations = {
     ["cergy"] = {
       type = "owned", -- or "owned", "self-service"
       openShowroom = {
-        coords = vector3(-43.48, 6543.34, 31.95),
+        coords = vector3(-190.59, -1164.65, 22.94),
         size = 3
       },
       openManagement = {
-        coords = vector3(-75.37, 6564.8, 34.33),
+        coords = vector3(-203.99, -1166.57, 23.76),
         size = 3
       },
       sellVehicle = {
         coords = vector3(-199.88, -1171.61, 23.76),
         size = 1
       },
-      purchaseSpawn = vector4(-55.25, 6535.43, 30.93, 223.49),
+      purchaseSpawn = vector4(-177.45, -1170.88, 22.94, 181.38),
       testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
       camera = {
         name = "Car",

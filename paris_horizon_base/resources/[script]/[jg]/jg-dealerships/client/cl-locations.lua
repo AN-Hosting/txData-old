@@ -145,7 +145,7 @@ CreateThread(function()
         Wait(0)
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed)
-          exports['qb-target']:AddCircleZone("concesscergy", vector3(-57.29, 6554.1, 31.35), 1.5, {
+          exports['qb-target']:AddCircleZone("concesscergy", vector3(-196.17, -1169.06, 23.54), 1.5, {
           name = "concesscergy",
           debugPoly = false,
           useZ = true,
