@@ -132,7 +132,7 @@ exports('SaveInventory', SaveInventory)
 function SetInventory(identifier, items, reason)
     local player = QBCore.Functions.GetPlayer(identifier)
 
-    print('Setting inventory for ' .. identifier)
+    -- print('Setting inventory for ' .. identifier)
 
     if not player and not Inventories[identifier] and not Drops[identifier] then
         print('SetInventory: Inventory not found')
