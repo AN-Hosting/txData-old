@@ -130,7 +130,7 @@ Config.Products = {
         { name = 'weapon_fireextinguisher', price = 0, amount = 50 },
     },
     ['mechanic'] = {
-        { name = 'veh_toolbox',       price = 600, amount = 50 },
+        { name = 'veh_toolbox',       price = 0, amount = 5 },
         { name = 'veh_brakes',        price = 600, amount = 50 },
         { name = 'veh_engine',        price = 600, amount = 50 },
         { name = 'veh_suspension',    price = 600, amount = 50 },
