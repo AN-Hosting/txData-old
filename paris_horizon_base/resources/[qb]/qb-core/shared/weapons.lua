@@ -26,10 +26,10 @@ QBShared.Weapons = {
 	[`weapon_bread`]                 = { name = 'weapon_bread', label = 'Baquette', weapontype = 'Melee', ammotype = nil, damagereason = 'Melee killed / Whacked / Executed / Beat down / Murdered / Battered' },
 	[`weapon_stone_hatchet`]         = { name = 'weapon_stone_hatchet', label = 'Stone Hatchet', weapontype = 'Melee', ammotype = nil, damagereason = 'Knifed / Stabbed / Eviscerated' },
 	[`weapon_candycane`]             = { name = 'weapon_candycane', label = 'Candy Cane', weapontype = 'Melee', ammotype = nil, damagereason = 'Melee Killed / Whacked / Executed / Beat down / Musrdered / Battered / Candy Caned' },
-		[`weapon_gazeuse`] = { -- Weapon hash (uses compile-time Jenkins hashes)
-			name = 'weapon_gazeuse', -- The internal spawn name of the weapon (e.g., weapon_pistol)
-			label = 'Gazeuse', -- The display name of the weapon shown to players
-			weapontype = 'Pistol', -- The type of weapon (e.g., "Pistol", "Shotgun", "Rifle")
+		[`weapon_prolaser4`] = { -- Weapon hash (uses compile-time Jenkins hashes)
+			name = 'weapon_prolaser4', -- The internal spawn name of the weapon (e.g., weapon_pistol)
+			label = 'Pistolet Radar', -- The display name of the weapon shown to players
+			weapontype = 'Melee', -- The type of weapon (e.g., "Pistol", "Shotgun", "Rifle")
 			ammotype = nil, -- The type of ammo the weapon uses (e.g., AMMO_PISTOL, AMMO_SHOTGUN)
 			damageReason = 'Melee Killed' -- A customizable message that appears in kill notifications to describe the cause of death
 		},

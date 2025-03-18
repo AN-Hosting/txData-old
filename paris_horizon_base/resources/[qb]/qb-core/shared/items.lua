@@ -26,7 +26,7 @@ QBShared.Items = {
     weapon_bread                 = { name = 'weapon_bread',         label = 'Baguette', weight = 1000, type = 'weapon', ammotype = nil, image = 'baquette.png', unique = true, useable = false, description = 'Du pain...?' },
     weapon_stone_hatchet         = { name = 'weapon_stone_hatchet', label = 'Hachette en pierre', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_stone_hatchet.png', unique = true, useable = true, description = 'Hachette en pierre' },
     weapon_candycane             = { name = 'weapon_candycane',     label = 'Canne en sucre dorge', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_candycane.png', unique = true, useable = true, description = 'Canne en sucre dorge' },
-    weapon_gazeuse               = { name = 'weapon_gazeuse',       label = 'Bombe lacrymogène', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_gazeuse.png', unique = true, useable = true, description = '...' },
+    weapon_prolaser4             = { name = 'weapon_prolaser4',     label = 'Pistolet Radar', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_prolaser4.png', unique = true, useable = true, description = '...' },
 
     
 -- Pistolets
