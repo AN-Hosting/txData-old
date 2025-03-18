@@ -446,6 +446,31 @@ QBCore.Commands.Add('aheal', Lang:t('info.heal_player_a'), { { name = 'id', help
 	end
 end, 'admin')
 
+QBCore.Commands.Add('revivearea', 'Réanime les joueurs dans un rayon', { { name = 'radius', help = 'Rayon en mètres' } }, false, function(source, args)
+	local src = source
+	local radius = tonumber(args[1]) or 5.0
+	local ped = GetPlayerPed(src)
+	local playerCoords = GetEntityCoords(ped)
+	
+	-- Obtenir tous les joueurs
+	local players = QBCore.Functions.GetPlayers()
+	local playersRevived = 0
+	
+	for _, playerId in ipairs(players) do
+		local targetPed = GetPlayerPed(playerId)
+		local targetCoords = GetEntityCoords(targetPed)
+		
+		-- Vérifier si le joueur est dans le rayon
+		local distance = #(playerCoords - targetCoords)
+		if distance <= radius then
+			TriggerClientEvent('hospital:client:Revive', playerId)
+			playersRevived = playersRevived + 1
+		end
+	end
+	
+	TriggerClientEvent('QBCore:Notify', src, 'Réanimation de ' .. playersRevived .. ' joueurs dans un rayon de ' .. radius .. ' mètres', 'success')
+end, 'admin')
+
 -- Items
 
 QBCore.Functions.CreateUseableItem('ifaks', function(source, item)

@@ -102,6 +102,13 @@ local menu2_admin_revive = menu2:AddButton({
     description = Lang:t('desc.revive_desc')
 })
 
+local menu2_admin_revive_area = menu2:AddButton({
+    icon = '💫',
+    label = 'Réanimer Zone',
+    value = 'revivearea',
+    description = 'Réanimer tous les joueurs dans un rayon spécifique'
+})
+
 local menu2_admin_invisible = menu2:AddCheckbox({
     icon = '👻',
     label = Lang:t('menu.invisible'),
@@ -398,6 +405,16 @@ end)
 -- Revive Self
 menu2_admin_revive:On('select', function(_)
     TriggerEvent('hospital:client:Revive', PlayerPedId())
+end)
+
+-- Revive Area
+menu2_admin_revive_area:On('select', function()
+    local radius = LocalInputInt('Entrez le rayon en mètres (par défaut: 5)', 3)
+    if radius then
+        TriggerServerEvent('QBCore:CallCommand', 'revivearea', { radius })
+    else
+        TriggerServerEvent('QBCore:CallCommand', 'revivearea', { 5 })
+    end
 end)
 
 -- Invisible
