@@ -348,7 +348,7 @@ local function PlayBagStruggleAnimation(player, victim)
     Citizen.Wait(randomTime)
     
     -- 15% de chance de réussir le vol (85% d'échec)
-    if math.random(100) > 85 then
+    if math.random(100) > 80 then
         -- Vol réussi
         ClearPedTasks(player)
         ClearPedTasks(victim)
@@ -507,11 +507,11 @@ function RobNPC()
     end
 end
 
--- Thread pour vérifier la touche E
+-- Thread pour vérifier la touche H
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
-        if IsControlJustPressed(0, 38) then -- 38 est le code pour la touche E
+        if IsControlJustPressed(0, 74) then -- 74 est le code pour la touche H
             RobNPC()
         end
     end

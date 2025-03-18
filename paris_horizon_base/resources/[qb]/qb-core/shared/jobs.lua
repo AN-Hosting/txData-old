@@ -67,11 +67,12 @@ QBShared.Jobs = {
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
-			['0'] = { name = 'Gendarme', payment = 1500 },
-			['1'] = { name = 'Adjudant-Chef', payment = 1700 },
-			['2'] = { name = 'Lieutenant ', payment = 1900 },
-			['3'] = { name = 'Commandant', payment = 2100 },
-			['4'] = { name = 'Général de Brigade', isboss = true, payment = 2500 },
+			['0'] = { name = 'Gendarme (GND)', payment = 1300 },
+			['1'] = { name = 'Gendarme (GNC)', payment = 1500 },
+			['2'] = { name = 'Gendarme (MDC) ', payment = 1700 },
+			['3'] = { name = 'Adjudant', payment = 1900 },
+			['4'] = { name = 'Adjudant Chef', isboss = true, payment = 2100 },
+			['5'] = { name = 'Major', isboss = true, payment = 2500 },
 		},
 	},
 	samu_75 = {

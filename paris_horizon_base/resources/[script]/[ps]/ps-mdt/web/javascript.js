@@ -33,7 +33,7 @@ let impoundChanged = false;
 // TEMP CONFIG OF JOBS
 const PoliceJobs = {
   ['police_nationale']: true,
-  ['police']: true,
+  ['gendarmerie_nationale']: true,
   ['lspd']: true,
   ['bcso']: true,
   ['sast']: true,
