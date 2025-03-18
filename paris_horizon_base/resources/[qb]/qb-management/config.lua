@@ -46,7 +46,7 @@ Config.BossMenus = {
     police_nationale = {
         vector3(379.28, -1625.72, 33.54),
     },
-    samu75 = {
+    samu_75 = {
         vector3(-1845.68, -348.49, 83.83),
     },
     concessionnaire = {
@@ -55,7 +55,7 @@ Config.BossMenus = {
     xpo = {
         vector3(1210.12, -3254.59, 7.09),
     },
-    gendarmerie = {
+    gendarmerie_nationale = {
         vector3(2495.34, -424.42, 98.89),
     },
     vigneron = {
