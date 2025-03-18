@@ -82,10 +82,10 @@ Config.Locations = {
     scale = 0.7,
 },
 [12] = {
-    vector = vector3(-812.7, 6173.64, 21.83), 
-    text = "Gendarmerie", 
+    vector = vector3(1200.99, -1470.56, 34.69), 
+    text = "Pompier de Paris", 
     color = 0, 
-    sprite = 110, 
+    sprite = 436, 
     scale = 0.7,
 },
 [13] = {
@@ -123,13 +123,7 @@ Config.Locations = {
     sprite = 474, 
     scale = 0.7,
 },
-[18] = {
-    vector = vector3(1200.99, -1470.56, 34.69), 
-    text = "Pompier de Paris", 
-    color = 0, 
-    sprite = 436, 
-    scale = 0.7,
-},
+
 
 -- Example 
 -- [[
