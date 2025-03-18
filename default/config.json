@@ -24,9 +24,9 @@
     "onJoinCheckBan": true,
     "whitelistMode": "approvedLicense",
     "whitelistedDiscordRoles": [],
-    "whitelistRejectionMessage": "Please join http://discord.gg/example and request to be whitelisted.",
+    "whitelistRejectionMessage": "🚀 Serveur de DEV Paris Horizon 🚀 \n\n🔗 Rejoignez-nous ici : https://discord.gg/PFxbMHgSzs\n📋 Préparez-vous à vivre une expérience RP unique !\n\n🚀 Ne manquez pas l'opportunité de faire partie de notre aventure !",
     "requiredBanHwidMatches": 1,
-    "banRejectionMessage": "You can join http://discord.gg/example to appeal this ban."
+    "banRejectionMessage": "🚀 Serveur de DEV Paris Horizon 🚀 \n\n🔗 Rejoignez-nous ici : https://discord.gg/PFxbMHgSzs\n📋 Préparez-vous à vivre une expérience RP unique !\n\n🚀 Ne manquez pas l'opportunité de faire partie de notre aventure !"
   },
   "webServer": {
     "disableNuiSourceCheck": false
