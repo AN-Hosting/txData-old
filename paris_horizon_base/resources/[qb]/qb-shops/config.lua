@@ -121,6 +121,7 @@ Config.Products = {
         { name = 'armor',               price = 0, amount = 50 },
         { name = 'radio',               price = 0, amount = 50 },
         { name = 'heavyarmor',          price = 0, amount = 50 },
+        { name = 'bouclier',          price = 0, amount = 50 },
     },
     ['ambulance'] = {
         { name = 'radio',                   price = 0, amount = 50 },
