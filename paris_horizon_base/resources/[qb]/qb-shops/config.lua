@@ -114,6 +114,7 @@ Config.Products = {
         { name = 'smg_ammo',            price = 0, amount = 50 },
         { name = 'shotgun_ammo',        price = 0, amount = 50 },
         { name = 'rifle_ammo',          price = 0, amount = 50 },
+        { name = 'weapon_prolaser4',    price = 0, amount = 50 },
         { name = 'handcuffs',           price = 0, amount = 50 },
         { name = 'empty_evidence_bag',  price = 0, amount = 50 },
         { name = 'police_stormram',     price = 0, amount = 50 },
