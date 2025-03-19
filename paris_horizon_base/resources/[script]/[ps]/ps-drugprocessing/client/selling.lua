@@ -193,17 +193,18 @@ local function SellDrugs(ped)
             local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(coords.x, coords.y, coords.z))
             
             -- Envoyer l'alerte via ps-dispatch
-            exports['ps-dispatch']:CustomAlert({
-                coords = coords,
-                message = "Vente de stupéfiants suspectée",
-                dispatchCode = "10-31",
-                description = "Vente de drogue signalée à " .. streetName,
-                radius = 50.0,
-                sprite = 51,
-                color = 1,
-                scale = 1.0,
-                length = 3,
-            })
+            -- exports['ps-dispatch']:CustomAlert({
+            --     coords = coords,
+            --     message = "Vente de stupéfiants suspectée",
+            --     dispatchCode = "10-31",
+            --     description = "Vente de drogue signalée à " .. streetName,
+            --     radius = 50.0,
+            --     sprite = 51,
+            --     color = 1,
+            --     scale = 1.0,
+            --     length = 3,
+            -- })
+            exports['ps-dispatch']:DrugSale()
             
             -- Notification au joueur
             QBCore.Functions.Notify("Quelqu'un a prévenu les forces de l'ordre!", "error")
