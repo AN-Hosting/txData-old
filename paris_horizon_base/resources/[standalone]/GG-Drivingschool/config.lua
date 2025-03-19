@@ -3,10 +3,10 @@ local QBCore = exports['qb-core']:GetCoreObject()
 Config = {}
 
 Config.Framework = 'qb-core'    -- your framework name here
-Config.Inventory = 'qb'         -- your inventory script here 'qb' - for 'qb-inventory' | 'ox' - for'ox_inventory'
-Config.Target = 'qb'            -- your target script name here 'qb' - for 'qb-target' | 'ox' - for 'ox_target' | 'interact' for world interaction
+Config.Inventory = 'ox'         -- your inventory script here 'qb' - for 'qb-inventory' | 'ox' - for'ox_inventory'
+Config.Target = 'ox'            -- your target script name here 'qb' - for 'qb-target' | 'ox' - for 'ox_target' | 'interact' for world interaction
 
-Config.startingped = vector4(56.64, -1591.81, 29.71, 139.06)
+Config.startingped = vector4(240.38, -1379.77, 33.74, 140.28)
 Config.MaxErrors       = 5
 Config.SpeedMultiplier =  3.6
 
@@ -17,7 +17,7 @@ Config.SpeedLimits = {
 }
 
 Config.Vehicles = 'blista'
-Config.FuelScript = 'LegacyFuel'
+Config.FuelScript = 'ox_fuel'
 Config.TestCost = 1000
 
 Config.Zones = {
@@ -29,7 +29,7 @@ Config.Zones = {
 Config.CheckPoints = {
 
 	{
-		Pos = {x = 33.37, y = -1607.27, z = 29.27},
+		Pos = {x = 255.139, y = -1400.731, z = 29.537},
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			QBCore.Functions.Notify('Next Point Speed - '..Config.SpeedLimits['residence'].." ", "success", 2500)
 		end

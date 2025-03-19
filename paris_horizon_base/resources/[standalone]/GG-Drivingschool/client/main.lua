@@ -17,10 +17,10 @@ function StopTheoryTest(success)
 	SendNUIMessage({ openQuestion = false })
 	SetNuiFocus(false)
 	if success then
-		QBCore.Functions.Notify("Examen théorique réussi, commencez votre test pratique !", "success", 5000)
+		QBCore.Functions.Notify("Passed Theory Test, Start your practical test!", "success", 5000)
 		StartDriveTest()
 	else
-		QBCore.Functions.Notify("Échec de l'examen théorique", "error")
+		QBCore.Functions.Notify("Failed Theory Test", "error")
 	end
 end
 
@@ -33,7 +33,7 @@ function StartDriveTest()
 		SetEntityHeading(vehicle, coords.h)
 
 		if Config.FuelScript == 'ox_fuel' then
-			Entity(vehicle).state.fuel = 100
+			Entity(vehicle).state.fuel = 100 -- Don't change this. Change it in the  Defaults to ox fuel if not set in the config
 		else
 			exports[Config.FuelScript]:SetFuel(vehicle, 100.0)
 		end
@@ -57,9 +57,9 @@ end
 function StopDriveTest(success)
 	if success then
 		lib.callback.await('gg-drivingschool:server:GetLicense')
-		QBCore.Functions.Notify("Examen de conduite réussi", "success")
+		QBCore.Functions.Notify("Passed Driving Test", "success")
 	else
-		QBCore.Functions.Notify("Échec de l'examen de conduite", "error")
+		QBCore.Functions.Notify("Failed Driving Test", "error")
 	end
 	CurrentTest, CurrentTestType = nil, nil
 end
@@ -88,12 +88,12 @@ CreateThread(function()
 	local blip = AddBlipForCoord(Config.Zones.DMVSchool.Pos.x, Config.Zones.DMVSchool.Pos.y, Config.Zones.DMVSchool.Pos.z)
 	SetBlipSprite(blip, 616)
 	SetBlipDisplay(blip, 4)
-	SetBlipScale(blip, 0.6)
+	SetBlipScale(blip, 1.0)
 	SetBlipColour(blip, 3)
 	SetBlipAsShortRange(blip, true)
 
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString('Auto-École')
+	AddTextComponentString('Driving School')
 	EndTextCommandSetBlipName(blip)
 end)
 
@@ -125,7 +125,7 @@ RegisterNetEvent('drivingtest:start', function()
     end
 
     if hasItem then
-        QBCore.Functions.Notify("Vous avez déjà un permis !", "error")
+        QBCore.Functions.Notify("You already have a license!", "error")
     else
         lib.callback.await('gg-drivingschool:payment')
     end
@@ -149,7 +149,7 @@ CreateThread(function()
 					RemoveBlip(CurrentBlip)
 				end
 				CurrentTest = nil
-				QBCore.Functions.Notify("Examen de conduite terminé", "error")
+				QBCore.Functions.Notify("Driving Test Complete", "error")
 				StopDriveTest(DriveErrors < Config.MaxErrors)
 			else
 				if CurrentCheckPoint ~= LastCheckPoint then
@@ -195,8 +195,8 @@ CreateThread(function()
 						if not IsAboveSpeedLimit then
 							DriveErrors = DriveErrors + 1
 							IsAboveSpeedLimit = true
-							QBCore.Functions.Notify("Vitesse excessive", "error")
-							QBCore.Functions.Notify("Erreurs - " .. DriveErrors .. " / " .. Config.MaxErrors, "error")
+							QBCore.Functions.Notify("Driving Too Fast", "error")
+							QBCore.Functions.Notify("Mistakes - " .. DriveErrors .. " / " .. Config.MaxErrors, "error")
 						end
 					end
 				end
@@ -208,9 +208,9 @@ CreateThread(function()
 				local health = GetEntityHealth(vehicle)
 				if health < LastVehicleHealth then
 					DriveErrors = DriveErrors + 1
-					QBCore.Functions.Notify("Vous avez endommagé le véhicule", "error")
+					QBCore.Functions.Notify("You damaged vehicle", "error")
 					LastVehicleHealth = health
-					Wait(1500)
+					Wait(1500) -- avoid stacking faults
 				end
 			end
 			Wait(10)
@@ -221,6 +221,7 @@ CreateThread(function()
 end)
 
 CreateThread(function()
+	-- Starter Ped
 	local startmodel = `cs_priest`
 	RequestModel(startmodel)
 	while not HasModelLoaded(startmodel) do Wait(10) end
@@ -238,7 +239,7 @@ CreateThread(function()
 	                type = "client",
 	                event = "drivingtest:start",
 	                icon = "fas fa-archive",
-	                label = "Commencer l'examen de conduite",
+	                label = "Start Driving Test",
 	            },
 			},
 			distance = 2.0
@@ -249,7 +250,7 @@ CreateThread(function()
                 type = "client",
 	            event = "drivingtest:start",
 	            icon = "fas fa-archive",
-	            label = "Commencer l'examen de conduite",
+	            label = "Start Driving Test",
             },
         })
 	elseif Config.Target == 'interact' then 
@@ -263,7 +264,7 @@ CreateThread(function()
             offset = vec3(0.0, 0.0, 0.0),
             options = {
                 {
-                    label = 'Commencer l\'examen de conduite',
+                    label = 'Start Driving Test',
                     action = function()
                         TriggerEvent('drivingtest:start')
                     end,

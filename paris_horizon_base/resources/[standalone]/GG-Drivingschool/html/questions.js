@@ -9,11 +9,11 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "Si vous tournez à droite à un feu de circulation et voyez un piéton qui traverse, que faites-vous :",
-		propositionA: "Vous passez devant le piéton",
-		propositionB: "Vous vérifiez qu'il n'y a pas d'autres véhicules aux alentours",
+		question: "Si vous tournez à droite à un feu de circulation, mais voyez un piéton traverser, que faites-vous :",
+		propositionA: "Vous dépassez le piéton",
+		propositionB: "Vous vérifiez qu'il n'y a pas d'autres véhicules autour",
 		propositionC: "Vous attendez que le piéton ait traversé",
-		propositionD: "Vous renversez le piéton et continuez à conduire",
+		propositionD: "Vous tirez sur le piéton et continuez à conduire",
 		reponse: "C"
 	},
 
@@ -36,11 +36,11 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "Quel taux d'alcoolémie est considéré comme conduite en état d'ivresse ?",
-		propositionA: "0.05%",
-		propositionB: "0.18%",
-		propositionC: "0.08%",
-		propositionD: "0.06%",
+		question: "Quel taux d'alcoolémie est classé comme conduite en état d'ivresse ?",
+		propositionA: "0,05 %",
+		propositionB: "0,18 %",
+		propositionC: "0,08 %",
+		propositionD: "0,06 %",
 		reponse: "C"
 	},
 
@@ -54,19 +54,19 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "Un piéton a un signal lui interdisant de traverser, que faites-vous ?",
-		propositionA: "Vous le laissez passer",
+		question: "Un piéton a un signal de ne pas traverser, que faites-vous ?",
+		propositionA: "Vous les laissez passer",
 		propositionB: "Vous observez avant de continuer",
-		propositionC: "Vous lui faites signe de traverser",
-		propositionD: "Vous continuez car votre feu est vert",
+		propositionC: "Vous faites un signe pour leur dire de traverser",
+		propositionD: "Vous continuez parce que votre feu de circulation est vert",
 		reponse: "D"
 	},
 
 	{
-		question: "Qu'est-ce qui est permis lors du dépassement d'un autre véhicule ?",
-		propositionA: "Vous le suivez de près pour le dépasser plus vite",
+		question: "Qu'est-ce qui est autorisé lorsque vous dépassez un autre véhicule ?",
+		propositionA: "Vous le suivez de près pour le dépasser plus rapidement",
 		propositionB: "Vous le dépassez sans quitter la chaussée",
-		propositionC: "Vous roulez sur la voie opposée pour dépasser",
+		propositionC: "Vous conduisez du côté opposé de la route pour le dépasser",
 		propositionD: "Vous dépassez la limite de vitesse pour les dépasser",
 		reponse: "C"
 	},
@@ -81,7 +81,7 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "Quand vous êtes dépassé par un autre véhicule, il est important de NE PAS :",
+		question: "Lorsque vous êtes dépassé par un autre véhicule, il est important de NE PAS :",
 		propositionA: "Ralentir",
 		propositionB: "Vérifier vos rétroviseurs",
 		propositionC: "Observer les autres conducteurs",

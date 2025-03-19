@@ -10,7 +10,7 @@ lib.callback.register('gg-drivingschool:payment', function(source)
         xPlayer.Functions.RemoveMoney('bank', Config.TestCost)
         TriggerClientEvent('gg-drivingschool:paymentSuccess', src)
     else
-        TriggerClientEvent('QBCore:Notify', src, "Pas assez d'argent", "error")
+        TriggerClientEvent('QBCore:Notify', src, "Not enough money", "error")
     end
 end)
 
