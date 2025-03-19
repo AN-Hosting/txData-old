@@ -178,7 +178,7 @@ local function SellDrugs(ped)
     end
 
     -- Chance de refus
-    if math.random(1, 100) <= 15 then
+    if math.random(1, 100) <= 30 then
         local refusalMessages = {
             "Non merci, je ne suis pas intéressé...",
             "Laisse-moi tranquille !",
@@ -187,7 +187,7 @@ local function SellDrugs(ped)
         QBCore.Functions.Notify(refusalMessages[math.random(#refusalMessages)], "error")
         
         -- Chance d'appeler la police (de 20% à 10%)
-        if math.random(1, 100) <= 10 then
+        if math.random(1, 100) <= 50 then
             -- Obtenir la position et le nom de la rue
             local coords = GetEntityCoords(PlayerPedId())
             local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(coords.x, coords.y, coords.z))

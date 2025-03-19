@@ -21,4 +21,4 @@ function DrugSale(coords)
     TriggerServerEvent('ps-dispatch:server:notify', data)
 end
 
-exports('DrugSale', DrugSale) 
+exports('DrugSale', DrugSale)
