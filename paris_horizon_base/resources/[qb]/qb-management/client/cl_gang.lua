@@ -233,6 +233,13 @@ CreateThread(function()
                             label = Lang:t('targetgang.label'),
                             canInteract = function() return gang == PlayerGang.name and PlayerGang.isboss end,
                         },
+                        {
+                            type = 'server',
+                            event = 'qb-gangmenu:server:stash2',
+                            icon = 'fas fa-box-open',
+                            label = 'Ouvrir Coffre',
+                            canInteract = function() return gang == PlayerGang.name end,
+                        },
                     },
                     distance = 2.5
                 })
