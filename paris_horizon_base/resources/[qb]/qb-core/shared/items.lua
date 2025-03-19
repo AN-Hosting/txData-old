@@ -27,7 +27,7 @@ QBShared.Items = {
     weapon_stone_hatchet         = { name = 'weapon_stone_hatchet', label = 'Hachette en pierre', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_stone_hatchet.png', unique = true, useable = true, description = 'Hachette en pierre' },
     weapon_candycane             = { name = 'weapon_candycane',     label = 'Canne en sucre dorge', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_candycane.png', unique = true, useable = true, description = 'Canne en sucre dorge' },
     weapon_prolaser4             = { name = 'weapon_prolaser4',     label = 'Pistolet Radar', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_prolaser4.png', unique = true, useable = true, description = '...' },
-
+    
     
 -- Pistolets
     weapon_pistol                = { name = 'weapon_pistol', label = 'Walther P99', weight = 1000, type = 'weapon', ammotype = 'AMMO_PISTOL', image = 'weapon_pistol.png', unique = true, useable = false, description = 'Une petite arme à feu conçue pour être tenue d\'une seule main' },
@@ -256,6 +256,7 @@ QBShared.Items = {
     trojan_usb                   = { name = 'trojan_usb', label = 'USB Trojan', weight = 0, type = 'item', image = 'usb_device.png', unique = false, useable = false, shouldClose = true, description = 'Un logiciel pratique pour désactiver certains systèmes.' },
     screwdriverset               = { name = 'screwdriverset', label = 'Kit d\'Outils', weight = 1000, type = 'item', image = 'screwdriverset.png', unique = false, useable = false, shouldClose = false, description = 'Très utile pour visser... des vis bien sûr !' },
     drill                        = { name = 'drill', label = 'Perceuse', weight = 20000, type = 'item', image = 'drill.png', unique = false, useable = false, shouldClose = false, description = 'L\'outil ultime pour un travail bien fait.' },
+    bouclier                        = { name = 'bouclier', label = 'Bouclier Gendarmerie', weight = 1000, type = 'item', image = 'bouclier.png', unique = false, useable = true, shouldClose = true, description = '...' },
 
     -- Outils pour Véhicules
     nitrous                      = { name = 'nitrous', label = 'Nitro', weight = 1000, type = 'item', image = 'nitrous.png', unique = false, useable = true, shouldClose = true, description = 'Accélère à fond, appuie sur la pédale de gaz ! :D' },
