@@ -218,7 +218,7 @@ CreateThread(function()
         for job, zones in pairs(Config.BossMenus) do
             for index, coords in ipairs(zones) do
                 local zoneName = job .. '_bossmenu_' .. index
-                exports['qb-target']:AddCircleZone(zoneName, coords, 0.5, {
+                exports['qb-target']:AddCircleZone(zoneName, coords, 0.9, {
                     name = zoneName,
                     debugPoly = false,
                     useZ = true

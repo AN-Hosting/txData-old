@@ -220,7 +220,7 @@ CreateThread(function()
         for gang, zones in pairs(Config.GangMenus) do
             for index, coords in ipairs(zones) do
                 local zoneName = gang .. '_gangmenu_' .. index
-                exports['qb-target']:AddCircleZone(zoneName, coords, 0.5, {
+                exports['qb-target']:AddCircleZone(zoneName, coords, 0.9, {
                     name = zoneName,
                     debugPoly = false,
                     useZ = true

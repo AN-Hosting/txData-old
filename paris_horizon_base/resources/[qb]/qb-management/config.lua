@@ -83,7 +83,7 @@ Config.GangMenus = {
         vector3(1235.22, -2210.43, 58.38),
     },
     roubaix = {
-        vector3(1358.1, 6597.65, 30.42),
+        vector3(1359.04, 6597.87, 30.41),
     },
     leslopezz = {
         vector3(-1612.24, -918.34, 9.57),
