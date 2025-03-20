@@ -32,7 +32,7 @@ Citizen.CreateThread(function()
             if (HasPedBeenDamagedByWeapon(myPed, GetHashKey("WEAPON_UNARMED"), 0) )then
                 -- Health to be knocked out
                 if GetEntityHealth(myPed) < 145 then
-                    SetPlayerInvincible(PlayerId(), false)
+                    SetPlayerInvincible(PlayerId(), true)
                     -- Position taken by your Ped
 					SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
 					--  Effect 
@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
 		
 		if knockedOut == true then		
 			--Your ped is able to die
-			SetPlayerInvincible(PlayerId(), false)
+			SetPlayerInvincible(PlayerId(), true)
 			DisablePlayerFiring(PlayerId(), true)
 			SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
 			ResetPedRagdollTimer(myPed)
