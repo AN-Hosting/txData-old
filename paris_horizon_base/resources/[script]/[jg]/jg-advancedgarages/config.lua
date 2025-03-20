@@ -69,6 +69,12 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     distance = 8,
     type = "car"
   },
+  ['Parking Centre Ville'] = { -- If you change the name of this garage from Legion Square, you must change the default value of `garage_id` to the same name in the SQL table `players_vehicles`
+    coords = vector3(482.36, -1094.01, 29.4),
+    spawn = vector4(486.02, -1097.17, 29.2, 88.25),
+    distance = 8,
+    type = "car"
+  },
   ['Parking Aeroport'] = { -- If you change the name of this garage from Legion Square, you must change the default value of `garage_id` to the same name in the SQL table `players_vehicles`
   coords = vector3(-832.16, -2351.32, 14.57),
   spawn = vector4(-829.8, -2356.59, 14.57, 330.19),
@@ -388,7 +394,7 @@ Config.GangGarageLocations = { -- IMPORTANT - Every garage name must be unique
 
 -- Impound
 Config.ImpoundCommand = "fourriere"
-Config.ImpoundJobRestriction = {"leo"}
+Config.ImpoundJobRestriction = {"leo", "mechanic"}
 Config.ImpoundShowBlips = true
 Config.ImpoundBlipId = 317
 Config.ImpoundBlipColour = 17

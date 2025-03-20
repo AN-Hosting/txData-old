@@ -108,13 +108,6 @@ Config.TargetBones = {
                 label = "Sortir du véhicules",
             },
             {
-                type = "command",
-                event = "fourriere",
-                icon = "fas fa-car",
-                label = "Mettre en fourriére",
-                jobType = "leo",
-            },
-            {
                 type = "client",
                 event = "qb-trunk:client:GetIn",
                 icon = "fas fa-user-secret",
@@ -153,6 +146,24 @@ Config.GlobalPedOptions = {
 }
 
 Config.GlobalVehicleOptions = {
+	options = {
+		{
+			type = "command",
+			event = "fourriere",
+			icon = "fas fa-car",
+			label = "Mettre en fourriére",
+			jobType = "leo",
+		},
+		{
+			type = "command",
+			event = "fourriere",
+			icon = "fas fa-car",
+			label = "Mettre en fourriére",
+			jobType = "mechanic",
+		},
+	
+	},
+	distance = 2.5,
 
 }
 
