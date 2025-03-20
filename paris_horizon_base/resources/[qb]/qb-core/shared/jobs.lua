@@ -22,6 +22,19 @@ QBShared.Jobs = {
 			} 
 		} 
 	},
+	maisonette10 = { 
+		label = 'Maisonette 10', 
+		defaultDuty = true, 
+		offDutyPay = true, 
+		grades = {
+		['0'] = { name = 'DJ', payment = 1500 },
+		['1'] = { name = 'Videur', payment = 1700 },
+		['2'] = { name = 'Barman', payment = 1900 },
+		['3'] = { name = 'Responsable Communication', payment = 2100 },
+		['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+		['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
+	},
+},
 	police_nationale = {
 		label = 'Police Nationale',
 		type = 'leo',
@@ -45,7 +58,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Ouvrier  ', payment = 1700 },
 			['2'] = { name = 'Préparateur  ', payment = 1900 },
 			['3'] = { name = 'Responsable de Vente  ', payment = 2100 },
-			['4'] = { name = 'Patron  ', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	mairie = {
@@ -110,7 +124,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Agent Immobilier', payment = 1700 },
 			['2'] = { name = 'Conseiller Immobilier', payment = 1900 },
 			['3'] = { name = 'Responsable des Ventes', payment = 2100 },
-			['4'] = { name = 'PDG ORPI', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	taxi = {
@@ -122,7 +137,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Chauffeur Taxi', payment = 1700 },
 			['2'] = { name = 'Chauffeur Expérimenté', payment = 1900 },
 			['3'] = { name = 'Responsable de Flotte', payment = 2100 },
-			['4'] = { name = 'Patron ', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	concessionnaire = {
@@ -134,7 +150,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Vendeur ', payment = 1700 },
 			['2'] = { name = 'Conseiller Commercial', payment = 1900 },
 			['3'] = { name = 'Responsable des Ventes', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	norauto = {
@@ -147,7 +164,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Mécanicien ', payment = 1700 },
 			['2'] = { name = 'Mécanicien Confirmé', payment = 1900 },
 			['3'] = { name = 'Chef d\'Atelier', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	midas = {
@@ -160,7 +178,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Mécanicien ', payment = 1700 },
 			['2'] = { name = 'Technicien Automobile', payment = 1900 },
 			['3'] = { name = 'Chef d\'Atelier', payment = 2100 },
-			['4'] = { name = 'Directeur ', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	vinci = {
@@ -173,7 +192,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Chef d\'Equipe', payment = 1700 },
 			['2'] = { name = 'Conducteur de Travaux', payment = 1900 },
 			['3'] = { name = 'Responsable de Chantier', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	otacos = {
@@ -186,7 +206,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Employé ', payment = 1700 },
 			['2'] = { name = 'Chef de Cuisine', payment = 1900 },
 			['3'] = { name = 'Responsable de Salle', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	kfc = {
@@ -199,7 +220,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Employé Polyvalent', payment = 1700 },
 			['2'] = { name = 'Chef de Cuisine', payment = 1900 },
 			['3'] = { name = 'Manager ', payment = 2100 },
-			['4'] = { name = 'Directeur ', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	pizza = {
@@ -212,7 +234,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Employé Polyvalent', payment = 1700 },
 			['2'] = { name = 'Chef de Cuisine', payment = 1900 },
 			['3'] = { name = 'Manager ', payment = 2100 },
-			['4'] = { name = 'Directeur ', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	avocats_de_paris = {
@@ -225,7 +248,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Avocat Junior', payment = 1700 },
 			['2'] = { name = 'Avocat Confirmé', payment = 1900 },
 			['3'] = { name = 'Associé du Cabinet ', payment = 2100 },
-			['4'] = { name = 'Bâtonnier', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	vigneron = {
@@ -238,7 +262,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Vigneron', payment = 1700 },
 			['2'] = { name = 'Responsable de Production', payment = 1900 },
 			['3'] = { name = 'Responsable des Ventes', payment = 2100 },
-			['4'] = { name = 'Propriétaire', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	brinks = {
@@ -251,7 +276,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Convoyeur de Fonds', payment = 1700 },
 			['2'] = { name = 'Chef d\'Équipe', payment = 1900 },
 			['3'] = { name = 'Responsable Logistique', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	burgerking = {
@@ -264,7 +290,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Employé Polyvalent', payment = 1700 },
 			['2'] = { name = 'Chef de Cuisine', payment = 1900 },
 			['3'] = { name = 'Manager / Responsable', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	tf1 = {
@@ -277,7 +304,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Journaliste', payment = 1700 },
 			['2'] = { name = 'Rédacteur en Chef', payment = 1900 },
 			['3'] = { name = 'Directeur des Programmes', payment = 2100 },
-			['4'] = { name = 'Directeur Général', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	dir = {
@@ -290,7 +318,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Chef d\'Équipe', payment = 1700 },
 			['2'] = { name = 'Responsable de Secteur', payment = 1900 },
 			['3'] = { name = 'Directeur des Travaux', payment = 2100 },
-			['4'] = { name = 'Directeur Général DIR', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	casino = {
@@ -303,7 +332,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Agent de Sécurité', payment = 1700 },
 			['2'] = { name = 'Responsable des Jeux', payment = 1900 },
 			['3'] = { name = 'Directeur de Salle', payment = 2100 },
-			['4'] = { name = 'Propriétaire ', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 	xpo = {
@@ -316,7 +346,8 @@ QBShared.Jobs = {
 			['1'] = { name = 'Conducteur Poids-Lourd', payment = 1700 },
 			['2'] = { name = 'Chef d\'Équipe Logistique', payment = 1900 },
 			['3'] = { name = 'Responsable d\'Entrepôt', payment = 2100 },
-			['4'] = { name = 'Directeur', isboss = true, payment = 2500 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },	
 		},
 	},
 }
