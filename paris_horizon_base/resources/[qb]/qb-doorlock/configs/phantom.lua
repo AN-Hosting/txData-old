@@ -11,7 +11,7 @@ Config.DoorList['phantom-phantom'] = {
     objName = -1188593556,
     doorType = 'garage',
     objYaw = 117.1820526123,
-    distance = 6,
+    distance = 4,
 }
 
 -- phantom2 créer par Minox
@@ -25,7 +25,7 @@ Config.DoorList['phantom-phantom2'] = {
     objName = -1188593556,
     doorType = 'garage',
     objYaw = 117.1820526123,
-    distance = 6,
+    distance = 4,
 }
 
 -- phantom3 créer par Minox
@@ -39,7 +39,7 @@ Config.DoorList['phantom-phantom3'] = {
     objName = -2023754432,
     doorType = 'door',
     objYaw = 297.1820678711,
-    distance = 6,
+    distance = 2,
 }
 
 -- phantom4 créer par Minox
@@ -53,7 +53,7 @@ Config.DoorList['phantom-phantom4'] = {
     objName = -88942360,
     doorType = 'door',
     objYaw = 117.1820526123,
-    distance = 6,
+    distance = 2,
 }
 
 -- phantom5 créer par Minox
@@ -67,5 +67,5 @@ Config.DoorList['phantom-phantom5'] = {
     objName = -1020799246,
     doorType = 'door',
     objYaw = 27.182071685792,
-    distance = 6,
+    distance = 2,
 }
