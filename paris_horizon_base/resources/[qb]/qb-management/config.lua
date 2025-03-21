@@ -17,7 +17,7 @@ Config.BossMenus = {
         vector3(-347.59, -133.35, 39.01),
     },
     midas = {
-        vector3(-929.91, -2029.14, 9.41),
+        vector3(-810.81, -412.51, 36.51),
     }, 
     burgerking = {
         vector3(67.4, -806.68, 31.52),
@@ -70,11 +70,14 @@ Config.BossMenus = {
     pompiers_de_paris = {
         vector3(1204.08, -1488.74, 42.37)
     },
+    maisonette10 = {
+        vector3(-390.88, 201.58, 83.65)
+    },
 }
 
 Config.GangMenus = {
     barbes = {
-        vector3(-308.77, -1619.8, 57.13),
+        vector3(-297.25, -1626.76, 41.74),
     },
     felixpyat = {
         vector3(905.6, 764.99, 201.09),
