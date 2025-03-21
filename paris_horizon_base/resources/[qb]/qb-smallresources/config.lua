@@ -502,4 +502,16 @@ Config.ServiceCommands = {
     concessionnaire = '118',
     taxi = '119',
     orpi = '120'
+    tabac = '121'
+    burgerking = '122'
+    kfc = '123'
+    otacas = '124'
+    norauto = '125'
+    midas = '126'
+    Dir = '127'
+    Vinci = '128'
+    XPO Logistics = '129'
+    TF1 = '130'
+    Vigneron = '131'
+    Pizza = '132'
 }
