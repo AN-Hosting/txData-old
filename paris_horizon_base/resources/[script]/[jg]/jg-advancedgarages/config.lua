@@ -175,9 +175,9 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     job = "tabac",
     type = "car"
   },
-  ['Concessionnaire Cergy'] = {
-    coords = vector3(-92.72, 6506.94, 31.55),
-    spawn = vector4(-100.11, 6503.45, 31.52, 316.34),
+  ['Concessionnaire Centre'] = {
+    coords = vector3(-181.17, -1179.74, 23.12),
+    spawn = vector4(-186.92, -1182.8, 22.98, 86.82),
     distance = 5,
     job = "concessionnaire",
     type = "car"
@@ -348,42 +348,42 @@ Config.GangGarageRemoveVehicleCommand = "removegangvehicle" -- admin only
 Config.GangGarageUniqueBlips = false
 Config.GangGarageLocations = { -- IMPORTANT - Every garage name must be unique
   ['Cité Barbes'] = {
-    coords = vector3(-215.75, -1555.13, 34.14),
-    spawn = vector4(-215.75, -1555.13, 34.14, 323.46),
+    coords = vector3(-208.62, -1547.1, 34.17),
+    spawn = vector4(-216.28, -1550.31, 33.81, 133.46),
     distance = 15,
     gang = "barbes",
     type = "car"
   },
   ['Cité Belleville'] = {
-    coords = vector3(1189.81, -2251.54, 45.34),
+    coords = vector3(1186.32, -2247.75, 45.34),
     spawn = vector4(1189.81, -2251.54, 45.34, 240.55),
     distance = 15,
     gang = "belleville",
     type = "car"
   },
   ['Cité Felix Pyat'] = {
-    coords = vector3(846.4, 789.06, 188.01),
+    coords = vector3(846.08, 785.65, 188.16),
     spawn = vector4(846.4, 789.06, 188.01, 359.94),
     distance = 15,
     gang = "felixpyat",
     type = "car"
   },
   ['Les Lopezz'] = {
-    coords = vector3(-1600.14, -909.27, 9.12),
+    coords = vector3(-1605.11, -910.83, 9.04),
     spawn = vector4(-1600.14, -909.27, 9.12, 57.16),
     distance = 15,
     gang = "leslopezz",
     type = "car"
   },
   ['Cité Roubaix'] = {
-    coords = vector3(1372.15, 6580.49, 17.14),
+    coords = vector3(1368.37, 6580.98, 17.27),
     spawn = vector4(1372.15, 6580.49, 17.14, 248.97),
     distance = 15,
     gang = "roubaix",
     type = "car"
   },
   ['Cité Evry'] = {
-    coords = vector3(2036.61, 3386.92, 45.09),
+    coords = vector3(2037.14, 3384.31, 45.27),
     spawn = vector4(2036.61, 3386.92, 45.09, 289.68),
     distance = 15,
     gang = "evry",
