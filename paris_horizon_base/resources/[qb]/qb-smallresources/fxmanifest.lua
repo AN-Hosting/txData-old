@@ -6,13 +6,16 @@ author 'Kakarot'
 description 'Various small code snippets compiled into one resource for ease of use'
 version '1.4.0'
 
+shared_script 'config.lua'
+
 shared_scripts {
     '@qb-core/shared/locale.lua',
     'locales/en.lua',
-    'locales/*.lua',
-    'config.lua'
+    'locales/*.lua'
 }
+
 server_script 'server/*.lua'
+
 client_scripts {
     '@PolyZone/client.lua',
     '@PolyZone/BoxZone.lua',
