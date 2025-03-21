@@ -345,6 +345,15 @@ Config.Jobs = {
     { job = 'police_nationale',  name = 'police_nationale', img = './img/apps/police_nationale-phone.png' },
     { job = 'taxi',  name = 'taxi', img = './img/apps/taxi-phone.png' },
     { job = 'orpi',  name = 'orpi', img = './img/apps/orpi-phone.png' },
+    { job = 'tabac',  name = 'tabac', img = './img/apps/tabac.png' },
+    { job = 'burgerking',  name = 'burgerking', img = './img/apps/burgerking.png' },
+    { job = 'kfc',  name = 'kfc', img = './img/apps/kfc.png' },
+    { job = 'otacas',  name = 'otacas', img = './img/apps/otacas.png' },
+    { job = 'Vinci',  name = 'Vinci', img = './img/apps/vinci.png' },
+    { job = 'TF1',  name = 'TF1', img = './img/apps/tf1.png' },
+    { job = 'Vigneron',  name = 'Vigneron', img = './img/apps/vigneron.png' },
+    { job = 'Pizza',  name = 'Pizza', img = './img/apps/pizza.png' },
+
 }
 
 --[[
@@ -362,6 +371,15 @@ Config.jobCommands = { -- Just enter a number here, this is the number that will
     ['concessionnaire'] = '118',
     ['taxi'] = '119',
     ['orpi'] = '120',
+    ['tabac'] = '121'
+    ['burgerking'] = '122'
+    ['kfc'] = '123'
+    ['otacas'] = '124'
+    ['Dir'] = '127'
+    ['Vinci'] = '128'
+    ['TF1'] = '130'
+    ['Vigneron'] = '131'
+    ['Pizza'] = '132'
 }
 
 --██████╗░██╗░░░██╗░██████╗██╗███╗░░██╗███████╗░██████╗░██████╗
