@@ -9,12 +9,12 @@ local Translations = {
         lockpick_success = "Succès"
     },
     general = {
-        locked = "Vérouillé",
-        unlocked = "Dévérouillé",
-        locked_button = "[E] - Vérouillé",
-        unlocked_button = "[E] - Dévérouillé",
+        locked = "Verrouiller",
+        unlocked = "Déverrouiller",
+        locked_button = "[E] - Verrouiller",
+        unlocked_button = "[E] - Déverrouiller",
         keymapping_description = "Intéragir avec les vérous de portes",
-        locked_menu = "Vérouillé",
+        locked_menu = "Verrouiller",
         pickable_menu = "Crochetable",
         distance_menu = "Distance Max",
         item_authorisation_menu = "Autorisation Objet",
