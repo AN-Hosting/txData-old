@@ -22,7 +22,7 @@ Config.CircleZones = {
 	HydrochloricAcidFarm = {coords = vector3(-1069.25, 4945.57, 212.18), name = ('Hydrochloric Acid'), radius = 100.0},
 
 	SulfuricAcidFarm = {coords = vector3(-3026.89, 3334.91, 10.04), name = ('Sulfuric Acid'), radius = 100.0},
-	SodiumHydroxideFarm = {coords = vector3(136.88, -3201.31, 5.86), name = ('Sodium Hydroxide'), radius = 100.0},
+	SodiumHydroxideFarm = {coords = vector3(634.32, -2912.9, 5.96), name = ('Sodium Hydroxide'), radius = 100.0},
 	
 	ChemicalsField = {coords = vector3(1264.97, 1803.96, 82.94), name = ('Chemicals'), radius = 100.0},
 	ChemicalsConvertionMenu = {coords = vector3(3536.71, 3662.63, 28.12), name = ('Chemicals Process'), radius = 100.0},

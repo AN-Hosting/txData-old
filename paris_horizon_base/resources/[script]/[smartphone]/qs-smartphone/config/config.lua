@@ -548,6 +548,14 @@ Config.JobsInPhone = {
         score = '5',
         duty = false,
     },
+    ['maisonette10'] = {
+        order = 23,
+        name = 'maisonette10',
+        label = 'Maisonette 10',
+        info = 'Situé au sous-sol de l\'Accor Arena de Bercy, ce lieu désormais incontournable vous offre 1400 m2 pour danser jusqu\'au bout de la nuit.',
+        score = '5',
+        duty = false,
+    },
 }
 
 -- ░█████╗░███╗░░██╗██╗░█████╗░███╗░░██╗  ░█████╗░██████╗░██████╗░
