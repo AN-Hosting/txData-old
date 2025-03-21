@@ -24,7 +24,7 @@ Config.UseOKOKBankingTransactions = true -- If set to true it will register the 
 
 Config.InvoiceDistance = 15
 
-Config.AllowPlayersInvoice = true -- if players can create Player to Player invoices
+Config.AllowPlayersInvoice = false -- if players can create Player to Player invoices
 
 Config.okokRequests = false -- Player to Player invoices only, to avoid abuse
 
@@ -32,7 +32,7 @@ Config.AuthorReceivesAPercentage = true -- When sending a society invoice
 
 Config.AuthorPercentage = 10 -- Percentage that the invoice author receives
 
-Config.VATPercentage = 20
+Config.VATPercentage = 10
 
 Config.SocietyReceivesLessWithVAT = false
 
@@ -52,7 +52,7 @@ Config.AuthorReceiveNotification = false -- If set to true it will send a notifi
 
 Config.UseAutoPay = true
 
-Config.AllowMoneyToGoNegative = false -- If set to true it will allow the player to go negative
+Config.AllowMoneyToGoNegative = true -- If set to true it will allow the player to go negative
 
 Config.DefaultLimitDate = 7 -- Days for limit pay date
 
