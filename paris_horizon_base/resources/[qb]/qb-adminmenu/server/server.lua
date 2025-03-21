@@ -2,19 +2,32 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local frozen = false
 local permissions = {
-    ['kill'] = 'admin',
+    -- Commandes Fondateur
+    ['kickall'] = 'founder',
+    ['setPermissions'] = 'founder',
+    
+    -- Commandes Administrateur
     ['ban'] = 'admin',
-    ['noclip'] = 'admin',
-    ['kickall'] = 'admin',
-    ['kick'] = 'admin',
-    ['revive'] = 'admin',
-    ['freeze'] = 'admin',
-    ['goto'] = 'admin',
-    ['spectate'] = 'admin',
-    ['intovehicle'] = 'admin',
-    ['bring'] = 'admin',
+    ['kill'] = 'admin',
     ['inventory'] = 'admin',
-    ['clothing'] = 'admin'
+    ['setmodel'] = 'admin',
+    ['setammo'] = 'admin',
+    
+    -- Commandes Modérateur
+    ['kick'] = 'moderator',
+    ['freeze'] = 'moderator',
+    ['noclip'] = 'moderator',
+    ['warn'] = 'moderator',
+    ['checkwarns'] = 'moderator',
+    ['delwarn'] = 'moderator',
+    
+    -- Commandes Helper
+    ['revive'] = 'helper',
+    ['goto'] = 'helper',
+    ['bring'] = 'helper',
+    ['spectate'] = 'helper',
+    ['intovehicle'] = 'helper',
+    ['clothing'] = 'helper'
 }
 
 function GetQBPlayers()
@@ -48,13 +61,23 @@ QBCore.Functions.CreateCallback('test:getplayers', function(_, cb) -- WORKS
     cb(players)
 end)
 
-QBCore.Functions.CreateCallback('qb-admin:isAdmin', function(src, cb) -- WORKS
-    cb(QBCore.Functions.HasPermission(src, 'admin') or IsPlayerAceAllowed(src, 'command'))
+QBCore.Functions.CreateCallback('qb-admin:isAdmin', function(src, cb)
+    cb(QBCore.Functions.HasPermission(src, 'admin') or 
+       QBCore.Functions.HasPermission(src, 'founder') or 
+       QBCore.Functions.HasPermission(src, 'moderator') or 
+       QBCore.Functions.HasPermission(src, 'helper') or 
+       IsPlayerAceAllowed(src, 'command'))
 end)
 
 QBCore.Functions.CreateCallback('qb-admin:server:getrank', function(source, cb)
-    if QBCore.Functions.HasPermission(source, 'god') or IsPlayerAceAllowed(source, 'command') then
-        cb(true)
+    if QBCore.Functions.HasPermission(source, 'founder') then
+        cb('founder')
+    elseif QBCore.Functions.HasPermission(source, 'admin') then
+        cb('admin')
+    elseif QBCore.Functions.HasPermission(source, 'moderator') then
+        cb('moderator')
+    elseif QBCore.Functions.HasPermission(source, 'helper') then
+        cb('helper')
     else
         cb(false)
     end
@@ -247,7 +270,7 @@ end)
 
 RegisterNetEvent('qb-admin:server:setPermissions', function(targetId, group)
     local src = source
-    if QBCore.Functions.HasPermission(src, 'god') or IsPlayerAceAllowed(src, 'command') then
+    if QBCore.Functions.HasPermission(src, 'founder') then
         QBCore.Functions.AddPermission(targetId, group[1].rank)
         TriggerClientEvent('QBCore:Notify', targetId, Lang:t('info.rank_level') .. group[1].label)
     else
@@ -494,7 +517,7 @@ QBCore.Commands.Add('kickall', Lang:t('commands.kick_all'), {}, false, function(
     local src = source
     if src > 0 then
         local reason = table.concat(args, ' ')
-        if QBCore.Functions.HasPermission(src, 'god') or IsPlayerAceAllowed(src, 'command') then
+        if QBCore.Functions.HasPermission(src, 'founder') then
             if reason and reason ~= '' then
                 local players = GetPlayers()
                 for _, playerId in ipairs(players) do
@@ -510,7 +533,7 @@ QBCore.Commands.Add('kickall', Lang:t('commands.kick_all'), {}, false, function(
             DropPlayer(playerId, Lang:t('info.server_restart') .. QBCore.Config.Server.Discord)
         end
     end
-end, 'god')
+end, 'founder')
 
 QBCore.Commands.Add('setammo', Lang:t('commands.ammo_amount_set'), { { name = 'amount', help = 'Amount of bullets, for example: 20' } }, false, function(source, args)
     local src = source
