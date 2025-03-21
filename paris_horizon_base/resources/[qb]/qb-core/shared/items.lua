@@ -216,7 +216,7 @@ QBShared.Items = {
     weed_brick                   = { name = 'weed_brick', label = 'Brique de Weed', weight = 1000, type = 'item', image = 'weed_brick.png', unique = false, useable = false, shouldClose = true, description = 'Une brique de 1KG de weed à vendre aux gros clients.' },
     coke_small_brick             = { name = 'coke_small_brick', label = 'Petit Paquet de Cocaïne', weight = 350, type = 'item', image = 'coke_small_brick.png', unique = true, useable = false, shouldClose = true, description = 'Un petit paquet de cocaïne, souvent utilisé pour des transactions.' },
     oxy                          = { name = 'oxy', label = 'Oxycodone', weight = 0, type = 'item', image = 'oxy.png', unique = false, useable = true, shouldClose = true, description = 'L\'étiquette a été arrachée.' },
-    meth                         = { name = 'meth', label = 'Méthamphétamine', weight = 100, type = 'item', image = 'meth_baggy.png', unique = false, useable = true, shouldClose = true, description = 'Un sachet de meth.' },
+    -- meth                         = { name = 'meth', label = 'Méthamphétamine', weight = 100, type = 'item', image = 'meth_baggy.png', unique = false, useable = true, shouldClose = true, description = 'Un sachet de meth.' },
     rolling_paper                = { name = 'rolling_paper', label = 'Feuille à Rouler', weight = 0, type = 'item', image = 'rolling_paper.png', unique = false, useable = false, shouldClose = true, description = 'Papier conçu spécialement pour rouler et fumer du tabac ou du cannabis.' },
 
     -- Graines et Weed
@@ -234,18 +234,6 @@ QBShared.Items = {
     weed_ak47_seed               = { name = 'weed_ak47_seed', label = 'Graine d\'AK47', weight = 0, type = 'item', image = 'weed_seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine d\'AK47.' },
     empty_weed_bag               = { name = 'empty_weed_bag', label = 'Sachet de Weed Vide', weight = 0, type = 'item', image = 'weed_baggy_empty.png', unique = false, useable = true, shouldClose = true, description = 'Un petit sachet vide.' },
     weed_nutrition               = { name = 'weed_nutrition', label = 'Engrais pour Plantes', weight = 2000, type = 'item', image = 'weed_nutrition.png', unique = false, useable = true, shouldClose = true, description = 'Engrais spécialement conçu pour les plantes.' },
-
-    -- Matériaux
-    plastic                      = { name = 'plastic', label = 'Plastique', weight = 100, type = 'item', image = 'plastic.png', unique = false, useable = false, shouldClose = false, description = 'Recyclez ! - Greta Thunberg 2019' },
-    metalscrap                   = { name = 'metalscrap', label = 'Débris de Métal', weight = 100, type = 'item', image = 'metalscrap.png', unique = false, useable = false, shouldClose = false, description = 'Vous pouvez probablement en faire quelque chose d\'utile.' },
-    copper                       = { name = 'copper', label = 'Cuivre', weight = 100, type = 'item', image = 'copper.png', unique = false, useable = false, shouldClose = false, description = 'Un joli morceau de métal qui peut avoir son utilité.' },
-    aluminum                     = { name = 'aluminum', label = 'Aluminium', weight = 100, type = 'item', image = 'aluminum.png', unique = false, useable = false, shouldClose = false, description = 'Un joli morceau de métal qui peut avoir son utilité.' },
-    aluminumoxide                = { name = 'aluminumoxide', label = 'Poudre d\'Aluminium', weight = 100, type = 'item', image = 'aluminumoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
-    iron                         = { name = 'iron', label = 'Fer', weight = 100, type = 'item', image = 'iron.png', unique = false, useable = false, shouldClose = false, description = 'Un morceau de métal pratique qui peut être utilisé pour diverses choses.' },
-    ironoxide                    = { name = 'ironoxide', label = 'Poudre de Fer', weight = 100, type = 'item', image = 'ironoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
-    steel                        = { name = 'steel', label = 'Acier', weight = 100, type = 'item', image = 'steel.png', unique = false, useable = false, shouldClose = false, description = 'Un matériau robuste qui peut servir à la fabrication.' },
-    rubber                       = { name = 'rubber', label = 'Caoutchouc', weight = 100, type = 'item', image = 'rubber.png', unique = false, useable = false, shouldClose = false, description = 'Du caoutchouc, vous pourriez même en faire un canard en plastique ! :D' },
-    glass                        = { name = 'glass', label = 'Verre', weight = 100, type = 'item', image = 'glass.png', unique = false, useable = false, shouldClose = false, description = 'C\'est très fragile, attention !' },
 
     -- Outils
     lockpick                     = { name = 'lockpick', label = 'Crochet', weight = 300, type = 'item', image = 'lockpick.png', unique = false, useable = true, shouldClose = true, description = 'Très utile si vous perdez souvent vos clés... ou pour autre chose.' },
@@ -757,7 +745,6 @@ QBShared.Items = {
     ruby_earring_silver         = {name = "ruby_earring_silver",    label = "Boucles d'oreilles en rubis et argent", weight = 200, type = "item",   image = "ruby_earring_silver.png",    unique = false,     useable = false,     shouldClose = false, combinable = nil,   description = "Une paire de boucles d'oreilles en argent ornées de rubis"},
     sapphire_earring_silver     = {name = "sapphire_earring_silver", label = "Boucles d'oreilles en saphir et argent", weight = 200, type = "item", image = "sapphire_earring_silver.png", unique = false,    useable = false,     shouldClose = false, combinable = nil,   description = "Une paire de boucles d'oreilles en argent ornées de saphirs"},
     emerald_earring_silver      = {name = "emerald_earring_silver", label = "Boucles d'oreilles en émeraude et argent", weight = 200, type = "item", image = "emerald_earring_silver.png", unique = false,    useable = false,     shouldClose = false, combinable = nil,   description = "Une paire de boucles d'oreilles en argent ornées d'émeraudes"},
-    carbon                      = {name = "carbon",                 label = "Carbone",                      weight = 1000,      type = "item",      image = "carbon.png",                 unique = false,     useable = false,     shouldClose = false, combinable = nil,   description = "Du carbone, un minerai de base"},
     ironore                     = {name = "ironore",                label = "Minerai de fer",               weight = 1000,      type = "item",      image = "ironore.png",                unique = false,     useable = false,     shouldClose = false, combinable = nil,   description = "Du fer, un minerai de base"},
     copperore                   = {name = "copperore",              label = "Minerai de cuivre",            weight = 1000,      type = "item",      image = "copperore.png",              unique = false,     useable = false,     shouldClose = false, combinable = nil,   description = "Du cuivre, un minerai de base"},
     goldore                     = {name = "goldore",                label = "Minerai d'or",                 weight = 1000,      type = "item",      image = "goldore.png",                unique = false,     useable = false,     shouldClose = false, combinable = nil,   description = "Du minerai d'or brut"},
@@ -913,110 +900,110 @@ QBShared.Items = {
     routebaree = { name = 'routebaree', label = 'Panneau route barrée', weight = 300, type = 'item', ammotype = nil, image = 'RouteBaree.png', unique = false, useable = true, description = 'Un panneau indiquant que la route est fermée à la circulation' },
 
     -- Jim mechanic
-    mechanic_tools              = { name = "mechanic_tools", label = "Mechanic tools", weight = 0, type = "item", image = "mechanic_tools.png", unique = true, useable = true, shouldClose = true, description = "Needed for vehicle repairs"},
-    toolbox                     = { name = "toolbox", label = "Toolbox", weight = 0, type = "item", image = "toolbox.png", unique = true, useable = true, shouldClose = true, description = "Needed for Performance part removal"},
-    ducttape                    = { name = "ducttape", label = "Duct Tape", weight = 0, type = "item", image = "bodyrepair.png", unique = true, useable = true, shouldClose = true, description = "Good for quick fixes"},
-    mechboard                   = { name = "mechboard", label = "Mechanic Sheet", weight = 0, type = "item", image = "mechboard.png", unique = true, useable = true, shouldClose = true, description = ""},
-
+    mechanic_tools              = { name = "mechanic_tools",    label = "Outils de Mécanicien", weight = 0, type = "item", image = "mechanic_tools.png", unique = true, useable = true, shouldClose = true, description = "Nécessaire pour les réparations de véhicules"},
+    toolbox                     = { name = "toolbox",           label = "Boîte à Outils", weight = 0, type = "item", image = "toolbox.png", unique = true, useable = true, shouldClose = true, description = "Nécessaire pour le démontage des pièces de performance"},
+    ducttape                    = { name = "ducttape",          label = "Ruban Adhésif", weight = 0, type = "item", image = "bodyrepair.png", unique = true, useable = true, shouldClose = true, description = "Bon pour des réparations rapides"},
+    mechboard                   = { name = "mechboard",         label = "Feuille de Mécanicien", weight = 0, type = "item", image = "mechboard.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    
     -- Nitrous/Nos
-    nos                         = { name = "nos", label = "NOS Bottle", weight = 0, type = "item", image = "nos.png", unique = true, useable = true, shouldClose = true, description = "A full bottle of NOS"},
-    noscan                      = { name = "noscan", label = "Empty NOS Bottle", weight = 0, type = "item", image = "noscan.png", unique = false, useable = true, shouldClose = true, description = "An Empty bottle of NOS"},
-    noscolour                   = { name = "noscolour", label = "NOS Colour Injector", weight = 0, type = "item", image = "noscolour.png", unique = false, useable = true, shouldClose = true, description = "Make that purge spray"},
-
-    --Performance
-    turbo                       = { name = "turbo", label = "Supercharger Turbo",	weight = 0, type = "item", image = "turbo.png", unique = true, useable = true, shouldClose = true, description = ""},
-    car_armor                   = { name = "car_armor", label = "Vehicle Armor", weight = 0, type = "item", image = "car_armour.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    engine1                     = { name = "engine1", label = "Tier 1 Engine", weight = 0, type = "item", image = "engine1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    engine2                     = { name = "engine2", label = "Tier 2 Engine", weight = 0, type = "item", image = "engine2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    engine3                     = { name = "engine3", label = "Tier 3 Engine", weight = 0, type = "item", image = "engine3.png", unique = true, useable = true, shouldClose = true, description = ""},
-    engine4                     = { name = "engine4", label = "Tier 4 Engine", weight = 0, type = "item", image = "engine4.png", unique = true, useable = true, shouldClose = true, description = ""},
-    engine5                     = { name = "engine5", label = "Tier 5 Engine", weight = 0, type = "item", image = "engine5.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    transmission1               = { name = "transmission1", label = "Tier 1 Transmission", weight = 0, type = "item", image = "transmission1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    transmission2               = { name = "transmission2", label = "Tier 2 Transmission", weight = 0, type = "item", image = "transmission2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    transmission3               = { name = "transmission3", label = "Tier 3 Transmission", weight = 0, type = "item", image = "transmission3.png", unique = true, useable = true, shouldClose = true, description = ""},
-    transmission4               = { name = "transmission4", label = "Tier 4 Transmission", weight = 0, type = "item", image = "transmission4.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    brakes1                     = { name = "brakes1", label = "Tier 1 Brakes", weight = 0, type = "item", image = "brakes1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    brakes2                     = { name = "brakes2", label = "Tier 2 Brakes", weight = 0, type = "item", image = "brakes2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    brakes3                     = { name = "brakes3", label = "Tier 3 Brakes", weight = 0, type = "item", image = "brakes3.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    suspension1                 = { name = "suspension1", label = "Tier 1 Suspension", weight = 0, type = "item", image = "suspension1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    suspension2                 = { name = "suspension2", label = "Tier 2 Suspension", weight = 0, type = "item", image = "suspension2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    suspension3                 = { name = "suspension3", label = "Tier 3 Suspension", weight = 0, type = "item", image = "suspension3.png", unique = true, useable = true, shouldClose = true, description = ""},
-    suspension4                 = { name = "suspension4", label = "Tier 4 Suspension", weight = 0, type = "item", image = "suspension4.png", unique = true, useable = true, shouldClose = true, description = ""},
-    suspension5                 = { name = "suspension5", label = "Tier 5 Suspension", weight = 0, type = "item", image = "suspension5.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    -- Tire Style Changers
-    bprooftires                 = { name = "bprooftires", label = "Bulletproof Tires", weight = 0, type = "item", image = "bprooftires.png", unique = true, useable = true, shouldClose = true, description = ""},
-    drifttires                  = { name = "drifttires", label = "Drift Tires", weight = 0, type = "item", image = "drifttires.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    -- Vehicle Extra Damage Items
-    oilp1                       = { name = "oilp1", label = "Tier 1 Oil Pump", weight = 0, type = "item", image = "oilp1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    oilp2                       = { name = "oilp2", label = "Tier 2 Oil Pump", weight = 0, type = "item", image = "oilp2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    oilp3                       = { name = "oilp3", label = "Tier 3 Oil Pump", weight = 0, type = "item", image = "oilp3.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    drives1                     = { name = "drives1", label = "Tier 1 Drive Shaft", weight = 0, type = "item", image = "drives1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    drives2                     = { name = "drives2", label = "Tier 2 Drive Shaft", weight = 0, type = "item", image = "drives2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    drives3                     = { name = "drives3", label = "Tier 3 Drive Shaft", weight = 0, type = "item", image = "drives3.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    cylind1                     = { name = "cylind1", label = "Tier 1 Cylinder Head",	weight = 0, type = "item", image = "cylind1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    cylind2                     = { name = "cylind2", label = "Tier 2 Cylinder Head",	weight = 0, type = "item", image = "cylind2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    cylind3                     = { name = "cylind3", label = "Tier 3 Cylinder Head",	weight = 0, type = "item", image = "cylind3.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    cables1                     = { name = "cables1", label = "Tier 1 Battery Cables", weight = 0, type = "item", image = "cables1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    cables2                     = { name = "cables2", label = "Tier 2 Battery Cables", weight = 0, type = "item", image = "cables2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    cables3                     = { name = "cables3", label = "Tier 3 Battery Cables", weight = 0, type = "item", image = "cables3.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    fueltank1                   = { name = "fueltank1", label = "Tier 1 Fuel Tank", weight = 0, type = "item", image = "fueltank1.png", unique = true, useable = true, shouldClose = true, description = ""},
-    fueltank2                   = { name = "fueltank2", label = "Tier 2 Fuel Tank", weight = 0, type = "item", image = "fueltank2.png", unique = true, useable = true, shouldClose = true, description = ""},
-    fueltank3                   = { name = "fueltank3", label = "Tier 3 Fuel Tank", weight = 0, type = "item", image = "fueltank3.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    antilag                     = { name = "antilag", label = "AntiLag", weight = 0, type = "item", image = "antiLag.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    --Cosmetics
-    underglow_controller        = { name = "underglow_controller", label = "Neon Controller", weight = 0, type = "item", image = "underglow_controller.png", unique = false, useable = true, shouldClose = true, description = "RGB LED Vehicle Remote"},
-    headlights                  = { name = "headlights", label = "Xenon Headlights", weight = 0, type = "item", image = "headlights.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    tint_supplies               = { name = "tint_supplies", label = "Window Tint Kit", weight = 0, type = "item", image = "tint_supplies.png", unique = false, useable = true, shouldClose = true, description = "Supplies for window tinting"},
-
-    customplate                 = { name = "customplate", label = "Customized Plates", weight = 0, type = "item", image = "plate.png", unique = true, useable = true, shouldClose = true, description = ""},
-    hood                        = { name = "hood", label = "Vehicle Hood", weight = 0, type = "item", image = "hood.png", unique = true, useable = true, shouldClose = true, description = ""},
-    roof                        = { name = "roof", label = "Vehicle Roof", weight = 0, type = "item", image = "roof.png", unique = true, useable = true, shouldClose = true, description = ""},
-    spoiler                     = { name = "spoiler", label = "Vehicle Spoiler", weight = 0, type = "item", image = "spoiler.png", unique = true, useable = true, shouldClose = true, description = ""},
-    bumper                      = { name = "bumper", label = "Vehicle Bumper", weight = 0, type = "item", image = "bumper.png", unique = true, useable = true, shouldClose = true, description = ""},
-    skirts                      = { name = "skirts", label = "Vehicle Skirts", weight = 0, type = "item", image = "skirts.png", unique = true, useable = true, shouldClose = true, description = ""},
-    exhaust                     = { name = "exhaust", label = "Vehicle Exhaust", weight = 0, type = "item", image = "exhaust.png", unique = true, useable = true, shouldClose = true, description = ""},
-    seat                        = { name = "seat", label = "Seat Cosmetics", weight = 0, type = "item", image = "seat.png", unique = true, useable = true, shouldClose = true, description = ""},
-    rollcage                    = { name = "rollcage", label = "Roll Cage", weight = 0, type = "item", image = "rollcage.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    rims                        = { name = "rims", label = "Custom Wheel Rims", weight = 0, type = "item", image = "rims.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    livery                      = { name = "livery", label = "Livery Roll", weight = 0, type = "item", image = "livery.png", unique = true, useable = true, shouldClose = true, description = ""},
-    paintcan                    = { name = "paintcan", label = "Vehicle Spray Can", weight = 0, type = "item", image = "spraycan.png", unique = true, useable = true, shouldClose = true, description = ""},
-    tires                       = { name = "tires", label = "Drift Smoke Tires",	weight = 0, type = "item", image = "tires.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    horn                        = { name = "horn", label = "Custom Vehicle Horn",	weight = 0, type = "item", image = "horn.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    internals                   = { name = "internals", label = "Internal Cosmetics",	weight = 0, type = "item", image = "internals.png", unique = true, useable = true, shouldClose = true, description = ""},
-    externals                   = { name = "externals", label = "Exterior Cosmetics",	weight = 0, type = "item", image = "mirror.png", unique = true, useable = true, shouldClose = true, description = ""},
-
-    --Repair Parts
-    newoil                      = { name = "newoil", label = "Car Oil", weight = 0, type = "item", image = "caroil.png", unique = false, useable = false, shouldClose = false, description = ""},
-    sparkplugs                  = { name = "sparkplugs", label = "Spark Plugs", weight = 0, type = "item", image = "sparkplugs.png", unique = false, useable = false, shouldClose = false, description = ""},
-    carbattery                  = { name = "carbattery", label = "Car Battery", weight = 0, type = "item", image = "carbattery.png", unique = false, useable = false, shouldClose = false, description = ""},
-    axleparts                   = { name = "axleparts", label = "Axle Parts", weight = 0, type = "item", image = "axleparts.png", unique = false, useable = false, shouldClose = false, description = ""},
-    sparetire                   = { name = "sparetire", label = "Spare Tire", weight = 0, type = "item", image = "sparetire.png", unique = true, useable = false, shouldClose = false, description = ""},
-
-    manual                      = { name = 'manual', label = 'Manual Transmission', weight = 0, type = 'item', image = 'manual.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Manual Transmission change for vehicles' },
-    underglow                   = { name = 'underglow', label = 'Underglow LEDS', weight = 0, type = 'item', image = 'underglow.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Underglow addition for vehicles' },
-
+    nos                         = { name = "nos",               label = "Bouteille de NOS", weight = 0, type = "item", image = "nos.png", unique = true, useable = true, shouldClose = true, description = "Une bouteille pleine de NOS"},
+    noscan                      = { name = "noscan",            label = "Bouteille de NOS Vide", weight = 0, type = "item", image = "noscan.png", unique = false, useable = true, shouldClose = true, description = "Une bouteille vide de NOS"},
+    noscolour                   = { name = "noscolour",         label = "Injecteur de Couleur NOS", weight = 0, type = "item", image = "noscolour.png", unique = false, useable = true, shouldClose = true, description = "Fais ce spray de purge"},
+    
+    -- Performance
+    turbo                       = { name = "turbo",             label = "Turbo Superchargeur", weight = 0, type = "item", image = "turbo.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    car_armor                   = { name = "car_armor",         label = "Armure de Véhicule", weight = 0, type = "item", image = "car_armour.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    engine1                     = { name = "engine1",           label = "Moteur de Niveau 1", weight = 0, type = "item", image = "engine1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    engine2                     = { name = "engine2",           label = "Moteur de Niveau 2", weight = 0, type = "item", image = "engine2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    engine3                     = { name = "engine3",           label = "Moteur de Niveau 3", weight = 0, type = "item", image = "engine3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    engine4                     = { name = "engine4",           label = "Moteur de Niveau 4", weight = 0, type = "item", image = "engine4.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    engine5                     = { name = "engine5",           label = "Moteur de Niveau 5", weight = 0, type = "item", image = "engine5.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    transmission1               = { name = "transmission1",     label = "Transmission de Niveau 1", weight = 0, type = "item", image = "transmission1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    transmission2               = { name = "transmission2",     label = "Transmission de Niveau 2", weight = 0, type = "item", image = "transmission2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    transmission3               = { name = "transmission3",     label = "Transmission de Niveau 3", weight = 0, type = "item", image = "transmission3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    transmission4               = { name = "transmission4",     label = "Transmission de Niveau 4", weight = 0, type = "item", image = "transmission4.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    brakes1                     = { name = "brakes1",           label = "Freins de Niveau 1", weight = 0, type = "item", image = "brakes1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    brakes2                     = { name = "brakes2",           label = "Freins de Niveau 2", weight = 0, type = "item", image = "brakes2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    brakes3                     = { name = "brakes3",           label = "Freins de Niveau 3", weight = 0, type = "item", image = "brakes3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    suspension1                 = { name = "suspension1",       label = "Suspension de Niveau 1", weight = 0, type = "item", image = "suspension1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    suspension2                 = { name = "suspension2",       label = "Suspension de Niveau 2", weight = 0, type = "item", image = "suspension2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    suspension3                 = { name = "suspension3",       label = "Suspension de Niveau 3", weight = 0, type = "item", image = "suspension3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    suspension4                 = { name = "suspension4",       label = "Suspension de Niveau 4", weight = 0, type = "item", image = "suspension4.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    suspension5                 = { name = "suspension5",       label = "Suspension de Niveau 5", weight = 0, type = "item", image = "suspension5.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    -- Changement de Style de Pneu
+    bprooftires                 = { name = "bprooftires",       label = "Pneus Antiballes", weight = 0, type = "item", image = "bprooftires.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    drifttires                  = { name = "drifttires",        label = "Pneus de Drift", weight = 0, type = "item", image = "drifttires.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    -- Articles de Dommages Supplémentaires pour Véhicules
+    oilp1                       = { name = "oilp1",             label = "Pompe à Huile de Niveau 1", weight = 0, type = "item", image = "oilp1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    oilp2                       = { name = "oilp2",             label = "Pompe à Huile de Niveau 2", weight = 0, type = "item", image = "oilp2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    oilp3                       = { name = "oilp3",             label = "Pompe à Huile de Niveau 3", weight = 0, type = "item", image = "oilp3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    drives1                     = { name = "drives1",           label = "Arbre de Transmission de Niveau 1", weight = 0, type = "item", image = "drives1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    drives2                     = { name = "drives2",           label = "Arbre de Transmission de Niveau 2", weight = 0, type = "item", image = "drives2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    drives3                     = { name = "drives3",           label = "Arbre de Transmission de Niveau 3", weight = 0, type = "item", image = "drives3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    cylind1                     = { name = "cylind1",           label = "Culasse de Niveau 1", weight = 0, type = "item", image = "cylind1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    cylind2                     = { name = "cylind2",           label = "Culasse de Niveau 2", weight = 0, type = "item", image = "cylind2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    cylind3                     = { name = "cylind3",           label = "Culasse de Niveau 3", weight = 0, type = "item", image = "cylind3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    cables1                     = { name = "cables1",           label = "Câbles de Batterie de Niveau 1", weight = 0, type = "item", image = "cables1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    cables2                     = { name = "cables2",           label = "Câbles de Batterie de Niveau 2", weight = 0, type = "item", image = "cables2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    cables3                     = { name = "cables3",           label = "Câbles de Batterie de Niveau 3", weight = 0, type = "item", image = "cables3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    fueltank1                   = { name = "fueltank1",         label = "Réservoir de Carburant de Niveau 1", weight = 0, type = "item", image = "fueltank1.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    fueltank2                   = { name = "fueltank2",         label = "Réservoir de Carburant de Niveau 2", weight = 0, type = "item", image = "fueltank2.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    fueltank3                   = { name = "fueltank3",         label = "Réservoir de Carburant de Niveau 3", weight = 0, type = "item", image = "fueltank3.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    antilag                     = { name = "antilag",           label = "Anti-Lag", weight = 0, type = "item", image = "antiLag.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    -- Cosmétiques
+    underglow_controller        = { name = "underglow_controller",  label = "Contrôleur de Néon", weight = 0, type = "item", image = "underglow_controller.png", unique = false, useable = true, shouldClose = true, description = "Télécommande LED RGB pour véhicule"},
+    headlights                  = { name = "headlights",            label = "Phare Xenon", weight = 0, type = "item", image = "headlights.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    tint_supplies               = { name = "tint_supplies",         label = "Kit de Teinture de Vitres", weight = 0, type = "item", image = "tint_supplies.png", unique = false, useable = true, shouldClose = true, description = "Fournitures pour teinter les vitres"},
+    customplate                 = { name = "customplate",           label = "Plaques Personnalisées", weight = 0, type = "item", image = "plate.png", unique = true, useable = true, shouldClose = true, description = ".."},
+    hood                        = { name = "hood",                  label = "Capot de Véhicule", weight = 0, type = "item", image = "hood.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    roof                        = { name = "roof",                  label = "Toit de Véhicule", weight = 0, type = "item", image = "roof.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    spoiler                     = { name = "spoiler",               label = "Aileron de Véhicule", weight = 0, type = "item", image = "spoiler.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    bumper                      = { name = "bumper",                label = "Pare-chocs de Véhicule", weight = 0, type = "item", image = "bumper.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    skirts                      = { name = "skirts",                label = "Bas de Caisses de Véhicule", weight = 0, type = "item", image = "skirts.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    exhaust                     = { name = "exhaust",               label = "Échappement de Véhicule", weight = 0, type = "item", image = "exhaust.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    seat                        = { name = "seat",                  label = "Cosmétiques de Siège", weight = 0, type = "item", image = "seat.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    rollcage                    = { name = "rollcage",              label = "Cage de Roulis", weight = 0, type = "item", image = "rollcage.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    rims                        = { name = "rims",                  label = "Jantes Personnalisées", weight = 0, type = "item", image = "rims.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    livery                      = { name = "livery",                label = "Rouleau de Livery", weight = 0, type = "item", image = "livery.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    paintcan                    = { name = "paintcan",              label = "Aérosol de Véhicule", weight = 0, type = "item", image = "spraycan.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    tires                       = { name = "tires",                 label = "Pneus de Fumée de Drift", weight = 0, type = "item", image = "tires.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    horn                        = { name = "horn",                  label = "Klaxon de Véhicule Personnalisé", weight = 0, type = "item", image = "horn.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    internals                   = { name = "internals",             label = "Cosmétiques Internes", weight = 0, type = "item", image = "internals.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    externals                   = { name = "externals",             label = "Cosmétiques Externes", weight = 0, type = "item", image = "mirror.png", unique = true, useable = true, shouldClose = true, description = "..."},
+    -- Pièces de Réparation
+    sparkplugs                  = { name = "sparkplugs", label = "Bougies d'Allumage", weight = 0, type = "item", image = "sparkplugs.png", unique = false, useable = false, shouldClose = false, description = "..."},
+    carbattery                  = { name = "carbattery", label = "Batterie de Voiture", weight = 0, type = "item", image = "carbattery.png", unique = false, useable = false, shouldClose = false, description = "..."},
+    axleparts                   = { name = "axleparts", label = "Pièces d'Axe", weight = 0, type = "item", image = "axleparts.png", unique = false, useable = false, shouldClose = false, description = "..."},
+    sparetire                   = { name = "sparetire", label = "Pneu de Secours", weight = 0, type = "item", image = "sparetire.png", unique = true, useable = false, shouldClose = false, description = "..."},
+    manual                      = { name = 'manual', label = 'Transmission Manuelle', weight = 0, type = 'item', image = 'manual.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Changement de transmission manuelle pour véhicules' },
+    underglow                   = { name = 'underglow', label = 'LEDs de Sous-éclairage', weight = 0, type = 'item', image = 'underglow.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Ajout de sous-éclairage pour véhicules' },
     --Already in QBCore
     --harness                      = { name = 'harness', label = 'Race Harness', weight = 1000, type = 'item', image = 'harness.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Racing Harness so no matter what you stay in the car' },
     --repairkit                    = { name = 'repairkit', label = 'Repairkit', weight = 2500, type = 'item', image = 'repairkit.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A nice toolbox with stuff to repair your vehicle' },
     --advancedrepairkit            = { name = 'advancedrepairkit', label = 'Advanced Repairkit', weight = 4000, type = 'item', image = 'advancedkit.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A nice toolbox with stuff to repair your vehicle' },
     --cleaningkit                  = { name = 'cleaningkit', label = 'Cleaning Kit', weight = 250, type = 'item', image = 'cleaningkit.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A microfiber cloth with some soap will let your car sparkle again!' },
+
+    -- Reciclerie
+    metalscrap                  = { name = 'metalscrap',    label = 'Débris de Métal',  weight = 100, type = 'item', image = 'metalscrap.png', unique = false, useable = false, shouldClose = false, description = 'Vous pouvez probablement en faire quelque chose d\'utile.' },
+    copper                      = { name = 'copper',        label = 'Cuivre',           weight = 100, type = 'item', image = 'copper.png', unique = false, useable = false, shouldClose = false, description = 'Un joli morceau de métal qui peut avoir son utilité.' },
+    ampoule                     = { name = 'ampoule',       label = 'Ampoule',          weight = 100, type = 'item', image = 'ampoule.png', unique = false, useable = false, shouldClose = false, description = '...' },
+    rubber                      = { name = 'rubber',        label = 'Caoutchouc',       weight = 100, type = 'item', image = 'rubber.png', unique = false, useable = false, shouldClose = false, description = 'Du caoutchouc, vous pourriez même en faire un canard en plastique ! :D' },
+    ressort                     = { name = 'ressort',       label = 'Ressort',          weight = 100, type = 'item', image = 'ressort.png', unique = false, useable = false, shouldClose = false, description = '...' },
+    platinum                    = { name = 'platinum',      label = 'Platinum',         weight = 100, type = 'item', image = 'platinum.png', unique = false, useable = false, shouldClose = false, description = '...' },
+    carbon                      = { name = "carbon",        label = "Carbone",          weight = 100, type = "item", image = "carbon.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Du carbone, un minerai de base"},
+    colorant                    = { name = 'colorant',      label = 'Colorant',         weight = 100, type = 'item', image = 'colorant.png', unique = false, useable = false, shouldClose = false, description = '...' },
+    newoil                      = { name = "newoil",        label = "Huile de Voiture", weight = 100, type = "item", image = "newoil.png", unique = false, useable = false, shouldClose = false, description = "..."},
+    pile                        = { name = 'pile',          label = 'Pile',             weight = 100, type = 'item', image = 'pile.png', unique = false, useable = false, shouldClose = false, description = '...' },
+    plastic                     = { name = 'plastic',       label = 'Plastique',        weight = 100, type = 'item', image = 'plastic.png', unique = false, useable = false, shouldClose = false, description = 'Recyclez ! - Greta Thunberg 2019' },
+    cuir                        = { name = 'cuir',          label = 'Cuir',             weight = 100, type = 'item', image = 'cuir.png', unique = false, useable = false, shouldClose = false, description = '...' },
+
+    -- Matériaux
+    aluminum                     = { name = 'aluminum', label = 'Aluminium', weight = 100, type = 'item', image = 'aluminum.png', unique = false, useable = false, shouldClose = false, description = 'Un joli morceau de métal qui peut avoir son utilité.' },
+    aluminumoxide                = { name = 'aluminumoxide', label = 'Poudre d\'Aluminium', weight = 100, type = 'item', image = 'aluminumoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
+    iron                         = { name = 'iron', label = 'Fer', weight = 100, type = 'item', image = 'iron.png', unique = false, useable = false, shouldClose = false, description = 'Un morceau de métal pratique qui peut être utilisé pour diverses choses.' },
+    ironoxide                    = { name = 'ironoxide', label = 'Poudre de Fer', weight = 100, type = 'item', image = 'ironoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
+    steel                        = { name = 'steel', label = 'Acier', weight = 100, type = 'item', image = 'steel.png', unique = false, useable = false, shouldClose = false, description = 'Un matériau robuste qui peut servir à la fabrication.' },
+    glass                        = { name = 'glass', label = 'Verre', weight = 100, type = 'item', image = 'glass.png', unique = false, useable = false, shouldClose = false, description = 'C\'est très fragile, attention !' },
 
 }
 
