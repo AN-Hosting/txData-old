@@ -1,16 +1,16 @@
 local Translations = {
     notifications = {
-        enoughmoney = "You don't have enough money.",
-        FullInventory = "Your inventory is full, your money has been deposited into the bank - %{money}$",
-        recieved = "You recieved %{money}$",
-        paid = "You've paid %{money}$",
-        error = "An error occurred while adding money. Contact the administrator"
+        enoughmoney = "Vous n'avez pas assez d'argent.",
+        FullInventory = "Votre inventaire est plein, votre argent a été déposé en banque - %{money}€",
+        recieved = "Vous avez reçu %{money}€",
+        paid = "Vous avez payé %{money}€",
+        error = "Une erreur s'est produite lors de l'ajout d'argent. Contactez un administrateur"
     },
     migration = {
-        info = 'Cash to bank account migration tool. (God)',
-        done = 'Migration completed',
-        error = 'Migration has failed',
-        progress = '%{progress} / %{accounts} users are being migrated',
+        info = 'Outil de migration de l\'argent liquide vers le compte bancaire. (God)',
+        done = 'Migration terminée',
+        error = 'La migration a échoué',
+        progress = '%{progress} / %{accounts} utilisateurs en cours de migration'
     }
 }
 
