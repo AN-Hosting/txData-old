@@ -28,9 +28,6 @@ Config.Products = {
         { name = 'twerks_candy',  price = 180,   amount = 50 },
         { name = 'snikkel_candy', price = 180,   amount = 50 },
         { name = 'sandwich',      price = 200,   amount = 50 },
-        { name = 'beer',          price = 100,   amount = 50 },
-        { name = 'whiskey',       price = 120,  amount = 50 },
-        { name = 'vodka',         price = 120,  amount = 50 },
         { name = 'bandage',       price = 100, amount = 50 },
         { name = 'kq_outfitbag',  price = 1500,   amount = 50 },
         { name = 'repairkit',  price = 2500,   amount = 50 },
@@ -38,11 +35,22 @@ Config.Products = {
         { name = 'skateboard', price = 2500, amount = 50},
         { name = 'pickaxe', price = 250, amount = 50},
         { name = 'axe', price = 250, amount = 50}
+        { name = 'radio', price = 1500, amount = 50}
     },
     ['liquor'] = {
-        { name = 'beer',    price = 7,  amount = 50 },
-        { name = 'whiskey', price = 10, amount = 50 },
-        { name = 'vodka',   price = 12, amount = 50 },
+        { name = 'tosti',         price = 200,   amount = 50 },
+        { name = 'water_bottle',  price = 80,   amount = 50 },
+        { name = 'twerks_candy',  price = 180,   amount = 50 },
+        { name = 'snikkel_candy', price = 180,   amount = 50 },
+        { name = 'sandwich',      price = 200,   amount = 50 },
+        { name = 'bandage',       price = 100, amount = 50 },
+        { name = 'kq_outfitbag',  price = 1500,   amount = 50 },
+        { name = 'repairkit',  price = 2500,   amount = 50 },
+        { name = 'trimming_scissors', price = 1500, amount = 50},
+        { name = 'skateboard', price = 2500, amount = 50},
+        { name = 'pickaxe', price = 250, amount = 50},
+        { name = 'axe', price = 250, amount = 50}
+        { name = 'radio', price = 1500, amount = 50}
     },
     ['weedshop'] = {
         { name = 'joint',          price = 10,  amount = 50 },
@@ -792,14 +800,14 @@ Config.Locations = {
 
     ['police_nationale'] = {
         ['label'] = 'Armurerie Police Nationale',
-        ['coords'] = vector4(377.32, -1611.11, 29.34, 231.69),
+        ['coords'] = vector4(473.44, -1003.26, 30.5, 304.44),
         ['ped'] = 'mp_m_securoguard_01',
         ['scenario'] = 'WORLD_HUMAN_COP_IDLES',
         ['radius'] = 1.5,
         ['targetIcon'] = 'fas fa-gun',
         ['targetLabel'] = 'Armurerie',
         ['products'] = Config.Products['police'],
-        ['delivery'] = vector4(377.32, -1611.11, 29.34, 231.69),
+        ['delivery'] = vector4(473.44, -1003.26, 30.5, 304.44),
         ['requiredJob'] = 'police_nationale',
     },
     ['gendarmerie_nationale'] = {
