@@ -15,7 +15,7 @@ local MinY, MaxY        = -89.0, 89.0
 -- Perspective values
 local PedFirstPersonNoClip  = true  -- No Clip in first person when not in a vehicle
 local VehFirstPersonNoClip  = false -- No Clip in first person when in a vehicle
-local ESCEnable             = false -- Access Map during NoClip
+local ESCEnable             = true -- Access Map during NoClip
 
 -- Speed settings
 local Speed                 = 1    -- Default: 1
@@ -45,6 +45,8 @@ local DisabledControls = function()
     EnableControlAction(0, 220, true)
     EnableControlAction(0, 221, true)
     EnableControlAction(0, 245, true)
+    EnableControlAction(0, 249, true)
+    EnableControlAction(0, 46, true)
     if ESCEnable then
         EnableControlAction(0, 200, true)
     end
@@ -171,12 +173,15 @@ RunNoClipThread = function()
             FreezeEntityPosition(NoClipEntity, true)
             SetEntityCollision(NoClipEntity, false, false)
             SetEntityVisible(NoClipEntity, false, false)
-            SetEntityInvincible(NoClipEntity, true)
+            NetworkSetEntityInvisibleToNetwork(NoClipEntity, true)
             SetLocalPlayerVisibleLocally(true)
-            SetEntityAlpha(NoClipEntity, NoClipAlpha, false)
+            SetEntityAlpha(NoClipEntity, 0, false)
             if PlayerIsInVehicle == 1 then
-                SetEntityAlpha(PlayerPed, NoClipAlpha, false)
+                SetEntityAlpha(PlayerPed, 0, false)
+                SetEntityVisible(PlayerPed, false, false)
+                NetworkSetEntityInvisibleToNetwork(PlayerPed, true)
             end
+            SetEntityInvincible(NoClipEntity, true)
             SetEveryoneIgnorePlayer(PlayerPed, true)
             SetPoliceIgnorePlayer(PlayerPed, true)
         end
@@ -194,7 +199,7 @@ StopNoClip = function()
     SetEveryoneIgnorePlayer(PlayerPed, false)
     SetPoliceIgnorePlayer(PlayerPed, false)
     ResetEntityAlpha(NoClipEntity)
-    SetPoliceIgnorePlayer(PlayerPed, true)
+    SetPoliceIgnorePlayer(PlayerPed, false)
 
     if GetVehiclePedIsIn(PlayerPed, false) ~= 0 then
         while (not IsVehicleOnAllWheels(NoClipEntity)) and not IsNoClipping do
@@ -284,7 +289,7 @@ AddEventHandler('onResourceStop', function(resourceName)
         SetEveryoneIgnorePlayer(PlayerPed, false)
         SetPoliceIgnorePlayer(PlayerPed, false)
         ResetEntityAlpha(NoClipEntity)
-        SetPoliceIgnorePlayer(PlayerPed, true)
+        SetPoliceIgnorePlayer(PlayerPed, false)
         SetEntityInvincible(NoClipEntity, false)
     end
 end)

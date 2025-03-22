@@ -2,32 +2,19 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local frozen = false
 local permissions = {
-    -- Commandes Fondateur
-    ['kickall'] = 'founder',
-    ['setPermissions'] = 'founder',
-    
-    -- Commandes Administrateur
-    ['ban'] = 'admin',
     ['kill'] = 'admin',
+    ['ban'] = 'admin',
+    ['noclip'] = 'admin',
+    ['kickall'] = 'admin',
+    ['kick'] = 'admin',
+    ['revive'] = 'admin',
+    ['freeze'] = 'admin',
+    ['goto'] = 'admin',
+    ['spectate'] = 'admin',
+    ['intovehicle'] = 'admin',
+    ['bring'] = 'admin',
     ['inventory'] = 'admin',
-    ['setmodel'] = 'admin',
-    ['setammo'] = 'admin',
-    
-    -- Commandes Modérateur
-    ['kick'] = 'moderator',
-    ['freeze'] = 'moderator',
-    ['noclip'] = 'moderator',
-    ['warn'] = 'moderator',
-    ['checkwarns'] = 'moderator',
-    ['delwarn'] = 'moderator',
-    
-    -- Commandes Helper
-    ['revive'] = 'helper',
-    ['goto'] = 'helper',
-    ['bring'] = 'helper',
-    ['spectate'] = 'helper',
-    ['intovehicle'] = 'helper',
-    ['clothing'] = 'helper'
+    ['clothing'] = 'admin'
 }
 
 function GetQBPlayers()
