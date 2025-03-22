@@ -66,7 +66,7 @@
                 </div>
                 <div class="input-container" v-if="!isOtherInventoryEmpty">
                     <div class="input-wrapper">
-                        <input type="number" v-model="transferAmount" min="1" :placeholder="transferAmount === null ? 'Quantit�' : ''" />
+                        <input type="number" v-model="transferAmount" min="1" :placeholder="transferAmount === null ? 'Quantité' : ''" />
                         <button @click="clearTransferAmount" class="clear-button">
                             <i class="fas fa-times"></i>
                         </button>
@@ -121,6 +121,46 @@
                             </div> -->
                         </div>
                     </div>
+                </div>
+
+                <!-- Menu contextuel -->
+                <ul v-if="showContextMenu" class="context-menu" :style="contextMenuPosition">
+                    <li @click="useItem(contextMenuItem)">Utiliser</li>
+                    <li>
+                        Donner
+                        <ul class="submenu">
+                            <li @click="showQuantityForAction('give', 1)">Un seul</li>
+                            <li @click="showQuantityForAction('give', 'half')">Moitié</li>
+                            <li @click="showQuantityForAction('give', 'all')">Tout</li>
+                            <li @click="showQuantityForAction('give', 'custom')">Personnalisé</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Jeter
+                        <ul class="submenu">
+                            <li @click="showQuantityForAction('drop', 1)">Un seul</li>
+                            <li @click="showQuantityForAction('drop', 'half')">Moitié</li>
+                            <li @click="showQuantityForAction('drop', 'all')">Tout</li>
+                            <li @click="showQuantityForAction('drop', 'custom')">Personnalisé</li>
+                        </ul>
+                    </li>
+                    <li @click="splitAndPlaceItem(contextMenuItem, contextMenuItem.inventory)">Split</li>
+                    <li v-if="contextMenuItem && contextMenuItem.name && contextMenuItem.name.includes('weapon_')" @click="copySerial(contextMenuItem)">Copy Serial</li>
+                    <li v-if="contextMenuItem && contextMenuItem.name && contextMenuItem.name.includes('weapon_')" @click="openWeaponAttachments(contextMenuItem)">Attachments</li>
+                </ul>
+
+                <!-- Fenêtre de quantité à côté de l'inventaire -->
+                <div class="quantity-popup" v-if="showQuantityModal" :style="{ top: quantityPosition.y + 'px', left: quantityPosition.x + 'px' }">
+                    <input 
+                        type="number" 
+                        v-model="tempQuantity" 
+                        min="1" 
+                        :max="selectedQuantityItem ? selectedQuantityItem.amount : 1" 
+                        @keyup.enter="confirmQuantity"
+                        @keyup.esc="closeQuantityModal"
+                        placeholder="Quantité"
+                        ref="quantityInput"
+                    >
                 </div>
             </div>
             <div class="hotbar-container" v-if="showHotbar">
@@ -207,28 +247,6 @@
                     <p>{{ draggedItem.label }}</p>
                 </div>
             </div>
-            <ul v-if="showContextMenu" class="context-menu" :style="{ top: contextMenuPosition.top, left: contextMenuPosition.left }">
-                <li @click="useItem(contextMenuItem)">Utiliser</li>
-                <li @mouseover="showSubmenu = true" @mouseleave="showSubmenu = false">
-                    Donner
-                    <ul v-if="showSubmenu" class="submenu">
-                        <li @click="giveItem(contextMenuItem, 1)">Un seul</li>
-                        <li @click="giveItem(contextMenuItem, 'half')">Moitie</li>
-                        <li @click="giveItem(contextMenuItem, 'all')">Tout</li>
-                    </ul>
-                </li>
-                <li @mouseover="showSubmenu = true" @mouseleave="showSubmenu = false">
-                    Jeter
-                    <ul v-if="showSubmenu" class="submenu">
-                        <li @click="dropItem(contextMenuItem, 1)">Un seul</li>
-                        <li @click="dropItem(contextMenuItem, 'half')">Moitie</li>
-                        <li @click="dropItem(contextMenuItem, 'all')">Tout</li>
-                    </ul>
-                </li>
-                <li @click="splitAndPlaceItem(contextMenuItem, 'player')">Split</li>
-                <li v-if="contextMenuItem.name.includes('weapon_')" @click="copySerial(contextMenuItem)">Copy Serial</li>
-                <li v-if="contextMenuItem.name.includes('weapon_')" @click="openWeaponAttachments(contextMenuItem)">Attachments</li>
-            </ul>
         </div>
     </body>
 </html>

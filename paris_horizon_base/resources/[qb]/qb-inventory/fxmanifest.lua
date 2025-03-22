@@ -25,6 +25,10 @@ server_scripts {
     'server/commands.lua',
 }
 
+exports {
+    'HasItem'
+}
+
 ui_page 'html/index.html'
 
 files {

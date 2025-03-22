@@ -1,6 +1,17 @@
 const InventoryContainer = Vue.createApp({
     data() {
-        return this.getInitialState();
+        return {
+            ...this.getInitialState(),
+            showQuantityModal: false,
+            selectedQuantityItem: null,
+            tempQuantity: 1,
+            quantityPosition: { x: 0, y: 0 },
+            currentAction: null, // 'move', 'give', 'drop'
+            showContextMenu: false,
+            contextMenuPosition: { top: '0px', left: '0px' },
+            contextMenuItem: null,
+            showSubmenu: false
+        };
     },
     computed: {
         playerWeight() {
@@ -104,6 +115,11 @@ const InventoryContainer = Vue.createApp({
                 ghostElement: null,
                 dragStartInventoryType: "player",
                 transferAmount: null,
+                showQuantityModal: false,
+                selectedQuantityItem: null,
+                tempQuantity: 1,
+                quantityPosition: { x: 0, y: 0 },
+                currentAction: null
             };
         },
         openInventory(data) {
@@ -211,30 +227,108 @@ const InventoryContainer = Vue.createApp({
             return this.hotbarItems[slot - 1] || null;
         },
         containerMouseDownAction(event) {
-            if (event.button === 0 && this.showContextMenu) {
-                this.showContextMenu = false;
+            if (event.button === 0) {
+                if (this.showContextMenu && !event.target.closest('.context-menu')) {
+                    this.closeContextMenu();
+                }
+                if (this.showQuantityModal && !event.target.closest('.quantity-popup')) {
+                    this.closeQuantityModal();
+                }
             }
         },
+        handleKeyPress(event) {
+            if (event.key === 'Tab' && this.isInventoryOpen) {
+                event.preventDefault();
+                const hoveredSlot = document.elementFromPoint(event.clientX, event.clientY);
+                if (hoveredSlot && hoveredSlot.closest('.item-slot')) {
+                    const slotElement = hoveredSlot.closest('.item-slot');
+                    const slot = parseInt(slotElement.dataset.slot);
+                    const inventoryType = slotElement.closest('.player-inventory') ? 'player' : 'other';
+                    const item = this.getItemInSlot(slot, inventoryType);
+                    
+                    if (item) {
+                        this.showQuantityModal = true;
+                        this.selectedQuantityItem = { ...item, inventory: inventoryType };
+                        this.currentAction = 'move';
+                        this.tempQuantity = 1;
+                        
+                        // Position la fenêtre de quantité à côté de l'inventaire
+                        const inventoryElement = document.querySelector(inventoryType === 'player' ? '.player-inventory' : '.other-inventory');
+                        const inventoryRect = inventoryElement.getBoundingClientRect();
+                        const slotRect = slotElement.getBoundingClientRect();
+                        
+                        this.quantityPosition = {
+                            x: inventoryType === 'player' ? inventoryRect.right + 10 : slotRect.left - 120,
+                            y: slotRect.top
+                        };
+                        
+                        setTimeout(() => {
+                            const input = this.$refs.quantityInput;
+                            if (input) {
+                                input.focus();
+                                input.select();
+                            }
+                        }, 50);
+                    }
+                }
+            } else if (event.key === 'Escape') {
+                if (this.showQuantityModal) {
+                    this.closeQuantityModal();
+                }
+                if (this.showContextMenu) {
+                    this.closeContextMenu();
+                }
+            } else if (event.key === 'Enter' && this.showQuantityModal) {
+                this.confirmQuantity();
+            }
+        },
+        confirmQuantity() {
+            if (!this.selectedQuantityItem || !this.currentAction) return;
+            
+            const quantity = parseInt(this.tempQuantity);
+            if (isNaN(quantity) || quantity < 1 || quantity > this.selectedQuantityItem.amount) return;
+
+            if (this.currentAction === 'move') {
+                this.transferAmount = quantity;
+                this.moveItemBetweenInventories(this.selectedQuantityItem, this.selectedQuantityItem.inventory);
+            } else if (this.currentAction === 'give') {
+                this.giveItem(this.selectedQuantityItem, quantity);
+            } else if (this.currentAction === 'drop') {
+                this.dropItem(this.selectedQuantityItem, quantity);
+            }
+
+            this.closeQuantityModal();
+            this.closeContextMenu();
+        },
+        closeQuantityModal() {
+            this.showQuantityModal = false;
+            this.selectedQuantityItem = null;
+            this.tempQuantity = 1;
+            this.currentAction = null;
+        },
+        closeContextMenu() {
+            this.showContextMenu = false;
+            this.contextMenuItem = null;
+            this.showSubmenu = false;
+        },
         handleMouseDown(event, slot, inventory) {
-            if (event.button === 1) return; // skip middle mouse
+            if (event.button === 1) return;
             event.preventDefault();
             const itemInSlot = this.getItemInSlot(slot, inventory);
+            if (!itemInSlot) return;
+
             if (event.button === 0) {
-                if (event.shiftKey && itemInSlot) {
+                if (event.shiftKey) {
                     this.splitAndPlaceItem(itemInSlot, inventory);
                 } else {
                     this.startDrag(event, slot, inventory);
                 }
-            } else if (event.button === 2 && itemInSlot) {
+            } else if (event.button === 2) {
                 if (this.otherInventoryName.startsWith("shop-")) {
                     this.handlePurchase(slot, itemInSlot.slot, itemInSlot, 1);
                     return;
                 }
-                if (!this.isOtherInventoryEmpty) {
-                    this.moveItemBetweenInventories(itemInSlot, inventory);
-                } else {
-                    this.showContextMenuOptions(event, itemInSlot);
-                }
+                this.showContextMenuOptions(event, { ...itemInSlot, inventory });
             }
         },
         moveItemBetweenInventories(item, sourceInventoryType) {
@@ -628,51 +722,17 @@ const InventoryContainer = Vue.createApp({
         },
         showContextMenuOptions(event, item) {
             event.preventDefault();
-            if (this.contextMenuItem && this.contextMenuItem.name === item.name && this.showContextMenu) {
-                this.showContextMenu = false;
-                this.contextMenuItem = null;
-            } else {
-                if (item.inventory === "other") {
-                    const matchingItemKey = Object.keys(this.playerInventory).find((key) => this.playerInventory[key].name === item.name);
-                    const matchingItem = this.playerInventory[matchingItemKey];
-
-                    if (matchingItem && matchingItem.unique) {
-                        const newItemKey = Object.keys(this.playerInventory).length + 1;
-                        const newItem = {
-                            ...item,
-                            inventory: "player",
-                            amount: 1,
-                        };
-                        this.playerInventory[newItemKey] = newItem;
-                    } else if (matchingItem) {
-                        matchingItem.amount++;
-                    } else {
-                        const newItemKey = Object.keys(this.playerInventory).length + 1;
-                        const newItem = {
-                            ...item,
-                            inventory: "player",
-                            amount: 1,
-                        };
-                        this.playerInventory[newItemKey] = newItem;
-                    }
-                    item.amount--;
-
-                    if (item.amount <= 0) {
-                        const itemKey = Object.keys(this.otherInventory).find((key) => this.otherInventory[key] === item);
-                        if (itemKey) {
-                            delete this.otherInventory[itemKey];
-                        }
-                    }
-                }
-                const menuLeft = event.clientX;
-                const menuTop = event.clientY;
-                this.showContextMenu = true;
-                this.contextMenuPosition = {
-                    top: `${menuTop}px`,
-                    left: `${menuLeft}px`,
-                };
-                this.contextMenuItem = item;
+            if (this.showContextMenu && this.contextMenuItem === item) {
+                this.closeContextMenu();
+                return;
             }
+            
+            this.contextMenuItem = item;
+            this.showContextMenu = true;
+            this.contextMenuPosition = {
+                top: `${event.clientY}px`,
+                left: `${event.clientX}px`
+            };
         },
         async giveItem(item, quantity) {
             if (item && item.name) {
@@ -906,6 +966,50 @@ const InventoryContainer = Vue.createApp({
                     console.error("Error posting inventory data:", error);
                 });
         },
+        showQuantityForAction(action, amount) {
+            if (!this.contextMenuItem) return;
+            
+            this.currentAction = action;
+            this.selectedQuantityItem = this.contextMenuItem;
+            
+            if (amount === 'custom') {
+                // Position la fenêtre de quantité à côté du menu contextuel
+                const menuRect = document.querySelector('.context-menu').getBoundingClientRect();
+                this.quantityPosition = {
+                    x: menuRect.right + 10,
+                    y: menuRect.top
+                };
+                
+                this.showQuantityModal = true;
+                this.tempQuantity = 1;
+                
+                setTimeout(() => {
+                    const input = this.$refs.quantityInput;
+                    if (input) {
+                        input.focus();
+                        input.select();
+                    }
+                }, 50);
+                return;
+            }
+
+            let quantity;
+            if (amount === 'half') {
+                quantity = Math.floor(this.contextMenuItem.amount / 2);
+            } else if (amount === 'all') {
+                quantity = this.contextMenuItem.amount;
+            } else {
+                quantity = amount;
+            }
+
+            if (this.currentAction === 'give') {
+                this.giveItem(this.contextMenuItem, quantity);
+            } else if (this.currentAction === 'drop') {
+                this.dropItem(this.contextMenuItem, quantity);
+            }
+
+            this.closeContextMenu();
+        },
     },
     mounted() {
         window.addEventListener("keydown", (event) => {
@@ -941,11 +1045,14 @@ const InventoryContainer = Vue.createApp({
                     console.warn(`Unexpected action: ${event.data.action}`);
             }
         });
+
+        window.addEventListener('keydown', this.handleKeyPress);
     },
     beforeUnmount() {
         window.removeEventListener("mousemove", () => {});
         window.removeEventListener("keydown", () => {});
         window.removeEventListener("message", () => {});
+        window.removeEventListener('keydown', this.handleKeyPress);
     },
 });
 
