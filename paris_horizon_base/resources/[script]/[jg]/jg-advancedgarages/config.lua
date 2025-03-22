@@ -211,8 +211,8 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     type = "car"
   },
   ['Midas'] = {
-    coords = vector3(-828.29, -435.3, 36.64),
-    spawn = vector4(-843.81, -439.98, 36.64, 25.17),
+    coords = vector3(-849.97, -417.71, 36.64),
+    spawn = vector4(-850.9, -413.07, 36.64, 251.61),
     distance = 5,
     job = "midas",
     type = "car"
