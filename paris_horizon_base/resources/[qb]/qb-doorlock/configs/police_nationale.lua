@@ -1,157 +1,113 @@
 
 
-
-
--- entrée créer par Nico
-Config.DoorList['police_nationale-entrée'] = {
-    distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'entrée',
-    doorRate = 1.0,
-    doorType = 'double',
+-- 1 créer par BebeToto14006
+Config.DoorList['police_nationale-1'] = {
     doors = {
-        {objName = -1821777087, objYaw = 230.0, objCoords = vec3(388.022400, -1603.391480, 29.495930)},
-        {objName = -1821777087, objYaw = 49.99997329712, objCoords = vec3(389.694184, -1601.399170, 29.495930)}
+        {objName = -1036090959, objYaw = 180.00001525878, objCoords = vec3(479.690888, -979.453002, 28.143826)},
+        {objName = -1036090959, objYaw = 0.0, objCoords = vec3(477.091370, -979.453002, 28.143826)}
     },
+    doorLabel = '1',
+    authorizedJobs = { ['police_nationale'] = 0 },
     locked = true,
-}
-
--- entrée1 créer par Nico
-Config.DoorList['police_nationale-entrée1'] = {
+    doorRate = 1.0,
     distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'entrée',
-    doorRate = 1.0,
     doorType = 'double',
-    doors = {
-        {objName = -1821777087, objYaw = 320.00003051758, objCoords = vec3(390.296356, -1608.592164, 29.495930)},
-        {objName = -1821777087, objYaw = 139.99998474122, objCoords = vec3(388.313080, -1606.927734, 29.495930)}
-    },
-    locked = true,
 }
 
--- armurerie créer par Nico
-Config.DoorList['police_nationale-armurerie'] = {
-    distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'armurerie',
+-- 2 créer par BebeToto14006
+Config.DoorList['police_nationale-2'] = {
+    objYaw = 90.000022888184,
     doorRate = 1.0,
-    doorType = 'double',
-    doors = {
-        {objName = -2051651622, objYaw = 50.0, objCoords = vec3(382.619628, -1615.652344, 29.485674)},
-        {objName = -2051651622, objYaw = 229.99998474122, objCoords = vec3(380.945648, -1617.643676, 29.485674)}
-    },
-    locked = true,
-}
-
--- cellule1 créer par Nico
-Config.DoorList['police_nationale-cellule1'] = {
-    fixText = false,
-    objName = -1821777087,
-    doorRate = 1.0,
-    objYaw = 139.99998474122,
-    locked = true,
-    distance = 1,
-    doorLabel = 'cellule',
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorType = 'door',
-    objCoords = vec3(380.306060, -1598.585694, 26.401010),
-}
-
--- cellule2 créer par Nico
-Config.DoorList['police_nationale-cellule2'] = {
-    fixText = false,
-    objName = -1821777087,
-    doorRate = 1.0,
-    objYaw = 139.99998474122,
-    locked = true,
-    distance = 1,
-    doorLabel = 'cellule',
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorType = 'door',
-    objCoords = vec3(382.298614, -1600.257690, 26.401010),
-}
-
--- cellule3 créer par Nico
-Config.DoorList['police_nationale-cellule3'] = {
-    fixText = false,
-    objName = -1821777087,
-    doorRate = 1.0,
-    objYaw = 139.99998474122,
-    locked = true,
-    distance = 1,
-    doorLabel = 'cellule',
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorType = 'door',
-    objCoords = vec3(384.299988, -1601.937134, 26.401010),
-}
-
--- porte1 créer par Nico
-Config.DoorList['police_nationale-porte1'] = {
-    distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'porte',
-    doorRate = 1.0,
-    doorType = 'double',
-    doors = {
-        {objName = -2051651622, objYaw = 320.00003051758, objCoords = vec3(369.884002, -1600.981690, 29.489908)},
-        {objName = -2051651622, objYaw = 139.99998474122, objCoords = vec3(367.891724, -1599.309814, 29.489908)}
-    },
-    locked = true,
-}
-
--- porte2 créer par Nico
-Config.DoorList['police_nationale-porte2'] = {
-    distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'porte',
-    doorRate = 1.0,
-    doorType = 'double',
-    doors = {
-        {objName = -2051651622, objYaw = 139.99998474122, objCoords = vec3(365.473358, -1592.640748, 29.495930)},
-        {objName = -2051651622, objYaw = 320.00003051758, objCoords = vec3(367.465638, -1594.312622, 29.495930)}
-    },
-    locked = true,
-}
-
--- porte3 créer par Nico
-Config.DoorList['police_nationale-porte3'] = {
-    distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'porte',
-    doorRate = 1.0,
-    doorType = 'double',
-    doors = {
-        {objName = -538477509, objYaw = 320.00003051758, objCoords = vec3(375.176514, -1605.652588, 33.367554)},
-        {objName = -538477509, objYaw = 139.99998474122, objCoords = vec3(373.184234, -1603.980712, 33.368686)}
-    },
-    locked = true,
-}
-
--- porte4 créer par Nico
-Config.DoorList['police_nationale-porte4'] = {
-    distance = 2,
-    authorizedJobs = { ['police_nationale'] = 0 },
-    doorLabel = 'porte',
-    doorRate = 1.0,
-    doorType = 'double',
-    doors = {
-        {objName = -538477509, objYaw = 320.00003051758, objCoords = vec3(385.023652, -1623.505372, 33.367554)},
-        {objName = -538477509, objYaw = 139.99998474122, objCoords = vec3(383.031372, -1621.833496, 33.368686)}
-    },
-    locked = true,
-}
-
--- exterieure créer par Nico
-Config.DoorList['police_nationale-exterieure'] = {
-    fixText = false,
-    objName = 1286535678,
-    doorRate = 1.0,
-    objYaw = 320.0,
-    locked = true,
     distance = 4,
-    doorLabel = 'exterieure',
+    doorLabel = '2',
+    objCoords = vec3(488.767578, -1021.413146, 28.898114),
+    fixText = false,
+    locked = true,
+    doorType = 'garage',
     authorizedJobs = { ['police_nationale'] = 0 },
-    doorType = 'sliding',
-    objCoords = vec3(404.533386, -1613.097412, 28.169948),
+    objName = -1195127879,
+}
+
+-- 4 créer par BebeToto14006
+Config.DoorList['police_nationale-4'] = {
+    doors = {
+        {objName = -688443112, objYaw = 0.0, objCoords = vec3(440.114258, -998.584350, 31.118142)},
+        {objName = 1847320387, objYaw = 360.0, objCoords = vec3(442.750886, -998.583802, 31.118602)}
+    },
+    doorLabel = '4',
+    authorizedJobs = { ['police_nationale'] = 0 },
+    locked = true,
+    doorRate = 1.0,
+    distance = 2,
+    doorType = 'double',
+}
+
+-- 6 créer par BebeToto14006
+Config.DoorList['police_nationale-6'] = {
+    objYaw = 270.0,
+    doorRate = 1.0,
+    distance = 4,
+    doorLabel = '6',
+    objCoords = vec3(459.550416, -1014.645812, 29.109574),
+    fixText = false,
+    locked = true,
+    doorType = 'garage',
+    authorizedJobs = { ['police_nationale'] = 0 },
+    objName = -190780785,
+}
+
+-- 7 créer par BebeToto14006
+Config.DoorList['police_nationale-7'] = {
+    objYaw = 270.0,
+    doorRate = 1.0,
+    distance = 4,
+    doorLabel = '7',
+    objCoords = vec3(459.550416, -1019.699462, 29.088738),
+    fixText = false,
+    locked = true,
+    doorType = 'garage',
+    authorizedJobs = { ['police_nationale'] = 0 },
+    objName = -190780785,
+}
+
+-- 8 créer par BebeToto14006
+Config.DoorList['police_nationale-8'] = {
+    objYaw = 0.0,
+    doorRate = 1.0,
+    distance = 4,
+    doorLabel = '8',
+    objCoords = vec3(449.897766, -999.903198, 26.114242),
+    fixText = false,
+    locked = true,
+    doorType = 'garage',
+    authorizedJobs = { ['police_nationale'] = 0 },
+    objName = -1195127879,
+}
+
+-- 9 créer par BebeToto14006
+Config.DoorList['police_nationale-9'] = {
+    doors = {
+        {objName = -1481015543, objYaw = 89.999977111816, objCoords = vec3(449.522370, -980.361022, 30.874448)},
+        {objName = 952639784, objYaw = 89.999977111816, objCoords = vec3(449.522370, -982.958436, 30.874448)}
+    },
+    doorLabel = '9',
+    authorizedJobs = { ['police_nationale'] = 0 },
+    locked = true,
+    doorRate = 1.0,
+    distance = 2,
+    doorType = 'double',
+}
+
+-- 10 créer par BebeToto14006
+Config.DoorList['police_nationale-10'] = {
+    doors = {
+        {objName = 952639784, objYaw = 180.00001525878, objCoords = vec3(437.124390, -989.491760, 30.873428)},
+        {objName = -1481015543, objYaw = 179.99998474122, objCoords = vec3(434.526550, -989.491760, 30.873428)}
+    },
+    doorLabel = '10',
+    authorizedJobs = { ['police_nationale'] = 0 },
+    locked = true,
+    doorRate = 1.0,
+    distance = 2,
+    doorType = 'double',
 }
