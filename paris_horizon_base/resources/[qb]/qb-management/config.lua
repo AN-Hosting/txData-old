@@ -44,7 +44,7 @@ Config.BossMenus = {
         vector3(-527.21, -590.76, 34.48),
     },
     police_nationale = {
-        vector3(379.28, -1625.72, 33.54),
+        vector3(441.69, -975.28, 34.79),
     },
     samu_75 = {
         vector3(-1845.68, -348.49, 83.83),
