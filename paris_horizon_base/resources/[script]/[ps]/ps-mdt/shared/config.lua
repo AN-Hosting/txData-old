@@ -48,7 +48,7 @@ Config.RosterLink = {
 
 Config.PoliceJobs = {
     ['police_nationale'] = true,
-    ['lspd'] = true,
+    ['gendarmerie_nationale'] = true,
     ['bcso'] = true,
     ['sasp'] = true,
     ['doc'] = true,
