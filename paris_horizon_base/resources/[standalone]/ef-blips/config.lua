@@ -54,7 +54,7 @@ Config.Locations = {
     scale = 0.8,
 },
 [8] = {
-    vector = vector3(392.8, -1605.14, 29.34), 
+    vector = vector3(440.61, -976.0, 35.06), 
     text = "Police Nationale", 
     color = 0, 
     sprite = 137, 
