@@ -91,7 +91,7 @@
     "$schema": 1,
     "name": "Bobybiss",
     "master": false,
-    "password_hash": "$2a$11$hCaTDKSWyy8I4Un04cJ8zuZhLoRP9/72KhDF3rYbcI5B/lRJdBdYu",
+    "password_hash": "$2a$11$qrxu0x34dSn5NgGUcA41yOQ8X2aBwTd59DpVrGUdqpjSADYkRmtpG",
     "providers": {
       "citizenfx": {
         "id": "BobyBis",
