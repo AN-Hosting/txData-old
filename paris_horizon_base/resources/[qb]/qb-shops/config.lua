@@ -34,8 +34,8 @@ Config.Products = {
         { name = 'trimming_scissors', price = 1500, amount = 50},
         { name = 'skateboard', price = 2500, amount = 50},
         { name = 'pickaxe', price = 250, amount = 50},
-        { name = 'axe', price = 250, amount = 50}
-        { name = 'radio', price = 1500, amount = 50}
+        { name = 'axe', price = 250, amount = 50},
+        { name = 'radio', price = 1500, amount = 50},
     },
     ['liquor'] = {
         { name = 'tosti',         price = 200,   amount = 50 },
@@ -49,8 +49,8 @@ Config.Products = {
         { name = 'trimming_scissors', price = 1500, amount = 50},
         { name = 'skateboard', price = 2500, amount = 50},
         { name = 'pickaxe', price = 250, amount = 50},
-        { name = 'axe', price = 250, amount = 50}
-        { name = 'radio', price = 1500, amount = 50}
+        { name = 'axe', price = 250, amount = 50},
+        { name = 'radio', price = 1500, amount = 50},
     },
     ['weedshop'] = {
         { name = 'joint',          price = 10,  amount = 50 },
@@ -389,7 +389,7 @@ Config.Products = {
         { name = "panneautourneradroite", price = 200, amount = 50 },
         { name = "panneautourneragauche", price = 200, amount = 50 },
         { name = "panneautravaux", price = 200, amount = 50 },
-        { name = "routebaree", price = 200, amount = 50 }
+        { name = "routebaree", price = 200, amount = 50 },
     },
     ['tabac'] = {
         { name = 'rolling_paper',       price = 110, amount = 50 },
