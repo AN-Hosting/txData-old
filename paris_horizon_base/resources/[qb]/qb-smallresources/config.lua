@@ -17,8 +17,8 @@ Config.AFK = {
 }
 
 Config.HandsUp = {
-    command = 'hu',
-    keybind = 'X',
+    command = 'handsup',
+    keybind = 'Y',
     controls = { 24, 25, 47, 58, 59, 63, 64, 71, 72, 75, 140, 141, 142, 143, 257, 263, 264 }
 }
 
@@ -141,9 +141,13 @@ Config.Consumables = {
 
     },
     alcohol = { -- default alcohol items
-        ['whiskey'] = math.random(20, 30),
-        ['beer'] = math.random(30, 40),
-        ['vodka'] = math.random(20, 40),
+        ['vbiere'] = math.random(20, 30),
+        ['vchampagne'] = math.random(30, 40),
+        ['vrhum '] = math.random(20, 40),
+        ['vvinblanc'] = math.random(20, 40),
+        ['vvinrouge'] = math.random(20, 40),
+        ['vvodka'] = math.random(20, 40),
+        ['vwiskey'] = math.random(20, 40),
     },
     custom = { -- put any custom items here
         -- ['newitem'] = {
@@ -490,26 +494,3 @@ Config.blacklist = { -- blacklist vehicle models from being pushed.
     [`phantom`] = true
 }
 
--- Menu Perso
-Config.ServiceCommands = {
-    gendarmerie_nationale = '19',
-    samu_75 = '15',
-    pompiers_de_paris = '18',
-    avocats_de_paris = '115',
-    police_nationale = '17',
-    norauto = '116',
-    midas = '117',
-    concessionnaire = '118',
-    taxi = '119',
-    orpi = '120',
-    tabac = '121',
-    burgerking = '122',
-    kfc = '123',
-    otacos = '124',
-    Dir = '127',
-    Vinci = '128',
-    ['XPO Logistics'] = '129',
-    TF1 = '130',
-    Vigneron = '131',
-    Pizza = '132'
-}
