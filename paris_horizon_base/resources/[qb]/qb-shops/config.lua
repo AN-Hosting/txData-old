@@ -448,6 +448,21 @@ Config.Products = {
         { name = 'ifaks',             price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
         { name = 'painkillers',              price = 0, amount = 500, requiredJob = 'pompiers_de_paris' }
     },
+    ['Maisonette'] = {
+        {name = 'bchampagne',    price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'brhum',         price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'bvinblanc',     price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'bvinrouge',     price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'bvodka',        price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'bwiskey',       price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vbiere',        price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vchampagne',    price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vrhum',         price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vvinblanc',     price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vvinrouge',     price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vodka',         price = 0, amount = 500, requiredJob = 'maisonette10' },
+        {name = 'vwiskey',       price = 0, amount = 500, requiredJob = 'maisonette10' },
+    },
 }
 
 Config.Locations = { 
@@ -1078,6 +1093,21 @@ Config.Locations = {
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(1213.26, -1486.29, 34.69, 264.39),
+    },
+    ['maisonette10'] = {
+        ['label'] = 'Maisonette',
+        ['coords'] = vector4(54.36, -1749.81, 29.29, 343.87),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'Maisonette',
+        ['products'] = Config.Products['maisonette10'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(54.36, -1749.81, 29.29, 343.87),
     },
 }
 Config.Shops = {
