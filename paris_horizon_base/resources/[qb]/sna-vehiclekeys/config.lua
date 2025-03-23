@@ -5,7 +5,7 @@ Config.LockpickNPCCars = true
 
 Config.KeyMasterModel = 'a_m_y_business_03'
 Config.KeyMasterLocations = {
-    vector4(-196.79, -1169.09, 22.88, 267.22), 
+    vector4(1156.97, 2642.51, 37.96, 85.34), 
 }
 Config.KeyPrice = 300
 Config.ResetPrice = 1000
