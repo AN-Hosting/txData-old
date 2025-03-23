@@ -36,7 +36,7 @@ Config.DoorList['concessionnaireevry-3'] = {
         {objName = 438818237, objYaw = 360.0, objCoords = vec3(1129.162720, 2650.129882, 37.951396)}
     },
     doorRate = 1.0,
-    locked = true,
+    locked = false,
     doorLabel = '3',
     distance = 2,
     doorType = 'doublesliding',
@@ -46,7 +46,7 @@ Config.DoorList['concessionnaireevry-3'] = {
 Config.DoorList['concessionnaireevry-4'] = {
     authorizedJobs = { ['concessionnaire'] = 0 },
     objYaw = 176.96290588378,
-    locked = true,
+    locked = false,
     distance = 4,
     objName = -995516848,
     doorRate = 1.0,
@@ -54,4 +54,18 @@ Config.DoorList['concessionnaireevry-4'] = {
     doorLabel = '4',
     doorType = 'sliding',
     fixText = false,
+}
+
+-- 5 créer par BebeToto14006
+Config.DoorList['concessionnaireevry-5'] = {
+    objYaw = 89.999992370606,
+    doorRate = 1.0,
+    distance = 2,
+    doorLabel = '5',
+    objCoords = vec3(1150.323608, 2635.693604, 41.902950),
+    fixText = false,
+    locked = true,
+    doorType = 'door',
+    authorizedJobs = { ['concessionnaire'] = 0 },
+    objName = -1821777087,
 }

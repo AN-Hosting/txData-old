@@ -145,19 +145,19 @@ CreateThread(function()
         Wait(0)
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed)
-          exports['qb-target']:AddCircleZone("concesscergy", vector3(-196.17, -1169.06, 23.54), 1.5, {
+          exports['qb-target']:AddCircleZone("concesscergy", vector3(1136.36, 2629.25, 38.95), 1.5, {
           name = "concesscergy",
           debugPoly = false,
           useZ = true,
           }, {
             options = {
-            {
-              type = "command",
-              event = "directsale",
-              icon = 'fas fa-car',
-              label = 'Vendre un véhicule',
-              job = 'concessionnaire',
-            },
+              {
+                type = "command",
+                event = "directsale",
+                icon = 'fas fa-car',
+                label = 'Vendre un véhicule',
+                job = 'concessionnaire',
+              },
             },
             distance = 2.5,
           })

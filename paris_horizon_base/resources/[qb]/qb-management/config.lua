@@ -50,7 +50,7 @@ Config.BossMenus = {
         vector3(-1845.68, -348.49, 83.83),
     },
     concessionnaire = {
-        vector3(-202.19, -1170.27, 24.00),
+        vector3(1136.36, 2630.00, 38.95),
     },
     xpo = {
         vector3(1210.12, -3254.59, 7.09),
