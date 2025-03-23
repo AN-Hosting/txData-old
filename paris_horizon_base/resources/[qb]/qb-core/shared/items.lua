@@ -999,12 +999,27 @@ QBShared.Items = {
     cuir                        = { name = 'cuir',          label = 'Cuir',             weight = 100, type = 'item', image = 'cuir.png', unique = false, useable = false, shouldClose = false, description = '...' },
 
     -- Matériaux
-    aluminum                     = { name = 'aluminum', label = 'Aluminium', weight = 100, type = 'item', image = 'aluminum.png', unique = false, useable = false, shouldClose = false, description = 'Un joli morceau de métal qui peut avoir son utilité.' },
+    aluminum                     = { name = 'aluminum',     label = 'Aluminium',        weight = 100, type = 'item', image = 'aluminum.png', unique = false, useable = false, shouldClose = false, description = 'Un joli morceau de métal qui peut avoir son utilité.' },
     aluminumoxide                = { name = 'aluminumoxide', label = 'Poudre d\'Aluminium', weight = 100, type = 'item', image = 'aluminumoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
-    iron                         = { name = 'iron', label = 'Fer', weight = 100, type = 'item', image = 'iron.png', unique = false, useable = false, shouldClose = false, description = 'Un morceau de métal pratique qui peut être utilisé pour diverses choses.' },
-    ironoxide                    = { name = 'ironoxide', label = 'Poudre de Fer', weight = 100, type = 'item', image = 'ironoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
-    steel                        = { name = 'steel', label = 'Acier', weight = 100, type = 'item', image = 'steel.png', unique = false, useable = false, shouldClose = false, description = 'Un matériau robuste qui peut servir à la fabrication.' },
-    glass                        = { name = 'glass', label = 'Verre', weight = 100, type = 'item', image = 'glass.png', unique = false, useable = false, shouldClose = false, description = 'C\'est très fragile, attention !' },
+    iron                         = { name = 'iron',         label = 'Fer',              weight = 100, type = 'item', image = 'iron.png', unique = false, useable = false, shouldClose = false, description = 'Un morceau de métal pratique qui peut être utilisé pour diverses choses.' },
+    ironoxide                    = { name = 'ironoxide',    label = 'Poudre de Fer',    weight = 100, type = 'item', image = 'ironoxide.png', unique = false, useable = false, shouldClose = false, description = 'Une poudre qui peut être mélangée à d\'autres composants.' },
+    steel                        = { name = 'steel',        label = 'Acier',            weight = 100, type = 'item', image = 'steel.png', unique = false, useable = false, shouldClose = false, description = 'Un matériau robuste qui peut servir à la fabrication.' },
+    glass                        = { name = 'glass',        label = 'Verre',            weight = 100, type = 'item', image = 'glass.png', unique = false, useable = false, shouldClose = false, description = 'C\'est très fragile, attention !' },
+
+    --Alcool
+    bchampagne                   = { name = 'bchampagne',   label = 'Bouteille de Champagne', weight = 1000, type = 'item', image = 'bchampagne.png', unique = false, useable = true, shouldClose = true, description = 'Bouteille de champagne.' },
+    brhum                        = { name = 'brhum',        label = 'Bouteille de Rhum', weight = 1000, type = 'item', image = 'brhum.png', unique = false, useable = true, shouldClose = true, description = 'Bouteille de rhum.' },
+    bvinblanc                    = { name = 'bvinblanc',    label = 'Bouteille de Vin Blanc', weight = 1000, type = 'item', image = 'bvinblanc.png', unique = false, useable = true, shouldClose = true, description = 'Bouteille de vin blanc.' },
+    bvinrouge                    = { name = 'bvinrouge',    label = 'Bouteille de Vin Rouge', weight = 1000, type = 'item', image = 'bvinrouge.png', unique = false, useable = true, shouldClose = true, description = 'Bouteille de vin rouge.' },
+    bvodka                       = { name = 'bvodka',       label = 'Bouteille de Vodka', weight = 1000, type = 'item', image = 'bvodka.png', unique = false, useable = true, shouldClose = true, description = 'Bouteille de vodka.' },
+    bwiskey                      = { name = 'bwiskey',      label = 'Bouteille de Whisky', weight = 1000, type = 'item', image = 'bwiskey.png', unique = false, useable = true, shouldClose = true, description = 'Bouteille de whisky.' },
+    vbiere                       = { name = 'vbiere',       label = 'Verre de Bière', weight = 500, type = 'item', image = 'vbiere.png', unique = false, useable = true, shouldClose = true, description = 'Verre de bière.' },
+    vchampagne                   = { name = 'vchampagne',   label = 'Verre de Champagne', weight = 500, type = 'item', image = 'vchampagne.png', unique = false, useable = true, shouldClose = true, description = 'Verre de champagne.' },
+    vrhum                        = { name = 'vrhum',        label = 'Verre de Rhum', weight = 500, type = 'item', image = 'vrhum.png', unique = false, useable = true, shouldClose = true, description = 'Verre de rhum.' },
+    vvinblanc                    = { name = 'vvinblanc',    label = 'Verre de Vin Blanc', weight = 500, type = 'item', image = 'vvinblanc.png', unique = false, useable = true, shouldClose = true, description = 'Verre de vin blanc.' },
+    vvinrouge                    = { name = 'vvinrouge',    label = 'Verre de Vin Rouge', weight = 500, type = 'item', image = 'vvinrouge.png', unique = false, useable = true, shouldClose = true, description = 'Verre de vin rouge.' },
+    vvodka                        = { name = 'vodka',        label = 'Verre de Vodka', weight = 500, type = 'item', image = 'vodka.png', unique = false, useable = true, shouldClose = true, description = 'Verre de vodka.' },
+    vwiskey                      = { name = 'vwiskey',      label = 'Verre de Whisky', weight = 500, type = 'item', image = 'vwiskey.png', unique = false, useable = true, shouldClose = true, description = 'Verre de whisky.' },
 
 }
 
