@@ -1,19 +1,57 @@
-fx_version 'cerulean'
-game 'gta5'
+fx_version "cerulean"
+game "gta5"
+lua54 "yes"
 
+description "For support or other queries: discord.gg/jgscripts"
+version 'v3.2.1'
+author "JG Scripts"
 
-shared_scripts {'config.lua', "fixDeleteVehicle.lua"}
+dependencies {
+  "oxmysql",
+  "ox_lib",
+  "/server:7290",
+  "/onesync",
+}
 
-client_scripts {'client/main.lua', 'config-client.lua', 'client/impound.lua', 'client/garage.lua', 'client/job-garage.lua',
-                'client/gang-garage.lua', 'client/private-garage.lua', 'client/vehicle.lua', 'client/peds.lua'}
+shared_scripts {
+  "@ox_lib/init.lua",
+  "config/config.lua",
+  "locales/*.lua",
+  "shared/main.lua",
+  "framework/main.lua",
+  "fixDeleteVehicle.lua"
+}
 
-server_scripts {'@oxmysql/lib/MySQL.lua', 'server/main.lua', 'server/impound.lua', 'server/garage.lua', 'server/job-garage.lua',
-                'server/gang-garage.lua', 'server/private-garage.lua', 'server/vehicle.lua'}
+client_scripts {
+  "framework/**/cl-*.lua",
+  "config/config-cl.lua",
+  "client/cl-main.lua",
+  "client/*.lua"
+}
 
-ui_page 'html/index.html'
+server_scripts {
+  "@oxmysql/lib/MySQL.lua",
+  "framework/**/sv-*.lua",
+  "config/config-sv.lua",
+  "server/sv-main.lua",
+  "server/*.lua"
+}
 
-files {'html/index.html', 'html/bootstrap.css', 'html/js/main.js', 'html/js/impound.js', 'html/js/garage.js', 'html/js/private-garage.js',
-       'html/js/vehicle.js'}
+ui_page "web/dist/index.html"
 
+files {
+  "web/dist/index.html",
+  "web/dist/**/*",
+  "vehicle_images/*"
+}
 
-lua54 'yes'
+escrow_ignore {
+  "config/**/*",
+  "framework/**/*",
+  "locales/*.lua",
+  "client/cl-deformation.lua",
+  "client/cl-locations.lua",
+  "server/sv-webhooks.lua"
+}
+
+dependency '/assetpacks'
