@@ -127,7 +127,7 @@ Config.Locations = {
     vector = vector3(-392.29, 201.04, 83.16), 
     text = "Maisonette 10", 
     color = 0, 
-    sprite = 836, 
+    sprite = 827, 
     scale = 0.8,
 },
 [19] = {
