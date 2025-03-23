@@ -130,6 +130,13 @@ Config.Locations = {
     sprite = 836, 
     scale = 0.8,
 },
+[19] = {
+    vector = vector3(-57.01, 6554.75, 31.52), 
+    text = "Concessionnaire Cergy", 
+    color = 0, 
+    sprite = 326, 
+    scale = 0.8,
+},
 
 
 -- Example 
