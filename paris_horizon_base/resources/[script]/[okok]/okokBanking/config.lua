@@ -85,7 +85,7 @@ Config.BankLocations = { -- To get blips and colors check this: https://wiki.gta
 	{blip = 276, blipColor = 0, blipScale = 0.5, x = 1175.064, y = 2706.643, z = 38.094, blipText = "La Banque Postale", BankDistance = 3, boxZone = {pos = vec3(1175.72, 2707.36, 38.30), size = vec3(2.85, 0.40, 1.30), rotation = 270, maxZ = 39.5}},
 }
 
-Config.ATMDistance = 1.5 -- How close you need to be in order to access the ATM
+Config.ATMDistance = 2.5 -- How close you need to be in order to access the ATM
 
 Config.ATM = { -- ATM models, do not remove any
 	{model = -870868698},
