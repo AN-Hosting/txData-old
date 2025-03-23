@@ -96,6 +96,7 @@ Config.AllowedSocieties = { -- Which societies can access the Society Invoices
 	'dir',
 	'casino',
 	'xpo'
+	'maisonette10'
 }
 
 Config.InspectCitizenSocieties = { -- Which societies can access the Society Invoices
