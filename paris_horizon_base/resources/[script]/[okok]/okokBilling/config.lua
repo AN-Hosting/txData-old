@@ -95,7 +95,7 @@ Config.AllowedSocieties = { -- Which societies can access the Society Invoices
 	'tf1',
 	'dir',
 	'casino',
-	'xpo'
+	'xpo',
 	'maisonette10'
 }
 
