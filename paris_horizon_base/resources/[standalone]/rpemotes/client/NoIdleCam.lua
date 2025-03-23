@@ -1,35 +1,35 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
+if not Config.NoIdleCam then return end
 
 RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
-  TriggerEvent('chat:addMessage', {
-    color = {227,8,0},
-    multiline = true,
-    args = {'[RPEmotes]', 'Idle Cam Is Now Off'}
-  })
-  DisableIdleCamera(true)
-  SetPedCanPlayAmbientAnims(playerPed, false)
-  SetResourceKvp("idleCam", "off")
-end)
+    TriggerEvent('chat:addMessage', {
+        color = {227,8,0},
+        multiline = true,
+        args = {'[RPEmotes]', 'Idle Cam Is Now Off'}
+    })
+    DisableIdleCamera(true)
+    SetPedCanPlayAmbientAnims(PlayerPedId(), false)
+    SetResourceKvpInt("idleCamToggle", 1)
+end, false)
 
 RegisterCommand('idlecamon', function() -- help2 31, 167, 9
-  TriggerEvent('chat:addMessage', {
-    color = {31,167,9},
-    multiline = true,
-    args = {'[RPEmotes]', 'Idle Cam Is Now On'}
-  })
-  DisableIdleCamera(false)
-  SetPedCanPlayAmbientAnims(playerPed, true)
-  SetResourceKvp("idleCam", "on")
-end)
+    TriggerEvent('chat:addMessage', {
+        color = {31,167,9},
+        multiline = true,
+        args = {'[RPEmotes]', 'Idle Cam Is Now On'}
+    })
+    DisableIdleCamera(false)
+    SetPedCanPlayAmbientAnims(PlayerPedId(), true)
+    SetResourceKvpInt("idleCamToggle", 2)
+end, false)
 
-Citizen.CreateThread(function()
-  TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")
-  TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
+CreateThread(function()
+    TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")
+    TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
 
-  local idleCamDisabled = GetResourceKvpString("idleCam") == "off"
-  DisableIdleCamera(idleCamDisabled)
+    local idleCamKvp = GetResourceKvpInt("idleCamToggle")
+    if idleCamKvp == 0 then
+        return
+    end
+
+    DisableIdleCamera(idleCamKvp == 1)
 end)

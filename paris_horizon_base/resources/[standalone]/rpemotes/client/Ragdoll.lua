@@ -1,15 +1,9 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 if Config.RagdollEnabled then
     RegisterCommand('+ragdoll', function() Ragdoll() end, false)
     RegisterCommand('-ragdoll', function() StopRagdoll() end, false)
-    RegisterKeyMapping("+ragdoll", "Ragdoll your character", "keyboard", Config.RagdollKeybind)
+    RegisterKeyMapping('+ragdoll', Translate('register_ragdoll'), 'keyboard', Config.RagdollKeybind)
 
-    local stop = true
+    local isRagdolling = true
     function Ragdoll()
         if IsInAnimation then return end
 
@@ -17,19 +11,23 @@ if Config.RagdollEnabled then
         if not IsPedOnFoot(ped) then return end
 
         if Config.RagdollAsToggle then
-            stop = not stop
+            isRagdolling = not isRagdolling
         else
-            stop = false
+            isRagdolling = true
         end
 
-        while not stop do
-            SetPedToRagdoll(ped, 1000, 1000, 0, false, false, false)
+        while not isRagdolling do
+            ped = PlayerPedId()
+            SetPedRagdollForceFall(ped)
+            ResetPedRagdollTimer(ped)
+            SetPedToRagdoll(ped, 1000, 1000, 3, false, false, false)
+            ResetPedRagdollTimer(ped)
             Wait(0)
         end
     end
 
     function StopRagdoll()
         if Config.RagdollAsToggle then return end
-        stop = true
+        isRagdolling = false
     end
 end

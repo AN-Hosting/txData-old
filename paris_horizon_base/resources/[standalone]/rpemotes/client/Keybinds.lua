@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 if Config.SqlKeybinding then
     local emob1 = ""
     local emob2 = ""
@@ -23,7 +17,7 @@ if Config.SqlKeybinding then
     -- Commands / Events --------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
 
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while true do
             if NetworkIsPlayerActive(PlayerId()) and not Initialized then
                 if not Initialized then
@@ -44,13 +38,14 @@ if Config.SqlKeybinding then
                         Wait(1000)
                     end
                 end
+            else
+                Wait(500)
             end
-            Citizen.Wait(1)
+            Wait(0)
         end
     end)
 
-    RegisterNetEvent("rp:ClientKeybindExist")
-    AddEventHandler("rp:ClientKeybindExist", function(does)
+    RegisterNetEvent("rp:ClientKeybindExist", function(does)
         if does then
             TriggerServerEvent("rp:ServerKeybindGrab")
         else
@@ -58,8 +53,7 @@ if Config.SqlKeybinding then
         end
     end)
 
-    RegisterNetEvent("rp:ClientKeybindGet")
-    AddEventHandler("rp:ClientKeybindGet", function(k1, e1, k2, e2, k3, e3, k4, e4, k5, e5, k6, e6)
+    RegisterNetEvent("rp:ClientKeybindGet", function(k1, e1, k2, e2, k3, e3, k4, e4, k5, e5, k6, e6)
         keyb1 = k1
         emob1 = e1
         keyb2 = k2
@@ -75,21 +69,25 @@ if Config.SqlKeybinding then
         Initialized = true
     end)
 
-    RegisterNetEvent("rp:ClientKeybindGetOne")
-    AddEventHandler("rp:ClientKeybindGetOne", function(key, e)
-        SimpleNotify(Config.Languages[lang]['bound'] ..
-            "~y~" .. e .. "~w~ " .. Config.Languages[lang]['to'] .. " ~g~" .. firstToUpper(key) .. "~w~")
-        if key == "num4" then emob1 = e
+    RegisterNetEvent("rp:ClientKeybindGetOne", function(key, e)
+        SimpleNotify(Translate('boundto', e, FirstToUpper(key)))
+        if key == "num4" then
+            emob1 = e
             keyb1 = "num4"
-        elseif key == "num5" then emob2 = e
+        elseif key == "num5" then
+            emob2 = e
             keyb2 = "num5"
-        elseif key == "num6" then emob3 = e
+        elseif key == "num6" then
+            emob3 = e
             keyb3 = "num6"
-        elseif key == "num7" then emob4 = e
+        elseif key == "num7" then
+            emob4 = e
             keyb4 = "num7"
-        elseif key == "num8" then emob5 = e
+        elseif key == "num8" then
+            emob5 = e
             keyb5 = "num8"
-        elseif key == "num9" then emob6 = e
+        elseif key == "num9" then
+            emob6 = e
             keyb6 = "num9"
         end
     end)
@@ -99,13 +97,13 @@ if Config.SqlKeybinding then
     -----------------------------------------------------------------------------------------------------
 
     function EmoteBindsStart()
-        EmoteChatMessage(Config.Languages[lang]['currentlyboundemotes'] .. "\n"
-            .. firstToUpper(keyb1) .. " = '^2" .. emob1 .. "^7'\n"
-            .. firstToUpper(keyb2) .. " = '^2" .. emob2 .. "^7'\n"
-            .. firstToUpper(keyb3) .. " = '^2" .. emob3 .. "^7'\n"
-            .. firstToUpper(keyb4) .. " = '^2" .. emob4 .. "^7'\n"
-            .. firstToUpper(keyb5) .. " = '^2" .. emob5 .. "^7'\n"
-            .. firstToUpper(keyb6) .. " = '^2" .. emob6 .. "^7'\n")
+        EmoteChatMessage(Translate('currentlyboundemotes') .. "\n"
+            .. FirstToUpper(keyb1) .. " = '^2" .. emob1 .. "^7'\n"
+            .. FirstToUpper(keyb2) .. " = '^2" .. emob2 .. "^7'\n"
+            .. FirstToUpper(keyb3) .. " = '^2" .. emob3 .. "^7'\n"
+            .. FirstToUpper(keyb4) .. " = '^2" .. emob4 .. "^7'\n"
+            .. FirstToUpper(keyb5) .. " = '^2" .. emob5 .. "^7'\n"
+            .. FirstToUpper(keyb6) .. " = '^2" .. emob6 .. "^7'\n")
     end
 
     function EmoteBindStart(source, args, raw)
@@ -120,14 +118,28 @@ if Config.SqlKeybinding then
                 then
                     TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
                 else
-                    EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+                    EmoteChatMessage("'" .. emote .. "' " .. Translate('notvalidemote') .. "")
                 end
             else
-                EmoteChatMessage("'" .. key .. "' " .. Config.Languages[lang]['notvalidkey'])
+                EmoteChatMessage("'" .. key .. "' " .. Translate('notvalidkey'))
             end
         else
             print("invalid")
         end
     end
 
+    function DeleteEmote(source, args)
+        if #args > 0 then
+            local key = string.lower(args[1])
+            if (Config.KeybindKeys[key]) ~= nil then
+                TriggerServerEvent("rp:ServerKeybindDelete", key)
+                Wait(1000)
+                TriggerServerEvent("rp:ServerKeybindExist")
+            else
+                EmoteChatMessage("'" .. key .. "' " .. Translate('notvalidkey'))
+            end
+        else
+            print("invalid")
+        end
+    end
 end

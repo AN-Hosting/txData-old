@@ -1,47 +1,41 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
 fx_version 'cerulean'
 game 'gta5'
-authors { 'TayMcKenzieNZ', 'MadsL', 'Mathu_lmn', 'Community' }
-description 'RPEmotes V1.3.8'
-version '1.3.8'
+description 'rpemotes-reborn'
+version '1.8.4'
+
 lua54 'yes'
+use_experimental_fxv2_oal 'yes'
+
+provide "rpemotes"
 
 dependencies {
+    -- '/server:7290',
     '/server:6683',
-    '/onesync',
+    '/onesync'
 }
 
--- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
-
---#region oxmysql
-
--- dependency 'oxmysql'
+-- Uncomment the below line if you would like to use the SQL keybinds. Requires oxmysql.
 -- server_script '@oxmysql/lib/MySQL.lua'
 
---#endregion oxmysql
-
 files {
-    'propsets.meta',
     'conditionalanims.meta',
+    'header.png'
 }
 
-data_file 'AMBIENT_PROP_MODEL_SET_FILE' 'propsets.meta'
 data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts {
     'config.lua',
-    'Translations.lua',
-    'animals.lua',
+    'locale.lua',
+    'locales/*.lua',
+    'animals.lua'
 }
 
 server_scripts {
-    'printer.lua',
     'server/Server.lua',
     'server/Updates.lua',
-    'server/frameworks/*.lua'
+    'server/frameworks/*.lua',
+    'server/CopyEmote.lua'
 }
 
 client_scripts {
@@ -61,20 +55,18 @@ client_scripts {
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',
-    'client/frameworks/*.lua'
+    'client/frameworks/*.lua',
+    'client/CopyEmote.lua'
 }
 
 
----- Loads all ytyp files for custom props to stream ---
----- You will need to add a data_file 'DLC_ITYP_REQUEST' for your own to work in game ---
-
-data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_rpemotes.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/rpemotesreborn_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_props.ytyp'
 
-data_file 'DLC_ITYP_REQUEST' 'bzzz_camp_props.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_camp_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/apple_1.ytyp'
 
@@ -91,3 +83,11 @@ data_file 'DLC_ITYP_REQUEST' 'stream/pata_props.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/vedere_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/pnwsigns.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/pprp_icefishing.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/scully_props.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/samnick_prop_lighter01.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_murderpack.ytyp'
