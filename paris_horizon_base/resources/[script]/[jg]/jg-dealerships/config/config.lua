@@ -225,18 +225,18 @@ Config.DealershipLocations = {
     ["cergy"] = {
       type = "owned", -- or "owned", "self-service"
       openShowroom = {
-        coords = vector3(-190.59, -1164.65, 22.94),
+        coords = vector3(1121.57, 2627.2, 39.38),
         size = 3
       },
       openManagement = {
-        coords = vector3(-203.99, -1166.57, 23.76),
+        coords = vector3(1156.66, 2635.11, 41.76),
         size = 3
       },
       sellVehicle = {
-        coords = vector3(-199.88, -1171.61, 23.76),
+        coords = vector3(1155.41, 2632.19, 41.76),
         size = 1
       },
-      purchaseSpawn = vector4(-177.45, -1170.88, 22.94, 181.38),
+      purchaseSpawn = vector4(1125.65, 2641.93, 38.95, 85.56),
       testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
       camera = {
         name = "Car",
