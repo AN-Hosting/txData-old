@@ -86,5 +86,26 @@
     "permissions": [
       "all_permissions"
     ]
+  },
+  {
+    "$schema": 1,
+    "name": "Bobybiss",
+    "master": false,
+    "password_hash": "$2a$11$qrxu0x34dSn5NgGUcA41yOQ8X2aBwTd59DpVrGUdqpjSADYkRmtpG",
+    "providers": {
+      "citizenfx": {
+        "id": "BobyBis",
+        "identifier": "fivem:4973623",
+        "data": {}
+      },
+      "discord": {
+        "id": "1033502866473750548",
+        "identifier": "discord:1033502866473750548",
+        "data": {}
+      }
+    },
+    "permissions": [
+      "all_permissions"
+    ]
   }
 ]
