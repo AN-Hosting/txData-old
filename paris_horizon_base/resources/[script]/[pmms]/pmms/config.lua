@@ -723,7 +723,7 @@ Config.dui.urls = {}
 -- 		Clone https://github.com/kibook/pmms-dui and install on your
 -- 		web server.
 --
-Config.dui.urls.https = "https://nico-du-34-e7bmpd.users.cfx.re/pmms-dui/"
+Config.dui.urls.https = "https://nico-du-34-487eqo.users.cfx.re/pmms-dui/"
 
 -- The URL of the DUI page used for HTTP links. If left unset, the internal DUI page is used.
 --Config.dui.urls.http = ""

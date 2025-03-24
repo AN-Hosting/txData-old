@@ -201,10 +201,10 @@ RegisterNetEvent('police:server:RobPlayer', function(playerId)
     local SearchedPlayer = QBCore.Functions.GetPlayer(playerId)
     if not Player or not SearchedPlayer then return end
 
-    local money = SearchedPlayer.PlayerData.money['cash']
-    Player.Functions.AddMoney('cash', money, 'police-player-robbed')
-    SearchedPlayer.Functions.RemoveMoney('cash', money, 'police-player-robbed')
+    -- local money = SearchedPlayer.PlayerData.money['cash']
+    -- Player.Functions.AddMoney('cash', money, 'police-player-robbed')
+    -- SearchedPlayer.Functions.RemoveMoney('cash', money, 'police-player-robbed')
     exports['qb-inventory']:OpenInventoryById(src, playerId)
-    TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, Lang:t('info.cash_robbed', { money = money }))
-    TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.stolen_money', { stolen = money }))
+    -- TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, Lang:t('info.cash_robbed', { money = money }))
+    -- TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.stolen_money', { stolen = money }))
 end)
