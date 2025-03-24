@@ -56,6 +56,22 @@ local function GetCuffedAnimation(playerId)
     Wait(2500)
 end
 
+-- Fonction pour dessiner le texte 3D
+function Draw3DText(x, y, z, text)
+    local onScreen, _x, _y = World3dToScreen2d(x, y, z)
+    local p = GetGameplayCamRelativeHeading()
+    local scale = 0.35
+    SetTextScale(scale, scale)
+    SetTextFont(4)
+    SetTextProportional(1)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    AddTextComponentString(text)
+    DrawText(_x, _y)
+    local factor = (string.len(text)) / 370
+    DrawRect(_x, _y + 0.0125, 0.005 + factor, 0.03, 0, 0, 0, 75)
+end
+
 -- Events
 RegisterNetEvent('police:client:SetOutVehicle', function()
     local ped = PlayerPedId()
@@ -113,19 +129,19 @@ RegisterNetEvent('police:client:RobPlayer', function()
         local playerPed = GetPlayerPed(player)
         local playerId = GetPlayerServerId(player)
         if IsEntityPlayingAnim(playerPed, 'missminuteman_1ig_2', 'handsup_base', 3) or IsEntityPlayingAnim(playerPed, 'mp_arresting', 'idle', 3) or IsTargetDead(playerId) then
-            QBCore.Functions.Progressbar('robbing_player', Lang:t('progressbar.robbing'), math.random(5000, 7000), false, true, {
+            QBCore.Functions.Progressbar('robbing_player', "Fouille la Personne", math.random(3000, 5000), false, true, {
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
                 disableCombat = true,
             }, {
-                animDict = 'random@shop_robbery',
-                anim = 'robbery_action_b',
+                animDict = 'amb@prop_human_bum_bin@base',
+                anim = 'base',
                 flags = 16,
             }, {}, {}, function()
                 local plyCoords = GetEntityCoords(playerPed)
                 local pos = GetEntityCoords(ped)
-                if #(pos - plyCoords) < 2.5 then
+                if #(pos - plyCoords) < 1.5 then
                     TriggerServerEvent('police:server:RobPlayer', playerId)
                 else
                     QBCore.Functions.Notify(Lang:t('error.none_nearby'), 'error')

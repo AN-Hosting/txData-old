@@ -23,7 +23,7 @@ Config.BossMenus = {
         vector3(67.4, -806.68, 31.52),
     },
     norauto = {
-        vector3(806.47, -882.01, 29.14),
+        vector3(558.32, -198.39, 58.0),
     },
     tabac = {
         vector3(-501.06, -28.01, 45.72),
@@ -50,7 +50,7 @@ Config.BossMenus = {
         vector3(-1845.68, -348.49, 83.83),
     },
     concessionnaire = {
-        vector3(1136.36, 2630.00, 38.95),
+        vector3(1154.37, 2632.29, 41.76),
     },
     xpo = {
         vector3(1210.12, -3254.59, 7.09),

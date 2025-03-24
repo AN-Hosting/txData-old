@@ -770,6 +770,11 @@ function AddItem(identifier, item, amount, slot, info, reason)
         '**Reason:** ' .. addReason .. '\n' ..
         '**Resource:** ' .. resourceName
     )
+
+    if player and item == "phone" then
+        TriggerClientEvent('lb-phone:itemAdded', player.PlayerData.source)
+    end
+    
     return true
 end
 

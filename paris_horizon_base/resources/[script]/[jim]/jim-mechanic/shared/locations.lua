@@ -4,10 +4,10 @@ Config.Locations[#Config.Locations+1] = { --[[ GABZ ALTA STREET BENNYS ]]--
 	Enabled = true,
 	job = "norauto",
 	zones = {
-		vec2(891.23, -862.09),
-		vec2(789.97, -872.91),
-		vec2(794.29, -925.87),
-		vec2(889.69, -929.5),
+		vector2(573.18, -117.94),
+		vector2(527.2, -120.51),
+		vector2(510.16, -291.54),
+		vector2(546.04, -304.41),
 	},
 	autoClock = { enter = false, exit = false, },
 	stash = {
@@ -17,10 +17,8 @@ Config.Locations[#Config.Locations+1] = { --[[ GABZ ALTA STREET BENNYS ]]--
 		{ coords = vec4(844.03, -895.8, 0.25, 123.98), w = 3.60, d = 0.8 },
 	},
 	crafting = {
-		{ coords = vec4(824.14, -909.14, 25.25, 90.01), w = 2.8, d = 1.5 },
-		{ coords = vec4(810.74, -909.14, 25.25, 90.01), w = 2.8, d = 1.5 },	
-		{ coords = vec4(836.16, -880.11, 25.25, 90.01), w = 2.8, d = 1.5 },
-		{ coords = vec4(842.52, -909.27, 25.25, 90.01), w = 2.8, d = 1.5 },
+		{ coords = vec4(556.19, -179.39, 54.76, 90.95), w = 4.4, d = 1.5 },
+		{ coords = vec4(555.67, -187.02, 54.76, 90.95), w = 4.4, d = 1.5 },
 	},
 	clockin = {
 		{ coords = vec4(-195.55, -1316.46, 0.2, 181.72), prop = false },

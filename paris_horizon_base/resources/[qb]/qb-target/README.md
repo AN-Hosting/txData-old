@@ -1,40 +1,124 @@
-# qb-target
+# luck-contextmenu
+#### qb-target killer, but heavily inspired from qb-target
+#### This script created by goodluck, one of the Codeverse developers.
 
-qb-target is a targeting solution that allows interaction with any predefined entity, model, entity type or polyzone. While activated you can easily and safely replace markers and distance checking, instead relying on intuitive design to improve player experiences and optimize interaction.
+## About this script
+luck-contextmenu is for interaction with entities, players, PolyZones (PolyZone is required for this scripts), vehicles and etc.
+You can add options for this things and player can be right click to added things for access options.
+And you can add submenus for this things!
 
-## Credits
+#### Information
+You can start script without change any qb-target export!
 
-* Lots of credits goes to [qtarget](https://github.com/overextended/qtarget) for rewriting all of bt-target to make it more optimized and this resource is pretty much a fork of it.
+## Features
 
-* Huge credit to [bt-target](https://github.com/brentN5/bt-target) from brentN5 for making the target a thing!
+- Submenu options, you can add infinite submenus!
+- Options can have submenu and event on same time!
+- Condition label (You can change options label with condition without create any other options.)
+- Self clickable!
+- Fast actions. (This script comes with default options named "Fast Actions", player can create fast actions for animations and commands!)
+- Sprites for zones.
+- Realtime check options. (Example you right click to player and one option requires police job. If your job change this option appear/disappear with animation from menu.)
+- And other features from qb-target!
+- canInteract option for check any condtions you typed!
+- Global options for entites, vehicle bones, vehicles, players, peds and self interactions.
 
-* Credit to [ms-peds](https://github.com/MiddleSkillz/ms-peds) for allowing me to use their awesome ped spawner inside the target!
+## Usage (Player)
 
-## Dependency
+1. Hold left alt key to show cursor.
+2. Bring cursor to any thing with interactable options. (If thing have any options you can show eye image at corsor's top left.)
+3. Right click to access thing's menu.
+4. Now you can take your hand from left alt key.
+5. Click to any option for interact.
+5.1. If option has right arrow icon at right, on left click you will access submenu of option.
+5.2. If option has menu icon at right, on left click you will trigger option's event. On right click you will access to option's submenu.
+5.3 If option not has any icon at right on left click you will trigger option's event.
 
-* [PolyZone](https://github.com/mkafrin/PolyZone)
+## Documanation for scripting
 
-## Optional Dependency
+#### New features.
 
-* [QBCore](https://github.com/qbcore-framework/qb-core)
+##### Priority
+You can add priority for options, if you want at top of menu options you should give smallest number of menu.
 
-## Information
+### Both right, left clickable example.
+```
+{
+	label = v.label,
+	event = "e " .. v.action,
+	icon = "fa-solid fa-face-smile",
+	type = "animation",
+	subOptions = {
+		{
+			label = "Remove Animation",
+			icon = "fa-solid fa-trash",
+			action = function()
+				for i = 1, #animations do
+					if animations[i].action == v.action then
+						table.remove(animations, i)
+						break
+					end
+				end
 
-This repository was originally a direct fork and now it's own repository as it's basically qtarget but with lots of changes to it to make it better, most of the code comes from qtarget as I find their work awesome on this and what they've achieved with it.
+				TriggerServerEvent('luck-contextmenu:SetFastActions', animations, "animations")
 
-You are free to help through Pull Requests and leave as much suggestions or issues, I love some help!
+				AddFastActions(animations, commands)
+			end
+		}
+	}
+}
+```
 
-The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can be made on request, just let me know!
+##### Submenus example.
+```
+  ['Kıyafetler']= {
+            label = 'Kıyafetler',
+            icon = 'fa-solid fa-shirt',
+            priority = -1,
+            subOptions = {
+                {
+                    id = 'meer',
+                    label = 'Accessoires',
+                    icon = 'plus',
+                    subOptions = {
+                        {
+                            id = 'Hat',
+                            label = 'Hat',
+                            icon = 'fa-solid fa-hat-cowboy',
+                            type = 'client',
+                            event = 'qb-radialmenu:ToggleProps',
+                        }
+                },
+                {
+                    id = 'Hair',
+                    label = 'Hair',
+                    icon = 'fa-solid fa-ribbon',
+                    type = 'client',
+                    event = 'qb-radialmenu:ToggleClothing',
+                }
+            }
+        }, 
+    },
+```
+##### Condation labels example.
 
-## Features 
-- Maintains compatibility with bt-target while providing improved utility and performance
-- Optimised and improved raycasting function allows interaction with a wider range of entities
-- Add generic options to apply for all players, peds, vehicles, or objects
-- Trigger an event, function or command after clicking an option, with the ability to pass any data through
-- Define distance on a per-option or overall basis when triggering a target option
-- Ability to redefine or remove options and add new options without replacing old ones
-- Update the option list when moving towards or away from a target with variable distances on their options
-- Support for entity bones, with built-in tables for opening vehicle doors
-- Support checking for job, gang, citizenid, items, or specific entities
-- Utilise the `canInteract` function for advanced checks to show or hide an option based on any trigger
-- Ped spawner to spawn peds and assign target options to them all in one place
+```
+ ["Toggle Trunk"] = {
+            icon = "fas fa-truck-ramp-box",
+            labels = {
+                {
+                    label = "Open Trunk",
+                    condition = function(entity)
+                        return GetVehicleDoorAngleRatio(entity, BackEngineVehicles[GetEntityModel(entity)] and 4 or 5) <= 0.0
+                    end
+                },
+                {
+                    label = "Close Trunk",
+                }
+            },
+            action = function(entity)
+                ToggleDoor(entity, BackEngineVehicles[GetEntityModel(entity)] and 4 or 5)
+            end,
+            distance = 1.2
+        },
+```

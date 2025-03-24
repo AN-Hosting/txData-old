@@ -230,15 +230,7 @@ Config.Products = {
     --     { name = 'mechboard', price = 0, amount = 50},
     -- },
     ['phonestore'] = {
-        { name = 'classic_phone',       price = 2500, amount = 50 },
-        { name = 'black_phone',         price = 2500, amount = 50 },
-        { name = 'blue_phone',        price = 2500, amount = 50 },
-        { name = 'gold_phone',        price = 2500, amount = 50 },
-        { name = 'red_phone',    price = 2500, amount = 50 },
-        { name = 'green_phone',  price = 2500, amount = 50 },
-        { name = 'greenlight_phone',         price = 2500, amount = 50 },
-        { name = 'pink_phone',      price = 2500, amount = 50 },
-        { name = 'white_phone',      price = 2500, amount = 50 },
+        { name = 'phone',       price = 2500, amount = 50 },
     },
     ['fruit'] = {
         { name = 'apple',       price = 120, amount = 50 },
@@ -408,7 +400,7 @@ Config.Products = {
         { name = 'fanta',             price = 110, amount = 50, requiredJob = ' kfc'},
         { name = 'sprite',            price = 110, amount = 50, requiredJob = ' kfc'},
         { name = 'monster',           price = 110, amount = 50, requiredJob = ' kfc'},
-        { name = 'orangina',          price = 110, amount = 50, requiredJob = ' kfc'}
+        { name = 'orangina',          price = 110, amount = 50, requiredJob = ' kfc'},
     },
     ['burgerking'] = {
         { name = 'glaceburgerking',   price = 110, amount = 50, requiredJob = 'burgerking'},
@@ -421,10 +413,10 @@ Config.Products = {
         { name = 'fanta',             price = 110, amount = 50, requiredJob = 'burgerking'},
         { name = 'sprite',            price = 110, amount = 50, requiredJob = 'burgerking'},
         { name = 'monster',           price = 110, amount = 50, requiredJob = 'burgerking'},
-        { name = 'orangina',          price = 110, amount = 50, requiredJob = 'burgerking'}
+        { name = 'orangina',          price = 110, amount = 50, requiredJob = 'burgerking'},
     },
     ['otacos'] = {
-        { name = 'glacetacos',        price = 850, amount = 50, requiredJob = 'otacos' },
+        { name = 'glacetacos',        price = 110, amount = 50, requiredJob = 'otacos' },
         { name = 'fritetacos',        price = 110, amount = 50, requiredJob = 'otacos' },
         { name = 'tacos',             price = 110, amount = 50, requiredJob = 'otacos' },
         { name = 'coca',              price = 110, amount = 50, requiredJob = 'otacos' },
@@ -433,20 +425,20 @@ Config.Products = {
         { name = 'fanta',             price = 110, amount = 50, requiredJob = 'otacos' },
         { name = 'sprite',            price = 110, amount = 50, requiredJob = 'otacos' },
         { name = 'monster',           price = 110, amount = 50, requiredJob = 'otacos' },
-        { name = 'orangina',          price = 110, amount = 50, requiredJob = 'otacos' }
+        { name = 'orangina',          price = 110, amount = 50, requiredJob = 'otacos' },
     },
     ['samu_75'] = {
         { name = 'firstaid',        price = 1, amount = 50, requiredJob = 'samu_75' },
         { name = 'bandage',        price = 1, amount = 50, requiredJob = 'samu_75' },
         { name = 'ifaks',             price = 1, amount = 50, requiredJob = 'samu_75' },
         { name = 'painkillers',              price = 1, amount = 50, requiredJob = 'samu_75' },
-        { name = 'walkstick',            price = 1, amount = 50, requiredJob = 'samu_75' }
+        { name = 'walkstick',            price = 1, amount = 50, requiredJob = 'samu_75' },
     },
     ['pompiers_de_paris'] = {
         { name = 'firstaid',        price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
         { name = 'bandage',        price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
         { name = 'ifaks',             price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
-        { name = 'painkillers',              price = 0, amount = 500, requiredJob = 'pompiers_de_paris' }
+        { name = 'painkillers',              price = 0, amount = 500, requiredJob = 'pompiers_de_paris' },
     },
     ['Maisonette'] = {
         {name = 'bchampagne',    price = 0, amount = 500, requiredJob = 'maisonette10' },
