@@ -15,6 +15,29 @@ Config.AFK = {
     secondsUntilKick = 1000000, -- AFK Kick Time Limit (in seconds)
     kickInCharMenu = false      -- Set to true if you want to kick players for being AFK even when they are in the character menu.
 }
+-- Menu Perso
+Config.ServiceCommands = {
+    gendarmerie_nationale = '19',
+    samu_75 = '15',
+    pompiers_de_paris = '18',
+    avocats_de_paris = '115',
+    police_nationale = '17',
+    norauto = '116',
+    midas = '117',
+    concessionnaire = '118',
+    taxi = '119',
+    orpi = '120',
+    tabac = '121',
+    burgerking = '122',
+    kfc = '123',
+    otacos = '124',
+    dir = '127',
+    vinci = '128',
+    xpo = '129',
+    tf1 = '130',
+    vigneron = '131',
+    pizza = '132'
+}
 
 Config.HandsUp = {
     command = 'handsup',
@@ -313,6 +336,22 @@ Config.CarWash = {
     }
 }
 
+-- Vehicles Push
+Config.target = true -- Use target system for vehicle push (disables TextUI)
+Config.targetSystem = 'qb-target' -- Target System to use. ox_target, qtarget, qb-target
+Config.Usebones = true -- Use bones for vehicle push
+Config.PushKey = 'E' -- Key to push vehicle
+Config.TurnRightKey = 'D' -- Keys to turn the vehicle while pushing it.
+Config.TurnLeftKey = 'Q' -- Keys to turn the vehicle while pushing it.
+Config.TextUI = false -- Use Text UI for vehicle push
+Config.useOTSkills = false -- Use OT Skills for XP gain from pushing vehicles. Found here: https://otstudios.tebex.io
+Config.maxReward = 20 -- Max amount of xp that can be gained from pushing a vehicle per push, make sure this is the same or less than what is set for strength in your OT_skills config.
+Config.healthMin = 2000.0 -- Minimum health of vehicle to be able to push it.
+
+Config.blacklist = { -- blacklist vehicle models from being pushed.
+    [`phantom`] = true
+}
+
 -------------- Skateboard --------------
 Config.MaxSpeedKmh = 200
 Config.maxJumpHeight = 5.0
@@ -476,21 +515,5 @@ Config.Telescopes = {
 	{ model = -656927072, coords = vector3(-993.0943, -755.5347, 70.09155) },
 	{ model = -656927072, coords = vector3(-588.0742, -706.9901, 116.4024) },
 	{ model = -656927072, coords = vector3(-593.5171, -705.6987, 121.2024) },
-}
-
--- Vehicule push
-Config.target = true -- Use target system for vehicle push (disables TextUI)
-Config.targetSystem = 'qb-target' -- Target System to use. ox_target, qtarget, qb-target
-Config.Usebones = true -- Use bones for vehicle push
-Config.PushKey = 'E' -- Key to push vehicle
-Config.TurnRightKey = 'Q' -- Keys to turn the vehicle while pushing it.
-Config.TurnLeftKey = 'A' -- Keys to turn the vehicle while pushing it.
-Config.TextUI = false -- Use Text UI for vehicle push
-Config.useOTSkills = false -- Use OT Skills for XP gain from pushing vehicles. Found here: https://otstudios.tebex.io
-Config.maxReward = 20 -- Max amount of xp that can be gained from pushing a vehicle per push, make sure this is the same or less than what is set for strength in your OT_skills config.
-Config.healthMin = 2000.0 -- Minimum health of vehicle to be able to push it.
-
-Config.blacklist = { -- blacklist vehicle models from being pushed.
-    [`phantom`] = true
 }
 

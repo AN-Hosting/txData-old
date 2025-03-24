@@ -91,16 +91,16 @@ Config = {
 
 	vehFailure = { 						-- Enabling these will make allow you to no longer need qb-vehiclefailure
 										-- ONLY ENABLE IF NOT USING VEHICLEFAILURE OR ANOTHER SCRIPT TO REPLACE IT
-		damages = true,					-- Makes jim-mechanic automatically handle extra damages instead of needing an edit to vehfailure
+		damages = false,					-- Makes jim-mechanic automatically handle extra damages instead of needing an edit to vehfailure
 		repairKits = true,				-- Takes control of repairkit and advancedrepairkit
 		fixCommand = true,				-- takes control of /fix command
 		PreventRoll = true,			-- takes control of preventing rolling your car back over when upside down
-		increaseEngDamage = true,		-- enabling this adds extra damage based on what the body damage has just taken
+		increaseEngDamage = false,		-- enabling this adds extra damage based on what the body damage has just taken
 
 		damageLimits = {
 			petrolTank = 750.0,			-- Prevents tankHealth ever going below ( if this goes too low fuel leaks and instantly destorys the engine)
-			engine = 50.0,				-- Prevents engine Damage ever going below 50.0
-			engineUndriveable = true,	-- If engine is at the above level, make it undriveable
+			engine = 100.0,				-- Prevents engine Damage ever going below 50.0
+			engineUndriveable = false,	-- If engine is at the above level, make it undriveable
 			body = 50.0,				-- Prevent body damage going below 50.0
 		}
 	},

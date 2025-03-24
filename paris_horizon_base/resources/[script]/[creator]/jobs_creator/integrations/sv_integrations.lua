@@ -24,4 +24,4 @@ SKIP_ITEM_EXISTS_CHECK = false
     false = off duty
     nil = use qbcore default
 ]]
-DEFAULT_DUTY_STATUS = nil
+DEFAULT_DUTY_STATUS = false

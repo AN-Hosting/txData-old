@@ -1,28 +1,37 @@
 fx_version 'cerulean'
 game 'gta5'
-lua54 'yes'
-use_experimental_fxv2_oal 'yes'
-author 'BerkieB'
-description 'Allows players to interact with various objects and entities in the world'
-version '5.5.0'
 
-ui_page 'html/index.html'
+ui_page('ui/index.html')
+
+author 'Doğukan Duran (goodluck)'
+description 'Contextmenu for FiveM'
+version '1.0.0'
 
 client_scripts {
-	'@PolyZone/client.lua',
+    '@PolyZone/client.lua',
 	'@PolyZone/BoxZone.lua',
 	'@PolyZone/EntityZone.lua',
 	'@PolyZone/CircleZone.lua',
 	'@PolyZone/ComboZone.lua',
-	'init.lua',
-	'client.lua',
+    'Config.lua',
+    'Client/*.lua',
+    'cl_customs.lua'
+}
+
+server_scripts {
+    'Config.lua',
+    'Server/*.lua',
+    'sv_customs.lua'
 }
 
 files {
-	'data/*.lua',
-	'html/*.html',
-	'html/css/*.css',
-	'html/js/*.js'
+	'ui/index.html',
+    'ui/style.css',
+    'ui/assets/*.png',
+    'ui/main.js'
 }
+
+lua54 'yes'
+use_experimental_fxv2_oal 'yes'
 
 dependency 'PolyZone'
