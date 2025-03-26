@@ -1161,16 +1161,16 @@ local Vehicles = {
     { model = 'midas5',        name = 'midas5',  brand = 'Midas',  price = 220000,         category = 'midas',       type = 'automobile', shop = 'pdm' },
 
     -- Norauto
-    { model = '17silv',        name = '17silv',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'depanneuse',        name = 'depanneuse',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'f450s',        name = 'f450s',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'f550rbc',        name = 'f550rbc',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'norauto1',        name = 'norauto1',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'no1',        name = 'no1',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'no2',        name = 'no2',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'no3',        name = 'no3',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'no5',        name = 'no5',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
-    { model = 'no6',        name = 'no6',  brand = 'Norauto',  price = 220000,         category = 'norauto',       type = 'automobile', shop = 'pdm' },
+    { model = '17silv',        name = '17silv',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'depanneuse',        name = 'depanneuse',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'f450s',        name = 'f450s',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'f550rbc',        name = 'f550rbc',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'norauto1',        name = 'norauto1',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'no1',        name = 'no1',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'no2',        name = 'no2',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'no3',        name = 'no3',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'no5',        name = 'no5',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
+    { model = 'no6',        name = 'no6',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
 
     -- Vinci
     { model = 'Fs_cliovinci',        name = 'Fs_cliovinci',  brand = 'Vinci',  price = 220000,         category = 'vinci',       type = 'automobile', shop = 'pdm' },
@@ -1266,9 +1266,22 @@ local Vehicles = {
     { model = 'topauto1',        name = 'topauto1',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
     { model = 'topauto2',        name = 'topauto2',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
 
+    -- Remorque
     { model = 'cotrailer',        name = 'cotrailer',  brand = 'Remorque',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },
     { model = '20fttrailer',        name = '20fttrailer',  brand = 'Remorque',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },
-    { model = 'flatbed3',        name = 'flatbed3',  brand = 'Depaneuse',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },
+
+    -- Camion
+    { model = 'flatbed3',        name = 'flatbed3',  brand = 'Depaneuse',  price = 220000,         category = 'camion',       type = 'automobile', shop = 'pdm' },
+    { model = 'actros',         name = 'actros',    brand = 'Camion',  price = 220000,         category = 'camion',       type = 'automobile', shop = 'pdm' },
+    { model = 'hauler',         name = 'hauler',    brand = 'Camion',  price = 220000,         category = 'camion',       type = 'automobile', shop = 'pdm' },
+    { model = 'tr2',            name = 'tr2',       brand = 'Remorque',  price = 220000,         category = 'camion',       type = 'automobile', shop = 'pdm' },
+
+    -- Nico
+    { model = 'yarisgr',        name = 'yarisgr',  brand = 'Nico',  price = 220000,         category = 'nico',       type = 'automobile', shop = 'pdm' },
+    { model = 'r5evo2',        name = 'r5evo2',  brand = 'Nico',  price = 220000,         category = 'nico',       type = 'automobile', shop = 'pdm' },
+    { model = 'EVOIX',        name = 'EVOIX',  brand = 'Nico',  price = 220000,         category = 'nico',       type = 'automobile', shop = 'pdm' },
+    { model = '2017WRC',        name = '2017WRC',  brand = 'Nico',  price = 220000,         category = 'nico',       type = 'automobile', shop = 'pdm' },
+    { model = '2017M4DTM',        name = '2017M4DTM',  brand = 'Nico',  price = 220000,         category = 'nico',       type = 'automobile', shop = 'pdm' },
 
     -- Vehicules DON
     { model = 'e63coupe',        name = 'Mercedes E 63 Coupé',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
