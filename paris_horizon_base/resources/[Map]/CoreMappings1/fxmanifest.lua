@@ -13,12 +13,15 @@ dependency '/assetpacks'
 files {
 
 "interiorproxies.meta",
+'nxp_firedep_timecycle.xml',
 "gtxd.meta"
 }
 
 client_scripts {
-    'uj_lifegLoader.lua'
-  }
+    "client.lua",
+}
+
+data_file 'TIMECYCLEMOD_FILE' 'nxp_firedep_timecycle.xml'
 
 data_file 'INTERIOR_PROXY_ORDER_FILE' 'interiorproxies.meta'
 
@@ -55,3 +58,4 @@ data_file 'DLC_ITYP_REQUEST' 'stream/GNMAP/v_int_40.ytyp'
 -- TribunalAdmin
 
 data_file 'DLC_ITYP_REQUEST' 'stream/TribunalAdmin/texte_tribunal_ad.ytyp'
+
