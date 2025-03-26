@@ -121,7 +121,7 @@ ensure [voice]
 ensure [Map]
 ensure [addons]
 ensure [vetements]
-
+stop 440cars
 
 ## Permissions ##
 add_ace group.admin command allow # allow all commands
@@ -131,6 +131,8 @@ add_principal identifier.fivem:14546531 group.admin #BebeToto
 add_principal identifier.fivem:14546531 qbcore.god #BebeToto
 add_principal identifier.fivem:15413848 group.admin # Minescorpio
 add_principal identifier.fivem:15413848 qbcore.god # Minescorpio
+add_principal identifier.fivem:4973623 group.admin # BobyBis
+add_principal identifier.fivem:4973623 qbcore.god # BobyBis
 add_principal identifier.license:52479ff86d602fad477fe2e7f0449bd9adbf7524 group.admin # ElPirato
 add_principal identifier.license:52479ff86d602fad477fe2e7f0449bd9adbf7524 qbcore.god # ElPirato
 add_principal identifier.license:31001c3e939c26f779120b1c743d856795bc523d group.admin # Tayler
@@ -138,10 +140,6 @@ add_principal identifier.license:35f0f6ff6002a7d9089a12a20dde5c2de4dafb85 group.
 add_principal identifier.license:35f0f6ff6002a7d9089a12a20dde5c2de4dafb85 qbcore.god # Darwin Smith
 add_principal identifier.license:05a89ac87acb52e94a84e92f98da3f7dca3f24aa group.admin # meerlish
 add_principal identifier.license:05a89ac87acb52e94a84e92f98da3f7dca3f24aa qbcore.god # meerlish
-add_principal identifier.license:702bb24353a8baddb50449b3c908099c05626a2d group.admin # queen
-add_principal identifier.license:702bb24353a8baddb50449b3c908099c05626a2d qbcore.god # queen
-add_principal identifier.license:16ea09a0cb47f0124a489f33479e7ec65dbc7f5c group.admin # cheridequeen
-add_principal identifier.license:16ea09a0cb47f0124a489f33479e7ec65dbc7f5c qbcore.god # cheriqueen
 
 
 # Resources
@@ -154,6 +152,8 @@ add_ace qbcore.god command allow # Allow all commands
 add_principal qbcore.god group.admin # Allow gods access to the main admin group used to get all default permissions
 add_principal qbcore.god qbcore.admin # Allow gods access to admin commands
 add_principal qbcore.admin qbcore.mod # Allow admins access to mod commands
+
+exec pmms.cfg
 
 # OX
 add_ace resource.ox_lib command.add_ace allow
