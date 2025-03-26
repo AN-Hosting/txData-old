@@ -410,6 +410,21 @@ Config.Companies.Services = {
             }
         }
     },
+    {
+        job = "protectsafe",
+        name = "ProtectSafe",
+        icon = "https://cdn.discordapp.com/attachments/1353703511669604353/1354071033275220082/protectsafe.png?ex=67e3f46b&is=67e2a2eb&hm=0a68084597483e3bf5678b89c7eddbacfc61a9f44f77e0bb6c18c99b26a19ba6&",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "ProtectSafe",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
     
 }
 
