@@ -131,10 +131,17 @@ Config.Locations = {
     scale = 0.8,
 },
 [19] = {
-    vector = vector3(-57.01, 6554.75, 31.52), 
-    text = "Concessionnaire Cergy", 
+    vector = vector3(540.96, -177.76, 54.49), 
+    text = "Auto Exotic", 
     color = 0, 
-    sprite = 326, 
+    sprite = 225, 
+    scale = 0.8,
+},
+[20] = {
+    vector = vector3(73.07, -1745.73, 29.29), 
+    text = "Carrefour", 
+    color = 0, 
+    sprite = 59, 
     scale = 0.8,
 },
 
