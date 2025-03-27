@@ -27,7 +27,8 @@ QBShared.Items = {
     weapon_stone_hatchet         = { name = 'weapon_stone_hatchet', label = 'Hachette en pierre', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_stone_hatchet.png', unique = true, useable = true, description = 'Hachette en pierre' },
     weapon_candycane             = { name = 'weapon_candycane',     label = 'Canne en sucre dorge', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_candycane.png', unique = true, useable = true, description = 'Canne en sucre dorge' },
     weapon_prolaser4             = { name = 'weapon_prolaser4',     label = 'Pistolet Radar', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_prolaser4.png', unique = true, useable = true, description = '...' },
-    
+    weapon_pepperspray           = { name = 'weapon_pepperspray',   label = 'Gazeuze', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_pepperspray.png', unique = true, useable = true, description = '...' },
+   
     
 -- Pistolets
     weapon_pistol                = { name = 'weapon_pistol', label = 'Walther P99', weight = 1000, type = 'weapon', ammotype = 'AMMO_PISTOL', image = 'weapon_pistol.png', unique = true, useable = false, description = 'Une petite arme à feu conçue pour être tenue d\'une seule main' },

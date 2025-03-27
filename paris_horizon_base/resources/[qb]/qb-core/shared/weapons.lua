@@ -33,6 +33,13 @@ QBShared.Weapons = {
 			ammotype = nil, -- The type of ammo the weapon uses (e.g., AMMO_PISTOL, AMMO_SHOTGUN)
 			damageReason = 'Melee Killed' -- A customizable message that appears in kill notifications to describe the cause of death
 		},
+		[`weapon_pepperspray`] = { -- Weapon hash (uses compile-time Jenkins hashes)
+			name = 'weapon_pepperspray', -- The internal spawn name of the weapon (e.g., weapon_pistol)
+			label = 'Gazeuze', -- The display name of the weapon shown to players
+			weapontype = 'Melee', -- The type of weapon (e.g., "Pistol", "Shotgun", "Rifle")
+			ammotype = nil, -- The type of ammo the weapon uses (e.g., AMMO_PISTOL, AMMO_SHOTGUN)
+			damageReason = 'Gazeuze' -- A customizable message that appears in kill notifications to describe the cause of death
+		},
 	-- Handguns
 	-- Pistolets
     [`weapon_pistol`]                = { name = 'weapon_pistol', label = 'Pistolet', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Abattu / Tiré dessus / Criblé de balles' },

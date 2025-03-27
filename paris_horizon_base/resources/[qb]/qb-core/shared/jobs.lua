@@ -22,6 +22,17 @@ QBShared.Jobs = {
 			} 
 		} 
 	},
+	protectsafe = { 
+		label = 'ProtectSafe', 
+		defaultDuty = false, 
+		offDutyPay = false, 
+		grades = {
+		['0'] = { name = 'Agents de Sécurité', payment = 1700 },
+		['1'] = { name = 'Chefs d\'équipe', payment = 1900 },
+		['2'] = { name = 'Responsable Opérationnel', payment = 2100 },
+		['5'] = { name = 'Directeur Général', isboss = true, payment = 2500 },
+	},
+},
 	maisonette10 = { 
 		label = 'Maisonette 10', 
 		defaultDuty = false, 
@@ -348,6 +359,19 @@ QBShared.Jobs = {
 			['3'] = { name = 'Responsable d\'Entrepôt', payment = 2100 },
 			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
 			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },	
+		},
+	},
+	pawnshop = {
+		label = 'Rachat occasion',
+		type = '',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Interimaire ', payment = 1500 },
+			['1'] = { name = 'Employé ', payment = 1700 },
+			['2'] = { name = 'Employé plus', payment = 1900 },
+			['3'] = { name = 'Co Gérant', payment = 2100 },
+			['4'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
 }
