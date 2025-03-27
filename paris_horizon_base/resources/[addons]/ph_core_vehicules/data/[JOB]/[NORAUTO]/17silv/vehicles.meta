@@ -94,7 +94,12 @@
 	  <dashboardType>VDT_CAVALCADE</dashboardType>
       <vehicleClass>VC_EMERGENCY</vehicleClass>
       <wheelType>VWT_SUV</wheelType>
-      <trailers />
+      <trailers>
+        <Item>20fttrailer</Item>
+        <Item>trailersmall</Item>
+		    <Item>ctrailer</Item>
+        <Item>cotrailer</Item>
+      </trailers>
       <additionalTrailers />
       <drivers>
         <Item>

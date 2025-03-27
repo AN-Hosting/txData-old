@@ -789,7 +789,6 @@ local Vehicles = {
 
     -- BMW
     { model = '760li04',        name = '2004 760Li Individual (E66/PFL)',           brand = 'BMW',      price = 120000,          category = 'bmw',           type = 'automobile', shop = 'pdm' },
-    { model = 'bmci',           name = '2018 M5 F90',                               brand = 'BMW',      price = 175000,          category = 'bmw',           type = 'automobile', shop = 'pdm' },
     { model = 'i8',             name = '2015 i8 (I12)',                             brand = 'BMW',      price = 210000,          category = 'bmw',           type = 'automobile', shop = 'pdm' },
     { model = 'm2',             name = '2016 M2',                                   brand = 'BMW',      price = 115000,          category = 'bmw',           type = 'automobile', shop = 'pdm' },
     { model = 'm3e36',          name = '1997 M3 E36',                               brand = 'BMW',      price = 98000,           category = 'bmw',           type = 'automobile', shop = 'pdm' },
@@ -1171,7 +1170,7 @@ local Vehicles = {
     { model = 'no3',        name = 'no3',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
     { model = 'no5',        name = 'no5',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
     { model = 'no6',        name = 'no6',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
-
+    { model = 's10',        name = 's10',  brand = 'AUTO EXOTIC',  price = 220000,         category = 'auto_exotic',       type = 'automobile', shop = 'pdm' },
     -- Vinci
     { model = 'Fs_cliovinci',        name = 'Fs_cliovinci',  brand = 'Vinci',  price = 220000,         category = 'vinci',       type = 'automobile', shop = 'pdm' },
     { model = 'Fs_mastervinci',        name = 'Fs_mastervinci',  brand = 'Vinci',  price = 220000,         category = 'vinci',       type = 'automobile', shop = 'pdm' },
@@ -1184,6 +1183,7 @@ local Vehicles = {
     -- Tabac
     { model = 'tabac1',        name = 'tabac1',  brand = 'Tabac',  price = 220000,         category = 'tabac',       type = 'automobile', shop = 'pdm' },
     { model = 'tabac2',        name = 'tabac2',  brand = 'Tabac',  price = 220000,         category = 'tabac',       type = 'automobile', shop = 'pdm' },
+    { model = 'NSPEEDO',        name = 'NSPEEDO',  brand = 'Tabac',  price = 220000,         category = 'tabac',       type = 'automobile', shop = 'pdm' },
 
     -- Police National
     { model = 'cberlingo_pn',        name = 'cberlingo_pn',  brand = 'PN',  price = 220000,         category = 'police_national',       type = 'automobile', shop = 'pdm' },
@@ -1261,10 +1261,15 @@ local Vehicles = {
     -- CONCESS
     { model = 'concess1',        name = 'concess1',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
     { model = 'concess2',        name = 'concess2',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
+    { model = 'jogger',        name = 'jogger',  brand = 'Concess',  price = 220000,         category = 'concess',       type = 'automobile', shop = 'pdm' },
 
     -- TOP AUTO
     { model = 'topauto1',        name = 'topauto1',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
     { model = 'topauto2',        name = 'topauto2',  brand = 'Top Auto',  price = 220000,         category = 'top_auto',       type = 'automobile', shop = 'pdm' },
+
+    -- Autre 
+    { model = 'fordbk',        name = 'fordbk',  brand = 'Job',  price = 220000,         category = 'job',       type = 'automobile', shop = 'pdm' },
+
 
     -- Remorque
     { model = 'cotrailer',        name = 'cotrailer',  brand = 'Remorque',  price = 220000,         category = 'remorque',       type = 'automobile', shop = 'pdm' },

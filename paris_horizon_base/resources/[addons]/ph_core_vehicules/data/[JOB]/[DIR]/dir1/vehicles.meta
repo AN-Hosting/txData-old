@@ -96,11 +96,11 @@
 	  <dashboardType>VDT_FEROCI</dashboardType>
       <vehicleClass>VC_EMERGENCY</vehicleClass>
       <wheelType>VWT_MUSCLE</wheelType>
-<trailers>
-        <Item>shauler</Item>
-        <Item>2021libertytrailer</Item>
-        <Item>2021libertytrailer2</Item>
+      <trailers>
+        <Item>20fttrailer</Item>
         <Item>trailersmall</Item>
+		    <Item>ctrailer</Item>
+        <Item>cotrailer</Item>
       </trailers>
       <additionalTrailers />
       <drivers>

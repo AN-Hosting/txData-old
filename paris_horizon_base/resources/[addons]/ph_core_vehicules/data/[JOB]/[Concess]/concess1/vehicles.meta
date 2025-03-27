@@ -100,7 +100,8 @@
       <trailers>
         <Item>20fttrailer</Item>
         <Item>trailersmall</Item>
-		<Item>ctrailer</Item>
+		    <Item>ctrailer</Item>
+        <Item>cotrailer</Item>
       </trailers>
       <additionalTrailers />
       <drivers />
