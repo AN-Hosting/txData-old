@@ -8,7 +8,8 @@ version '1.4.0'
 
 shared_script 'config.lua'
 
-shared_scripts {
+shared_scripts {   
+    "@ox_lib/init.lua",
     '@qb-core/shared/locale.lua',
     'locales/en.lua',
     'locales/*.lua'

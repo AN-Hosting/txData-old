@@ -213,10 +213,10 @@ keybind = lib.addKeybind({
 lib.addKeybind({
     name = 'pushvehicle_left',
     description = 'Tourner à gauche',
-    defaultKey = Config.TurnLeftKey,
+    defaultKey = 'Q',
     onPressed = function(self)
         if not pushing then return end
-	if LocalPlayer.state.intrunk then return end
+        if LocalPlayer.state.intrunk then return end
         TriggerServerEvent('OT_pushvehicle:startTurn', NetworkGetNetworkIdFromEntity(vehiclepushing), 'left')
     end,
     onReleased = function(self)
@@ -228,10 +228,10 @@ lib.addKeybind({
 lib.addKeybind({
     name = 'pushvehicle_right',
     description = 'Tournez à droite',
-    defaultKey = Config.TurnRightKey,
+    defaultKey = 'D',
     onPressed = function(self)
         if not pushing then return end
-	if LocalPlayer.state.intrunk then return end
+        if LocalPlayer.state.intrunk then return end
         TriggerServerEvent('OT_pushvehicle:startTurn', NetworkGetNetworkIdFromEntity(vehiclepushing), 'right')
     end,
     onReleased = function(self)
