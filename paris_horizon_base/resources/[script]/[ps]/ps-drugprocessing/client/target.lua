@@ -1,62 +1,81 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local function CreatePed(model, coords, scenario)
+local function CreateNPCPed(model, coords, scenario)
+    --print("Tentative de création du ped avec le modèle:", model)
     RequestModel(model)
     while not HasModelLoaded(model) do
         Wait(0)
     end
     
     local ped = CreatePed(4, model, coords.x, coords.y, coords.z - 1.0, coords.w, false, true)
-    SetEntityHeading(ped, coords.w)
-    FreezeEntityPosition(ped, true)
-    SetEntityInvincible(ped, true)
-    SetBlockingOfNonTemporaryEvents(ped, true)
+    --print("Ped créé avec l'ID:", ped)
     
-    return ped
+    if DoesEntityExist(ped) then
+        --print("Le ped existe bien!")
+        SetEntityHeading(ped, coords.w)
+        FreezeEntityPosition(ped, true)
+        SetEntityInvincible(ped, true)
+        SetBlockingOfNonTemporaryEvents(ped, true)
+        return ped
+    else
+        --print("ERREUR: Le ped n'a pas été créé correctement!")
+        return nil
+    end
 end
 
 CreateThread(function()
+    --print("Démarrage de la création des peds...")
+    
     -- Walter
-    local walterPed = CreatePed('a_m_m_hillbilly_02', vector4(-1187.73, -445.27, 43.91, 289.45))
-    exports['qb-target']:AddTargetEntity(walterPed, {
-        options = {
-            {
-                type = "client",
-                event = "ps-drugprocessing:EnterLab",
-                icon = "fas fa-atom",
-                label = Lang:t("target.talk_to_walter"),
-            }
-        },
-        distance = 2.5
-    })
+    --print("Création de Walter...")
+    local walterPed = CreateNPCPed('a_m_m_hillbilly_02', vector4(-1187.73, -445.27, 43.91, 289.45))
+    if walterPed then
+        exports['qb-target']:AddTargetEntity(walterPed, {
+            options = {
+                {
+                    type = "client",
+                    event = "ps-drugprocessing:EnterLab",
+                    icon = "fas fa-atom",
+                    label = Lang:t("target.talk_to_walter"),
+                }
+            },
+            distance = 2.5
+        })
+    end
 
     -- Draco
-    local dracoPed = CreatePed('a_m_m_mlcrisis_01', vector4(812.49, -2399.59, 23.66, 223.1))
-    exports['qb-target']:AddTargetEntity(dracoPed, {
-        options = {
-            {
-                type = "client",
-                event = "ps-drugprocessing:EnterCWarehouse",
-                icon = "fas fa-key",
-                label = Lang:t("target.talk_to_draco"),
-            }
-        },
-        distance = 2.5
-    })
+    --print("Création de Draco...")
+    local dracoPed = CreateNPCPed('a_m_m_mlcrisis_01', vector4(812.49, -2399.59, 23.66, 223.1))
+    if dracoPed then
+        exports['qb-target']:AddTargetEntity(dracoPed, {
+            options = {
+                {
+                    type = "client",
+                    event = "ps-drugprocessing:EnterCWarehouse",
+                    icon = "fas fa-key",
+                    label = Lang:t("target.talk_to_draco"),
+                }
+            },
+            distance = 2.5
+        })
+    end
 
     -- Charlotte
-    local charlottePed = CreatePed('mp_f_weed_01', vector4(102.07, 175.08, 104.59, 159.91))
-    exports['qb-target']:AddTargetEntity(charlottePed, {
-        options = {
-            {
-                type = "client",
-                event = "ps-drugprocessing:EnterWWarehouse",
-                icon = "fas fa-key",
-                label = Lang:t("target.talk_to_charlotte"),
-            }
-        },
-        distance = 2.5
-    })
+    --print("Création de Charlotte...")
+    local charlottePed = CreateNPCPed('a_f_m_bevhills_01', vector4(103.23, 175.47, 104.72, 145.47))
+    if charlottePed then
+        exports['qb-target']:AddTargetEntity(charlottePed, {
+            options = {
+                {
+                    type = "client",
+                    event = "ps-drugprocessing:EnterWWarehouse",
+                    icon = "fas fa-key",
+                    label = Lang:t("target.talk_to_charlotte"),
+                }
+            },
+            distance = 2.5
+        })
+    end
 end)
 
 CreateThread(function()

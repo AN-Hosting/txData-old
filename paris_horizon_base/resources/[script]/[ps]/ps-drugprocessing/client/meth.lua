@@ -206,19 +206,7 @@ RegisterNetEvent('ps-drugprocessing:EnterLab', function()
 	local pos = GetEntityCoords(ped)
 	local dist = #(pos - vector3(Config.MethLab["enter"].coords.x, Config.MethLab["enter"].coords.y, Config.MethLab["enter"].coords.z))
 	if dist < 2 then
-		if not Methlab then
-			if Config.KeyRequired then
-				QBCore.Functions.TriggerCallback('ps-drugprocessing:validate_items', function(result)
-					if result.ret then
-						EnterMethlab()
-					else
-						QBCore.Functions.Notify(Lang:t("error.no_item", {item = result.item}))
-					end
-				end, { methkey = 1 } )
-			else
-				EnterMethlab()
-			end
-		end
+		EnterMethlab()
 	end
 end)
 
@@ -234,13 +222,13 @@ end)
 RegisterNetEvent('ps-drugprocessing:client:bagMeth', function()
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    print("Tentative de mise en sachet")
-    print("Position joueur:", coords)
-    print("Position cible:", Config.CircleZones.MethBag.coords)
-    print("Distance:", #(coords - Config.CircleZones.MethBag.coords))
+    --print("Tentative de mise en sachet")
+    --print("Position joueur:", coords)
+    --print("Position cible:", Config.CircleZones.MethBag.coords)
+    --print("Distance:", #(coords - Config.CircleZones.MethBag.coords))
     
     if #(coords - Config.CircleZones.MethBag.coords) < 5 then
-        print("Dans la zone de mise en sachet")
+        --print("Dans la zone de mise en sachet")
         TaskStartScenarioInPlace(playerPed, "PROP_HUMAN_PARKING_METER", 0, true)
         QBCore.Functions.Progressbar("bagging_meth", "Mise en sachet...", 15000, false, true, {
             disableMovement = true,
@@ -248,13 +236,13 @@ RegisterNetEvent('ps-drugprocessing:client:bagMeth', function()
             disableMouse = false,
             disableCombat = true,
         }, {}, {}, {}, function() -- Done
-            print("Envoi de l'événement serveur")
+            --print("Envoi de l'événement serveur")
             TriggerServerEvent('ps-drugprocessing:processMethBags')
             ClearPedTasks(playerPed)
         end, function() -- Cancel
             ClearPedTasks(playerPed)
         end)
     else
-        print("Hors de la zone de mise en sachet")
+        --print("Hors de la zone de mise en sachet")
     end
 end)

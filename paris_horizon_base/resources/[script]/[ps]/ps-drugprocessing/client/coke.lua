@@ -280,17 +280,7 @@ RegisterNetEvent('ps-drugprocessing:EnterCWarehouse', function()
 	local pos = GetEntityCoords(ped)
     local dist = #(pos - vector3(Config.CokeLab["enter"].coords.x, Config.CokeLab["enter"].coords.y, Config.CokeLab["enter"].coords.z))
     if dist < 2 then
-		if Config.KeyRequired then
-			QBCore.Functions.TriggerCallback('ps-drugprocessing:validate_items', function(result)
-				if result.ret then
-					EnterCWarehouse()
-				else
-					QBCore.Functions.Notify(Lang:t("error.no_item", {item = result.item}))
-				end
-			end, { cocainekey = 1 } )
-		else
-			EnterCWarehouse()
-		end
+		EnterCWarehouse()
 	end
 end)
 
@@ -311,8 +301,8 @@ RegisterNetEvent('ps-drugprocessing:pickCocaLeaves', function()
     -- Vérifier d'abord si le joueur a des ciseaux
     QBCore.Functions.TriggerCallback('ps-drugprocessing:validate_items', function(result)
         -- Debug prints
-        print("Tentative de récolte de coca")
-        print("Result:", json.encode(result))
+        --print("Tentative de récolte de coca")
+        --print("Result:", json.encode(result))
         
         if not result.ret then
             -- Utiliser directement le message pour les ciseaux au lieu du message générique

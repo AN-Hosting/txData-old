@@ -62,7 +62,7 @@ Config.CokeLab = {
 
 Config.WeedLab = {
 	["enter"] = {
-		coords = vector4(102.07, 175.09, 104.59, 165.63), 
+		coords = vector4(103.23, 175.47, 104.72, 145.47), 
     },
     ["exit"] = {
         coords = vector4(1066.01, -3183.38, -39.16, 93.01), -- GTA DLC Weed Lab -- 
