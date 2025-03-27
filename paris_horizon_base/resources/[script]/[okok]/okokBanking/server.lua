@@ -22,16 +22,21 @@ function AddMoney(society, amount)
 	-- Check if society exists, create it if it doesn't
 	local exists = MySQL.scalar.await("SELECT 1 FROM okokbanking_societies WHERE society = ?", { society })
 	if not exists then
-		  -- Create Iban
+		-- Create Iban
 		local iban = Config.IBANPrefix .. society
 		local societyName = QBCore.Shared.Jobs[society] and QBCore.Shared.Jobs[society].label or society
-		return MySQL.insert.await("INSERT INTO okokbanking_societies (society, society_name, iban, value) VALUES (?,?,?,?)",{ society, societyName, iban, amount })
+		return MySQL.insert.await("INSERT INTO okokbanking_societies (society, society_name, iban, value) VALUES (?,?,?,?)", {
+			society,
+			societyName,
+			iban,
+			amount
+		})
 	end
 
 	MySQL.update.await('UPDATE okokbanking_societies SET value = value + @value WHERE society = @society OR society = @society2', {
 		['@value'] = amount,
-		['@society'] = 'society_' .. string.gsub(society, "society_", ""),
-		['@society2'] = string.gsub(society, "society_", ""),
+		['@society'] = 'society_' .. (type(society) == "string" and string.gsub(society, "society_", "") or ""),
+		['@society2'] = (type(society) == "string" and string.gsub(society, "society_", "") or ""),
 	})
 	return true
 end
