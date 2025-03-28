@@ -155,6 +155,7 @@ Config.Categories = {
   samu = "samu",
   dir = "dir",
   midas = "midas",
+  norauto = "Norauto",
   auto_exotic = "auto_exotic",
   vinci = "vinci",
   tabac = "tabac",
@@ -166,7 +167,8 @@ Config.Categories = {
   concess = "concess",
   top_auto = "top_auto",
   job = "job",
-  camion = "camion"
+  camion = "camion",
+  don = "Don"
 }
 
 Config.DealershipLocations = {
@@ -235,7 +237,7 @@ Config.DealershipLocations = {
       positions = {5.0, 8.0, 12.0, 8.0}
     },
     categories = {  "remorque", "gendarmerie", "pompier", "samu", "dir", "midas", "auto_exotic", "vinci", "tabac",
-      "police_national", "raid", "banaliser", "chronopost", "enedis", "concess", "top_auto", "job", "camion"
+      "police_national", "raid", "banaliser", "chronopost", "enedis", "concess", "top_auto", "job", "camion", "norauto"
     },
     enableTestDrive = true,
     hideBlip = true,
@@ -261,6 +263,48 @@ Config.DealershipLocations = {
     job = "concessionnaire", -- Owned dealerships only
     directSaleDistance = 20,
     paymentOptions = {"societyFund"},
+  },
+  ["donnator"] = {
+    type = "owned", -- or "owned", "self-service"
+    openShowroom = {
+      coords = vector3(-52.98, 6548.46, 31.52),
+      size = 3
+    },
+    openManagement = {
+      coords = vector3(-56.79, 6554.54, 31.52),
+      size = 3
+    },
+    sellVehicle = {
+      coords = vector3(1155.41, 2632.19, 41.76),
+      size = 1
+    },
+    purchaseSpawn = vector4(-45.14, 6525.15, 31.52, 225.09),
+    testDriveSpawn = vector4(-2719.11, 3267.43, 32.22, 238.03),
+    camera = {
+      name = "Car",
+      coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
+      positions = {5.0, 8.0, 12.0, 8.0}
+    },
+    categories = { "don" },
+    enableTestDrive = true,
+    hideBlip = true,
+    blip = {
+      id = 326,
+      color = 0,
+      scale = 0.8
+    },
+    enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
+    sellVehiclePercent = 0.6,  -- 60% of current sale price
+    enableFinance = false,
+    hideMarkers = false,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+    showroomJobWhitelist = {},
+    showroomGangWhitelist = {},
+    societyPurchaseJobWhitelist = {},
+    societyPurchaseGangWhitelist = {},
+    disableShowroomPurchase = true,
+    directSaleDistance = 50,
+    paymentOptions = {"cash", "bank"},
   },
 }
 
