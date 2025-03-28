@@ -456,6 +456,21 @@ Config.Products = {
         {name = 'vodka',         price = 0, amount = 500, requiredJob = 'maisonette10' },
         {name = 'vwiskey',       price = 0, amount = 500, requiredJob = 'maisonette10' },
     },
+    ['cyberbar'] = {
+        {name = 'bchampagne',    price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'brhum',         price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'bvinblanc',     price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'bvinrouge',     price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'bvodka',        price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'bwiskey',       price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vbiere',        price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vchampagne',    price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vrhum',         price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vvinblanc',     price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vvinrouge',     price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vodka',         price = 0, amount = 500, requiredJob = 'cyberbar' },
+        {name = 'vwiskey',       price = 0, amount = 500, requiredJob = 'cyberbar' },
+    },
 }
 
 Config.Locations = { 
@@ -1101,6 +1116,21 @@ Config.Locations = {
         ['blipscale'] = 0.4,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(54.36, -1749.81, 29.29, 343.87),
+    },
+    ['cyberbar'] = {
+        ['label'] = 'Cyber Bar',
+        ['coords'] = vector4(57.74, -1752.76, 29.29, 10.98),
+        ['ped'] = 'a_m_y_beach_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-fish',
+        ['targetLabel'] = 'Cyber Bar',
+        ['products'] = Config.Products['cyberbar'],
+        ['showblip'] = false,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.4,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(57.74, -1752.76, 29.29, 10.98),
     },
 }
 Config.Shops = {
