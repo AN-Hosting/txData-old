@@ -125,3 +125,78 @@ Config.DoorList['dzmafia-dzmafia9'] = {
     doorLabel = 'dzmafia',
     objYaw = 335.0,
 }
+
+-- dzmafia15 créer par Minox
+Config.DoorList['dzmafia-dzmafia15'] = {
+    distance = 2,
+    pickable = true,
+    objName = -2076929163,
+    doorType = 'garage',
+    doorLabel = 'dzmafia15',
+    doorRate = 1.0,
+    objCoords = vec3(935.929078, -1489.476196, 31.161370),
+    locked = true,
+    authorizedGangs = { ['dzmafia'] = 0 },
+    fixText = false,
+    objYaw = 0.0010702600702644,
+}
+
+-- dzmafia16 créer par Minox
+Config.DoorList['dzmafia-dzmafia16'] = {
+    distance = 2,
+    pickable = true,
+    objName = -2076929163,
+    doorType = 'garage',
+    doorLabel = 'dzmafia15',
+    doorRate = 1.0,
+    objCoords = vec3(943.369568, -1489.476074, 31.172506),
+    locked = true,
+    authorizedGangs = { ['dzmafia'] = 0 },
+    fixText = false,
+    objYaw = 0.0010702600702644,
+}
+
+-- dzmafia17 créer par Minox
+Config.DoorList['dzmafia-dzmafia17'] = {
+    distance = 2,
+    pickable = true,
+    objName = 1052098579,
+    doorType = 'door',
+    doorLabel = 'dzmafia15',
+    doorRate = 1.0,
+    objCoords = vec3(939.027100, -1489.573120, 30.241998),
+    locked = true,
+    authorizedGangs = { ['dzmafia'] = 0 },
+    fixText = false,
+    objYaw = 0.0010702600702644,
+}
+
+-- dzmafia18 créer par Minox
+Config.DoorList['dzmafia-dzmafia18'] = {
+    distance = 2,
+    pickable = true,
+    objName = -875157772,
+    doorType = 'door',
+    doorLabel = 'dzmafia15',
+    doorRate = 1.0,
+    objCoords = vec3(961.351928, -1508.347046, 31.717408),
+    locked = true,
+    authorizedGangs = { ['dzmafia'] = 0 },
+    fixText = false,
+    objYaw = 271.87194824218,
+}
+
+-- dzmafia19 créer par Minox
+Config.DoorList['dzmafia-dzmafia19'] = {
+    distance = 2,
+    pickable = true,
+    objName = -875157772,
+    doorType = 'door',
+    doorLabel = 'dzmafia15',
+    doorRate = 1.0,
+    objCoords = vec3(961.425598, -1496.667846, 31.625412),
+    locked = true,
+    authorizedGangs = { ['dzmafia'] = 0 },
+    fixText = false,
+    objYaw = 88.404571533204,
+}
