@@ -253,7 +253,7 @@ div#q-loading-bar {
 }
 
 speed:before {
-  content: "MPH";
+  content: "KMH";
   /* If using KPH change this content from MPH */
   position: absolute;
   display: block;
