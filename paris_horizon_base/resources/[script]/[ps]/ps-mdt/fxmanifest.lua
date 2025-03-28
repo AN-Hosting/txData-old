@@ -2,8 +2,8 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Flawws, Flakey, Idris and the Project Sloth team'
-description 'NoPixel 4.0 inspired style ps-mdt for QBCore'
-version '2.6.6'
+description 'EchoRP MDT Rewrite for QBCore'
+version '2.7.3'
 
 lua54 'yes'
 
@@ -21,12 +21,12 @@ client_scripts{
     'client/cl_mugshot.lua'
 } 
 
-ui_page 'web/ui.html'
+ui_page 'ui/dashboard.html'
 
 files {
-    'web/images/*.png',
-    'web/images/*.webp',
-    'web/ui.html',
-    'web/javascript.js',
-    'web/style.css',
+    'ui/img/*.png',
+    'ui/img/*.webp',
+    'ui/dashboard.html',
+    'ui/app.js',
+    'ui/style.css',
 }

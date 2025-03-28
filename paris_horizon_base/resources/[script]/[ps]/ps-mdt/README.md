@@ -1,9 +1,4 @@
-
-![psmdt](https://github.com/QBTreyyy/ps-mdt/assets/99930941/3f0d783b-fbf5-476c-8973-f9a808707d76)
-
 # Project Sloth MDT
-
-Someone was selling a ps-mdt reskin on tebex, which is beyond me. So heres this. All credit goes to Project Sloth and don't buy things that were made for free
 
 For all support questions, ask in our [Discord](https://www.discord.gg/projectsloth) support chat. Do not create issues if you need help. Issues are for bug reporting and new features only.
 
@@ -18,9 +13,7 @@ For all support questions, ask in our [Discord](https://www.discord.gg/projectsl
 # Installation
 * Download ZIP
 * Drag and drop resource into your server files, make sure to remove -main in the folder name
-* Run the attached SQL script (mdt.sql)
-
-
+* Open the sql folder and run the SQL script which corresponds to your framework
 
 # Weapon Info Export
 
@@ -33,44 +26,7 @@ exports['ps-mdt']:CreateWeaponInfo(serial, imageurl, notes, owner, weapClass, we
 
 ## Setup for [ox_inventory](https://github.com/overextended/ox_inventory)
 
-* Find `ox_inventory:buyItem` on modules > shops> server.lua
-* Add the following code block
-```lua
-\\Existing code below for reference, put it right under it. \\
-local message = locale('purchased_for', count, fromItem.label, (currency == 'money' and locale('$') or math.groupdigits(price)), (currency == 'money' and math.groupdigits(price) or ' '..Items(currency).label))
-\\Existing code above for reference, put it right under it. \\
-
-if string.find(fromData.name, "WEAPON_") then
-					local serial = metadata.serial
-					local imageurl = ("https://cfx-nui-ox_inventory/web/images/%s.png"):format(fromData.name)
-					local notes = "Purchased from shop"
-					local owner = playerInv.owner
-					local weapClass = "Class"
-					local weapModel = fromData.name
-					
-					AddWeaponToMDT(serial, imageurl, notes, owner, weapClass, weapModel)
-				end
-```
-* Add the follow function towards the end of the script.
-```lua
-\\Existing code below for reference, put it right under it. \\
-server.shops = Shops
-\\Existing code above for reference, put it right under it. \\
-
-function AddWeaponToMDT(serial, imageurl, notes, owner, weapClass, weapModel)
-    Citizen.CreateThread(function()
-        Wait(500)
-
-        local success, result = pcall(function()
-            return exports['ps-mdt']:CreateWeaponInfo(serial, imageurl, notes, owner, weapClass, weapModel)
-        end)
-
-        if not success then
-            print("Unable to add weapon to MDT")
-        end
-    end)
-end
-```
+Set `Config.InventoryForWeaponsImages` to `"ox_inventory"` and `Config.RegisterCreatedWeapons` to true/false as desired.
 
 ## Self Register Weapons
 * Your citizens can self-register weapons found on their inventory. Event to trigger is below if you're using qb-target. There's also a command available named `registerweapon` but you'll need to uncomment if you want to use it.
@@ -92,6 +48,10 @@ Config.UseCQCMugshot = true
 ```lua
 -- Front, Back Side. Use 4 for both sides, we recommend leaving at 1 for default.
 Config.MugPhotos = 1
+```
+* Use Fivemerr to upload your mugshot pictures. Do not use Discord, images will expire. Documents for setup are [here.](https://docs.fivemerr.com/integrations/mdt-scripts/ps-mdt)
+```
+Config.FivemerrMugShot = true
 ```
 * Create a Discord Webhook and add it [here](https://github.com/Project-Sloth/ps-mdt/blob/c10ea056705dd7b04894716266cd387b00109aff/server/main.lua#L16C26-L16C26)
 ```lua
@@ -131,7 +91,7 @@ local ClockinWebhook = ''
 
 
 # Jailing & Community Service
-* If you're getting kicked for attempted exploit abuse when jailing. Located the follow event below on qb-policejob > server > main.lua
+* If you're getting kicked for attempted exploit abuse while jailing. Locate the following event below in qb-policejob > server > main.lua
 
 ```lua
 police:server:JailPlayer
@@ -267,7 +227,7 @@ Config.sopLink = {
     ['sasp'] = '',
     ['doc'] = '',
     ['lssd'] = '',
-    ['saspr'] = '',
+    ['sapr'] = '',
 }
 
 -- Google Docs Link
@@ -280,7 +240,7 @@ Config.RosterLink = {
     ['sasp'] = '',
     ['doc'] = '',
     ['lssd'] = '',
-    ['saspr'] = '',	
+    ['sapr'] = '',	
 }
 ```
 
@@ -303,7 +263,7 @@ Config.RosterLink = {
 ![image](https://i.imgur.com/6tLNVkb.png)
 * SAST
 ![image](https://i.imgur.com/G5b2vGU.png)
-* saspr
+* SAPR
 ![image](https://i.imgur.com/cu1ZsfW.png)
 * LSSD
 ![image](https://i.imgur.com/IsqZddu.png)

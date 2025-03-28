@@ -1,8 +1,16 @@
 Config = Config or {}
 
-Config.UsingPsHousing = true
+Config.UsingPsHousing = false
 Config.UsingDefaultQBApartments = false
 Config.OnlyShowOnDuty = true
+
+-- RECOMMENDED Fivemerr Images. DOES NOT EXPIRE. 
+-- YOU NEED TO SET THIS UP FOLLOW INSTRUCTIONS BELOW.
+-- Documents: https://docs.fivemerr.com/integrations/mdt-scripts/ps-mdt
+Config.FivemerrMugShot = false
+
+-- Discord webhook for images. NOT RECOMMENDED, IMAGES EXPIRE.
+Config.MugShotWebhook = false
 Config.UseCQCMugshot = true
 
 -- Front, Back Side. Use 4 for both sides, we recommend leaving at 1 for default.
@@ -21,6 +29,12 @@ Config.QBBankingUse = true
 -- However, if you're using a different inventory system, please refer to the "Inventory Edit | Automatic Add Weapons with images" section in ps-mdt's README.
 Config.InventoryForWeaponsImages = "qb-inventory"
 
+-- Only compatible with ox_inventory
+Config.RegisterWeaponsAutomatically = true
+
+-- Set to true to register all weapons that are added via AddItem in ox_inventory
+Config.RegisterCreatedWeapons = true
+
 -- "LegacyFuel", "lj-fuel", "ps-fuel"
 Config.Fuel = "LegacyFuel"
 
@@ -30,32 +44,36 @@ Config.sopLink = {
     ['ambulance'] = '',
     ['bcso'] = '',
     ['doj'] = '',
+    ['sast'] = '',
     ['sasp'] = '',
     ['doc'] = '',
-    ['saspr'] = '',
+    ['lssd'] = '',
+    ['sapr'] = '',
 }
 
 -- Google Docs Link
 Config.RosterLink = {
     ['police_nationale'] = '',
     ['ambulance'] = '',
-    ['bcso'] = 'https://docs.google.com/spreadsheets/d/1YTGoafls_1wURiCfysn-vVWpWPCUAOKHAxHTcJffzMQ/edit#gid=0',
+    ['bcso'] = '',
     ['doj'] = '',
-    ['sasp'] = 'https://docs.google.com/spreadsheets/d/1m99tswb5mClbDGMawwIYqfDcG1LFH9W0UQBO35hzxXc/edit#gid=0',
+    ['sast'] = '',
+    ['sasp'] = '',
     ['doc'] = '',
-    ['saspr'] = 'https://docs.google.com/spreadsheets/d/1m99tswb5mClbDGMawwIYqfDcG1LFH9W0UQBO35hzxXc/edit#gid=0',	
+    ['lssd'] = '',
+    ['sapr'] = '',	
 }
 
 Config.PoliceJobs = {
     ['police_nationale'] = true,
     ['gendarmerie_nationale'] = true,
     ['bcso'] = true,
+    ['sast'] = true,
     ['sasp'] = true,
     ['doc'] = true,
-    ['saspr'] = true,
-    ['pbso'] = true,
-    ['judge'] = true,
-    ['mayor'] = true
+    ['lssd'] = true,
+    ['sapr'] = true,
+    ['pa'] = true
 }
 
 Config.AmbulanceJobs = {
@@ -65,8 +83,7 @@ Config.AmbulanceJobs = {
 
 Config.DojJobs = {
     ['lawyer'] = true,
-    ['judge'] = true,
-    ['mayor'] = true
+    ['judge'] = true
 }
 
 -- This is a workaround solution because the qb-menu present in qb-policejob fills in an impound location and sends it to the event. 
@@ -96,16 +113,19 @@ Config.LogPerms = {
     ['bcso'] = {
 		[4] = true,
 	},
+    ['sast'] = {
+		[4] = true,
+	},
     ['sasp'] = {
 		[4] = true,
 	},
-    ['saspr'] = {
+    ['sapr'] = {
 		[4] = true,
 	},
     ['doc'] = {
 		[4] = true,
 	},
-    ['pbso'] = {
+    ['lssd'] = {
 		[4] = true,
 	},
 }
@@ -120,16 +140,19 @@ Config.RemoveIncidentPerms = {
     ['bcso'] = {
 		[4] = true,
 	},
+    ['sast'] = {
+		[4] = true,
+	},
     ['sasp'] = {
 		[4] = true,
 	},
-    ['saspr'] = {
+    ['sapr'] = {
 		[4] = true,
 	},
     ['doc'] = {
 		[4] = true,
 	},
-    ['pbso'] = {
+    ['lssd'] = {
 		[4] = true,
 	},
 }
@@ -144,10 +167,13 @@ Config.RemoveReportPerms = {
     ['bcso'] = {
 		[4] = true,
 	},
+    ['sast'] = {
+		[4] = true,
+	},
     ['sasp'] = {
 		[4] = true,
 	},
-    ['saspr'] = {
+    ['sapr'] = {
 		[4] = true,
 	},
     ['doc'] = {
@@ -168,16 +194,19 @@ Config.RemoveWeaponsPerms = {
     ['bcso'] = {
 		[4] = true,
 	},
+    ['sast'] = {
+		[4] = true,
+	},
     ['sasp'] = {
 		[4] = true,
 	},
-    ['saspr'] = {
+    ['sapr'] = {
 		[4] = true,
 	},
     ['doc'] = {
 		[4] = true,
 	},
-    ['pbso'] = {
+    ['lssd'] = {
 		[4] = true,
 	},
 }

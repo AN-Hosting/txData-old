@@ -32,8 +32,7 @@ let impoundChanged = false;
 
 // TEMP CONFIG OF JOBS
 const PoliceJobs = {
-  ['police_nationale']: true,
-  ['gendarmerie_nationale']: true,
+  ['police']: true,
   ['lspd']: true,
   ['bcso']: true,
   ['sast']: true,
@@ -244,7 +243,7 @@ $(document).ready(() => {
     $(".manage-profile-url-input").val(result["profilepic"] ?? "");
     $(".manage-profile-info").val(result["mdtinfo"]);
     $(".manage-profile-info").removeAttr("disabled");
-    $(".manage-profile-pic").attr("src", result["profilepic"] ?? "images/male.png");
+    $(".manage-profile-pic").attr("src", result["profilepic"] ?? "img/male.png");
     $(".manage-profile-active-warrant").css("display", "none")
     if (result["warrant"]) {
       $(".manage-profile-active-warrant").css("display", "block");
@@ -329,7 +328,7 @@ $(document).ready(() => {
     if (gallery && gallery.length > 0) {
       galleryHTML = '';
       gallery.forEach(value => {
-        galleryHTML += `<img src="${value}" class="gallery-img" onerror="this.src='images/not-found.webp'">`;
+        galleryHTML += `<img src="${value}" class="gallery-img" onerror="this.src='img/not-found.webp'">`;
       })
     }
 
@@ -503,7 +502,7 @@ $(document).ready(() => {
       if (URL !== "") {
         let randomNum = Math.ceil(Math.random() * 10).toString();
         $(".gallery-inner-container").prepend(
-          `<img src="${URL}" class="gallery-img ${randomNum}" onerror="this.src='images/not-found.webp'">`
+          `<img src="${URL}" class="gallery-img ${randomNum}" onerror="this.src='img/not-found.webp'">`
         );
         $("#gallery-upload-input").val("");
         $(".gallery-upload-input").slideUp(250);
@@ -553,7 +552,7 @@ $(document).ready(() => {
         let pfp = $(".manage-profile-pic").attr("src");
         let newpfp = $(".manage-profile-url-input").val();
         if (newpfp.includes("base64")) {
-          newpfp = "images/not-found.webp";
+          newpfp = "img/not-found.webp";
         } else {
           pfp = newpfp;
         }
@@ -781,7 +780,7 @@ $(document).ready(() => {
           <p><em>· [Insert List Here]</em></p>
           <p>&nbsp;</p>
           <p>-----</p>
-          <p><strong style="    /* background-color: var(--color-1); */">💸 Fine:</strong></p>
+          <p><strong style="background-color: var(--color-1);">💸 Fine:</strong></p>
           <p>&nbsp;</p>
           <p><strong>⌚ Sentence:</strong></p>
           <p>-----</p>
@@ -819,7 +818,7 @@ $(document).ready(() => {
             <div class="manage-incidents-save"><span class="fas fa-save" style="margin-top: 3.5px;"></span></div>
             `
       );
-      $(".manage-incidents-title").css("");
+      $(".manage-incidents-title").css("width", "66%");
       $(".manage-incidents-create").css("margin-right", "0px");
 
       $(".incidents-ghost-holder").html("");
@@ -1139,15 +1138,30 @@ $(document).ready(() => {
     }
   });
 
+  function sanitizeInput(input) {
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      '/': '&#x2F;',
+    };
+    const reg = /[&<>"'/]/ig;
+    return input.replace(reg, (match) => (map[match]));
+  }
+
   $("#dispatchmsg").keydown(function (e) {
     const keyCode = e.which || e.keyCode;
     if (keyCode === 13 && !e.shiftKey) {
       e.preventDefault();
       const time = new Date();
+     
+      const message = sanitizeInput($(this).val());
       $.post(
         `https://${GetParentResourceName()}/dispatchMessage`,
         JSON.stringify({
-          message: $(this).val(),
+          message: message,
           time: time.getTime(),
         })
       );
@@ -1333,7 +1347,7 @@ $(document).ready(() => {
       if (URL !== "") {
         let randomNum = Math.ceil(Math.random() * 10).toString();
         $(".manage-incidents-evidence-holder").prepend(
-          `<img src="${URL}" class="incidents-img ${randomNum}" onerror="this.src='images/not-found.webp'">`
+          `<img src="${URL}" class="incidents-img ${randomNum}" onerror="this.src='img/not-found.webp'">`
         );
         $("#incidents-upload-input").val("");
         $(".incidents-upload-input").slideUp(250);
@@ -1364,7 +1378,7 @@ $(document).ready(() => {
     ".manage-bolos-new",
     function () {
       var template = "";
-      if ($(".badge-logo").attr("src") == "images/ems_badge.webp") {
+      if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
         template = `
         <div style="color: white;">
             <p><strong>📝 ICU Room #: [ # ]</strong></p>
@@ -1376,11 +1390,11 @@ $(document).ready(() => {
             <p><em>· [Enter List Of Injuries Here]</em><br></p>
             <p>&nbsp;</p>
             <p>-----</p>
-            <p><strong style="    /* background-color: var(--color-1); */">Additional Attending:</strong><br></p>
+            <p><strong style="background-color: var(--color-1);">Additional Attending:</strong><br></p>
             <p><em>· [ List Any Other Staff Here ]</em></p>
-            <p><strong style="    /* background-color: var(--color-1); */">🧑‍🤝‍🧑 Additional Emergency Contacts:</strong><br></p>
+            <p><strong style="background-color: var(--color-1);">🧑‍🤝‍🧑 Additional Emergency Contacts:</strong><br></p>
             <p><em>· [ Name And Number ]</em></p>
-            <p><strong style="    /* background-color: var(--color-1); */">Notes:</strong><br></p>
+            <p><strong style="background-color: var(--color-1);">Notes:</strong><br></p>
             <p><em>· [Additional Notes Here]</em></p>
             <p>-----</p>
         </div>
@@ -1575,9 +1589,7 @@ $(document).ready(() => {
       );
       setTimeout(() => {
         $(".bolos-search-refresh").empty();
-        $(".bolos-search-refresh").prepend(
-          `<span class="fas fa-rotate"></span>`
-        );
+        $(".bolos-search-refresh").html("Refresh");
         canRefreshBolo = true;
         $.post(`https://${GetParentResourceName()}/getAllBolos`, JSON.stringify({}));
       }, 1500);
@@ -1643,7 +1655,7 @@ $(document).ready(() => {
       if (URL !== "") {
         let randomNum = Math.ceil(Math.random() * 10).toString();
         $(".bolo-gallery-inner-container").prepend(
-          `<img src="${URL}" class="bolo-img ${randomNum}" onerror="this.src='images/not-found.webp'">`
+          `<img src="${URL}" class="bolo-img ${randomNum}" onerror="this.src='img/not-found.webp'">`
         );
         $("#bolo-gallery-upload-input").val("");
         $(".bolo-gallery-upload-input").slideUp(250);
@@ -1690,7 +1702,7 @@ $(document).ready(() => {
 
   $(".contextmenu").on("click", ".bolo-delete", function () {
     if ($(this).data("info") != 0) {
-      if ($(".badge-logo").attr("src") == "images/ems_badge.webp") {
+      if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
         $(".bolos-items")
           .find("[data-id='" + $(this).data("info") + "']")
           .remove();
@@ -1724,7 +1736,7 @@ $(document).ready(() => {
         status: "",
       },
     ];
-    if ($(".badge-logo").attr("src") == "images/ems_badge.webp") {
+    if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
       args = [
         {
           className: "bolo-delete",
@@ -2090,13 +2102,13 @@ $(document).ready(() => {
                 <div class="modify-charges-label"><span class="fas fa-solid fa-info"></span> Right click below to add and/or modify charges.</div>
                 <div class="associated-incidents-user-holder" data-name="${$(this).data("cid")}"></div>
                 <div class="manage-incidents-title-tag" data-id="${$(this).data("cid")}">Recommended Fine</div>
-                <div class="associated-incidents-fine-input" data-id="${$(this).data("cid")}"><img src="images/h7S5f9J.webp"> <input disabled placeholder="0" class="fine-recommended-amount" id="fine-recommended-amount" data-id="${$(this).data("cid")}" type="number"></div>
+                <div class="associated-incidents-fine-input" data-id="${$(this).data("cid")}"><img src="img/h7S5f9J.webp"> <input disabled placeholder="0" class="fine-recommended-amount" id="fine-recommended-amount" data-id="${$(this).data("cid")}" type="number"></div>
                 <div class="manage-incidents-title-tag" data-id="${$(this).data("cid")}">Recommended Sentence</div>
-                <div class="associated-incidents-sentence-input" data-id="${$(this).data("cid")}"><img src="images/9Xn6xXK.webp"> <input disabled placeholder="0" class="sentence-recommended-amount" id="sentence-recommended-amount" data-id="${$(this).data("cid")}" type="number"></div>
+                <div class="associated-incidents-sentence-input" data-id="${$(this).data("cid")}"><img src="img/9Xn6xXK.webp"> <input disabled placeholder="0" class="sentence-recommended-amount" id="sentence-recommended-amount" data-id="${$(this).data("cid")}" type="number"></div>
                 <div class="manage-incidents-title-tag" data-id="${$(this).data("cid")}">Fine</div>
-                <div class="associated-incidents-fine-input" data-id="${$(this).data("cid")}"><img src="images/h7S5f9J.webp"> <input placeholder="Enter fine here..." value="0" class="fine-amount" data-id="${$(this).data("cid")}" type="number"></div>
+                <div class="associated-incidents-fine-input" data-id="${$(this).data("cid")}"><img src="img/h7S5f9J.webp"> <input placeholder="Enter fine here..." value="0" class="fine-amount" data-id="${$(this).data("cid")}" type="number"></div>
                 <div class="manage-incidents-title-tag" data-id="${$(this).data("cid")}">Sentence</div>
-                <div class="associated-incidents-sentence-input" data-id="${$(this).data("cid")}"><img src="images/9Xn6xXK.webp"> <input placeholder="Enter months here..." value="0" class="sentence-amount" data-id="${$(this).data("cid")}" type="number"></div>
+                <div class="associated-incidents-sentence-input" data-id="${$(this).data("cid")}"><img src="img/9Xn6xXK.webp"> <input placeholder="Enter months here..." value="0" class="sentence-amount" data-id="${$(this).data("cid")}" type="number"></div>
                 <div class="associated-incidents-controls" data-id="${$(this).data("cid")}">
                     <div id="jail-button" class="control-button" data-id="${$(this).data("cid")}"><span class="fa-solid fa-building-columns" style="margin-top: 3.5px;"></span> Jail</div>
                     <div id="fine-button" class="control-button" data-id="${$(this).data("cid")}"><span class="fa-solid fa-file-invoice-dollar" style="margin-top: 3.5px;"></span> Fine</div>
@@ -2166,9 +2178,7 @@ $(document).ready(() => {
       );
       setTimeout(() => {
         $(".incidents-search-refresh").empty();
-        $(".incidents-search-refresh").prepend(
-          `<span class="fas fa-rotate"></span>`
-        );
+        $(".incidents-search-refresh").html("Refresh");
         canRefreshIncidents = true;
         $.post(`https://${GetParentResourceName()}/getAllIncidents`, JSON.stringify({}));
       }, 1500);
@@ -2250,9 +2260,7 @@ $(document).ready(() => {
       );
       setTimeout(() => {
         $(".reports-search-refresh").empty();
-        $(".reports-search-refresh").prepend(
-          `<span class="fas fa-rotate"></span>`
-        );
+        $(".reports-search-refresh").html("Refresh");
         canRefreshReports = true;
         $.post(`https://${GetParentResourceName()}/getAllReports`, JSON.stringify({}));
       }, 1500);
@@ -2266,9 +2274,7 @@ $(document).ready(() => {
     );
     setTimeout(() => {
       $(".dispatch-comms-refresh").empty();
-      $(".dispatch-comms-refresh").prepend(
-          `<span class="fas fa-rotate"></span>`
-        );
+      $(".dispatch-comms-refresh").html("Refresh");
       canRefreshReports = true;
       $.post(`https://${GetParentResourceName()}/refreshDispatchMsgs`, JSON.stringify({}));
     }, 1500);
@@ -2369,7 +2375,7 @@ $(document).ready(() => {
       if (URL !== "") {
         let randomNum = Math.ceil(Math.random() * 10).toString();
         $(".reports-gallery-inner-container").prepend(
-          `<img src="${URL}" class="reports-img ${randomNum}" onerror="this.src='images/not-found.webp'">`
+          `<img src="${URL}" class="reports-img ${randomNum}" onerror="this.src='img/not-found.webp'">`
         );
         $("#reports-gallery-upload-input").val("");
         $(".reports-gallery-upload-input").slideUp(250);
@@ -2452,7 +2458,7 @@ $(document).ready(() => {
     ".manage-reports-new",
     function () {
       let template = "";
-      if ($(".badge-logo").attr("src") == "images/ems_badge.webp") {
+      if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
         template = `
     <div style="color: white;">
         <p><strong>Submitted to ICU?: [Yes/No]</strong></p>
@@ -2752,7 +2758,7 @@ $(document).ready(() => {
           let imageurl = $(".vehicle-info-image").attr("src");
           let newImageurl = $(".vehicle-info-imageurl-input").val();
           if (newImageurl.includes("base64")) {
-            imageurl = "images/not-found.webp";
+            imageurl = "img/not-found.webp";
           } else {
             imageurl = newImageurl;
           }
@@ -3165,7 +3171,7 @@ $(document).ready(() => {
     $(".weapon-info-owner-input").val("");
     $(".weapon-info-class-input").val("");
     $(".weapon-info-model-input").val("");
-    $(".weapon-info-imageurl-input").val("images/not-found.webp");
+    $(".weapon-info-imageurl-input").val("img/not-found.webp");
 
     canSaveWeapon = true;
   }
@@ -3194,7 +3200,7 @@ $(document).ready(() => {
           let imageurl = $(".weapon-info-image").attr("src");
           let newImageurl = $(".weapon-info-imageurl-input").val();
           if (newImageurl.includes("base64")) {
-            imageurl = "images/not-found.webp";
+            imageurl = "img/not-found.webp";
           } else {
             imageurl = newImageurl;
           }
@@ -3814,8 +3820,8 @@ $(document).ready(() => {
       color8: "#2554cc",
       color9: "#6E707C",
       color10: "#8F741B",
-      image: "images/Logo_2.png",
-      name: "Los Santos Police",
+      image: "img/LSPD.webp",
+      name: "LOS SANTOS POLICE",
     },
     bcso: {
       color1: "#333333",
@@ -3828,8 +3834,8 @@ $(document).ready(() => {
       color8: "#2554cc",
       color9: "#6E707C",
       color10: "#8F741B",
-      image: "images/BCSO.webp",
-      name: "Blaine County Sheriff Office",
+      image: "img/BCSO.webp",
+      name: "BLAINE COUNTY SHERIFF OFFICE",
     },
     sasp: {
       color1: "#423f39",
@@ -3842,8 +3848,8 @@ $(document).ready(() => {
       color8: "#2554cc",
       color9: "#9c9485",
       color10: "#8F741B",
-      image: "images/sasp_badge.webp",
-      name: "San Andreas State Police",
+      image: "img/sasp_badge.webp",
+      name: "SAN ANDREAS STATE POLICE",
     },
     sast: {
       color1: "#2c2c2c",
@@ -3856,8 +3862,8 @@ $(document).ready(() => {
       color8: "#2554cc",
       color9: "#bcbcbc",
       color10: "#8F741B",
-      image: "images/sast_badge.webp",
-      name: "San Andreas State Troopers",
+      image: "img/sast_badge.webp",
+      name: "SAN ANDREAS STATE TROOPERS",
     },
     sapr: {
       color1: "#3b4c3a",
@@ -3870,8 +3876,8 @@ $(document).ready(() => {
       olor8: "#2554cc",
       color9: "#6E707C",
       color10: "#8F741B",
-      image: "images/sapr.webp",
-      name: "San Andreas Park Rangers",
+      image: "img/sapr.webp",
+      name: "SAN ANDREAS PARK RANGERS",
     },
     lssd: {
       color1: "#3b4c3a",
@@ -3884,8 +3890,8 @@ $(document).ready(() => {
       color8: "#2554cc",
       color9: "#6E707C",
       color10: "#8F741B",
-      image: "images/LSSD.webp",
-      name: "Los Santos Sheriff Department",
+      image: "img/LSSD.webp",
+      name: "LOS SANTOS SHERIFF DEPARTMENT",
     },
     doc: {
       color1: "#191919",
@@ -3898,8 +3904,8 @@ $(document).ready(() => {
       color8: "#2554cc",
       color9: "#6E707C",
       color10: "#8F741B",
-      image: "images/BBSP.webp",
-      name: "Department Of Corrections",
+      image: "img/BBSP.webp",
+      name: "DEPARTMENT OF CORRECTIONS",
     },
     ambulance: {
       color1: "#5F2121",
@@ -3912,8 +3918,8 @@ $(document).ready(() => {
       color8: "#CC2525",
       color9: "#8A8D91",
       color10: "#444444",
-      image: "images/ems_badge.webp",
-      name: "Pillbox Hill Hopistal",
+      image: "img/ems_badge.webp",
+      name: "PILLBOX HILL MEDICAL CENTER",
     },
     doj: {
       color1: "#553a1e",
@@ -3926,7 +3932,7 @@ $(document).ready(() => {
       color8: "#cc9225",
       color9: "#6E707C",
       color10: "#8F741B",
-      image: "images/court.webp",
+      image: "img/court.webp",
       name: "DEPARTMENT OF JUSTICE",
     },
   }
@@ -3972,12 +3978,12 @@ $(document).ready(() => {
         theme.color10
         );
       $(".badge-logo").attr("src", theme.image );
-      $(".header-subtitle").html(theme.name);
+      $(".header-title").html(theme.name);
   }
   function JobColors(sentJob) {
     if (sentJob) {
       if (PoliceJobs[sentJob] !== undefined)  {
-        if (sentJob == "police_nationale") {
+        if (sentJob == "police") {
             applyCustomTheme(customThemes.lspd)
           } else if (sentJob == "bcso"){
             applyCustomTheme(customThemes.bcso)
@@ -4049,7 +4055,7 @@ $(document).ready(() => {
         $(".vehicle-information-save").css("display", "block");
         $(".vehicle-information-title").css("margin-right", "0px").css("width", "81%");
         $(".manage-incidents-title ").css("margin-right", "0px")
-        $(".manage-reports-title").css("margin-right", "0px").css("width", "55%");
+        $(".manage-reports-title").css("margin-right", "0px").css("width", "66%");
       } else if (AmbulanceJobs[sentJob] !== undefined) {
         $(".weapons-nav-item").hide()
         $("#home-warrants-container").fadeOut(0);
@@ -4114,7 +4120,7 @@ $(document).ready(() => {
         $(".vehicle-information-save").css("display", "block");
         $(".vehicle-information-title").css("margin-right", "0px").css("width", "81%");
         $(".manage-incidents-title ").css("margin-right", "0px")
-        $(".manage-reports-title").css("margin-right", "0px").css("width", "55%");
+        $(".manage-reports-title").css("margin-right", "0px").css("width", "66%");
       } else if (DojJobs[sentJob] !== undefined) {
         applyCustomTheme(customThemes.doj)
         //$(".quote-span").html("Actually useless.");
@@ -4229,7 +4235,7 @@ window.addEventListener("message", function (event) {
         let callSign = unit.callSign ? unit.callSign : "000";
         let activeInfoJob = `<div class="unit-job active-info-job-unk">UNKNOWN</div>`;
         if (PoliceJobs[unit.unitType] !== undefined) {
-          if (unit.unitType == "police_nationale") { policeCount++;
+          if (unit.unitType == "police") { policeCount++;
           activeInfoJob = `<div class="unit-job active-info-job-lspd">LSPD</div>`;
           } else if(unit.unitType == "bcso")  { bcsoCount++;
             activeInfoJob = `<div class="unit-job active-info-job-bcso">BCSO</div>`;
@@ -4267,7 +4273,7 @@ window.addEventListener("message", function (event) {
       $(".active-unit-list").html(unitListHTML)
 
 
-      $("#police_nationale-count").html(policeCount);
+      $("#police-count").html(policeCount);
       $("#sasp-count").html(saspCount);
       $("#bcso-count").html(bcsoCount);
       $("#ems-count").html(emsCount);
@@ -4556,7 +4562,7 @@ window.addEventListener("message", function (event) {
       $(".active-calls-list").empty();
       $.each(table, function (index, value) {
         if (value && value?.job?.includes(playerJob) || value?.jobs.includes(PlayerJobType)) {
-
+          DispatchMAP(value);
           const prio = value["priority"];
           let DispatchItem = `<div class="active-calls-item" data-id="${value.callId || value.id}" data-canrespond="false"><div class="active-call-inner-container"><div class="call-item-top"><div class="call-number">#${value.callId || value.id}</div><div class="call-code priority-${value.priority}">${value.dispatchCode || value.code}</div><div class="call-title">${value.dispatchMessage || value.message}</div><div class="call-radio">${value.units.length}</div></div><div class="call-item-bottom">`;
 
@@ -4638,11 +4644,12 @@ window.addEventListener("message", function (event) {
       $.each(table, function (index, value) {
         $(".incidents-items").append(
           `<div class="incidents-item" data-id="${value.id}">
-                    <div class="incidents-top-holder"><i style="color: #00ffbb; text-shadow: 0px 1px 5px #00ffc4, -2px 1px 40px #00ffa1;     margin-right: 12px;margin-left: 20px;margin-top: 29px;"  class="fa-solid fa-folder-open"></i>
+                    <div class="incidents-top-holder">
                         <div class="incidents-item-title">${value.title}</div>
-                        <div class="incedent-report-name">ID: ${value.id}</div>
+                        <div class="incedent-report-name">Incident Report</div>
                     </div>
                     <div class="incidents-bottom-holder">
+                        <div class="incedent-report-id">ID: ${value.id}</div>
                         <div class="incedent-report-time-ago">${value.author
           } - ${timeAgo(Number(value.time))}</div>
                     </div>
@@ -4795,7 +4802,7 @@ window.addEventListener("message", function (event) {
             <div class="manage-incidents-save"><span class="fas fa-save" style="margin-top: 3.5px;"></span></div>
             `
         );
-        $(".manage-incidents-title").css("width", "55%");
+        $(".manage-incidents-title").css("width", "66%");
         $(".manage-incidents-create").css("margin-right", "0px");
       } else if (DojJobs[playerJob] !== undefined) {
         $(".manage-incidents-title-holder").prepend(
@@ -4836,13 +4843,13 @@ window.addEventListener("message", function (event) {
         const associatedIncidentsContainer = (value.associated != 1) && `
           <div class="associated-incidents-user-holder" data-name="${cid}" ></div>
           <div class="manage-incidents-title-tag" data-id="${cid}">Recommended Fine</div>
-          <div class="associated-incidents-fine-input" data-id="${cid}"><img src="images/h7S5f9J.webp"> <input placeholder="0" disabled class="fine-recommended-amount" id="fine-recommended-amount" data-id="${cid}" type="number"></div>
+          <div class="associated-incidents-fine-input" data-id="${cid}"><img src="img/h7S5f9J.webp"> <input placeholder="0" disabled class="fine-recommended-amount" id="fine-recommended-amount" data-id="${cid}" type="number"></div>
           <div class="manage-incidents-title-tag" data-id="${cid}">Recommended Sentence</div>
-          <div class="associated-incidents-sentence-input" data-id="${cid}"><img src="images/9Xn6xXK.webp"> <input placeholder="0" disabled class="sentence-recommended-amount" id="sentence-recommended-amount" data-id="${cid}" type="number"></div>
+          <div class="associated-incidents-sentence-input" data-id="${cid}"><img src="img/9Xn6xXK.webp"> <input placeholder="0" disabled class="sentence-recommended-amount" id="sentence-recommended-amount" data-id="${cid}" type="number"></div>
           <div class="manage-incidents-title-tag" data-id="${cid}">Fine</div>
-          <div class="associated-incidents-fine-input" data-id="${cid}"><img src="images/h7S5f9J.webp"> <input placeholder="Enter fine here..." value="0" class="fine-amount" data-id="${cid}" type="number"></div>
+          <div class="associated-incidents-fine-input" data-id="${cid}"><img src="img/h7S5f9J.webp"> <input placeholder="Enter fine here..." value="0" class="fine-amount" data-id="${cid}" type="number"></div>
           <div class="manage-incidents-title-tag" data-id="${cid}">Sentence</div>
-          <div class="associated-incidents-sentence-input" data-id="${cid}"><img src="images/9Xn6xXK.webp"> <input placeholder="Enter months here..." value="0" class="sentence-amount" data-id="${cid}" type="number"></div>
+          <div class="associated-incidents-sentence-input" data-id="${cid}"><img src="img/9Xn6xXK.webp"> <input placeholder="Enter months here..." value="0" class="sentence-amount" data-id="${cid}" type="number"></div>
           <div class="associated-incidents-controls" data-id="${cid}">
             <div id="jail-button" class="control-button" data-id="${cid}"><span class="fa-solid fa-building-columns" style="margin-top: 3.5px;"></span> Jail</div>
             <div id="fine-button" class="control-button" data-id="${cid}"><span class="fa-solid fa-file-invoice-dollar" style="margin-top: 3.5px;"></span> Fine</div>
@@ -4915,7 +4922,7 @@ window.addEventListener("message", function (event) {
         "You are currently editing BOLO " + table["id"]
       );
 
-      if ($(".badge-logo").attr("src") == "images/ems_badge.webp") {
+      if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
         $(".manage-bolos-editing-title").html(
           "You are editing ICU Check-in " + table["id"]
         );
@@ -4956,7 +4963,7 @@ window.addEventListener("message", function (event) {
       $.each(table["gallery"], function (index, value) {
         let randomNum = Math.ceil(Math.random() * 10).toString();
         $(".bolo-gallery-inner-container").prepend(
-          `<img src="${value}" class="bolo-img ${randomNum}" onerror="this.src='images/not-found.webp'">`
+          `<img src="${value}" class="bolo-img ${randomNum}" onerror="this.src='img/not-found.webp'">`
         );
       });
 
@@ -4971,7 +4978,7 @@ window.addEventListener("message", function (event) {
       var reportName = "General BOLO";
       canSearchForProfiles = true;
       $(".bolos-items").empty();
-      if ($(".badge-logo").attr("src") == "images/ems_badge.webp") {
+      if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
         reportName = "ICU Check-in";
       }
       $.each(table, function (index, value) {
@@ -4999,9 +5006,7 @@ window.addEventListener("message", function (event) {
         );
         setTimeout(() => {
           $(".bolos-search-refresh").empty();
-          $(".bolos-search-refresh").prepend(
-          `<span class="fas fa-rotate"></span>`
-        );
+          $(".bolos-search-refresh").html("Refresh");
           canRefreshBolo = true;
           $.post(`https://${GetParentResourceName()}/getAllBolos`, JSON.stringify({}));
         }, 1500);
@@ -5020,9 +5025,7 @@ window.addEventListener("message", function (event) {
         );
         setTimeout(() => {
           $(".reports-search-refresh").empty();
-          $(".reports-search-refresh").prepend(
-          `<span class="fas fa-rotate"></span>`
-        );
+          $(".reports-search-refresh").html("Refresh");
           canRefreshReports = true;
           $.post(`https://${GetParentResourceName()}/getAllReports`, JSON.stringify({}));
         }, 1500);
@@ -5115,7 +5118,7 @@ window.addEventListener("message", function (event) {
       $.each(table["gallery"], function (index, value) {
         let randomNum = Math.ceil(Math.random() * 10).toString();
         $(".reports-gallery-inner-container").append(
-          `<img src="${value}" class="reports-img ${randomNum}" onerror="this.src='images/not-found.webp'">`
+          `<img src="${value}" class="reports-img ${randomNum}" onerror="this.src='img/not-found.webp'">`
         );
       });
 
@@ -5621,7 +5624,7 @@ function searchProfilesResults(result) {
     }
 
     if (value.pp == '') {
-      value.pp = 'images/not-found.webp'
+      value.pp = 'img/not-found.webp'
     }
 
     profileHTML += `
@@ -5630,14 +5633,16 @@ function searchProfilesResults(result) {
         <div style="display: flex; flex-direction: column; margin-top: 2.5px; margin-left: 5px; width: 100%; padding: 5px;">
         <div style="display: flex; flex-direction: column;">
             <div class="profile-item-title">${name}</div>
-        <div class="profile-bottom-info">
-            <div class="profile-id">Citizen ID: ${value.citizenid}</div>&nbsp;
-        </div>
-            
+            <div class="profile-tags">
+                ${licences}
+            </div>
             <div class="profile-criminal-tags">
                 <span class="license-tag ${warrant}">${value.warrant ? "Active" : "No"} Warrant</span>
                 <span class="license-tag ${convictions}">${value.convictions} Convictions </span>
             </div>
+        </div>
+        <div class="profile-bottom-info">
+            <div class="profile-id"><span class="fas fa-id-card"></span> Citizen ID: ${value.citizenid}</div>&nbsp;
         </div>
         </div>
     </div>
@@ -5797,8 +5802,8 @@ preferCanvas: true,
 center: [0, -1024],
 maxBoundsViscosity: 1.0
 });
-
-var customImageUrl = 'https://i.imgur.com/EdOZjzF.jpg';
+ // https://upload.versescripts.net/ 
+var customImageUrl = 'https://files.fivemerr.com/images/60c68fc9-1a7f-4e5a-800a-f760a74186ca.jpeg';
 
 var sw = map.unproject([0, 1024], 3 - 1);
 var ne = map.unproject([1024, 0], 3 - 1);
@@ -5830,9 +5835,9 @@ function DispatchMAP(DISPATCH) {
   var MIN = Math.round(Math.round((new Date() - new Date(DISPATCH.time)) / 1000) / 60);
   if (MIN > 10) return;
 
-  var COORDS_X = DISPATCH.origin.x
-  var COORDS_Y = DISPATCH.origin.y
-  var CODE = DISPATCH.callId
+  var COORDS_X = DISPATCH.coords.x
+  var COORDS_Y = DISPATCH.coords.y
+  var CODE = DISPATCH.id
 
   Dispatches[CODE] = L.marker([COORDS_Y, COORDS_X], { icon: DispatchPing });
   Dispatches[CODE].addTo(map);
@@ -5842,7 +5847,7 @@ function DispatchMAP(DISPATCH) {
     map.removeLayer(Dispatches[CODE]);
   }, 1200000);
 
-  Dispatches[CODE].bindTooltip(`<div class="map-tooltip-info">${DISPATCH.dispatchMessage}</div></div><div class="map-tooltip-id">#${DISPATCH.callId}</div>`,
+  Dispatches[CODE].bindTooltip(`<div class="map-tooltip-info">${DISPATCH.message}</div></div><div class="map-tooltip-id">#${DISPATCH.id}</div>`,
       {
           direction: 'top',
           permanent: false,
