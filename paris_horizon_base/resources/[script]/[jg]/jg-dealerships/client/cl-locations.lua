@@ -63,7 +63,7 @@ local function createDealershipZonesAndBlips()
 
   for _, dealer in ipairs(dealerships) do
     if dealer and dealer.config then
-      if isShowroomAccessAllowed(dealer.name) or (dealer.type == "owned" and dealer.managementAccess) then
+      if IsShowroomAccessAllowed(dealer.name) or (dealer.type == "owned" and dealer.managementAccess) then
         -- Showroom location
         createLocation(
           dealer.config.openShowroom?.coords or dealer.config.openShowroom,
@@ -131,36 +131,11 @@ end
 RegisterNetEvent("jg-dealerships:client:update-blips-text-uis", function()
   Wait(1000)
   createDealershipZonesAndBlips()
-  spawnAllDealershipDisplayVehicles()
+  SpawnAllDealershipDisplayVehicles()
 end)
 
 CreateThread(function()
   Wait(1000)
   createDealershipZonesAndBlips()
-  spawnAllDealershipDisplayVehicles()
-end)
-
-CreateThread(function()
-    while true do
-        Wait(0)
-        local playerPed = PlayerPedId()
-        local playerCoords = GetEntityCoords(playerPed)
-          exports['qb-target']:AddCircleZone("concesscergy", vector3(1136.36, 2629.25, 38.95), 1.5, {
-          name = "concesscergy",
-          debugPoly = false,
-          useZ = true,
-          }, {
-            options = {
-              {
-                type = "command",
-                event = "directsale",
-                icon = 'fas fa-car',
-                label = 'Vendre un véhicule',
-                job = 'concessionnaire',
-              },
-            },
-            distance = 2.5,
-          })
-        Wait(100)
-    end
+  SpawnAllDealershipDisplayVehicles()
 end)

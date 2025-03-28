@@ -22,30 +22,19 @@ QBShared.Jobs = {
 			} 
 		} 
 	},
-	protectsafe = { 
-		label = 'ProtectSafe', 
-		defaultDuty = false, 
-		offDutyPay = false, 
-		grades = {
-		['0'] = { name = 'Agents de Sécurité', payment = 1700 },
-		['1'] = { name = 'Chefs d\'équipe', payment = 1900 },
-		['2'] = { name = 'Responsable Opérationnel', payment = 2100 },
-		['5'] = { name = 'Directeur Général', isboss = true, payment = 2500 },
-	},
-},
 	maisonette10 = { 
-		label = 'Maisonette 10', 
-		defaultDuty = false, 
-		offDutyPay = false, 
-		grades = {
-		['0'] = { name = 'DJ', payment = 1500 },
-		['1'] = { name = 'Videur', payment = 1700 },
-		['2'] = { name = 'Barman', payment = 1900 },
-		['3'] = { name = 'Responsable Communication', payment = 2100 },
-		['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
-		['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
+			label = 'Maisonette 10', 
+			defaultDuty = false, 
+			offDutyPay = false, 
+			grades = {
+			['0'] = { name = 'DJ', payment = 1500 },
+			['1'] = { name = 'Videur', payment = 1700 },
+			['2'] = { name = 'Barman', payment = 1900 },
+			['3'] = { name = 'Responsable Communication', payment = 2100 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
+		},
 	},
-},
 	police_nationale = {
 		label = 'Police Nationale',
 		type = 'leo',

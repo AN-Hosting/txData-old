@@ -3,11 +3,11 @@
 --
 
 Webhooks = {}
-Webhooks.TestDrive = "https://discord.com/api/webhooks/1350063560356528141/Q_SslJ3NbRYD1xks_JFbanm4t4BJWzyGikczbtrWT5GJeFyjMAvLM8tHXypC6du_qb0H"
-Webhooks.Purchase = "https://discord.com/api/webhooks/1350063560356528141/Q_SslJ3NbRYD1xks_JFbanm4t4BJWzyGikczbtrWT5GJeFyjMAvLM8tHXypC6du_qb0H"
-Webhooks.Finance = "https://discord.com/api/webhooks/1350063560356528141/Q_SslJ3NbRYD1xks_JFbanm4t4BJWzyGikczbtrWT5GJeFyjMAvLM8tHXypC6du_qb0H"
-Webhooks.Dealership = "https://discord.com/api/webhooks/1350063560356528141/Q_SslJ3NbRYD1xks_JFbanm4t4BJWzyGikczbtrWT5GJeFyjMAvLM8tHXypC6du_qb0H"
-Webhooks.Admin = "https://discord.com/api/webhooks/1350063560356528141/Q_SslJ3NbRYD1xks_JFbanm4t4BJWzyGikczbtrWT5GJeFyjMAvLM8tHXypC6du_qb0H"
+Webhooks.TestDrive = ""
+Webhooks.Purchase = ""
+Webhooks.Finance = ""
+Webhooks.Dealership = ""
+Webhooks.Admin = ""
 
 --[[
   EXAMPLE WEBHOOK CALL
@@ -18,7 +18,7 @@ Webhooks.Admin = "https://discord.com/api/webhooks/1350063560356528141/Q_SslJ3Nb
   })
 ]]--
 
-function sendWebhook(playerId, webhookUrl, title, type, data)
+function SendWebhook(playerId, webhookUrl, title, type, data)
   if not webhookUrl then return end
 
   local player = Framework.Server.GetPlayerInfo(playerId)

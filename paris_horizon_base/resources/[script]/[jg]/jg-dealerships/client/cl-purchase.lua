@@ -1,44 +1,52 @@
 ---Purchase a vehicle
 ---@param dealershipId string
----@param vehicleModel string|integer
----@param vehicleColor string
+---@param model string|integer
+---@param colour string
 ---@param purchaseType "society"|"personal"
 ---@param paymentMethod "bank"|"cash"
----@param dealerPlayerId? integer If purchased via direct sale
----@param finance boolean
----@param noOfPayments? number
----@param downPayment? any
 ---@param society? any if purchaseType == "society"
 ---@param societyType? any
+---@param finance boolean
+---@param directSaleUuid? string
 ---@return boolean success
-local function purchaseVehicle(dealershipId, vehicleModel, vehicleColor, purchaseType, paymentMethod, directSale, dealerPlayerId, finance, noOfPayments, downPayment, society, societyType)
+local function purchaseVehicle(dealershipId, model, colour, purchaseType, paymentMethod, society, societyType, finance, directSaleUuid)
   local dealership = Config.DealershipLocations[dealershipId]
-  local hash = convertModelToHash(vehicleModel)
-  local vehicleType = getVehicleTypeFromClass(GetVehicleClassFromName(hash))
-  local coords = findVehicleSpawnCoords(dealership.purchaseSpawn)
+  local hash = ConvertModelToHash(model)
+  local vehicleType = GetVehicleTypeFromClass(GetVehicleClassFromName(hash))
+  local coords = FindVehicleSpawnCoords(dealership.purchaseSpawn)
 
-  exitShowroom()
+  ExitShowroom()
 
-  local data = lib.callback.await(
-    "jg-dealerships:server:purchase-vehicle",
-    false, purchaseType, society, societyType, vehicleModel, paymentMethod, dealershipId, finance, directSale, dealerPlayerId, noOfPayments, downPayment
-  )
-  if not data then return false end
+  local success, vehicle, vehicleId, plate, price = lib.callback.await("jg-dealerships:server:purchase-vehicle", false, dealershipId, coords, purchaseType, society, societyType, model, colour, paymentMethod, finance, directSaleUuid)
+  if not success then return false end
 
-  local price, plate, vehicleId = data.price, data.plate, data.vehicleId
-  local warp = not Config.DoNotSpawnInsideVehicle
+  -- TODO WIP: new spawning logic
 
-  local vehicle = spawnVehicle(hash, plate, coords, warp, {
-    plate = plate,
-    colour = vehicleColor
-  }, "purchase")
-  if not vehicle or vehicle == 0 then return false end
-  
+  if Config.SpawnVehiclesWithServerSetter and not vehicle then
+    print("^1[ERROR] There was a problem spawning in your vehicle")
+    return false
+  end
+
+  -- Server spawning disabled, create vehicle on client
+  if not vehicle and not Config.SpawnVehiclesWithServerSetter then
+    local warp = not Config.DoNotSpawnInsideVehicle
+    local properties = {
+      plate = plate,
+      colour = colour
+    }
+    vehicle = SpawnVehicleClient(vehicleId or 0, model, plate, coords, warp, properties, "purchase")
+    if not vehicle then return false end
+  end
+
+  -- TODO WIP: END
+
   local netId = VehToNet(vehicle)
+
+  -- TODO: refactor this maybe? it's also a vulnerable event for people that know what they are doing
   local props = Framework.Client.GetVehicleProperties(vehicle)
-  Entity(vehicle).state:set("vehicleid", vehicleId, true) -- for qbx
-    
   TriggerServerEvent("jg-dealerships:server:update-purchased-vehicle-props", purchaseType, society, plate, props)
+  -- TODO END
+
   TriggerEvent("jg-dealerships:client:purchase-vehicle:config", vehicle, plate, purchaseType, price, paymentMethod, finance)
   TriggerServerEvent("jg-dealerships:server:purchase-vehicle:config", netId, plate, purchaseType, price, paymentMethod, finance)
 
@@ -55,22 +63,19 @@ end
 
 RegisterNUICallback("purchase-vehicle", function(data, cb)
   local dealershipId = data.dealership
-  local vehicleModel = data.vehicle
+  local model = data.vehicle
   local vehicleColor = data.color
   local purchaseType = data.purchaseType
   local paymentMethod = data.paymentMethod
   local finance = data.finance
-  local directSale = data.directSale
-  local dealerPlayerId = data.dealerPlayerId
-  local noOfPayments = data.noOfPayments or Config.FinancePayments
-  local downPayment = data.downPayment or Config.FinanceDownPayment
   local society = data.society
   local societyType = data.societyType
+  local directSaleUuid = data.directSaleUuid
 
   DoScreenFadeOut(500)
   Wait(500)
 
-  local res = purchaseVehicle(dealershipId, vehicleModel, vehicleColor, purchaseType, paymentMethod, directSale, dealerPlayerId, finance, noOfPayments, downPayment, society, societyType)
+  local res = purchaseVehicle(dealershipId, model, vehicleColor, purchaseType, paymentMethod, society, societyType, finance, directSaleUuid)
   
   if not res then
     DoScreenFadeIn(0)

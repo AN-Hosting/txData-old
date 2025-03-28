@@ -98,7 +98,7 @@ end
 function Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societyType, model, plate, financed, financeData)
   local vehicleId = nil
   local props = json.encode({
-    model = convertModelToHash(model),
+    model = ConvertModelToHash(model),
     plate = plate
   })
 
@@ -120,7 +120,7 @@ function Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societ
     end
   elseif Config.Framework == "ESX" then
     local identifier = Framework.Server.GetPlayerIdentifier(src)
-    debugPrint("Saving vehicle to garage for "..identifier.. " type: "..purchaseType, "debug")
+    DebugPrint("Saving vehicle to garage for "..identifier.. " type: "..purchaseType, "debug")
     if purchaseType == "society" and societyType == "job" then
       vehicleId = MySQL.insert.await(
         "INSERT INTO owned_vehicles (owner, plate, vehicle, financed, finance_data, job_vehicle, job_vehicle_rank) VALUES(?, ?, ?, ?, ?, ?, ?)",
@@ -346,10 +346,10 @@ function Framework.Server.PlayerAddMoney(src, amount, account)
   account = account or "bank"
 
   if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
-    player.Functions.AddMoney(account, round(amount, 0))
+    player.Functions.AddMoney(account, Round(amount, 0))
   elseif Config.Framework == "ESX" then
     if account == "cash" then account = "money" end
-    player.addAccountMoney(account, round(amount, 0))
+    player.addAccountMoney(account, Round(amount, 0))
   end
 end
 
@@ -363,10 +363,10 @@ function Framework.Server.PlayerRemoveMoney(src, amount, account)
   if account == "custom" then
     -- Add your own custom balance system here
   elseif Config.Framework == "QBCore" or Config.Framework == "Qbox" then
-    player.Functions.RemoveMoney(account, round(amount, 0))
+    player.Functions.RemoveMoney(account, Round(amount, 0))
   elseif Config.Framework == "ESX" then
     if account == "cash" then account = "money" end
-    player.removeAccountMoney(account, round(amount, 0))
+    player.removeAccountMoney(account, Round(amount, 0))
   end
 end
 
@@ -484,14 +484,16 @@ end)
 -- Brazzers-FakePlates
 --
 
-lib.callback.register("brazzers-fakeplates:getPlateFromFakePlate", function(_, fakeplate)
-  local result = MySQL.scalar.await("SELECT plate FROM player_vehicles WHERE fakeplate = ?", {fakeplate})
-  if result then return result end
-  return false
-end)
+if GetResourceState("brazzers-fakeplates") == "started" then
+  lib.callback.register("jg-dealerships:server:brazzers-get-plate-from-fakeplate", function(_, fakeplate)
+    local result = MySQL.scalar.await("SELECT plate FROM player_vehicles WHERE fakeplate = ?", {fakeplate})
+    if result then return result end
+    return false
+  end)
 
-lib.callback.register("brazzers-fakeplates:getFakePlateFromPlate", function(_, plate)
-  local result = MySQL.scalar.await("SELECT fakeplate FROM player_vehicles WHERE plate = ?", {plate})
-  if result then return result end
-  return false
-end)
+  lib.callback.register("jg-dealerships:server:brazzers-get-fakeplate-from-plate", function(_, plate)
+    local result = MySQL.scalar.await("SELECT fakeplate FROM player_vehicles WHERE plate = ?", {plate})
+    if result then return result end
+    return false
+  end)
+end

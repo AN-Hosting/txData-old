@@ -7,7 +7,7 @@ exports("config", function() return Config end)
 
 ---@param text string
 ---@param debugtype? "warning"|"debug"
-function debugPrint(text, debugtype, ...)
+function DebugPrint(text, debugtype, ...)
   if not Config.Debug then return end
     
   local prefix = "^2[DEBUG]^7"
@@ -31,7 +31,9 @@ function debugPrint(text, debugtype, ...)
 end
 
 ---@param vehicle integer
-function deleteVehicle(vehicle)
+function JGDeleteVehicle(vehicle)
+  if not DoesEntityExist(vehicle) then return end
+
   if GetResourceState("AdvancedParking") == "started" then
     exports["AdvancedParking"]:DeleteVehicle(vehicle, false)
   else
@@ -41,7 +43,7 @@ end
 
 ---@param vehicle integer
 ---@param plate string
-function setVehiclePlateText(vehicle, plate)
+function SetVehiclePlateText(vehicle, plate)
   if GetResourceState("AdvancedParking") == "started" then
     exports["AdvancedParking"]:UpdatePlate(vehicle, plate)
   else
@@ -51,12 +53,12 @@ end
 
 ---@param model string | number
 ---@return number hash
-function convertModelToHash(model)
+function ConvertModelToHash(model)
   return type(model) == "string" and joaat(model) or model --[[@as number]]
 end
 
 ---@param plate string
-function isValidGTAPlate(plate)
+function IsValidGTAPlate(plate)
   -- Check if the plate matches the pattern and is not longer than 8 characters
   -- %w matches alphanumeric characters, %s matches space characters
   -- The pattern checks for a string starting with 0 or more alphanumeric or space characters
@@ -65,7 +67,7 @@ function isValidGTAPlate(plate)
 end
 
 ---@param table table
-function tableKeys(table)
+function TableKeys(table)
   local keys = {}
   
   for k, _ in pairs(table) do
@@ -80,7 +82,7 @@ end
 ---@param num integer
 ---@param dp? integer
 ---@return number
-function round(num, dp)
+function Round(num, dp)
   dp = dp or 0
   local mult = 10^(dp or 0)
   return math.floor(num * mult + 0.5) / mult
@@ -89,7 +91,7 @@ end
 ---@param list table
 ---@param item string|number
 ---@return boolean
-function isItemInList(list, item)
+function IsItemInList(list, item)
   if #list == 0 then
     return true
   end
@@ -105,6 +107,6 @@ end
 
 ---@param s string
 ---@return string
-function trim(s)
+function Trim(s)
   return (s:gsub("^%s*(.-)%s*$", "%1"))
 end

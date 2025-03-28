@@ -435,6 +435,12 @@ Config = {
                         icon = "fas fa-clipboard-check",
                         label = "Menu Facture"
                     },
+                    {
+                        type = "command",
+                        event = "directsale",
+                        icon = "fas fa-clipboard",
+                        label = "Menu Facture"
+                    },
                 },
             },
         },

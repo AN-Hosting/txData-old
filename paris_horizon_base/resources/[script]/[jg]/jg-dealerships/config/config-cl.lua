@@ -1,32 +1,43 @@
+-- 
+-- Events
+-- 
+
+---Fired when the vehicle is purchased
+---@param vehicle integer
+---@param plate string
+---@param purchaseType "personal"|"society"
+---@param amount number
+---@param paymentMethod "bank"|"cash"
+---@param financed boolean
 RegisterNetEvent("jg-dealerships:client:purchase-vehicle:config", function(vehicle, plate, purchaseType, amount, paymentMethod, financed)
 
 end)
 
+---Fired when vehicle is test driven
+---@param vehicle integer
+---@param plate string
 RegisterNetEvent("jg-dealerships:client:start-test-drive:config", function(vehicle, plate)
 
 end)
 
+---Fired when a vehicle is sold; this also contains the delete vehicle function
+---@param vehicle integer
+---@param plate string
 RegisterNetEvent("jg-dealerships:client:sell-vehicle:config", function(vehicle, plate)
   --
   -- Add code here to run before the vehicle is deleted
   --
 
-  deleteVehicle(vehicle) -- this runs Kimi's AdvancedParking export already! 
+  JGDeleteVehicle(vehicle) -- this runs Kimi's AdvancedParking export already! 
 end)
 
-RegisterNetEvent("jg-dealerships:client:showroom-pre-check", function(dealershipId, cb)
-  local res = lib.callback.await("jg-dealerships:server:showroom-pre-check", false, dealershipId) -- You can also do some server-side/database checks. This callback can be found in config-sv.lua
-  if not res then return cb(false) end
+-- 
+-- Hooks
+-- 
 
-  local allowed = true
-  
-  -- Write some code here. Update the "allowed" variable to true or false :)
-  -- This would typically be used to check you have a license, for example
-
-  if not allowed then
-    Framework.Client.Notify("You are not allowed to access the showroom", "error")
-    return cb(false)
-  end
-  
-  return cb(true)
-end)
+---Runs before the showroom opens; return false to prevent showroom from opening
+---@param dealershipId string
+---@return boolean allowed
+function ShowroomPreCheck(dealershipId)
+  return true
+end
