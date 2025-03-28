@@ -455,6 +455,16 @@ Config.Blips = {
         offset = false,
         flash = false
     },
+    ['ATMRobbery'] = {
+        radius = 0,
+        sprite = 500,
+        color = 0,
+        scale = 1.0,
+        length = 2,
+        sound = 'robberysound',
+        offset = false,
+        flash = false
+    },
 }
 
 Config.Colors = {

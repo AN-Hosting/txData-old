@@ -834,3 +834,23 @@ local function VolDeSacs()
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 end
 exports('VolDeSacs', VolDeSacs)
+
+local function ATMRobbery()
+    local coords = GetEntityCoords(cache.ped)
+
+    local dispatchData = {
+        message = 'Braquage d\'ATM',
+        codeName = 'ATMRobbery',
+        code = '10-90',
+        icon = 'fas fa-flask-vial',
+        priority = 2,
+        coords = coords,
+        gender = GetPlayerGender(),
+        street = GetStreetAndZone(coords),
+        alertTime = nil,
+        jobs = { 'leo' }
+    }
+    TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
+
+end
+exports('ATMRobbery', ATMRobbery)

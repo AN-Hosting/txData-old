@@ -315,6 +315,7 @@ QBShared.Items = {
     empty_evidence_bag           = { name = 'empty_evidence_bag', label = 'Sac à Preuves Vide', weight = 0, type = 'item', image = 'evidence.png', unique = false, useable = false, shouldClose = false, description = 'Utilisé pour conserver des preuves comme du sang, des douilles et bien plus.' },
     filled_evidence_bag          = { name = 'filled_evidence_bag', label = 'Sac à Preuves', weight = 200, type = 'item', image = 'evidence.png', unique = true, useable = false, shouldClose = false, description = 'Un sac contenant des preuves permettant d\'identifier un criminel.' },
 
+    atm_bomb           = { name = 'atm_bomb', label = 'Bombe ATM', weight = 100, type = 'item', image = 'atm_bomb.png', unique = false, useable = false, shouldClose = false, description = '...' },
     -- Feux d'Artifice
     firework1                    = { name = 'firework1', label = '2Brothers', weight = 1000, type = 'item', image = 'firework1.png', unique = false, useable = true, shouldClose = true, description = 'Un feu d\'artifice spectaculaire.' },
     firework2                    = { name = 'firework2', label = 'Poppelers', weight = 1000, type = 'item', image = 'firework2.png', unique = false, useable = true, shouldClose = true, description = 'Un feu d\'artifice impressionnant.' },
