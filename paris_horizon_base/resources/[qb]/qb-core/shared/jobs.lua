@@ -361,6 +361,19 @@ QBShared.Jobs = {
 			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },	
 		},
 	},
+		cyberbar = { 
+			label = 'Cyber Bar', 
+			defaultDuty = false, 
+			offDutyPay = false, 
+			grades = {
+			['0'] = { name = 'DJ', payment = 1500 },
+			['1'] = { name = 'Videur', payment = 1700 },
+			['2'] = { name = 'Barman', payment = 1900 },
+			['3'] = { name = 'Responsable Communication', payment = 2100 },
+			['4'] = { name = 'Co Gérant', isboss = true, payment = 2500 },
+			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
+		},
+	},
 	pawnshop = {
 		label = 'Rachat occasion',
 		type = '',
