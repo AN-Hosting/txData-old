@@ -1297,7 +1297,7 @@ local Vehicles = {
     { model = 'rs6+',        name = 'Audi Rs6 +',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
     { model = 'e63b',        name = 'Mercedes E 63b',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
     { model = 'cupra22f',        name = 'Cupra 22f',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
-
+    { model = '2ncsbmwm8',        name = 'Bmw M8',  brand = 'Don',  price = 1,         category = 'don',       type = 'automobile', shop = 'pdm' },
 }
 
 QBShared.VehicleHashes = QBShared.VehicleHashes or {}
