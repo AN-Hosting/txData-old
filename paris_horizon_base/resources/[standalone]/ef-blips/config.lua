@@ -46,11 +46,18 @@ Config.Locations = {
     sprite = 289, 
     scale = 0.8,
 },
+-- [7] = {
+--     vector = vector3(1227.36, -411.55, 68.19), 
+--     text = "Police Municipale", 
+--     color = 0, 
+--     sprite = 60, 
+--     scale = 0.8,
+-- },
 [7] = {
-    vector = vector3(1227.36, -411.55, 68.19), 
-    text = "Police Municipale", 
+    vector = vector3(73.07, -1745.73, 29.29), 
+    text = "Carrefour", 
     color = 0, 
-    sprite = 60, 
+    sprite = 59, 
     scale = 0.8,
 },
 [8] = {
@@ -137,13 +144,7 @@ Config.Locations = {
     sprite = 225, 
     scale = 0.8,
 },
-[20] = {
-    vector = vector3(73.07, -1745.73, 29.29), 
-    text = "Carrefour", 
-    color = 0, 
-    sprite = 59, 
-    scale = 0.8,
-},
+
 
 
 -- Example 
