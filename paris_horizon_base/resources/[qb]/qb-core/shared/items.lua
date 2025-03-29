@@ -994,7 +994,10 @@ QBShared.Items = {
     vvinrouge                    = { name = 'vvinrouge',    label = 'Verre de Vin Rouge', weight = 500, type = 'item', image = 'vvinrouge.png', unique = false, useable = true, shouldClose = true, description = 'Verre de vin rouge.' },
     vvodka                        = { name = 'vodka',        label = 'Verre de Vodka', weight = 500, type = 'item', image = 'vodka.png', unique = false, useable = true, shouldClose = true, description = 'Verre de vodka.' },
     vwiskey                      = { name = 'vwiskey',      label = 'Verre de Whisky', weight = 500, type = 'item', image = 'vwiskey.png', unique = false, useable = true, shouldClose = true, description = 'Verre de whisky.' },
-
+    -- Graffitis
+    spraycan                       = {name = 'spraycan',                          label = 'Spray Can',                weight = 1000,          type = 'item',         image = 'spraycan.png',                unique = true,          useable = true,     shouldClose = true,       combinable = nil,   description = 'Spray Can'},
+    sprayremover                    = {name = 'sprayremover',                      label = 'Spray Remover',           weight = 100,           type = "item",         image = 'sprayremoverpng',              unique = true,          useable = true,     shouldClose = true,       combinable = nil,   description = "Spray Remover"},
+    
 }
 
 
