@@ -937,6 +937,10 @@ const InventoryContainer = Vue.createApp({
                 }
             }
 
+            if (item.name === "spraycan") {
+                content += `<p><strong>Spray: </strong><span>${item.info.name}</span></p>`;
+            }
+
             content += `<div class="tooltip-description">${description}</div>`;
             content += `<div class="tooltip-weight"><i class="fas fa-weight-hanging"></i> ${item.weight !== undefined && item.weight !== null ? (item.weight / 1000).toFixed(1) : "N/A"}kg</div>`;
 
