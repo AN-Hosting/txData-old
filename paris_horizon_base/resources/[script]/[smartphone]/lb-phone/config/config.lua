@@ -425,6 +425,21 @@ Config.Companies.Services = {
             }
         }
     },
+    {
+        job = "cyberbar",
+        name = "Cyber Bar",
+        icon = "https://cdn.discordapp.com/attachments/1353703511669604353/1355329342074523708/cyberbar.png?ex=67e8884f&is=67e736cf&hm=a6501c7540de83d859a8c31e8d95fe9f31e340acd8b020650594139a765d8ba3&",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Cyber Bar",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
     
 }
 
@@ -602,6 +617,12 @@ Config.Locations = { -- Locations that'll appear in the maps app.
         name = "Tribunal",
         description = "Tribunal Avocat et Juge",
         icon = "https://cdn.discordapp.com/attachments/1353703511669604353/1353704187652870196/avocat.png?ex=67e29ec4&is=67e14d44&hm=9ec7650d7173f915f95078a9ab196941372a65e76273cfcbd1cc5b99b49ef988&",
+    },
+    {
+        position = vector2(340.72, -944.02),
+        name = "CyberBar",
+        description = "Bar et boite de nuit",
+        icon = "https://cdn.discordapp.com/attachments/1353703511669604353/1355329342074523708/cyberbar.png?ex=67e8884f&is=67e736cf&hm=a6501c7540de83d859a8c31e8d95fe9f31e340acd8b020650594139a765d8ba3&",
     },
 }
 
