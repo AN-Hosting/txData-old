@@ -263,7 +263,7 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
 
 -- Private Garages
 Config.PrivGarageCreateCommand = "privategarages"
-Config.PrivGarageCreateJobRestriction = {"realestate"}
+Config.PrivGarageCreateJobRestriction = {"orpi"}
 Config.PrivGarageEnableInteriors = true
 Config.PrivGarageHideBlips = false
 Config.PrivGarageBlip = {

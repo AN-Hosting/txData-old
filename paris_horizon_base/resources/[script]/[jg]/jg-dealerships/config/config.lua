@@ -175,7 +175,7 @@ Config.DealershipLocations = {
   ["cergy"] = {
     type = "owned", -- or "owned", "self-service"
     openShowroom = {
-      coords = vector3(1124.01, 2647.21, 38.96),
+      coords = vector3(1141.2, 2630.53, 38.95),
       size = 3
     },
     openManagement = {
@@ -253,11 +253,7 @@ Config.DealershipLocations = {
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
     showroomJobWhitelist = {},
     showroomGangWhitelist = {},
-    societyPurchaseJobWhitelist = { maisonette10 = { 4, 5 }, police_nationale = { 4 }, tabac = { 4, 5 }, mairie = { 4, 5 }, gendarmerie_nationale = { 4, 5 }, 
-      samu_75 = { 4 }, pompiers_de_paris = { 4 }, orpi = { 4, 5 }, taxi = { 4, 5 }, concessionnaire = { 4, 5 }, norauto = { 4, 5 }, midas = { 4, 5 }, 
-      vinci = { 4, 5 }, otacos = { 4, 5 }, kfc = { 4, 5 }, pizza = { 4, 5 }, avocats_de_paris = { 4, 5 }, vigneron = { 4, 5 }, brinks = { 4, 5 }, 
-      burgerking = { 4, 5 }, tf1 = { 4, 5 }, dir = { 4, 5 }, casino = { 4, 5 }, xpo = { 4, 5 }, cyberbar = { 4, 5 }, pawnshop = { 4, 5 }, 
-    },
+    societyPurchaseJobWhitelist = {},
     societyPurchaseGangWhitelist = {},
     disableShowroomPurchase = true,
     job = "concessionnaire", -- Owned dealerships only
