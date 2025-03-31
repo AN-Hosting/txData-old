@@ -36,7 +36,7 @@ Config.AnimTime = 2 -- Seconds (ATM animation)
 
 Config.UseQBManagement = false -- If true it will use the management_funds table | If false the okokbanking_societies table
 
-Config.UseQBBanking = false -- Useful for latest QBCore versions
+Config.UseQBBanking = true -- Useful for latest QBCore versions
 
 Config.RequireCreditCardForATM = true -- Set to true if you would like players to access the ATM with a card item | If false there is no item requirement
 
