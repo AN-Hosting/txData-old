@@ -35,7 +35,7 @@ QBShared.Jobs = {
 			['5'] = { name = 'Gérant', isboss = true, payment = 2500 },
 		},
 	},
-	police_nationale = {
+	police = {
 		label = 'Police Nationale',
 		type = 'leo',
 		defaultDuty = false,
