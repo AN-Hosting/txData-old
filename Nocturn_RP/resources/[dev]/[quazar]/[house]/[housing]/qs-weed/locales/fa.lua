@@ -1,0 +1,26 @@
+Locales["fa"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[اِ] - گیاه را بسوزانید',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - گیاه را حمل کنید',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - گیاه مرده را بردارید',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - گیاه درو',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'نوع:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'تغذیه:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'سلامت:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'در حال رشد گیاه ...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'حذف گیاه ...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'کاشت گیاه ...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'گیاه تغذیه ...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'شما موقعیت گیاه را تغییر دادید',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'این گیاه کاملاً آتش گرفت',
+["WEED_NOTIFICATION_NO_PLACE"] = 'جایی برای قرار دادن گیاه وجود ندارد',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'شما در خانه یا در یک منطقه امن نیستید',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'این گیاه به تغذیه بیشتری نیاز ندارد',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'شی پیدا نشد یا شکسته است',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'شما گیاه را به درستی برداشت کرده اید',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'این گیاه دیگر وجود ندارد',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'کیسه های کافی برای برداشت کل گیاه ندارید',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'این گیاه شما نیست و نمی توانید گیاه بازیکن دیگری را برداشت کنید',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'شما نمی توانید گیاهان بیشتری را در این خانه قرار دهید',
+}

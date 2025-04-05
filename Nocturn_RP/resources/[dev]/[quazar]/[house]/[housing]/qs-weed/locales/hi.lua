@@ -1,0 +1,26 @@
+Locales["hi"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[ई] - जला हुआ पौधा',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[जी] - कैरी प्लांट',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[ई] - मृत पौधे को हटा दें',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[ई] - फसल का पौधा',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'प्रकार:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'पोषण:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'स्वास्थ्य:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'बढ़ता हुआ पौधा...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'पौधा हटाया जा रहा है...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'पौधारोपण...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'भोजन देने वाला पौधा...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'आपने पौधे की स्थिति बदल दी',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'प्लांट पूरी तरह से जलकर खाक हो गया',
+["WEED_NOTIFICATION_NO_PLACE"] = 'पौधा लगाने की जगह नहीं है',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'आप अपने घर पर या सुरक्षित क्षेत्र में नहीं हैं',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'इस पौधे को अधिक पोषण की आवश्यकता नहीं होती',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'वस्तु नहीं मिली या टूट गयी है',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'आपने पौधे की सही कटाई की है',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'संयंत्र अब अस्तित्व में नहीं है',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'आपके पास पूरे पौधे की कटाई के लिए पर्याप्त बैग नहीं हैं',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'यह आपका पौधा नहीं है और न ही आप किसी अन्य खिलाड़ी का पौधा काट सकते हैं',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'आप इस घर में अधिक पौधे नहीं लगा सकते',
+}

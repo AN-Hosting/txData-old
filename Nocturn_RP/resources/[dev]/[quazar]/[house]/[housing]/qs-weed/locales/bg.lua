@@ -1,0 +1,26 @@
+Locales["bg"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Изгорено растение',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Носещо растение',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Премахнете мъртвото растение',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Жътва',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Тип:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Хранене:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'здраве:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Отглеждане на растение...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Премахване на растението...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Засаждане на растение...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Завод за хранене...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Променихте позицията на растението',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Заводът се е запалил напълно',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Няма къде да поставите растението',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Не сте вкъщи или в безопасна зона',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Това растение не се нуждае от повече хранене',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Предметът не е намерен или е счупен',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Вие сте събрали растението правилно',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Заводът вече не съществува',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Нямате достатъчно торби, за да приберете цялото растение',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Това не е вашето растение, нито можете да берете растението на друг играч',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Не можете да поставите повече растения в този дом',
+}

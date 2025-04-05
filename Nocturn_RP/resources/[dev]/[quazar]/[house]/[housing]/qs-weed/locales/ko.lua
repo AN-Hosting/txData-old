@@ -1,0 +1,26 @@
+Locales["ko"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - 식물 태우기',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - 식물 운반',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - 죽은 식물 제거',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - 수확 식물',
+["WEED_DRAWTEXT_TYPE_STATUS"] = '유형:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = '영양물 섭취:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = '건강:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = '식물을 키우는 중...',
+["WEED_PROGRESS_REMOVE_PLANT"] = '식물 제거 중...',
+["WEED_PROGRESS_PLANTING_PLANT"] = '식물을 심는 중...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = '먹이를 주는 식물...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = '공장 위치를 ​​바꾸셨네요',
+["WEED_NOTIFICATION_FIRE_PLANT"] = '식물에 완전히 불이 붙었습니다',
+["WEED_NOTIFICATION_NO_PLACE"] = '식물을 심을 곳이 없어요',
+["WEED_NOTIFICATION_SAFE_ZONE"] = '당신은 집에 없거나 안전지대에 있지 않습니다.',
+["WEED_NOTIFICATION_NO_NUTRITION"] = '이 식물에는 더 많은 영양이 필요하지 않습니다.',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = '개체를 찾을 수 없거나 손상되었습니다.',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = '식물을 올바르게 수확했습니다',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = '그 식물은 더 이상 존재하지 않습니다.',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = '전체 식물을 수확할 만큼 충분한 봉지가 없습니다.',
+["WEED_NOTIFICATION_NOT_PLANT"] = '그것은 당신의 식물이 아니며 다른 플레이어의 식물을 수확할 수도 없습니다.',
+["WEED_NOTIFICATION_NO_PLANTS"] = '이 집에는 더 이상 식물을 심을 수 없습니다',
+}

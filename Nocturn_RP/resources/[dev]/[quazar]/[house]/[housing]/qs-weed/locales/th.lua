@@ -1,0 +1,26 @@
+Locales["th"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - เผาต้นไม้',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - พกต้นไม้',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - กำจัดพืชที่ตายแล้ว',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - พืชเก็บเกี่ยว',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'พิมพ์:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'โภชนาการ:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'สุขภาพ:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'ปลูกพืช...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'กำลังถอดพืช...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'การปลูกพืช...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'โรงงานให้อาหาร...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'คุณเปลี่ยนตำแหน่งโรงงาน',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'โรงงานถูกไฟไหม้อย่างสมบูรณ์',
+["WEED_NOTIFICATION_NO_PLACE"] = 'ไม่มีที่วางต้นไม้',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'คุณไม่ได้อยู่ที่บ้านหรืออยู่ในเขตปลอดภัย',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'พืชชนิดนี้ไม่ต้องการสารอาหารเพิ่มเติม',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'ไม่พบวัตถุหรือเสียหาย',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'คุณได้เก็บเกี่ยวพืชอย่างถูกต้อง',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'โรงงานไม่มีอยู่อีกต่อไป',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'คุณมีถุงไม่เพียงพอที่จะเก็บเกี่ยวทั้งต้น',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'ไม่ใช่ต้นไม้ของคุณ และคุณไม่สามารถเก็บเกี่ยวพืชของผู้เล่นคนอื่นได้',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'คุณไม่สามารถปลูกต้นไม้เพิ่มในบ้านนี้ได้',
+}

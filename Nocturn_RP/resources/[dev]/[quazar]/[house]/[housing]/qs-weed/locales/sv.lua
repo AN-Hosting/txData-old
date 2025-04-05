@@ -1,0 +1,26 @@
+Locales["sv"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Bränn växt',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Bär växt',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Ta bort död planta',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Skördeväxt',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Typ:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Näring:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Hälsa:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Växande växt...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Tar bort växt...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Plantera växt...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Foderväxt...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Du ändrade anläggningens position',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Anläggningen fattade helt eld',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Det finns ingen plats att sätta plantan på',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Du är inte hemma eller i en säker zon',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Denna växt behöver inte mer näring',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Objektet hittades inte eller är trasigt',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Du har skördat växten korrekt',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Anläggningen finns inte längre',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Du har inte tillräckligt med påsar för att skörda hela plantan',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Det är inte din växt och du kan inte heller skörda en annan spelares växt',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Du kan inte sätta fler växter i det här hemmet',
+}

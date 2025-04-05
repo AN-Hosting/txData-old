@@ -1,0 +1,26 @@
+Locales["zh-TW"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - 燃燒植物',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - 攜帶植物',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - 移除已死的植物',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - 收穫植物',
+["WEED_DRAWTEXT_TYPE_STATUS"] = '類型：',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = '營養：',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = '健康：',
+
+["WEED_PROGRESS_GROWING_PLANT"] = '正在生長的植物...',
+["WEED_PROGRESS_REMOVE_PLANT"] = '移除植物...',
+["WEED_PROGRESS_PLANTING_PLANT"] = '種植植物...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = '飼料廠...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = '你改變了植物的位置',
+["WEED_NOTIFICATION_FIRE_PLANT"] = '工廠完全著火了',
+["WEED_NOTIFICATION_NO_PLACE"] = '沒有地方可以放置植物',
+["WEED_NOTIFICATION_SAFE_ZONE"] = '您不在家或不在安全區',
+["WEED_NOTIFICATION_NO_NUTRITION"] = '這種植物不需要更多的營養',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = '未找到該物件或該物件已損壞',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = '您已正確收穫植物',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = '該工廠已不復存在',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = '您沒有足夠的袋子來收穫整株植物',
+["WEED_NOTIFICATION_NOT_PLANT"] = '這不是你的植物，你也不能收穫其他玩家的植物',
+["WEED_NOTIFICATION_NO_PLANTS"] = '你不能在這個家裡放置更多的植物',
+}

@@ -1,0 +1,26 @@
+Locales["el"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Φυτό καύσης',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Φυτό μεταφοράς',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Αφαιρέστε το νεκρό φυτό',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Φυτό συγκομιδής',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Τύπος:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Θρέψη:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Υγεία:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Καλλιέργεια φυτών...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Αφαίρεση φυτού...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Φύτευση φυτού...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Φυτό τροφοδοσίας...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Αλλάξατε τη θέση του φυτού',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Το εργοστάσιο πήρε φωτιά εντελώς',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Δεν υπάρχει μέρος για να βάλετε το φυτό',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Δεν βρίσκεστε στο σπίτι σας ή σε ασφαλή ζώνη',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Αυτό το φυτό δεν χρειάζεται περισσότερη διατροφή',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Το αντικείμενο δεν βρέθηκε ή είναι σπασμένο',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Έχετε μαζέψει σωστά το φυτό',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Το φυτό δεν υπάρχει πλέον',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Δεν έχετε αρκετές σακούλες για να μαζέψετε ολόκληρο το φυτό',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Δεν είναι το φυτό σας ούτε μπορείτε να μαζέψετε φυτό άλλου παίκτη',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Δεν μπορείτε να βάλετε περισσότερα φυτά σε αυτό το σπίτι',
+}

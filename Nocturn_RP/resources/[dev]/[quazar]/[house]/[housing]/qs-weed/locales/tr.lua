@@ -1,0 +1,26 @@
+Locales["tr"] = {
+["WEED_DRAWTEXT_FIRE_PLANT"] = '[E] - Tesisi yakmak',
+["WEED_DRAWTEXT_CARRY_PLANT"] = '[G] - Bitkiyi taşı',
+["WEED_DRAWTEXT_DEAD_PLANT"] = '[E] - Ölü bitkiyi kaldır',
+["WEED_DRAWTEXT_HARVEST_PLANT"] = '[E] - Hasat tesisi',
+["WEED_DRAWTEXT_TYPE_STATUS"] = 'Tip:',
+["WEED_DRAWTEXT_NUTRITION_STATUS"] = 'Beslenme:',
+["WEED_DRAWTEXT_HEALTH_STATUS"] = 'Sağlık:',
+
+["WEED_PROGRESS_GROWING_PLANT"] = 'Büyüyen bitki...',
+["WEED_PROGRESS_REMOVE_PLANT"] = 'Bitki kaldırılıyor...',
+["WEED_PROGRESS_PLANTING_PLANT"] = 'Bitki dikmek...',
+["WEED_PROGRESS_NUTRITION_PLANT"] = 'Besleme tesisi...',
+
+["WEED_NOTIFICATION_PUT_OBJECT"] = 'Tesis konumunu değiştirdiniz',
+["WEED_NOTIFICATION_FIRE_PLANT"] = 'Fabrika tamamen alev aldı',
+["WEED_NOTIFICATION_NO_PLACE"] = 'Bitkiyi koyacak yer yok',
+["WEED_NOTIFICATION_SAFE_ZONE"] = 'Evinizde veya güvenli bir bölgede değilsiniz',
+["WEED_NOTIFICATION_NO_NUTRITION"] = 'Bu bitkinin daha fazla beslenmeye ihtiyacı yok',
+["WEED_NOTIFICATION_BROKEN_OBJECT"] = 'Nesne bulunamadı veya bozuk',
+["WEED_NOTIFICATION_HARVESTED_PLANT"] = 'Bitkiyi doğru şekilde hasat ettiniz',
+["WEED_NOTIFICATION_PLANT_NOT_EXIST"] = 'Bitki artık mevcut değil',
+["WEED_NOTIFICATION_PLANT_NO_BAGS"] = 'Bitkinin tamamını hasat etmeye yetecek kadar torbanız yok',
+["WEED_NOTIFICATION_NOT_PLANT"] = 'Bu sizin bitkiniz değil, başka bir oyuncunun bitkisini de hasat edemezsiniz',
+["WEED_NOTIFICATION_NO_PLANTS"] = 'Bu eve daha fazla bitki koyamazsınız',
+}
