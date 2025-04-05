@@ -1,0 +1,106 @@
+.configuration-screen section .box .content .notify_modern {
+    width: 25vw;
+    display: flex;
+    position: relative;
+    border-radius: 0.2vw;
+    left: 0%;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border: 1.82px solid rgba(52, 68, 82, 1);
+    border-radius: 10px;
+    align-items: center;
+}
+
+.configuration-screen section .box .content .notify_modern .icon {
+    font-size: 2vw;
+    padding: 1vw;
+    color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    transform: scale(0.8);
+    border: 2.56px solid var(--main-color);
+    box-shadow: 0px 0px 16.01px 0px var(--main-color);
+}
+
+.configuration-screen section .box .content .notify_modern .header-box-content {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0.5vw;
+    font-size: 0.65vw;
+    color: var(--theme);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    align-items: flex-start;
+    white-space: wrap;
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .notify_modern
+    .header-box-content
+    .header-text {
+    width: 100%;
+    font-size: 0.85vw;
+    font-weight: 500;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .notify_modern
+    .header-box-content
+    .text {
+    width: 100%;
+    white-space: normal;
+    font-size: 0.65vw;
+    opacity: 0.6;
+    font-family: Poppins;
+    font-weight: 500;
+    padding-left: 0;
+    color: rgba(125, 125, 125, 1);
+}
+
+.configuration-screen section .box .content > .notify_modern::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    width: 10px;
+    height: 50px;
+    background: var(--main-color);
+    box-shadow: 0px 0px 11.85px 0px var(--main-color);
+    border-radius: 10px;
+    top: 22px;
+}
+
+.configuration-screen section .box .content > .notify_modern::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    width: 10px;
+    height: 50px;
+    background: var(--main-color);
+    box-shadow: 0px 0px 11.85px 0px var(--main-color);
+    border-radius: 10px;
+    top: 22px;
+}
+
+.configuration-screen section .box .content .notify_modern {
+    padding: 0.5vw 1vw;
+}
