@@ -1,0 +1,33 @@
+langs.en = {
+    alreadyError = "You're already doing something",
+    openMenu = "Open Menu",
+    showMenu = "Show Closest DrawText Menus",
+    gizmoWalkMode = "Walk Mode",
+    gizmoNormalMode = "Gizmo Mode",
+    gizmoRotate = "Rotate Mode",
+    gizmoTranslate = "Translate Mode",
+    gizmoSnapToGround = "Snap to Ground",
+    gizmoDone = "Finish Editing",
+    gizmoCancel = "Cancel Editing",
+    gizmoCamera = "Move Camera",
+    returnText = "Return",
+    accept = "Accept",
+    cancel = "Cancel",
+    inputDefaultDesc = "Enter a value greater than zero",
+    dutyFull = "You can't go on duty, duty is full!",
+    company = {
+        alreadyBuyed = "This Company belongs to someone else",
+        buyCompany = "Rent Company",
+        companyMenu = "Company",
+        buyedCompany = "Company rented!",
+        rentDay = "Rent start day:",
+        lastRentDay = "Last Pay Day:",
+        rentCompany = "Pay Rent",
+        compnayMoney = "Total Money: ",
+        companyWithdraw = "Withdraw Money",
+        uCantRentPay = "Too early to pay Rent",
+        payedRent = "Rent payed successfully",
+        noMoneyCompany = "Not enough Money!",
+        rentForDay = "Rent day:"
+    }
+}
