@@ -1,13 +1,12 @@
 {
   "version": 2,
   "general": {
-    "serverName": "Paris Horizon Dev",
+    "serverName": "NocturnRP DEV",
     "language": "fr"
   },
   "server": {
-    "dataPath": "/root/paris_horizon_dev_30125/txData/paris_horizon_base/",
-    "cfgPath": "/root/paris_horizon_dev_30125/txData/paris_horizon_base/server.cfg",
-    "quiet": true
+    "quiet": true,
+    "dataPath": "/home/nocturnrp/dev/txData/Nocturn_RP/"
   },
   "restarter": {
     "schedule": [
