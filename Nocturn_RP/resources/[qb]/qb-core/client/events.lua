@@ -164,7 +164,7 @@ RegisterNetEvent('QBCore:Client:VehicleInfo', function(info)
     local hasKeys = true
 
     if GetResourceState('qb-vehiclekeys') == 'started' then
-        hasKeys = exports['qb-vehiclekeys']:HasKeys(plate)
+        hasKeys = exports['qb-vehiclekeys']:HasKeys()
     end
 
     local data = {
@@ -208,9 +208,7 @@ end)
 
 -- Client Callback
 RegisterNetEvent('QBCore:Client:TriggerClientCallback', function(name, ...)
-    if not QBCore.ClientCallbacks[name] then return end
-
-    QBCore.ClientCallbacks[name](function(...)
+    QBCore.Functions.TriggerClientCallback(name, function(...)
         TriggerServerEvent('QBCore:Server:TriggerClientCallback', name, ...)
     end, ...)
 end)
@@ -218,12 +216,7 @@ end)
 -- Server Callback
 RegisterNetEvent('QBCore:Client:TriggerCallback', function(name, ...)
     if QBCore.ServerCallbacks[name] then
-        QBCore.ServerCallbacks[name].promise:resolve(...)
-
-        if QBCore.ServerCallbacks[name].callback then
-            QBCore.ServerCallbacks[name].callback(...)
-        end
-
+        QBCore.ServerCallbacks[name](...)
         QBCore.ServerCallbacks[name] = nil
     end
 end)

@@ -45,8 +45,8 @@ end
 ---@param source any
 ---@return table
 function QBCore.Functions.GetPlayer(source)
-    if tonumber(source) ~= nil then -- If a number is a string ("1"), this will still correctly identify the index to use.
-        return QBCore.Players[tonumber(source)]
+    if type(source) == 'number' then
+        return QBCore.Players[source]
     else
         return QBCore.Players[QBCore.Functions.GetSource(source)]
     end
@@ -394,33 +394,33 @@ function QBCore.Functions.CreateVehicle(source, model, vehtype, coords, warp)
     return veh
 end
 
+---Paychecks (standalone - don't touch)
 function PaycheckInterval()
-    if not next(QBCore.Players) then 
-        SetTimeout(QBCore.Config.Money.PayCheckTimeOut * (60 * 1000), PaycheckInterval) -- Prevent paychecks from stopping forever once 0 players
-        return 
-    end
-    for _, Player in pairs(QBCore.Players) do
-        if not Player then return end
-        local payment = QBShared.Jobs[Player.PlayerData.job.name]['grades'][tostring(Player.PlayerData.job.grade.level)].payment
-        if not payment then payment = Player.PlayerData.job.payment end
-        if Player.PlayerData.job and payment > 0 and (QBShared.Jobs[Player.PlayerData.job.name].offDutyPay or Player.PlayerData.job.onduty) then
-            if QBCore.Config.Money.PayCheckSociety then
-                local account = exports['qb-banking']:GetAccountBalance(Player.PlayerData.job.name)
-                if account ~= 0 then
-                    if account < payment then
-                        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('error.company_too_poor'), 'error')
+    if next(QBCore.Players) then
+        for _, Player in pairs(QBCore.Players) do
+            if Player then
+                local payment = QBShared.Jobs[Player.PlayerData.job.name]['grades'][tostring(Player.PlayerData.job.grade.level)].payment
+                if not payment then payment = Player.PlayerData.job.payment end
+                if Player.PlayerData.job and payment > 0 and (QBShared.Jobs[Player.PlayerData.job.name].offDutyPay or Player.PlayerData.job.onduty) then
+                    if QBCore.Config.Money.PayCheckSociety then
+                        local account = exports['qb-banking']:GetAccountBalance(Player.PlayerData.job.name)
+                        if account ~= 0 then          -- Checks if player is employed by a society
+                            if account < payment then -- Checks if company has enough money to pay society
+                                TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('error.company_too_poor'), 'error')
+                            else
+                                Player.Functions.AddMoney('bank', payment, 'paycheck')
+                                exports['qb-banking']:RemoveMoney(Player.PlayerData.job.name, payment, 'Employee Paycheck')
+                                TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', { value = payment }))
+                            end
+                        else
+                            Player.Functions.AddMoney('bank', payment, 'paycheck')
+                            TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', { value = payment }))
+                        end
                     else
                         Player.Functions.AddMoney('bank', payment, 'paycheck')
-                        exports['qb-banking']:RemoveMoney(Player.PlayerData.job.name, payment, 'Employee Paycheck')
                         TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', { value = payment }))
                     end
-                else
-                    Player.Functions.AddMoney('bank', payment, 'paycheck')
-                    TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', { value = payment }))
                 end
-            else
-                Player.Functions.AddMoney('bank', payment, 'paycheck')
-                TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', { value = payment }))
             end
         end
     end
@@ -434,26 +434,9 @@ end
 ---@param source any
 ---@param cb function
 ---@param ... any
-function QBCore.Functions.TriggerClientCallback(name, source, ...)
-    local cb = nil
-    local args = { ... }
-
-    if QBCore.Shared.IsFunction(args[1]) then
-        cb = args[1]
-        table.remove(args, 1)
-    end
-
-    QBCore.ClientCallbacks[name] = {
-        callback = cb,
-        promise = promise.new()
-    }
-
-    TriggerClientEvent('QBCore:Client:TriggerClientCallback', source, name, table.unpack(args))
-
-    if cb == nil then
-        Citizen.Await(QBCore.ClientCallbacks[name].promise)
-        return QBCore.ClientCallbacks[name].promise.value
-    end
+function QBCore.Functions.TriggerClientCallback(name, source, cb, ...)
+    QBCore.ClientCallbacks[name] = cb
+    TriggerClientEvent('QBCore:Client:TriggerClientCallback', source, name, ...)
 end
 
 ---Create Server Callback
@@ -463,32 +446,23 @@ function QBCore.Functions.CreateCallback(name, cb)
     QBCore.ServerCallbacks[name] = cb
 end
 
+---Trigger Serv er Callback
+---@param name string
+---@param source any
+---@param cb function
+---@param ... any
+function QBCore.Functions.TriggerCallback(name, source, cb, ...)
+    if not QBCore.ServerCallbacks[name] then return end
+    QBCore.ServerCallbacks[name](source, cb, ...)
+end
+
 -- Items
 
 ---Create a usable item
 ---@param item string
 ---@param data function
 function QBCore.Functions.CreateUseableItem(item, data)
-    local rawFunc = nil
-
-    if type(data) == 'table' then
-        if rawget(data, '__cfx_functionReference') then
-            rawFunc = data
-        elseif data.cb and rawget(data.cb, '__cfx_functionReference') then
-            rawFunc = data.cb
-        elseif data.callback and rawget(data.callback, '__cfx_functionReference') then
-            rawFunc = data.callback
-        end
-    elseif type(data) == 'function' then
-        rawFunc = data
-    end
-
-    if rawFunc then
-        QBCore.UsableItems[item] = {
-            func = rawFunc,
-            resource = GetInvokingResource()
-        }
-    end
+    QBCore.UsableItems[item] = data
 end
 
 ---Checks if the given item is usable
@@ -502,8 +476,8 @@ end
 ---@param source any
 ---@param item string
 function QBCore.Functions.UseItem(source, item)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    exports['qb-inventory']:UseItem(source, item)
+    if GetResourceState('qs-inventory') == 'missing' then return end
+    exports['qs-inventory']:UseItem(source, item)
 end
 
 ---Kick Player
@@ -654,23 +628,23 @@ end
 function QBCore.Functions.GetDatabaseInfo()
     local details = {
         exists = false,
-        database = '',
+        database = "",
     }
-    local connectionString = GetConvar('mysql_connection_string', '')
+    local connectionString = GetConvar("mysql_connection_string", "")
 
-    if connectionString == '' then
+    if connectionString == "" then
         return details
-    elseif connectionString:find('mysql://') then
+    elseif connectionString:find("mysql://") then
         connectionString = connectionString:sub(9, -1)
-        details.database = connectionString:sub(connectionString:find('/') + 1, -1):gsub('[%?]+[%w%p]*$', '')
+        details.database = connectionString:sub(connectionString:find("/") + 1, -1):gsub("[%?]+[%w%p]*$", "")
         details.exists = true
         return details
     else
-        connectionString = { string.strsplit(';', connectionString) }
+        connectionString = { string.strsplit(";", connectionString) }
 
         for i = 1, #connectionString do
             local v = connectionString[i]
-            if v:match('database') then
+            if v:match("database") then
                 details.database = v:sub(10, #v)
                 details.exists = true
                 return details
@@ -699,8 +673,8 @@ end
 ---@param amount number
 ---@return boolean
 function QBCore.Functions.HasItem(source, items, amount)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    return exports['qb-inventory']:HasItem(source, items, amount)
+    if GetResourceState('qs-inventory') == 'missing' then return end
+    return exports['qs-inventory']:HasItem(source, items, amount)
 end
 
 ---Notify
@@ -728,12 +702,3 @@ function QBCore.Functions.PrepForSQL(source, data, pattern)
     end
     return true
 end
-
-for functionName, func in pairs(QBCore.Functions) do
-    if type(func) == 'function' then
-        exports(functionName, func)
-    end
-end
-
--- Access a specific function directly:
--- exports['qb-core']:Notify(source, 'Hello Player!')
