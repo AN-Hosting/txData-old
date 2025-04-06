@@ -1,0 +1,131 @@
+.ui-screen .displayers-cont > .displayer-content_modern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 0;
+    gap: 0.5vw;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.213));
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3vw;
+    flex-shrink: 0;
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5vw;
+    flex-shrink: 0;
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .displayer {
+    width: 8vw;
+    color: var(--bg-light);
+    padding-right: 0;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .displayer .icon {
+    width: 1.5vw;
+    font-size: 0.65vw;
+    padding: 0.5vw;
+    text-align: center;
+    height: 100%;
+    background: var(--main-color);
+    border-radius: 10px;
+    opacity: 1;
+    box-shadow: 0px 0px 15px 0px var(--main-color);
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .displayer .text {
+    width: 100%;
+    font-size: 0.55vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: 600;
+    text-indent: 26.32px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    padding-right: 1em;
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .displayer-b .icon {
+    font-size: 2vw;
+    color: var(--bg-light);
+    margin-left: auto;
+}
+
+.ui-screen .displayers-cont > .displayer-content_modern .displayer-b .text-box {
+    display: flex;
+    gap: 0.2vw;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.ui-screen
+    .displayers-cont
+    > .displayer-content_modern
+    .displayer-b
+    .text-box
+    > .text {
+    height: 100%;
+    display: flex;
+    font-size: 0.65vw;
+    justify-content: flex-end;
+    padding: 0;
+    text-transform: uppercase;
+    align-items: center;
+    color: var(--main-color);
+    border-radius: 0.1vw;
+    font-family: Poppins;
+    font-weight: 600;
+    text-align: right;
+}
+
+.ui-screen
+    .displayers-cont
+    > .displayer-content_modern
+    .displayer-b
+    .text-box
+    > .map {
+    height: 100%;
+    border-radius: 0.1vw;
+    width: 2vw;
+    font-size: 0.55vw;
+    margin: auto 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: 500;
+    text-align: right;
+    text-shadow: 0px 0px 7px rgb(255 255 255 / 47%);
+    color: rgba(255, 255, 255, 1);
+}
+.ui-screen .displayers-cont > .displayer-content_modern .displayer::before {
+    background: radial-gradient(
+        64.25% 49.72% at 50.06% 50.28%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border: 1.57px solid rgba(52, 68, 82, 1);
+    filter: blur(50px);
+}

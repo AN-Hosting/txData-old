@@ -1,0 +1,93 @@
+.ui-screen .displayers-cont > .displayer-content_basic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    left: 0%;
+    gap: 0.5vw;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.213));
+    flex-shrink: 0;
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .row {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.5vw;
+    flex-shrink: 0;
+    margin-bottom: 0.25vw;
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer-b {
+    display: flex;
+    min-width: 6vw;
+    font-size: 0.55vw;
+    overflow: hidden;
+    background: radial-gradient(
+        64.25% 49.72% at 50.06% 50.28%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border: 1.57px solid rgba(52, 68, 82, 1);
+    border-radius: 10px;
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer-b .icon {
+    width: 3vw;
+    padding: 0.1vw;
+    text-transform: uppercase;
+    background-color: var(--main-color);
+    border: 4.33px solid var(--main-color);
+    border-radius: 10px;
+    font-family: Poppins;
+    font-weight: 700;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer .text {
+    font-size: 0.65vw;
+    font-family: Poppins;
+    font-weight: 600;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer {
+    min-width: 6vw;
+    height: 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color);
+    background: radial-gradient(
+        64.25% 49.72% at 50.06% 50.28%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border: 1.82px solid rgba(52, 68, 82, 1);
+    border-radius: 10px;
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer .icon {
+    font-size: 1.4vw;
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer .text {
+    font-weight: 600;
+    font-size: 0.65vw;
+}
+
+.ui-screen .displayers-cont > .displayer-content_basic .displayer-b .text {
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: 500;
+    text-align: center;
+    color: rgba(125, 125, 125, 1);
+}

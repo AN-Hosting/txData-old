@@ -1,0 +1,119 @@
+.configuration-screen section .box .content .displayer-content_basic {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    left: 0%;
+    gap: 0.15vw;
+}
+
+.configuration-screen section .box .content .displayer-content_basic .row {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.15vw;
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .displayer-content_basic
+    .displayer-b {
+    display: flex;
+    width: 8vw;
+    font-size: 0.75vw;
+    border-radius: 0.2vw;
+    overflow: hidden;
+    background: radial-gradient(
+        64.25% 49.72% at 50.06% 50.28%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border: 1.57px solid rgba(52, 68, 82, 1);
+    border-radius: 10px;
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .displayer-content_basic
+    .displayer-b
+    .icon {
+    width: 4vw;
+    text-align: center;
+    padding: 0.2vw;
+    text-transform: uppercase;
+    background-color: var(--main-color);
+    border: 4.33px solid var(--main-color);
+    border-radius: 10px;
+    font-family: Poppins;
+    font-weight: 700;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .displayer-content_basic
+    .displayer-b
+    .text {
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--theme);
+    font-family: Poppins;
+    font-weight: 600;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .displayer-content_basic
+    .displayer {
+    width: 8vw;
+    height: 6vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.2vw;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color);
+    background: radial-gradient(
+        64.25% 49.72% at 50.06% 50.28%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border: 1.82px solid rgba(52, 68, 82, 1);
+    border-radius: 10px;
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .displayer-content_basic
+    .displayer
+    .icon {
+    font-size: 2vw;
+}
+
+.configuration-screen
+    section
+    .box
+    .content
+    .displayer-content_basic
+    .displayer
+    .text {
+    font-weight: 600;
+    font-size: 0.65vw;
+}
