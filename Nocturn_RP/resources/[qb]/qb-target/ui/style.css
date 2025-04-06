@@ -1,0 +1,132 @@
+body {
+    overflow: hidden;
+    font-family: Inter, sans-serif;
+    user-select: none;
+}
+
+.cursor-eye {
+    transform: translate(24px, 24px);
+    display: none;
+
+}
+
+.cursor-eye .eye {
+    transition: transform 0.2s cubic-bezier(.02,1.23,.79,1.08);
+    color: #28EDFA;
+    width: 28px;
+    animation: blink 1s infinite ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes blink {
+    0% {
+       opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.contextMenu {
+    --menu-border: rgba(0, 0, 0, 0.2);
+    --menu-bg: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(20, 20, 20, 0.95) 100%
+    );
+    --item-border: rgba(255, 255, 255, 0.1);
+    --item-color: rgb(255, 255, 255);
+    --item-bg-hover: rgba(255, 255, 255, 0.1);
+    height: 0;
+    min-width: 130px;
+    overflow: hidden;
+    background: var(--menu-bg);
+    position: fixed;
+    top: var(--top);
+    left: var(--left);
+    -webkit-animation: menuAnimation 0.3s 0s both;
+            animation: menuAnimation 0.3s 0s both;
+    transform-origin: left;
+    list-style: none;
+    margin: 4px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 999999999;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contextMenu-item {
+    padding: 4px;
+}
+
+.contextMenu-button {
+    color: var(--item-color);
+    font-weight: 500;
+    background: 0;
+    border: 0;
+    white-space: nowrap;
+    width: 100%;
+    border-radius: 3px;
+    padding: 8px 12px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    width: 100%;
+    -webkit-animation: menuItemAnimation 0.2s 0s both;
+            animation: menuItemAnimation 0.2s 0s both;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.contextMenu-button:hover {
+    background-color: var(--item-bg-hover);
+}
+
+.contextMenu-button i {
+    margin-right: 8px;
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.contextMenu-button .subIcon {
+    margin-left: auto;
+    padding: 0 4px;
+    margin-right: 0;
+    opacity: 0.5;
+}
+
+@keyframes menuAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    100% {
+        height: var(--height);
+        opacity: 1;
+        border-radius: 5px;
+        transform: scale(1);
+    }
+}
+
+@keyframes menuItemAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+  
