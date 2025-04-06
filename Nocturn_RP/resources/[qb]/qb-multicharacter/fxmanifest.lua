@@ -30,10 +30,7 @@ files {
     'html/reset.css',
     'html/vue.js',
     'html/swal2.js',
-    'html/profanity.js',
-    'html/translations.js',
-    'html/validation.js',
-    'html/app.js'
+    'html/profanity.js'
 }
 
 dependencies {
