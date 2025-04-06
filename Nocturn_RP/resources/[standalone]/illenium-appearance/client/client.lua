@@ -168,7 +168,17 @@ local function OpenClothingShop(isPedMenu)
         config.headOverlays = true
         config.tattoos = not Config.RCoreTattoosCompatibility and true
     end
+    
+    -- Mettre en pause la boucle de vêtements
+    exports['qs-inventory']:setInClothing(true)
+    
     OpenShop(config, isPedMenu, "clothing")
+end
+
+-- Pour fermer le menu
+function CloseClothingShop()
+    -- Reprendre la boucle de vêtements
+    exports['qs-inventory']:setInClothing(false)
 end
 
 RegisterNetEvent("illenium-appearance:client:openClothingShop", OpenClothingShop)
@@ -622,12 +632,17 @@ function OpenMenu(isPedMenu, menuType, menuData)
 
     lib.registerContext(mainMenu)
     lib.showContext(mainMenuID)
+
+    -- Mettre en pause la boucle de vêtements
+    exports['qs-inventory']:setInClothing(true)
 end
 
 RegisterNetEvent("illenium-appearance:client:openClothingShopMenu", function(isPedMenu)
     if type(isPedMenu) == "table" then
         isPedMenu = false
     end
+    -- Mettre en pause la boucle de vêtements
+    exports['qs-inventory']:setInClothing(true)
     OpenMenu(isPedMenu, "default")
 end)
 

@@ -2,10 +2,10 @@ Config = {}
 
 Config.Debug = false
 
-Config.ClothingCost = 100
+Config.ClothingCost = 50
 Config.BarberCost = 100
 Config.TattooCost = 100
-Config.SurgeonCost = 100
+Config.SurgeonCost = 1000
 
 Config.ChargePerTattoo = true -- Charge players per tattoo. Config.TattooCost will become the cost of 1 tattoo. The cost can be overridden by adding `cost` key in shared/tattoos.lua for specific tattoos
 
@@ -14,7 +14,7 @@ Config.RCoreTattoosCompatibility = false
 
 Config.AsynchronousLoading = false -- Change this to false if you want the NUI data to load before displaying the appearance UI
 
-Config.UseTarget = false
+Config.UseTarget = true
 
 Config.TextUIOptions = {
     position = "left-center"
@@ -218,7 +218,7 @@ Config.Stores = {
     },
     {
         type = "clothing",
-        coords = vector4(425.91, -801.03, 29.49, 177.79),
+        coords = vector4(417.9, -809.67, 29.35, 85.34),
         size = vector3(4, 4, 4),
         rotation = 45,
         usePoly = false,
