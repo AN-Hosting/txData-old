@@ -253,6 +253,11 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline)
         return QBCore.Functions.HasItem(self.PlayerData.source, items, amount)
     end
 
+    function self.Functions.GetName()
+        local charinfo = self.PlayerData.charinfo
+        return charinfo.firstname .. ' ' .. charinfo.lastname
+    end
+
     function self.Functions.SetJobDuty(onDuty)
         self.PlayerData.job.onduty = not not onDuty
         TriggerEvent('QBCore:Server:OnJobUpdate', self.PlayerData.source, self.PlayerData.job)
@@ -500,15 +505,6 @@ function QBCore.Player.Save(source)
         QBCore.ShowError(resourceName, 'ERROR QBCORE.PLAYER.SAVE - PLAYERDATA IS EMPTY!')
     end
 end
-
-AddEventHandler('onResourceStop', function(resourceName)
-    if (resourceName == 'qs-inventory') then
-        local players = QBCore.Functions.GetPlayers()
-        for _, player in ipairs(players) do
-            QBCore.Player.Save(player)
-        end
-    end
-end)
 
 function QBCore.Player.SaveOffline(PlayerData)
     if PlayerData then

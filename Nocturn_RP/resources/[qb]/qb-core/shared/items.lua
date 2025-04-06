@@ -481,6 +481,7 @@ QBShared.Items = {
     diving_fill                  = { name = 'diving_fill', label = 'Bouteille de Plongée', weight = 3000, type = 'item', image = 'diving_tube.png', unique = true, useable = true, shouldClose = true, description = 'Une bouteille d\'oxygène et un recycleur' },
 
     -- Other Tools
+    cash                         = { name = 'cash', label = 'Cash', weight = 0, type = 'item', image = 'money.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Ton Cash' },
     casinochips                  = { name = 'casinochips', label = 'Jetons de Casino', weight = 0, type = 'item', image = 'casinochips.png', unique = false, useable = false, shouldClose = false, description = 'Jetons pour les jeux de casino' },
     stickynote                   = { name = 'stickynote', label = 'Post-it', weight = 0, type = 'item', image = 'stickynote.png', unique = true, useable = false, shouldClose = false, description = 'Parfois utile pour se souvenir de quelque chose :)' },
     moneybag                     = { name = 'moneybag', label = 'Sac d\'Argent', weight = 0, type = 'item', image = 'moneybag.png', unique = true, useable = true, shouldClose = true, description = 'Un sac rempli d\'argent' },

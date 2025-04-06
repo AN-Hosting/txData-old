@@ -36,6 +36,13 @@ function QBCore.Functions.HasItem(items, amount)
     return exports['qs-inventory']:HasItem(items, amount)
 end
 
+---Returns the full character name
+---@return string
+function QBCore.Functions.GetName()
+    local charinfo = QBCore.PlayerData.charinfo
+    return charinfo.firstname .. ' ' .. charinfo.lastname
+end
+
 ---@param entity number - The entity to look at
 ---@param timeout number - The time in milliseconds before the function times out
 ---@param speed number - The speed at which the entity should turn
@@ -1075,3 +1082,12 @@ function QBCore.Functions.GetGroundHash(entity)
     local retval, success, endCoords, surfaceNormal, materialHash, entityHit = GetShapeTestResultEx(num)
     return materialHash, entityHit, surfaceNormal, endCoords, success, retval
 end
+
+for functionName, func in pairs(QBCore.Functions) do
+    if type(func) == 'function' then
+        exports(functionName, func)
+    end
+end
+
+-- Access a specific function directly:
+-- exports['qb-core']:Notify('Hello Player!')
