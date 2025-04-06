@@ -255,16 +255,16 @@ QBShared.Items = {
     meth                         = { name = 'meth', label = 'Méthamphétamine', weight = 100, type = 'item', image = 'meth_baggy.png', unique = false, useable = true, shouldClose = true, description = 'Un sachet de méthamphétamine' },
 
     -- Seed and Weed ITEMS
-    weed_white-widow             = { name = 'weed_white-widow', label = 'White Widow 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de White Widow 2g' },
+    weed_white_widow             = { name = 'weed_white-widow', label = 'White Widow 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de White Widow 2g' },
     weed_skunk                   = { name = 'weed_skunk', label = 'Skunk 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de Skunk 2g' },
-    weed_purple-haze             = { name = 'weed_purple-haze', label = 'Purple Haze 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de Purple Haze 2g' },
-    weed_og-kush                 = { name = 'weed_og-kush', label = 'OG Kush 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de OG Kush 2g' },
+    weed_purple_haze             = { name = 'weed_purple-haze', label = 'Purple Haze 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de Purple Haze 2g' },
+    weed_og_kush                 = { name = 'weed_og-kush', label = 'OG Kush 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille de OG Kush 2g' },
     weed_amnesia                 = { name = 'weed_amnesia', label = 'Amnesia 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille d\'Amnesia 2g' },
     weed_ak47                    = { name = 'weed_ak47', label = 'AK47 2g', weight = 15, type = 'item', image = 'weed-bottle.png', unique = false, useable = true, shouldClose = true, description = 'Une bouteille d\'AK47 2g' },
-    weed_white-widow_seed        = { name = 'weed_white-widow_seed', label = 'Graine de White Widow', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine de White Widow' },
+    weed_white_widow_seed        = { name = 'weed_white-widow_seed', label = 'Graine de White Widow', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine de White Widow' },
     weed_skunk_seed              = { name = 'weed_skunk_seed', label = 'Graine de Skunk', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine de Skunk' },
-    weed_purple-haze_seed        = { name = 'weed_purple-haze_seed', label = 'Graine de Purple Haze', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine de Purple Haze' },
-    weed_og-kush_seed            = { name = 'weed_og-kush_seed', label = 'Graine d\'OG Kush', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine d\'OG Kush' },
+    weed_purple_haze_seed        = { name = 'weed_purple-haze_seed', label = 'Graine de Purple Haze', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine de Purple Haze' },
+    weed_og_kush_seed            = { name = 'weed_og-kush_seed', label = 'Graine d\'OG Kush', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine d\'OG Kush' },
     weed_amnesia_seed            = { name = 'weed_amnesia_seed', label = 'Graine d\'Amnesia', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine d\'Amnesia' },
     weed_ak47_seed               = { name = 'weed_ak47_seed', label = 'Graine d\'AK47', weight = 0, type = 'item', image = 'weed-seed.png', unique = false, useable = true, shouldClose = true, description = 'Une graine d\'AK47' },
     empty_weed_bag               = { name = 'empty_weed_bag', label = 'Sachet de Weed Vide', weight = 0, type = 'item', image = 'weed-empty-bag.png', unique = false, useable = true, shouldClose = true, description = 'Un petit sachet vide' },
@@ -507,7 +507,7 @@ QBShared.Items = {
     helmet                       = { name = 'helmet', label = 'Casque', weight = 0, type = 'item', image = 'helmet.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Un joli vêtement' },
     bag                          = { name = 'bag', label = 'Sac', weight = 0, type = 'item', image = 'bag.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Un joli vêtement' },
     chain                        = { name = 'chain', label = 'Chaîne', weight = 100, type = 'item', image = 'goldchain.png', unique = true, useable = true, shouldClose = false, combinable = nil, rare = 'epic', description = 'Elle est très fragile, attention' },
-    --catcafé
+    -- catcafé
     bento                       = { name = 'bento', label = 'Bento', weight = 1000, type = 'item', ammotype = nil, image = 'bento.png', unique = true, useable = true, description = 'Boîte-repas japonaise' },
     blueberry                   = { name = 'blueberry', label = 'Myrtilles', weight = 1000, type = 'item', ammotype = nil, image = 'blueberry.png', unique = true, useable = true, description = 'Fruits frais et sucrés' },
     boba                        = { name = 'boba', label = 'Perles de tapioca', weight = 1000, type = 'item', ammotype = nil, image = 'boba.png', unique = true, useable = true, description = 'Perles utilisées dans le bubble tea' },
