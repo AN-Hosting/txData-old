@@ -1,4 +1,0 @@
-ALTER TABLE
-    `users`
-ADD
-    IF NOT EXISTS `stress` INT(11) NOT NULL DEFAULT '0';
