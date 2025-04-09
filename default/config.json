@@ -6,7 +6,7 @@
   },
   "server": {
     "quiet": true,
-    "dataPath": "/home/nocturnrp/dev/txData/Nocturn_RP/"
+    "dataPath": "/root/nocturnrp/dev/txData/Nocturn_RP/"
   },
   "restarter": {
     "schedule": [
@@ -19,7 +19,7 @@
     "rejectionMessage": "🚀 Serveur de DEV Paris Horizon 🚀 \n\n🔗 Rejoignez-nous ici : https://discord.gg/PFxbMHgSzs\n📋 Préparez-vous à vivre une expérience RP unique !\n\n🚀 Ne manquez pas l'opportunité de faire partie de notre aventure !"
   },
   "whitelist": {
-    "mode": "approvedLicense",
+    "mode": "adminOnly",
     "rejectionMessage": "🚀 Serveur de DEV Paris Horizon 🚀 \n\n🔗 Rejoignez-nous ici : https://discord.gg/PFxbMHgSzs\n📋 Préparez-vous à vivre une expérience RP unique !\n\n🚀 Ne manquez pas l'opportunité de faire partie de notre aventure !"
   },
   "discordBot": {
