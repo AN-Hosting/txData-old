@@ -107,5 +107,22 @@
     "permissions": [
       "all_permissions"
     ]
+  },
+  {
+    "$schema": 1,
+    "name": "Anaking",
+    "master": false,
+    "password_hash": "$2a$11$MY7WEudBd5NzMlgTDJV8U.KBJTo7Vi3Ts2PFW/CUACics3RvwpdE6",
+    "password_temporary": true,
+    "providers": {
+      "discord": {
+        "id": "1349422681551798336",
+        "identifier": "discord:1349422681551798336",
+        "data": {}
+      }
+    },
+    "permissions": [
+      "all_permissions"
+    ]
   }
 ]
