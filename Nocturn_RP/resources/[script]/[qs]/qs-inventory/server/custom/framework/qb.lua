@@ -12,7 +12,7 @@ if not Config.QBX then
     ItemList = QBCore.Shared.Items
 end
 
-UseCashAsItem = true -- Choose whether to use money as an item
+UseCashAsItem = false -- Choose whether to use money as an item
 CashItem = 'cash'     -- Choose the money item, it only works if I enable the configurable above
 
 ListAccountsSteal = {

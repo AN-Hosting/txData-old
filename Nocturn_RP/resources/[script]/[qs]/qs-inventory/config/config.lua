@@ -57,7 +57,7 @@ Locales = Locales or {}
     the asset to ensure everything works as expected!
 ]]
 
-Config.Language = 'fr'
+Config.Language = 'en'
 
 --[[
     Framework Detection and Configuration Guide for qs-inventory
@@ -186,7 +186,7 @@ Config.notStoredItems = {
 Config.Clothing = true -- Enables clothing options in the inventory, with a corresponding button.
 
 Config.IsIllenium = GetResourceState('illenium-appearance') == 'started'
-Config.TakePreviousClothes = true             -- Determines if previously worn clothes are added back to inventory upon changing.
+Config.TakePreviousClothes = false             -- Determines if previously worn clothes are added back to inventory upon changing.
 
 Config.ItemDropObject = `prop_paper_bag_small` -- Sets the model for dropped items. Can be set to `false` for no visual object.
 Config.DropRefreshTime = 15 * 60               -- Sets how often dropped items are refreshed (in seconds).
@@ -215,7 +215,7 @@ Config.Genders = {
 
 Config.OpenInventoryAnim = true                         -- Enables a player animation when opening the inventory
 Config.OpenInventoryScene = false                       -- Toggles the scene animation when the inventory is opened
-Config.Logo = 'https://i.ibb.co/CJfj6KV/Mini-copia.png' -- Path to a logo image (use a URL or a local path such as './icons/logo.png') or set false
+Config.Logo = 'https://anhosting.fr/logo.png' -- Path to a logo image (use a URL or a local path such as './icons/logo.png') or set false
 Config.IdleCamera = true                                -- Enables or disables idle camera functionality in the inventory screen
 
 -- Configure additional sidebar options within the inventory display:

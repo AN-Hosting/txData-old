@@ -6,14 +6,26 @@ function QBCore.Functions.CreateClientCallback(name, cb)
     QBCore.ClientCallbacks[name] = cb
 end
 
-function QBCore.Functions.TriggerClientCallback(name, cb, ...)
-    if not QBCore.ClientCallbacks[name] then return end
-    QBCore.ClientCallbacks[name](cb, ...)
-end
+function QBCore.Functions.TriggerCallback(name, ...)
+    local cb = nil
+    local args = { ... }
 
-function QBCore.Functions.TriggerCallback(name, cb, ...)
-    QBCore.ServerCallbacks[name] = cb
-    TriggerServerEvent('QBCore:Server:TriggerCallback', name, ...)
+    if QBCore.Shared.IsFunction(args[1]) then
+        cb = args[1]
+        table.remove(args, 1)
+    end
+
+    QBCore.ServerCallbacks[name] = {
+        callback = cb,
+        promise = promise.new()
+    }
+
+    TriggerServerEvent('QBCore:Server:TriggerCallback', name, table.unpack(args))
+
+    if cb == nil then
+        Citizen.Await(QBCore.ServerCallbacks[name].promise)
+        return QBCore.ServerCallbacks[name].promise.value
+    end
 end
 
 function QBCore.Debug(resource, obj, depth)
@@ -33,7 +45,7 @@ function QBCore.Functions.GetCoords(entity)
 end
 
 function QBCore.Functions.HasItem(items, amount)
-    return exports['qs-inventory']:HasItem(items, amount)
+    return exports['qb-inventory']:HasItem(items, amount)
 end
 
 ---Returns the full character name
@@ -156,7 +168,7 @@ end
 
 -- NUI Calls
 
-function QBCore.Functions.Notify(text, texttype, length, icon)
+--[[function QBCore.Functions.Notify(text, texttype, length, icon)
     local message = {
         action = 'notify',
         type = texttype or 'primary',
@@ -175,9 +187,16 @@ function QBCore.Functions.Notify(text, texttype, length, icon)
     end
 
     SendNUIMessage(message)
+end]]
+function QBCore.Functions.Notify(text, texttype, length, icon)
+    if texttype == 'primary' then texttype = 'Inform' end
+    local message = text
+    local title = texttype ~= nil and texttype or 'Inform'
+    local duration = length ~= nil and length or 5000
+    exports['qs-interface']:AddNotify(message, title, duration, icon)
 end
 
-function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
+--[[function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
     if GetResourceState('progressbar') ~= 'started' then error('progressbar needs to be started in order for QBCore.Functions.Progressbar to work') end
     exports['progressbar']:Progress({
         name = name:lower(),
@@ -200,6 +219,54 @@ function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCa
             end
         end
     end)
+end]]
+function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
+    if GetResourceState('qs-interface') == 'started' then
+        local success = exports['qs-interface']:ProgressBar({
+            duration = duration,
+            label = label,
+            position = 'bottom',
+            useWhileDead = useWhileDead,
+            canCancel = canCancel,
+            disable = disableControls,
+            anim = {
+                dict = animation and animation.animDict or nil,
+                clip = animation and animation.anim or nil,
+                flag = animation and animation.flags or nil
+            },
+            prop = prop
+        })
+
+        if success and onFinish then
+            onFinish()
+        elseif not success and onCancel then
+            onCancel()
+        end
+    elseif GetResourceState('progressbar') == 'started' then
+        exports['progressbar']:Progress({
+            name = name:lower(),
+            duration = duration,
+            label = label,
+            useWhileDead = useWhileDead,
+            canCancel = canCancel,
+            controlDisables = disableControls,
+            animation = animation,
+            prop = prop,
+            propTwo = propTwo,
+        }, function(cancelled)
+            if not cancelled then
+                if onFinish then
+                    onFinish()
+                end
+            else
+                if onCancel then
+                    onCancel()
+                end
+            end
+        end)
+    else
+        error('Neither qs-interface nor progressbar is started. Cannot display progress bar.')
+    end
 end
 
 -- World Getters

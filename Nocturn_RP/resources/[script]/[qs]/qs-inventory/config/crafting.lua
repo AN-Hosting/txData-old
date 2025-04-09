@@ -15,7 +15,7 @@
     for reference on crafting items.
 
     **Important:** If you use the Reputation system, be sure to configure the 'rep' fields and thresholds
-    based on your server’s design.
+    based on your server's design.
 ]]
 
 Config.Crafting = true -- Toggle the crafting system on or off
@@ -30,7 +30,7 @@ Config.Crafting = true -- Toggle the crafting system on or off
     Built-in Reputation Types for QBCore:
     - 'craftingrep' and 'attachmentcraftingrep'
 
-    Set thresholds to only show items that match or exceed a player’s reputation level.
+    Set thresholds to only show items that match or exceed a player's reputation level.
 ]]
 
 Config.CraftingReputation = false -- Enable to activate reputation gating for crafting items (QBCore only)
@@ -250,5 +250,330 @@ Config.CraftingTables = {
             },
         }
     },
-    -- Continue with the same structure for the other Crafting Tables...
+    [3] = {
+        name = 'Cat Café Crafting',
+        isjob = 'catcafe',
+        grades = 'all',
+        text = '[E] - Cat Café Crafting',
+        blip = {
+            enabled = true,
+            title = 'Cat Café Kitchen',
+            scale = 0.8,
+            display = 4,
+            colour = 9,
+            id = 89
+        },
+        location = vec3(-290.69, -83.71, 49.5),
+        items = {
+            [1] = {
+                name = 'catcafe_latte',
+                amount = 10,
+                info = {},
+                costs = {
+                    ['coffee'] = 1,
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 1,
+                threshold = 0,
+                time = 5000,
+                chance = 100
+            },
+            [2] = {
+                name = 'catcafe_matcha',
+                amount = 10,
+                info = {},
+                costs = {
+                    ['matcha'] = 1,
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 2,
+                threshold = 0,
+                time = 6000,
+                chance = 100
+            },
+            [3] = {
+                name = 'catcafe_mochipink',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['strawberry'] = 1,
+                },
+                type = 'item',
+                slot = 3,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [4] = {
+                name = 'catcafe_mochigreen',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['matcha'] = 1,
+                },
+                type = 'item',
+                slot = 4,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [5] = {
+                name = 'catcafe_bubbletea',
+                amount = 10,
+                info = {},
+                costs = {
+                    ['tea'] = 1,
+                    ['milk'] = 1,
+                    ['boba'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 5,
+                threshold = 0,
+                time = 7000,
+                chance = 100
+            },
+            [6] = {
+                name = 'catcafe_cake',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 2,
+                    ['milk'] = 1,
+                    ['strawberry'] = 1,
+                },
+                type = 'item',
+                slot = 6,
+                threshold = 0,
+                time = 12000,
+                chance = 100
+            },
+            [7] = {
+                name = 'catcafe_bento',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['rice'] = 1,
+                    ['nori'] = 1,
+                    ['tofu'] = 1,
+                },
+                type = 'item',
+                slot = 7,
+                threshold = 0,
+                time = 10000,
+                chance = 100
+            },
+            [8] = {
+                name = 'catcafe_catpizza',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
+                },
+                type = 'item',
+                slot = 8,
+                threshold = 0,
+                time = 15000,
+                chance = 100
+            },
+            [9] = {
+                name = 'catcafe_pawcakes',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 9,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [10] = {
+                name = 'catcafe_noodlebowl',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['noodles'] = 1,
+                    ['tofu'] = 1,
+                    ['miso'] = 1,
+                },
+                type = 'item',
+                slot = 10,
+                threshold = 0,
+                time = 10000,
+                chance = 100
+            },
+            [11] = {
+                name = 'catcafe_mochiblue',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['blueberry'] = 1,
+                },
+                type = 'item',
+                slot = 11,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [12] = {
+                name = 'catcafe_mochiorange',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['orange'] = 1,
+                },
+                type = 'item',
+                slot = 12,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [13] = {
+                name = 'catcafe_bubbletea_blue',
+                amount = 10,
+                info = {},
+                costs = {
+                    ['tea'] = 1,
+                    ['milk'] = 1,
+                    ['boba'] = 1,
+                    ['blueberry'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 13,
+                threshold = 0,
+                time = 7000,
+                chance = 100
+            },
+            [14] = {
+                name = 'catcafe_bubbletea_green',
+                amount = 10,
+                info = {},
+                costs = {
+                    ['tea'] = 1,
+                    ['milk'] = 1,
+                    ['boba'] = 1,
+                    ['matcha'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 14,
+                threshold = 0,
+                time = 7000,
+                chance = 100
+            },
+            [15] = {
+                name = 'catcafe_bubbletea_orange',
+                amount = 10,
+                info = {},
+                costs = {
+                    ['tea'] = 1,
+                    ['milk'] = 1,
+                    ['boba'] = 1,
+                    ['orange'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 15,
+                threshold = 0,
+                time = 7000,
+                chance = 100
+            },
+            [16] = {
+                name = 'catcafe_catdonut',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 2,
+                    ['milk'] = 1,
+                },
+                type = 'item',
+                slot = 16,
+                threshold = 0,
+                time = 9000,
+                chance = 100
+            },
+            [17] = {
+                name = 'catcafe_catrice',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['rice'] = 2,
+                    ['nori'] = 1,
+                },
+                type = 'item',
+                slot = 17,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [18] = {
+                name = 'catcafe_cakepop',
+                amount = 8,
+                info = {},
+                costs = {
+                    ['flour'] = 1,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
+                    ['strawberry'] = 1,
+                },
+                type = 'item',
+                slot = 18,
+                threshold = 0,
+                time = 6000,
+                chance = 100
+            },
+            [19] = {
+                name = 'catcafe_purrito',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['flour'] = 1,
+                    ['rice'] = 1,
+                    ['tofu'] = 1,
+                },
+                type = 'item',
+                slot = 19,
+                threshold = 0,
+                time = 8000,
+                chance = 100
+            },
+            [20] = {
+                name = 'catcafe_ramen',
+                amount = 5,
+                info = {},
+                costs = {
+                    ['noodles'] = 1,
+                    ['tofu'] = 1,
+                    ['miso'] = 1,
+                    ['nori'] = 1,
+                },
+                type = 'item',
+                slot = 20,
+                threshold = 0,
+                time = 12000,
+                chance = 100
+            }
+        }
+    }
 }

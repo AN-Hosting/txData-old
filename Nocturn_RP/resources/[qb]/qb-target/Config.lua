@@ -410,11 +410,18 @@ Config = {
                 event = 'copyemote',
             },
             ['steal'] = {
-                label = 'Fouiller l\'individu',
+                -- label = 'Fouiller l\'individu',
+                -- icon = 'fas fa-search',
+                -- type = 'client',
+                -- event = 'police:client:RobPlayer',
+                name = 'search_player',
                 icon = 'fas fa-search',
-                type = 'client',
-                event = 'police:client:RobPlayer',
+                label = 'Fouiller l\'individu',
+                action = function(data)
+                    TriggerEvent('inventory:client:search')
+                end
             },
+            
             ['carry'] = {
                 label = 'Porter l\'individu',
                 icon = 'fas fa-male',

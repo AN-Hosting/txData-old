@@ -56,6 +56,7 @@ Config.Throwables = { -- Defines throwable items that players can use
     'smokegrenade',
     'snowball',
     'stickybomb',
+    'newspaper', 
 }
 
 ---@type table<number, {item: string, type: string, isForEveryWeapon?: boolean}>

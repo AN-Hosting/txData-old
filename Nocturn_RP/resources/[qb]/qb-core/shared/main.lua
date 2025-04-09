@@ -68,6 +68,14 @@ function QBShared.ChangeVehicleExtra(vehicle, extra, enable)
     end
 end
 
+function QBShared.IsFunction(value)
+    if type(value) == 'table' then
+        return value.__cfx_functionReference ~= nil and type(value.__cfx_functionReference) == "string"
+    end
+
+    return type(value) == 'function'
+end
+
 function QBShared.SetDefaultVehicleExtras(vehicle, config)
     -- Clear Extras
     for i = 1, 20 do
@@ -77,7 +85,11 @@ function QBShared.SetDefaultVehicleExtras(vehicle, config)
     end
 
     for id, enabled in pairs(config) do
-        QBShared.ChangeVehicleExtra(vehicle, tonumber(id), type(enabled) == 'boolean' and enabled or true)
+        if type(enabled) ~= 'boolean' then
+            enabled = true
+        end
+
+        QBShared.ChangeVehicleExtra(vehicle, tonumber(id), enabled)
     end
 end
 

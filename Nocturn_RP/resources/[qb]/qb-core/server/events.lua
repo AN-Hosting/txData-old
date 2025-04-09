@@ -32,7 +32,7 @@ local databaseConnected, bansTableExists = readyFunction == nil, readyFunction =
 if readyFunction ~= nil then
     MySQL.ready(function()
         databaseConnected = true
-    
+
         local DatabaseInfo = QBCore.Functions.GetDatabaseInfo()
         if not DatabaseInfo or not DatabaseInfo.exists then return end
 

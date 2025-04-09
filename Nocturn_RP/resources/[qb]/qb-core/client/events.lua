@@ -218,7 +218,12 @@ end)
 -- Server Callback
 RegisterNetEvent('QBCore:Client:TriggerCallback', function(name, ...)
     if QBCore.ServerCallbacks[name] then
-        QBCore.ServerCallbacks[name](...)
+        QBCore.ServerCallbacks[name].promise:resolve(...)
+
+        if QBCore.ServerCallbacks[name].callback then
+            QBCore.ServerCallbacks[name].callback(...)
+        end
+
         QBCore.ServerCallbacks[name] = nil
     end
 end)

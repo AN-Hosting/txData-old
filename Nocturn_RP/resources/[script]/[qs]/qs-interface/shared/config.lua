@@ -63,7 +63,7 @@ Config.Framework = DependencyCheck(frameworks) or 'standalone' -- Automatically 
 
 Config.ServerName = 'Nocturn RP'           -- Server name
 Config.MenuKeybind = 'F9'                       -- Key to open the menu
-Config.SeatbeltKeybind = 'G'                    -- Key to toggle seatbelt
+Config.SeatbeltKeybind = 'B'                    -- Key to toggle seatbelt
 Config.SeatbeltKeybind_Name = 'Toggle seatbelt' -- Seatbelt label in Settings > Keybinds > FiveM
 Config.AutoStartUI = true                       -- Automatically start the interface on server startup
 
@@ -81,7 +81,7 @@ local voiceChatList = {
 
 Config.VoiceChat = DependencyCheck(voiceChatList) or 'standalone' -- Auto-detects voice chat system
 Config.ConfigurationMenu = true                                   -- Welcome, preview, and configuration menu
-Config.EnableCinematicMode = true
+Config.EnableCinematicMode = false
 Config.UseStress = false                                           -- Enable stress bar in the HUD screen (just enables the stress bar, not the stress system)
 Config.Stress = false                                              -- Enables stress system
 Config.StressChance = 0.1                                         -- Default: 10% -- Percentage Stress Chance When Shooting (0-1)

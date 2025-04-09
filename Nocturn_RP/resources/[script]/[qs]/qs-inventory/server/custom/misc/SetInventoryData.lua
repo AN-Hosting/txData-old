@@ -129,6 +129,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					toAmount = tonumber(toAmount) or toItemData.amount
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
+							Debug('trunk 132')
 							local success = RemoveItemFromOtherInventory('trunk', plate, fromSlot, itemInfo['name'], toAmount, src)
 							if not success then
 								return Error('SetInventoryData', 'Trunk', 'Item not found', src, fromSlot)
@@ -155,6 +156,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					toAmount = tonumber(toAmount) or toItemData.amount
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
+							Debug('trunk 159')
 							local success = RemoveItemFromOtherInventory('glovebox', plate, fromSlot, itemInfo['name'], toAmount, src)
 							if not success then
 								return Error('SetInventoryData', 'Glovebox', 'Item not found', src, fromSlot)
@@ -181,7 +183,8 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					toAmount = tonumber(toAmount) or toItemData.amount
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
-							local success = RemoveItemFromOtherInventory('stash', stashId, fromSlot, itemInfo['name'], toAmount, src)
+							Debug('186')
+							local success = RemoveItemFromOtherInventory('stash', stashId, toSlot, toItemData.name, toAmount, src)
 							if not success then
 								return Error('SetInventoryData', 'Stash', 'Item not found', src, fromSlot)
 							end
@@ -374,6 +377,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 		if fromItemData and fromItemData.amount >= fromAmount then
 			local itemInfo = ItemList[fromItemData.name:lower()]
 			if toInventory == 'player' or toInventory == 'hotbar' then
+				Debug('380')
 				local toItemData = GetItemBySlot(src, toSlot)
 				local success = RemoveItemFromOtherInventory('trunk', plate, fromSlot, itemInfo['name'], fromAmount, src)
 				if not success then
@@ -398,6 +402,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 				AddItem(src, fromItemData.name, fromAmount, toSlot, fromItemData.info, nil, fromItemData['created'], nil, true)
 				TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, fromItemData, fromAmount, 'add')
 			else
+				Debug('405')
 				local toItemData = Trunks[plate].items[toSlot]
 				local success = RemoveItemFromOtherInventory('trunk', plate, fromSlot, itemInfo['name'], fromAmount, src)
 				if not success then
@@ -408,6 +413,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
 							itemInfo = ItemList[toItemData.name:lower()]
+							Debug('trunk 410')
 							RemoveItemFromOtherInventory('trunk', plate, toSlot, itemInfo['name'], toAmount, src)
 							AddToTrunk(plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
 						end
@@ -430,6 +436,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 			local itemInfo = ItemList[fromItemData.name:lower()]
 			if toInventory == 'player' or toInventory == 'hotbar' then
 				local toItemData = GetItemBySlot(src, toSlot)
+				Debug('439')
 				local success = RemoveItemFromOtherInventory('glovebox', plate, fromSlot, itemInfo['name'], fromAmount, src)
 				if not success then
 					return Error('SetInventoryData', 'Glovebox', 'Item not found', src, fromSlot)
@@ -453,6 +460,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 				TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, fromItemData, fromAmount, 'add')
 			else
 				local toItemData = Gloveboxes[plate].items[toSlot]
+				Debug('463')
 				local success = RemoveItemFromOtherInventory('glovebox', plate, fromSlot, itemInfo['name'], fromAmount, src)
 				if not success then
 					return Error('SetInventoryData', 'Glovebox', 'Item not found', src, fromSlot)
@@ -462,6 +470,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
 							itemInfo = ItemList[toItemData.name:lower()]
+							Debug('trunk 473')
 							RemoveItemFromOtherInventory('glovebox', plate, toSlot, itemInfo['name'], toAmount, src)
 							AddToGlovebox(plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
 						end
@@ -484,6 +493,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 			local itemInfo = ItemList[fromItemData.name:lower()]
 			if toInventory == 'player' or toInventory == 'hotbar' then
 				local toItemData = GetItemBySlot(src, toSlot)
+				Debug('496')
 				local success = RemoveItemFromOtherInventory('stash', stashId, fromSlot, itemInfo['name'], fromAmount, src)
 				if not success then
 					return Error('SetInventoryData', 'Stash', 'Item not found', src, fromSlot)
@@ -509,6 +519,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 				TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, fromItemData, fromAmount, 'add')
 			else
 				local toItemData = Stashes[stashId].items[toSlot]
+				Debug('522')
 				local success = RemoveItemFromOtherInventory('stash', stashId, fromSlot, itemInfo['name'], fromAmount, src)
 				if not success then
 					return Error('SetInventoryData', 'Stash', 'Item not found', src, fromSlot)
@@ -518,6 +529,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
 							itemInfo = ItemList[toItemData.name:lower()]
+							Debug('532')
 							RemoveItemFromOtherInventory('stash', stashId, toSlot, itemInfo['name'], toAmount, src)
 							AddToStash(stashId, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
 						end

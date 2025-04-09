@@ -109,4 +109,14 @@ CreateThread(function()
         },
         distance = 1.0
     })
+
+    -- exports[target_name]:Player({
+    --     name = 'search_player',
+    --     icon = 'fas fa-search',
+    --     label = 'Search Player',
+    --     distance = 1.5,
+    --     onSelect = function(data)
+    --         TriggerEvent(Config.InventoryPrefix .. ':client:search')
+    --     end
+    -- })
 end)
