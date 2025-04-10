@@ -1,0 +1,33 @@
+langs.en = {
+    alreadyError = "Vous faites déjà quelque chose",
+    openMenu = "Ouvrir le menu",
+    showMenu = "Afficher les menus DrawText les plus proches",
+    gizmoWalkMode = "Mode marche",
+    gizmoNormalMode = "Mode gizmo",
+    gizmoRotate = "Mode rotation",
+    gizmoTranslate = "Mode translation",
+    gizmoSnapToGround = "Se fixer au sol",
+    gizmoDone = "Fin de l'édition",
+    gizmoCancel = "Annuler l'édition",
+    gizmoCamera = "Déplacer la caméra",
+    returnText = "Retour",
+    accept = "Accepter",
+    cancel = "Annuler",
+    inputDefaultDesc = "Entrez une valeur supérieure à zéro",
+    dutyFull = "Vous ne pouvez pas prendre votre service, le service est complet !",
+    company = {
+        alreadyBuyed = "Cette entreprise appartient déjà à quelqu'un d'autre",
+        buyCompany = "Louer une entreprise",
+        companyMenu = "Entreprise",
+        buyedCompany = "Entreprise louée !",
+        rentDay = "Jour de début de location:",
+        lastRentDay = "Dernier jour de paiement:",
+        rentCompany = "Payer la location",
+        compnayMoney = "Argent total: ",
+        companyWithdraw = "Retirer de l'argent",
+        uCantRentPay = "Trop tôt pour payer la location",
+        payedRent = "Location payée avec succès",
+        noMoneyCompany = "Pas assez d'argent !",
+        rentForDay = "Jour de location:"
+    }
+}
