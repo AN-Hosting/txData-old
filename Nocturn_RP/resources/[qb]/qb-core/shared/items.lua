@@ -434,4 +434,11 @@ QBShared.Items = {
     sugar                        = { name = 'sugar', label = 'Sucre', weight = 100, type = 'item', image = 'sugar.png', unique = false, useable = false, shouldClose = false, description = 'Sucre fin pour sucrer les plats.' },
     tofu                         = { name = 'tofu', label = 'Tofu', weight = 250, type = 'item', image = 'tofu.png', unique = false, useable = false, shouldClose = false, description = 'Un bloc de tofu protéiné.' },
     
+    -- Robberies Creator items
+	hacking_computer 			 = {name = 'hacking_computer', 				label = 'Hacking computer',	weight = 500, 		type = 'item', 		image = 'your_image.png', 		unique = false,		useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Computer to hack panels'},
+	thermal_charge 			 = {name = 'thermal_charge', 				label = 'Thermal charge',	weight = 500, 		type = 'item', 		image = 'your_image.png', 		unique = false,		useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Use to melt some doors'},
+	gas_mask 			 = {name = 'gas_mask', 				label = 'Gas mask',	weight = 500, 		type = 'item', 		image = 'your_image.png', 		unique = false,		useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Protects from lethal gas'},
+	gold_ingot 			 = {name = 'gold_ingot', 				label = 'Gold ingot',	weight = 500, 		type = 'item', 		image = 'your_image.png', 		unique = false,		useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Goooold'},
+	diamonds_box 			 = {name = 'diamonds_box', 				label = 'Diamond box',	weight = 500, 		type = 'item', 		image = 'your_image.png', 		unique = false,		useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Diamooonds'},
+	painting 			 = {name = 'painting', 				label = 'Painting',	weight = 500, 		type = 'item', 		image = 'your_image.png', 		unique = false,		useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Expensive painting'},
 }
