@@ -36,10 +36,10 @@ Config.JobDiscounts = {
 Config.DefaultValues = {
 	-- Default price for each type
 	fuelPrice = {
-		regular = 1.55,
-		plus = 1.69,
-		premium = 1.98,
-		diesel = 1.49,
+		regular = 2,
+		plus = 2,
+		premium = 2,
+		diesel = 2,
 	},
 	-- Set if the pump will have stock of each fuel type or not when not owned
 	fuelStock = {
@@ -228,8 +228,8 @@ Config.DieselVehicles = {
 -- Lower values means more economic
 Config.FuelConsumptionPerFuelType = {
 	regular = 1.0,
-	plus = 0.9,
-	premium = 0.8,
+	plus = 1.0,
+	premium = 1.0,
 	diesel = 1.0,
 }
 
@@ -353,7 +353,7 @@ Config.Blips = {
 	enabled = true,				-- Enable/ disable the blips
     onlyShowNearestBlip = false,-- This will only show the nearest gas station to the user
 	blipId = 361,				-- Blip ID https://docs.fivem.net/docs/game-references/blips/
-	color = 41,					-- Blip Color
+	color = 75,					-- Blip Color
 	scale = 0.6,				-- Blip Scale
 	locations = {				-- Locations that the blips will appear in the map
 		vector3(49.4187, 2778.793, 58.043),
@@ -430,7 +430,7 @@ Config.Electric = {
 			stock = true				-- Set if the charger will have stock when not owned 
 		},
 		normal = {
-			price = 1.8,
+			price = 1.5,
 			time = 2,
 			stock = true
 		}

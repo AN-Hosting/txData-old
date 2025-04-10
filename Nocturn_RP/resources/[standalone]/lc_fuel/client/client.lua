@@ -536,7 +536,7 @@ Citizen.CreateThread(function()
 	-- Gas
 	if Utils.Config.custom_scripts_compatibility.target == "disabled" then
 		createGasMarkersThread()
-	else
+	elseif Config.UseTarget then
 		createGasTargetsThread()
 	end
 	createCustomPumpModelsThread()
@@ -544,14 +544,14 @@ Citizen.CreateThread(function()
 	-- Electrics
 	if Config.Electric.enabled then
 		CreateThread(function()
-			createElectricZones()
+				createElectricZones()
 
-			if Utils.Config.custom_scripts_compatibility.target == "disabled" then
-				createElectricMarkersThread()
-			else
-				createElectricTargetsThread()
-			end
-		end)
+				if Utils.Config.custom_scripts_compatibility.target == "disabled" then
+					createElectricMarkersThread()
+				else
+					createElectricTargetsThread()
+				end
+			end)
 	end
 
     -- Refuel
