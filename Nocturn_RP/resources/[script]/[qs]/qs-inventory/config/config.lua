@@ -57,7 +57,7 @@ Locales = Locales or {}
     the asset to ensure everything works as expected!
 ]]
 
-Config.Language = 'en'
+Config.Language = 'fr'
 
 --[[
     Framework Detection and Configuration Guide for qs-inventory
