@@ -280,6 +280,38 @@ Config.JobGarageUniqueBlips = false
 Config.JobGarageUniqueLocations = true
 Config.JobGarageEnableInteriors = true
 Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
+["BurgerShot"] = {
+  coords = vector3(-809.73, -768.42, 21.3),
+  spawn = vector4(-815.24, -762.67, 21.81, 3.86),
+  distance = 15,
+  job = {"burgershot"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+  ["CatCafe"] = {
+    coords = vector3(-313.6, -66.57, 53.74),
+    spawn = vector4(-323.02, -64.79, 53.74, 163.08),
+    distance = 15,
+    job = {"catcafe"},
+    type = "car",
+    hideBlip = false,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = true,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+    vehiclesType = "owned",
+  },
   ["Mechanic"] = {
     coords = vector3(157.86, -3005.9, 7.03),
     spawn = vector4(165.26, -3014.94, 5.9, 268.8),
