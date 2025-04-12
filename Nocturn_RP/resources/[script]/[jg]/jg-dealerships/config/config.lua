@@ -8,7 +8,7 @@ Config = {}
 Config.Locale = "fr"
 Config.NumberAndDateFormat = "fr-FR"
 Config.Currency = "USD"
-Config.SpeedUnit = "mph" -- or "kph"
+Config.SpeedUnit = "kph" -- or "kph"
 
 -- Framework & Integrations
 Config.Framework = "auto" -- or "QBCore", "Qbox", "ESX"
@@ -116,7 +116,7 @@ Config.Categories = {
 }
 
 Config.DealershipLocations = {
-  ["luxury"] = {
+  ["pdm"] = {
     type = "owned", -- or "owned", "self-service"
     openShowroom = {
       coords = vector3(-795.29, -210.5, 37.08),
@@ -134,7 +134,7 @@ Config.DealershipLocations = {
     testDriveSpawn = vector4(-999.34, -3337.39, 13.94, 59.12),
     camera = {
       name = "Car",
-      coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
+      coords = vector4(-1386.13, -2675.07, -4.96, -120.37),
       positions = {5.0, 8.0, 12.0, 8.0}
     },
     categories = {"sedans", "compacts", "motorcycles", "offroad", "coupes", "muscle", "suvs", "sportsclassics","super", "sports","vans","cycles"},
@@ -321,7 +321,7 @@ Config.DealerAdminCommand = "dealeradmin"
 
 -- Nerd options
 Config.RemoveGeneratorsAroundDealership = 60.0
-Config.AutoRunSQL = false
+Config.AutoRunSQL = true
 Config.ReturnToPreviousRoutingBucket = false
 Config.HideWatermark = false
 Config.Debug = false
