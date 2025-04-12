@@ -280,6 +280,166 @@ Config.JobGarageUniqueBlips = false
 Config.JobGarageUniqueLocations = true
 Config.JobGarageEnableInteriors = true
 Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
+["Pawnshop"] = {
+  coords = vector3(-771.29, -592.61, 30.13),
+  spawn = vector4(-785.2, -590.14, 30.13, 343.2),
+  distance = 15,
+  job = {"pawnshop"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["VanillaUnicorn"] = {
+  coords = vector3(144.76, -1287.38, 29.34),
+  spawn = vector4(149.11, -1282.45, 29.03, 216.34),
+  distance = 15,
+  job = {"vanillaunicorn"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["MalibuClub"] = {
+  coords = vector3(-845.87, -1228.81, 6.89),
+  spawn = vector4(-851.03, -1224.54, 6.59, 323.52),
+  distance = 15,
+  job = {"malibuclub"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["Casino"] = {
+  coords = vector3(885.91, -1.93, 78.76),
+  spawn = vector4(890.58, -9.49, 78.76, 234.92),
+  distance = 15,
+  job = {"casino"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["Bennys"] = {
+  coords = vector3(-246.48, -1325.13, 31.28),
+  spawn = vector4(-238.34, -1325.69, 31.3, 182.7),
+  distance = 15,
+  job = {"bennys"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["Luxury"] = {
+  coords = vector3(-766.93, -242.84, 37.1),
+  spawn = vector4(-765.46, -247.87, 37.1, 118.44),
+  distance = 15,
+  job = {"luxury"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["Dynasty8"] = {
+  coords = vector3(-713.13, 277.49, 84.38),
+  spawn = vector4(-708.81, 281.81, 84.08, 263.21),
+  distance = 15,
+  job = {"dynasty8"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["EMS"] = {
+  coords = vector3(299.15, -1443.9, 29.8),
+  spawn = vector4(305.39, -1438.59, 29.81, 227.45),
+  distance = 15,
+  job = {"ems"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["LSPD"] = {
+  coords = vector3(442.12, -1010.83, 28.54),
+  spawn = vector4(444.55, -1018.67, 28.64, 88.62),
+  distance = 15,
+  job = {"lspd"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["Gouvernement"] = {
+  coords = vector3(-404.12, 1173.12, 325.64),
+  spawn = vector4(-411.24, 1175.13, 325.64, 345.7),
+  distance = 15,
+  job = {"gouv"},
+  type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
 ["BurgerShot"] = {
   coords = vector3(-809.73, -768.42, 21.3),
   spawn = vector4(-815.24, -762.67, 21.81, 3.86),
