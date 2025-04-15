@@ -2,7 +2,7 @@ Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
 Config.MinimalDoctors = 2                                    -- How many players with the ambulance job to prevent the hospital check-in system from being used
 Config.DocCooldown = 1                                       -- Cooldown between doctor calls allowed, in minutes
-Config.WipeInventoryOnRespawn = true                         -- Enable or disable removing all the players items when they respawn at the hospital
+Config.WipeInventoryOnRespawn = false                         -- Enable or disable removing all the players items when they respawn at the hospital
 Config.RespawnAtNearestHospital = true                       -- Enable or disable respawning at the closest hospital
 Config.Helicopter = 'polmav'                                 -- Helicopter model that players with the ambulance job can use
 Config.BillCost = 2000                                       -- Price that players are charged for using the hospital check-in system
@@ -38,20 +38,19 @@ Config.AlertShowInfo = 2            -- How many injuries a player must have befo
 
 Config.Locations = {                -- Edit the various interaction points for players or create new ones
     ['checking'] = {
-        vector3(308.19, -595.35, 43.29),
-        vector3(-254.54, 6331.78, 32.43), -- paleto
+        vector3(325.88, -1437.08, 29.23),
+        vector3(359.22, -1411.9, 32.19),
     },
     ['duty'] = {
-        vector3(311.18, -599.25, 43.29),
-        vector3(-254.88, 6324.5, 32.58), -- paleto
+        -- vector3(311.18, -599.25, 43.29),
+        -- vector3(-254.88, 6324.5, 32.58), -- paleto
     },
     ['vehicle'] = {
-        vector4(294.578, -574.761, 43.179, 35.79),
-        vector4(-234.28, 6329.16, 32.15, 222.5), -- paleto
+        -- vector4(294.578, -574.761, 43.179, 35.79),
+        -- vector4(-234.28, 6329.16, 32.15, 222.5), -- paleto
     },
     ['helicopter'] = {
-        vector4(351.58, -587.45, 74.16, 160.5),
-        vector4(-475.43, 5988.353, 31.716, 31.34), -- paleto
+        -- vector4(313.41, -1465.13, 46.51, 332.16),
     },
     ['roof'] = {
         vector4(338.5, -583.85, 74.16, 245.5),
@@ -63,18 +62,13 @@ Config.Locations = {                -- Edit the various interaction points for p
         vector3(309.78, -596.6, 43.29),
     },
     ['beds'] = {
-        { coords = vector4(353.1, -584.6, 43.11, 152.08),    taken = false, model = 1631638868 },
-        { coords = vector4(356.79, -585.86, 43.11, 152.08),  taken = false, model = 1631638868 },
-        { coords = vector4(354.12, -593.12, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(350.79, -591.8, 43.1, 336.32),    taken = false, model = 2117668672 },
-        { coords = vector4(346.99, -590.48, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(360.32, -587.19, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(349.82, -583.33, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(326.98, -576.17, 43.02, 152.08),  taken = false, model = -1091386327 },
-        --- paleto
-        { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
-        { coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672 },
-        { coords = vector4(-255.98, 6315.67, 32.34, 313.91), taken = false, model = 2117668672 },
+        { coords = vector4(318.98, -1441.02, 29.34, 29.34),   taken = false, model = 436178685 },
+        { coords = vector4(324.25, -1445.13, 29.34, 58.37), taken = false, model = 436178685 },
+        { coords = vector4(330.46, -1447.91, 29.34, 73.46),  taken = false, model = 436178685 },
+        { coords = vector4(337.47, -1445.3, 29.45, 84.36),   taken = false, model = -1091386327 },
+        { coords = vector4(337.4, -1434.35, 29.34, 232.69),  taken = false, model = 436178685 },
+        { coords = vector4(331.56, -1430.82, 29.34, 247.14), taken = false, model = 436178685 },
+        { coords = vector4(325.14, -1428.8, 29.34, 259.26), taken = false, model = -436178685 },
     },
     ['jailbeds'] = {
         { coords = vector4(1761.96, 2597.74, 45.66, 270.14), taken = false, model = 2117668672 },
@@ -85,30 +79,20 @@ Config.Locations = {                -- Edit the various interaction points for p
     ['hospital'] = {
         {
             ['name'] = Lang:t('info.pb_hospital'),
-            ['location'] = vector3(308.36, -595.25, 43.28),
+            ['location'] = vector3(341.92, -1397.24, 32.51),
             ['beds'] = {
-                { coords = vector4(353.1, -584.6, 43.11, 152.08),   taken = false, model = 1631638868 },
-                { coords = vector4(356.79, -585.86, 43.11, 152.08), taken = false, model = 1631638868 },
-                { coords = vector4(354.12, -593.12, 43.1, 336.32),  taken = false, model = 2117668672 },
-                { coords = vector4(350.79, -591.8, 43.1, 336.32),   taken = false, model = 2117668672 },
-                { coords = vector4(346.99, -590.48, 43.1, 336.32),  taken = false, model = 2117668672 },
-                { coords = vector4(360.32, -587.19, 43.02, 152.08), taken = false, model = -1091386327 },
-                { coords = vector4(349.82, -583.33, 43.02, 152.08), taken = false, model = -1091386327 },
-                { coords = vector4(326.98, -576.17, 43.02, 152.08), taken = false, model = -1091386327 },
-            },
-        },
-        {
-            ['name'] = Lang:t('info.paleto_hospital'),
-            ['location'] = vector3(-254.54, 6331.78, 32.43),
-            ['beds'] = {
-                { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
-                { coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672 },
-                { coords = vector4(-255.98, 6315.67, 32.34, 313.91), taken = false, model = 2117668672 },
+                { coords = vector4(318.98, -1441.02, 29.34, 29.34),   taken = false, model = 436178685 },
+                { coords = vector4(324.25, -1445.13, 29.34, 58.37), taken = false, model = 436178685 },
+                { coords = vector4(330.46, -1447.91, 29.34, 73.46),  taken = false, model = 436178685 },
+                { coords = vector4(337.47, -1445.3, 29.45, 84.36),   taken = false, model = -1091386327 },
+                { coords = vector4(337.4, -1434.35, 29.34, 232.69),  taken = false, model = 436178685 },
+                { coords = vector4(331.56, -1430.82, 29.34, 247.14), taken = false, model = 436178685 },
+                { coords = vector4(325.14, -1428.8, 29.34, 259.26), taken = false, model = -436178685 },
             },
         },
     },
     ['stations'] = {
-        { label = Lang:t('info.pb_hospital'), coords = vector3(304.27, -600.33, 43.28) }
+        { label = Lang:t('info.pb_hospital'), coords = vector3(341.92, -1397.24, 32.51) }
     }
 }
 
