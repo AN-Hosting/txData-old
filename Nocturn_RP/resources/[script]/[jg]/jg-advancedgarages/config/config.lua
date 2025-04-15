@@ -13,24 +13,24 @@ Config.Currency = "USD"
 Config.Framework = "auto" -- or "QBCore", "Qbox", "ESX"
 Config.FuelSystem = "none" -- or "LegacyFuel", "ps-fuel", "lj-fuel", "ox_fuel", "cdn-fuel", "hyon_gas_station", "okokGasStation", "nd_fuel", "myFuel", "ti_fuel", "Renewed-Fuel", "rcore_fuel", "none"
 Config.VehicleKeys = "none" -- or "qb-vehiclekeys", "MrNewbVehicleKeys", "jaksam-vehicles-keys", "qs-vehiclekeys", "mk_vehiclekeys", "wasabi_carlock", "cd_garage", "okokGarage", "t1ger_keys", "Renewed", "tgiann-hotwire" "none"
-Config.Notifications = "auto" -- or "default", "okokNotify", "ox_lib", "ps-ui"
+Config.Notifications = "default" -- or "default", "okokNotify", "ox_lib", "ps-ui"
 Config.Banking = "auto" -- or "qb-banking", "qb-management", "esx_addonaccount", "Renewed-Banking", "okokBanking", "fd_banking"
 Config.Gangs = "auto" -- "qb-gangs", "rcore_gangs"
 
 -- Draw text UI prompts (key binding control IDs here: https://docs.fivem.net/docs/game-references/controls/)
 Config.DrawText = "auto" -- or "jg-textui", "qb-DrawText", "okokTextUI", "ox_lib", "ps-ui"
 Config.OpenGarageKeyBind = 38
-Config.OpenGaragePrompt = "[E] Garage"
+Config.OpenGaragePrompt = "Ouvrir Garage"
 Config.OpenImpoundKeyBind = 38
-Config.OpenImpoundPrompt = "[E] Fourière"
+Config.OpenImpoundPrompt = "Ouvrir Fourière"
 Config.InsertVehicleKeyBind = 38
-Config.InsertVehiclePrompt = "[E] Ranger Véhicule"
+Config.InsertVehiclePrompt = "Ranger Véhicule"
 Config.ExitInteriorKeyBind = 38
 Config.ExitInteriorPrompt = "[E] Sortie Garage"
 
 -- Target
-Config.UseTarget = false
-Config.Target = "qb_target" -- or "qb-target"
+Config.UseTarget = true
+Config.Target = "qb-target" -- or "qb-target"
 Config.TargetPed = "s_m_y_valet_01"
 
 -- Radial
@@ -42,9 +42,9 @@ Config.RadialMenu = "ox_lib"
 Config.ShowVehicleImages = true
 
 -- Vehicle Spawning
-Config.DoNotSpawnInsideVehicle = false
+Config.DoNotSpawnInsideVehicle = true
 Config.SaveVehicleDamage = true -- Save and apply body and engine damage when taking the vehicle out a garage
-Config.AdvancedVehicleDamage = true -- use Kiminaze's VehicleDeformation
+Config.AdvancedVehicleDamage = false -- use Kiminaze's VehicleDeformation
 Config.SaveVehiclePropsOnInsert = true
 
 -- If you don't know what this means, don't touch this
@@ -56,9 +56,9 @@ Config.SpawnVehiclesWithServerSetter = false
 
 -- Vehicle Transfers
 Config.GarageVehicleTransferCost = 250 -- Cost to transfer between garages
-Config.TransferHidePlayerNames = false
+Config.TransferHidePlayerNames = true
 Config.EnableTransfers = {
-  betweenGarages = true,
+  betweenGarages = false,
   betweenPlayers = true
 }
 Config.DisableTransfersToUnregisteredGarages = false -- Potential hacking protection for vigilant servers - unregistered garages are ones created via events in third-party script integrations, such as housing scripts, and therefore could be prone to script kiddie attacks.
@@ -73,14 +73,14 @@ Config.GarageVehicleReturnCostSocietyFund = false -- Job name of society fund to
 
 -- Public Garages
 Config.GarageShowBlips = true
-Config.GarageUniqueBlips = false
+Config.GarageUniqueBlips = true
 Config.GarageUniqueLocations = true
-Config.GarageEnableInteriors = true
+Config.GarageEnableInteriors = false
 Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
   ["Legion Square"] = { -- If you change the name of this garage from Legion Square, you must change the default value of `garage_id` to the same name in the SQL table `players_vehicles`
-    coords = vector3(215.09, -805.17, 30.81),
-    spawn = {vector4(216.84, -802.02, 30.78, 69.82), vector4(218.09, -799.42, 30.76, 66.17), vector4(219.29, -797.23, 30.75, 65.4), vector4(219.59, -794.44, 30.75, 69.35), vector4(220.63, -792.03, 30.75, 63.76), vector4(206.81, -798.35, 30.99, 248.53)}, --  you can add multiple spawn locations into a table
-    distance = 15,
+    coords = vector3(191.52, -930.51, 23.94),
+    spawn = {vector4(185.4, -924.56, 23.33, 324.98), vector4(178.76, -919.96, 23.33, 324.38), vector4(175.84, -918.04, 23.33, 326.04), vector4(172.6, -915.89, 23.34, 325.58)}, --  you can add multiple spawn locations into a table
+    distance = 10,
     type = "car",
     hideBlip = false,
     blip = {
@@ -398,6 +398,22 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
   distance = 15,
   job = {"ems"},
   type = "car",
+  hideBlip = false,
+  blip = {
+    id = 357,
+    color = 0,
+    scale = 0.7
+  },
+  hideMarkers = true,
+  markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  vehiclesType = "owned",
+},
+["EMS HELI"] = {
+  coords = vector3(302.29, -1466.65, 46.51),
+  spawn = {vector4(313.37, -1464.7, 46.51, 319.98), vector4(299.35, -1453.44, 46.51, 322.18)},
+  distance = 15,
+  job = {"ems"},
+  type = "air",
   hideBlip = false,
   blip = {
     id = 357,
