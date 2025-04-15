@@ -152,7 +152,21 @@ AddEventHandler('tgiann-exit-sleeping:server:stopCarrying', function(citizenId, 
         w = playerHeading
     }
     sleepingPlayer:setCoords(newCoords)
-    debug("stopCarrying", citizenId, netId)
+    
+    -- Mettre à jour les données dans la base de données
+    MySQL.update.await('UPDATE tgiann_exit_sleeping SET sleepData = ? WHERE citizenid = ?', { 
+        json.encode({
+            citizenId = citizenId,
+            skinData = sleepingPlayer.skinData,
+            playerCoords = newCoords,
+            animationIndex = sleepingPlayer.animationIndex,
+            carrying = false
+        }), 
+        citizenId 
+    })
+    
+    print("stopCarrying", citizenId, netId)
+    print(playerCoords.x, playerCoords.y, playerCoords.z, playerHeading)
 end)
 
 AddEventHandler('onResourceStop', function(resourceName)
@@ -161,6 +175,34 @@ AddEventHandler('onResourceStop', function(resourceName)
         local entity = NetworkGetEntityFromNetworkId(netId)
         if entity and DoesEntityExist(entity) then DeleteEntity(entity) end
     end
+end)
+
+RegisterNetEvent('tgiann-exit-sleeping:server:viewID')
+AddEventHandler('tgiann-exit-sleeping:server:viewID', function(citizenId)
+    local src = source
+    local sleepingPlayer = Sleeping.get(citizenId)
+    if not sleepingPlayer then return end
+    
+    local playerName = "Inconnu"
+    
+    -- Récupérer le nom du joueur selon le framework
+    if config.framework == "qb" then
+        local result = MySQL.single.await('SELECT charinfo FROM players WHERE citizenid = ?', { citizenId })
+        if result and result.charinfo then
+            local charInfo = json.decode(result.charinfo)
+            if charInfo then
+                playerName = charInfo.firstname .. " " .. charInfo.lastname
+            end
+        end
+    elseif config.framework == "esx" then
+        local result = MySQL.single.await('SELECT firstname, lastname FROM users WHERE identifier = ?', { citizenId })
+        if result then
+            playerName = result.firstname .. " " .. result.lastname
+        end
+    end
+    
+    -- Envoyer la notification au joueur qui interagit
+    TriggerClientEvent('tgiann-exit-sleeping:client:showIDNotification', src, playerName, citizenId)
 end)
 
 MySQL.ready(function()

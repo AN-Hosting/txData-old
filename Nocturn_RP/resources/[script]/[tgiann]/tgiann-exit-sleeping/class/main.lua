@@ -33,7 +33,9 @@ function Sleeping:new(data)
     self.__index = self
     if IsDuplicityVersion() then -- Server
         TriggerClientEvent('tgiann-exit-sleeping:client:sync', -1, "new", data.citizenId, data)
+        print("sync")
         if not data.isOld then
+            
             MySQL.insert.await('INSERT INTO `tgiann_exit_sleeping` (citizenid, sleepData) VALUES (?, ?)', {
                 data.citizenId, json.encode(data)
             })
@@ -69,6 +71,19 @@ function Sleeping:setCoords(newCoords)
         elseif config.framework == "qb" then
             MySQL.update.await('UPDATE players SET position = ? WHERE citizenid = ?', { json.encode({ x = newCoords.x, y = newCoords.y, z = newCoords.z, w = newCoords.w }), self.citizenId })
         end
+        
+        -- Update dans la table tgiann_exit_sleeping aussi
+        MySQL.update.await('UPDATE tgiann_exit_sleeping SET sleepData = ? WHERE citizenid = ?', { 
+            json.encode({
+                citizenId = self.citizenId,
+                skinData = self.skinData,
+                playerCoords = newCoords,
+                animationIndex = self.animationIndex,
+                carrying = false
+            }), 
+            self.citizenId 
+        })
+        print("Database updated with new coords:", json.encode(newCoords))
     end
     debug("setCoords", self.citizenId, newCoords)
 end
@@ -135,7 +150,9 @@ if not IsDuplicityVersion() then
         AttachEntityToEntity(serverPed, playerPed, attach[1], attach[2], attach[3], attach[4], attach[5], attach[6], attach[7], false, false, false, false, 2, false)
         tgiCore.PlayAnim(playerPed, palyer1Anim.dict, palyer1Anim.anim, 8.0, 8.0, -1, palyer1Anim.flags)
 
-        tgiCoreExports:OpenKeyHelpMenu({ { icon = "xKey", label = LANG.STOP_CARRYING } })
+        -- tgiCoreExports:OpenKeyHelpMenu({ { icon = "xKey", label = LANG.STOP_CARRYING } })
+        exports['jg-textui']:DrawText(LANG.STOP_CARRYING)
+
 
         while carrying do
             Wait(0)
@@ -148,23 +165,36 @@ if not IsDuplicityVersion() then
 
         DetachEntity(serverPed, true, false)
         ClearPedTasks(PlayerPedId())
-        tgiCoreExports:CloseKeyHelpMenu()
+        -- tgiCoreExports:CloseKeyHelpMenu()
+        exports['jg-textui']:HideText()
         TriggerServerEvent("tgiann-exit-sleeping:server:stopCarrying", data.citizenId, netId)
+    end
+    
+    function Sleeping.ViewIDAction(data)
+        TriggerServerEvent("tgiann-exit-sleeping:server:viewID", data.citizenId)
     end
 
     function Sleeping:spawnPed()
         self.ped = Sleeping.SpawnPed(self, false)
-        tgiCoreExports:addLocalEntity(self.ped, {
+        exports['qb-target']:AddTargetEntity(self.ped, {
             options = {
                 {
-                    name = 'exit-sleeping-move',
-                    icon = 'fa-solid up-down-left-right',
+                    type = "client",
+                    icon = 'fa-solid fa-up-down-left-right',
                     label = LANG.CARRY,
                     canInteract = function()
                         return not carrying
                     end,
                     action = function()
                         Sleeping.TargetAction(self)
+                    end
+                },
+                {
+                    type = "client",
+                    icon = 'fa-solid fa-id-card',
+                    label = LANG.VIEW_ID,
+                    action = function()
+                        Sleeping.ViewIDAction(self)
                     end
                 },
             },

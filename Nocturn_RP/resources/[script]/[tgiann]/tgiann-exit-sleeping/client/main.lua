@@ -1,3 +1,6 @@
+-- Import QBCore pour les notifications
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterNetEvent('tgiCore:Client:OnPlayerLoaded', function()
     local sleepingData = tgiCore.Callback.Await("tgiann-exit-sleeping:server:onPlayerLoaded")
     debug("onPlayerLoaded", json.encode(sleepingData))
@@ -47,6 +50,13 @@ AddStateBagChangeHandler("exitSleepingAnim", nil, function(bagName, key, value)
     local palyer2Anim = config.carryAnimation.player2
     tgiCore.PlayAnim(entity, palyer2Anim.dict, palyer2Anim.anim, 8.0, 8.0, -1, palyer2Anim.flags)
     debug("exitSleepingAnim", entity)
+end)
+
+RegisterNetEvent("tgiann-exit-sleeping:client:showIDNotification")
+AddEventHandler("tgiann-exit-sleeping:client:showIDNotification", function(playerName, citizenId)
+    -- Utiliser qs-interface pour les notifications
+    local message = string.format(LANG.ID_NOTIFICATION_DESC, playerName, citizenId)
+    exports['qs-interface']:AddNotify(message, LANG.ID_NOTIFICATION_TITLE, 10000, 'id-card')
 end)
 
 AddEventHandler('onResourceStop', function(resourceName)
