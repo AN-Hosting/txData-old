@@ -1,0 +1,14 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+.vscode
+prod/
+dev/alpine
+dev/run.sh
+dev/txData/default
+dev/txData/prod_server
+dev/txData/admins.json
+dev/txData/README.md
+dev/txData/.gitignore
+dev/txData/Nocturn_RP/cache
+dev/txData/Nocturn_RP/db
+dev/txData/Nocturn_RP/.replxx_history
+dev/txData/Nocturn_RP/server.cfg.bkp

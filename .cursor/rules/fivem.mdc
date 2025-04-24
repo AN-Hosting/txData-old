@@ -1,0 +1,76 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Règles MDC (Mobile Data Computer) pour Nocturn RP
+
+## 1. Système de Base
+
+- Le MDC est accessible uniquement aux métiers autorisés (Police, Ambulance, etc.)
+- Les agents doivent se connecter avec leur identifiant et mot de passe personnels
+- Toute utilisation du MDC doit être conforme aux règles du département
+- La divulgation d'informations du MDC à des civils est strictement interdite
+
+## 2. Gestion des Rapports
+
+- Tous les incidents doivent être enregistrés avec une heure, date et description précise
+- Les rapports doivent inclure les noms des personnes impliquées et leurs numéros d'identification
+- Les preuves photographiques doivent être jointes lorsque disponibles
+- Les rapports peuvent être modifiés par l'auteur ou un supérieur uniquement
+
+## 3. Base de Données des Citoyens
+
+- Chaque citoyen doit avoir une fiche personnelle avec photo d'identité
+- Les casiers judiciaires doivent être mis à jour après chaque arrestation
+- Les informations médicales pertinentes doivent être partagées avec les services médicaux
+- Les licences (armes, conduite, chasse) doivent être clairement indiquées
+
+## 4. Système des Véhicules
+
+- Intégration avec JG Advanced Garage pour vérifier la propriété des véhicules
+- Tous les véhicules doivent être enregistrés avec plaque, modèle et propriétaire
+- Les véhicules volés doivent être signalés avec une alerte spéciale
+- Les infractions liées aux véhicules doivent être documentées (stationnement, excès de vitesse)
+
+## 5. Gestion des Preuves
+
+- Intégration avec QS Inventory pour la gestion des preuves
+- Chaque preuve doit être étiquetée et liée à un rapport d'incident
+- Les armes saisies doivent avoir leur numéro de série enregistré
+- Les preuves doivent suivre une chaîne de possession documentée
+
+## 6. Communications
+
+- Les codes radio standards doivent être utilisés pour toutes les communications
+- Les appels d'urgence doivent être enregistrés avec coordonnées précises
+- Les agents doivent signaler leur position et statut régulièrement
+- Les communications sensibles doivent être cryptées
+
+## 7. Gestion des Mandats
+
+- Les mandats de perquisition et d'arrêt doivent être approuvés par un juge
+- Chaque mandat doit inclure une justification détaillée
+- Les mandats ont une durée de validité limitée
+- L'exécution d'un mandat doit être documentée avec les résultats
+
+## 8. Accès et Permissions
+
+- Différents niveaux d'accès selon le grade (officier, sergent, lieutenant, etc.)
+- Les cadets n'ont qu'un accès limité au système
+- Les supérieurs peuvent consulter tous les rapports de leurs subordonnés
+- Les modifications de dossiers sensibles sont journalisées
+
+## 9. Intégration avec Autres Systèmes
+
+- Connexion au système GPS pour localiser les patrouilles
+- Intégration avec les caméras de surveillance de la ville
+- Alertes automatiques pour les véhicules signalés
+- Partage d'informations avec les services médicaux pour les dossiers patients
+
+## 10. Maintenance et Sécurité
+
+- Sauvegarde quotidienne de toutes les données
+- Audit régulier des accès au système
+- Déconnexion automatique après période d'inactivité
+- Protection contre les accès non autorisés 
