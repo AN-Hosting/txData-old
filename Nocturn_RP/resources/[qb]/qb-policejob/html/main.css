@@ -1,342 +1,339 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
-.databank-container {
-    display: none !important;
-    user-select: none;
+@font-face {
+	font-family: 'Calculator';
+	src: url('Calculator.ttf');
 }
 
-/* Police Radar */
-#policeradar {
-    width: 495px;
-    height: 202px;
-
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    margin: auto;
-
-    color: white;
-    background: rgba(20, 20, 20, 0.97);
-    background: linear-gradient(to bottom, rgb(50, 50, 50), rgb(25, 25, 25));
-    border-radius: 10px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+:root {
+	user-select: none;
 }
 
-#policeradar .antennalabel {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    position: absolute;
+html {
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-#policeradar .antennalabeltop {
-    top: 0;
-    left: 0;
-    padding-top: 5px;
+#helicontainer {
+	font-family: 'Roboto Mono';
+	display: none;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background-color: transparent !important;
+	color: #ffffff;
+	text-transform: uppercase;
 }
 
-#policeradar .antennalabelbottom {
-    bottom: 0;
-    left: 0;
-    padding-bottom: 5px;
+.vehicleinfo {
+	display: none;
 }
 
-#policeradar .logo {
-    font-family: "Poppins", sans-serif;
-    font-size: 17px;
-    font-weight: bold;
-    bottom: 15px;
-    right: 20px;
-    position: absolute;
+.heli-model {
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	transform: translate(-50%, -50%);
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
-#policeradar .main {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
+.heli-plate {
+	position: absolute;
+	left: 50%;
+	bottom: 30%;
+	transform: translate(-50%, -50%);
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
-#policeradar .patrolcontainer {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+.heli-street {
+	position: absolute;
+	left: 70%;
+	top: 50.7%;
+	transform: translate(-50%, -50%);
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
-#policeradar .typecontainer {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 0;
+.heli-speed {
+	position: absolute;
+	left: 35%;
+	top: 35%;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+	font-size: 22px;
 }
 
-#policeradar .typecontainer .text {
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    line-height: 27px;
-    margin-left: 13px;
-    color: black;
+.heli-rectangle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 70px;
+	height: 70px;
+	background: transparent;
+	border: 1px solid #ab0c0c;
+	transform: translate(-50%, -50%);
 }
 
-#policeradar .typecontainer .active {
-    color: white;
+.scan {
+	position: absolute;
+	left: 37%;
+	bottom: 39%;
+	border: 2px solid #cccccc;
+	background: rgba(155, 155, 155, 0.0);
+	height: 20vh;
+	width: 1vw;
 }
 
-#policeradar .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    justify-content: space-around;
+.scanBar {
+	background: #cccccc;
 }
 
-#policeradar .arrowbox {
-    justify-content: center;
-    align-items: center;
+#camcontainer {
+	font-family: 'Roboto Mono';
+	position: relative;
+	height: 100vh;
+	background-color: transparent !important;
 }
 
-#policeradar .arrowbox i {
-    font-size: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color: black;
+#camlabel {
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	transform: translate(-50%, -50%);
+	font-size: 20px;
+	color: white;
+	background: rgba(0, 0, 0, 0.9);
+	padding: 0.3vw;
+	text-align: center;
+	text-transform: uppercase;
 }
 
-#policeradar .arrowbox .active {
-    color: white;
+#camtimelabel {
+	position: absolute;
+	right: 10%;
+	top: 10%;
+	font-size: 20px;
+	color: white;
+	background: rgba(0, 0, 0, 0.9);
+	padding: 0.3vw;
 }
 
-#policeradar .arrowbox .inactive {
-    color: black;
+#camdatelabel {
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	font-size: 20px;
+	color: white;
+	background: rgba(0, 0, 0, 0.9);
+	padding: 0.3vw;
 }
 
-#policeradar .container .label {
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 10px;
-    text-align: center;
+#iplabel {
+	position: absolute;
+	right: 10%;
+	bottom: 15%;
+	transform: translate(0, -50%);
+	font-size: 20px;
+	color: white;
+	background: rgba(0, 0, 0, 0.9);
+	padding: 0.3vw;
 }
 
-#policeradar .container .speedsourcecontainer {
-    width: 135px;
-    height: 58px;
-    display: flex;
-    justify-content: space-around;
+#connectedlabel {
+	position: absolute;
+	right: 10%;
+	bottom: 10%;
+	transform: translate(0, -50%);
+	font-size: 20px;
+	color: white;
+	background: rgba(0, 0, 0, 0.9);
+	padding: 0.3vw;
 }
 
-#policeradar .container .speedsourcecontainer .speednumber {
-    width: 100%;
+.connected {
+	color: #3cc71a !important;
 }
 
-#policeradar .container .speedsourcecontainer .text {
-    font-family: "Poppins", sans-serif;
-    font-size: 58px;
-    line-height: 58px;
-    width: 100%;
-    text-align: center;
+.disconnect {
+	color: #ba1e1e !important;
 }
 
-#policeradar .container .target {
-    background: rgb(200, 0, 0);
-    background: linear-gradient(to bottom, rgb(220, 0, 40), rgb(90, 0, 0));
+#blockscreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(25, 25, 25, 1.0);
+	display: none;
+	z-index: -99;
 }
 
-#policeradar .container .patrol {
-    background: rgb(0, 125, 0);
-    background: linear-gradient(to bottom, rgb(0, 150, 0), rgb(0, 75, 0));
+.fingerprint-container {
+	display: none;
+	position: relative;
+	width: 60vh;
+	margin: 0 auto;
+	top: 10vh;
 }
 
-#policeradar .container .locked {
-    color: rgb(50, 0, 0);
+.fingerprint-frame {
+	width: 60vh;
 }
 
-#policeradar .container .speedfastcontainer {
-    width: 99px;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.take-fingerprint {
+	position: absolute;
+	height: 9.8vh;
+	width: 8.2vh;
+	background: rgba(250, 250, 250, 0.45);
+	opacity: 0.5;
+	margin: 0 0 15.1vh 41.1vh;
+	border-radius: 0.7vh;
+	left: 0;
+	right: 0;
+	bottom: 15vh;
+	transition: 0.1s;
 }
 
-#policeradar .container .speedfastcontainer .speednumber {
-    width: 100%;
+.take-fingerprint:hover {
+	background: rgba(250, 250, 250, 0.65);
 }
 
-#policeradar .container .speedfastcontainer .text {
-    font-family: "Poppins", sans-serif;
-    font-size: 50px;
-    line-height: 50px;
-    width: 100%;
-    text-align: center;
+.fingerprint-id {
+	position: absolute;
+	width: 24vh;
+	height: 42.2vh;
+	top: 14vh;
+	margin: 0 auto;
+	left: -115px;
+	right: 0;
+	text-align: center;
+	/* padding-top: 2vh; */
+	font-family: 'Roboto Mono';
+	font-weight: bold;
 }
 
-/* Police Radar - Remote Control */
-#policeradarrc {
-    width: 290px;
-    height: 350px;
-
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: 10px 5px;
-
-    color: white;
-    background-color: rgba(20, 20, 20, 0.95);
-    border-radius: 5px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.fingerprint-screen {
+	width: 100%;
+	height: 100%;
+	background-color: #0e0e30;
 }
 
-#policeradarrc .breakline {
-    width: 230px;
-    height: 10px;
-    background-color: white;
+.fingerprint-screen>img {
+	height: 14vh;
+	margin-top: 4vh;
+	border: 1px solid gray;
+	border-radius: 0.33vh;
 }
 
-#policeradarrc .label {
-    font-family: "Poppins", sans-serif;
+.fingerprint-screen>p {
+	color: white;
+	font-size: 1.25vh;
+	font-weight: lighter;
+	text-align: start;
+	padding-left: 2.5vh;
 }
 
-#policeradarrc .container {
-    font-family: "Poppins", sans-serif;
-    align-items: center;
+.alcoholtester-container {
+	display: none;
+	position: relative;
+	width: 27vw;
+	height: 32vw;
+	margin: 0vw auto;
+	/* right: 10vw; */
+	top: 12vw;
 }
 
-#policeradarrc .container button {
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-    outline: none;
-    border: none;
+.alcoholtester-frame {
+	width: 20vw;
+}
+.take-alcoholtester {
+	position: absolute;
+	height: 4.2vh;
+	width: 4.2vh;
+	background: rgba(250, 250, 250, 0.45);
+	opacity: 0.5;
+	margin: 0 0 15.1vh 41.1vh;
+	border-radius: 3.7vh;
+	right: 16.8vh;
+	bottom: 13.3vh;
+	transition: 0.1s;
+	cursor: pointer;
 }
 
-#policeradarrc .container button:hover {
-    background-color: #6cd3f9;
+.take-alcoholtester:hover {
+	background: rgba(250, 250, 250, 0.65);
 }
 
-#policeradarrc .container button:active {
-    background-color: #56a8c7;
+.alcoholtester-id {
+	position: absolute;
+	width: 14vh;
+	height: 12.7vh;
+	top: 10.3vh;
+	margin: 0 auto;
+	left: -15px;
+	right: 0;
+	text-align: center;
+	padding: 3vh 0;
+	font-family: 'Calculator';
+	font-weight: bold;
+	font-size: 1.6vw;
 }
 
-#policeradarrc .container .toggle {
-    padding: 5px 15px;
-    font-size: 16px;
-    text-align: center;
-    color: black;
-    background-color: white;
-    border-radius: 15px;
-    margin-bottom: 15px;
+.blaaspijp {
+	position: absolute;
+	height: 4.5vh;
+	width: 12.1vh;
+	background: rgba(250, 250, 250, 0.45);
+	opacity: 0.5;
+	margin: 0 0 15.1vh 41.1vh;
+	border-radius: 3.7vh;
+	left: auto;
+	right: 35.8vh;
+	bottom: 35.7vh;
+	transition: 0.1s;
+	cursor: pointer;
 }
 
-#policeradarrc .container .limit {
-    padding: 5px 15px;
-    font-size: 16px;
-    text-align: center;
-    color: black;
-    background-color: white;
-    border-radius: 15px;
-    margin-top: 15px;
+.blaaspijp:hover {
+	background: rgba(250, 250, 250, 0.65);
 }
 
-#policeradarrc .container .close {
-    padding: 3px 7px;
-    font-size: 12px;
+.alcoholtester-id p {
+	margin-bottom: 0;
 }
 
-#policeradarrc .container .rowbutton {
-    width: 60px;
-    height: 60px;
+.alcoholtester-screen {
+	width: 100%;
+	height: 100%;
+	background-color: #0e0e30;
 }
 
-#policeradarrc .container .frontopp {
-    border-top-left-radius: 50%;
+.alcoholtester-screen>img {
+	height: 14vh;
+	margin-top: 4vh;
+	border: 0.1vw solid gray;
+	border-radius: 0.33vh;
 }
 
-#policeradarrc .container .frontsame {
-    border-top-right-radius: 50%;
-}
-
-#policeradarrc .container .rearopp {
-    border-bottom-left-radius: 50%;
-}
-
-#policeradarrc .container .rearsame {
-    border-bottom-right-radius: 50%;
-}
-
-/* Plate Reader */
-#platereader {
-    width: 300px;
-    height: 50px;
-
-    position: absolute;
-    bottom: 105%;
-    margin: auto;
-
-    color: white;
-    background: rgba(20, 20, 20, 0.97);
-    background: linear-gradient(to bottom, rgb(50, 50, 50), rgb(25, 25, 25));
-    border-radius: 10px;
-
-    display: grid;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: repeat(2, 2fr);
-    background-color: #2196f3;
-    padding: 2%;
-}
-
-#platereader .label {
-    display: grid;
-    grid-area: label;
-}
-
-#platereader .container {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 75% 25%;
-    grid-template-areas:
-        "pReader"
-        "label";
-    background-color: #2196f3;
-    background: linear-gradient(to bottom, rgb(220, 0, 40), rgb(90, 0, 0));
-}
-
-#platereader .pReader {
-    display: grid;
-    grid-area: pReader;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    letter-spacing: 2px;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-#platereader .label {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 10px;
-    text-align: center;
+.alcoholtester-screen>p {
+	color: white;
+	font-size: 1.25vh;
+	font-weight: lighter;
+	text-align: start;
+	padding-left: 2.5vh;
 }

@@ -99,74 +99,74 @@ Config = {
                 },
             }
         },
-        ["optionjob"] = {
-            icon = "fas fa-folder", 
-            label = "Option Job",
-            priority = 80,
-            canInteract = function(entity)
-                local Player = QBCore.Functions.GetPlayerData()
-                return Player.job.name ~= "unemployed"
-            end,
-            subOptions = {
-                {
-                    type = "client",
-                    icon = "fas fa-clipboard",
-                    label = "Prendre son service 🔴",
-                    action = function()
-                        if not QBCore then return end
-                        local Player = QBCore.Functions.GetPlayerData()
-                        if Player.job.onduty then
-                            TriggerServerEvent('QBCore:ToggleDuty')
-                        else
-                            TriggerServerEvent('QBCore:ToggleDuty')
-                        end
-                    end,
-                },
-                {
-                    icon = "fas fa-clipboard-check",
-                    label = "Annonces",
-                    type = "client",
-                    canInteract = function(entity)
-                        local Player = QBCore.Functions.GetPlayerData()
-                        return Player.job.name ~= "unemployed" and Player.job.onduty
-                    end,
-                    subOptions = {
-                        {
-                            type = "client",
-                            icon = "fas fa-door-open",
-                            label = "Annonces Ouverture",
-                            action = function()
-                                TriggerEvent('k5_notify:client:sendAnnouncement', {type = "open"})
-                            end
-                        },
-                        {
-                            type = "client",
-                            icon = "fas fa-door-closed",
-                            label = "Annonces Fermeture",
-                            action = function()
-                                TriggerEvent('k5_notify:client:sendAnnouncement', {type = "close"})
-                            end
-                        },
-                        {
-                            type = "client",
-                            icon = "fas fa-clipboard",
-                            label = "Annonces Personnalisées",
-                            event = "k5_notify:client:customAnnouncement"
-                        }
-                    }
-                },
-                {
-                    type = "command",
-                    event = "invoices",
-                    icon = "fas fa-clipboard-check",
-                    label = "Menu Facture",
-                    canInteract = function(entity)
-                        local Player = QBCore.Functions.GetPlayerData()
-                        return Player.job.name ~= "unemployed" and Player.job.onduty
-                    end
-                },
-            }
-        },
+        -- ["optionjob"] = {
+        --     icon = "fas fa-folder", 
+        --     label = "Option Job",
+        --     priority = 80,
+        --     canInteract = function(entity)
+        --         local Player = QBCore.Functions.GetPlayerData()
+        --         return Player.job.name ~= "unemployed"
+        --     end,
+        --     subOptions = {
+        --         {
+        --             type = "client",
+        --             icon = "fas fa-clipboard",
+        --             label = "Prendre son service 🔴",
+        --             action = function()
+        --                 if not QBCore then return end
+        --                 local Player = QBCore.Functions.GetPlayerData()
+        --                 if Player.job.onduty then
+        --                     TriggerServerEvent('QBCore:ToggleDuty')
+        --                 else
+        --                     TriggerServerEvent('QBCore:ToggleDuty')
+        --                 end
+        --             end,
+        --         },
+        --         {
+        --             icon = "fas fa-clipboard-check",
+        --             label = "Annonces",
+        --             type = "client",
+        --             canInteract = function(entity)
+        --                 local Player = QBCore.Functions.GetPlayerData()
+        --                 return Player.job.name ~= "unemployed" and Player.job.onduty
+        --             end,
+        --             subOptions = {
+        --                 {
+        --                     type = "client",
+        --                     icon = "fas fa-door-open",
+        --                     label = "Annonces Ouverture",
+        --                     action = function()
+        --                         TriggerEvent('k5_notify:client:sendAnnouncement', {type = "open"})
+        --                     end
+        --                 },
+        --                 {
+        --                     type = "client",
+        --                     icon = "fas fa-door-closed",
+        --                     label = "Annonces Fermeture",
+        --                     action = function()
+        --                         TriggerEvent('k5_notify:client:sendAnnouncement', {type = "close"})
+        --                     end
+        --                 },
+        --                 {
+        --                     type = "client",
+        --                     icon = "fas fa-clipboard",
+        --                     label = "Annonces Personnalisées",
+        --                     event = "k5_notify:client:customAnnouncement"
+        --                 }
+        --             }
+        --         },
+        --         {
+        --             type = "command",
+        --             event = "invoices",
+        --             icon = "fas fa-clipboard-check",
+        --             label = "Menu Facture",
+        --             canInteract = function(entity)
+        --                 local Player = QBCore.Functions.GetPlayerData()
+        --                 return Player.job.name ~= "unemployed" and Player.job.onduty
+        --             end
+        --         },
+        --     }
+        -- },
         ["clothe"] = {
             type = "client",
             icon = "fas fa-tshirt", 

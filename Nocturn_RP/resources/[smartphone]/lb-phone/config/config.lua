@@ -21,7 +21,7 @@ Config.Logs.Actions = {
 }
 
 Config.DatabaseChecker = {}
-Config.DatabaseChecker.Enabled = true -- if true, the phone will check the database for any issues and fix them if possible
+Config.DatabaseChecker.Enabled = false -- if true, the phone will check the database for any issues and fix them if possible
 Config.DatabaseChecker.AutoFix = true
 
 --[[ FRAMEWORK OPTIONS ]] --
@@ -122,14 +122,14 @@ Config.Companies.SeeEmployees = "everyone" -- who should be able to see employee
 Config.Companies.DeleteConversations = true -- allow employees to delete conversations?
 Config.Companies.Services = {
     {
-        job = "police",
-        name = "Police",
-        icon = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png",
+        job = "lspd",
+        name = "Forces de l\'ordre",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458555279511745/LSPD.png?ex=67f3930b&is=67f2418b&hm=3e07eb07ecddcc8ffbc6423150aae77333344f3e8294a850863c230cce951bbf&=&format=webp&quality=lossless",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
         bossRanks = { "boss" }, -- ranks that can manage the company
         location = {
-            name = "Mission Row",
+            name = "Forces de l\'ordre",
             coords = {
                 x = 428.9,
                 y = -984.5,
@@ -141,14 +141,14 @@ Config.Companies.Services = {
         -- end
     },
     {
-        job = "ambulance",
-        name = "Ambulance",
-        icon = "https://cdn-icons-png.flaticon.com/128/1032/1032989.png",
+        job = "ems",
+        name = "EMS",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458556756037823/EMS.png?ex=67f3930c&is=67f2418c&hm=6eb348ef4902e95d3fb52c44b7f7d84580625a58b1c0d294c2237de09664f09b&=&format=webp&quality=lossless",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "doctor"}, -- ranks that can manage the company
         location = {
-            name = "Pillbox",
+            name = "EMS",
             coords = {
                 x = 304.2,
                 y = -587.0
@@ -156,14 +156,14 @@ Config.Companies.Services = {
         }
     },
     {
-        job = "mechanic",
-        name = "Mechanic",
-        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
+        job = "gouv",
+        name = "Gouvernement",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458555791474911/gouvernement.png?ex=67f3930c&is=67f2418c&hm=ef83da843e82d11c7525a2a017eb61d01bff102743d6be6532faaceb07cf6b7a&=&format=webp&quality=lossless",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "worker"}, -- ranks that can manage the company
         location = {
-            name = "LS Customs",
+            name = "Gouvernement",
             coords = {
                 x = -336.6,
                 y = -134.3
@@ -171,14 +171,314 @@ Config.Companies.Services = {
         }
     },
     {
-        job = "taxi",
-        name = "Taxi",
-        icon = "https://cdn-icons-png.flaticon.com/128/433/433449.png",
+        job = "bcso",
+        name = "Département du shérif",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458554730319932/BCSO.png?ex=67f3930b&is=67f2418b&hm=6c9091b8afe90770bff4e5442b5de6406dee0e022cf3788ae45aaa3044b8d9ea&=&format=webp&quality=lossless",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "driver"}, -- ranks that can manage the company
         location = {
-            name = "Taxi HQ",
+            name = "Département du shérif",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "dynaty8",
+        name = "Dynasty 8",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458610610901113/Dynasty_8.png?ex=67f39319&is=67f24199&hm=d01eea0847bc1f28c72062a4be422bccb72d95755f0171ab0754cb2def15b1bb&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Dynasty 8",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "taxi",
+        name = "Taxi",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458609922900099/Taxi.png?ex=67f39318&is=67f24198&hm=a2ee3177634c7312361896273f16328758996856363704f082ead474531ae82b&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Taxi",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "caroccasion",
+        name = "Concessionnaire Automobile Occasion",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1353704189775319101/concess.png?ex=67f3c245&is=67f270c5&hm=aa5642d265b935fcb1eb66c26697432ace9787326736257b22b158e8f2c6a2f6&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Concessionnaire Automobile Occasion",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "luxury",
+        name = "Luxury Auto",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458611223396392/Luxury_Auto.png?ex=67f39319&is=67f24199&hm=a9ea9d2b20be2448584ef9f8856123b0573c135a1913dfd42aa5c5a85c265608&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Luxury Auto",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "autoexotic",
+        name = "Auto Exotic",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458612364251186/Auto_Exotic.png?ex=67f39319&is=67f24199&hm=046cb6f6d815e85050fe95ea01d08432fe6538a3baa61ad4d03711b096b40e7b&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Auto Exotic",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "bennys",
+        name = "Benny's",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1358542400662016060/Bennys.png?ex=67f438b4&is=67f2e734&hm=cb3be864abb5f4743d5926450017975a811755072bf1954581069beb1107e3dd&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Benny's",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "burgershot",
+        name = "BurgerShot",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458556294795415/BurgerShot.png?ex=67f3930c&is=67f2418c&hm=3efeb5bb5a6c12498411e44d5d4130510c044c86f697f33ca653a4033e8fac02&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "BurgerShot",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "pizzeria",
+        name = "Pizzeria",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458595318595584/Pizzeria.png?ex=67f39315&is=67f24195&hm=5a7cf324b694282e53ee4e898bea24b04b0348d03ad4ad682ae8af88126cccaf&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Pizzeria",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "pawnshop",
+        name = "Pawnshop",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458613030883349/PawnShop.png?ex=67f39319&is=67f24199&hm=b6590b3040ee80a90807a824c79d94f51c4592b3b99a0b8214b76699cef29e10&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Pawnshop",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "tabac",
+        name = "Tabac",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458587407876166/Tabac.png?ex=67f39313&is=67f24193&hm=354c72c0163c52861545c7d470e8c594549553c25f3880c106b16108455990aa&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Tabac",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "postop",
+        name = "Post OP",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458629933928469/Post_OP.png?ex=67f3931d&is=67f2419d&hm=e04bf557e99264bc3c85db5862dedc0eb93b5cdc381294ee81404da466935182&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Post OP",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "flowershop",
+        name = "Flower Shop",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458586766282882/Flowershop.png?ex=67f39313&is=67f24193&hm=52f81df8fc64e9c01129e56bedaead78da9bc8cb6c080ba250591accbadbc24e&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Flower Shop",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "vigneron",
+        name = "Vigneron",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458631339147466/Vigneron.png?ex=67f3931e&is=67f2419e&hm=4dbc764345d4cf85ad18218dc92531078c2b739dd003d514f8b158ab271d7ecc&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Vigneron",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "vanillaunicorn",
+        name = "Vanilla Unicorn",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458587919712266/Vanilla_Unicorn.png?ex=67f39313&is=67f24193&hm=1caa88f5534e22f384bf654e4f54b1d5f2121463a3f036385d0e147cbd1c704c&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Vanilla Unicorn",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "malibuclub",
+        name = "Malibu Club",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458593426964651/Malibu_Club.png?ex=67f39315&is=67f24195&hm=b9d0a15f89c124f90968d0684a21f647f396ecaa3b83919b3823028fe2d83704&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Malibu Club",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "weazelnews",
+        name = "Weazel News",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458594815283240/Weazel_News.png?ex=67f39315&is=67f24195&hm=baff3bf86e8c7cec5cc6f5bd88ed35fb35e26b4e674dc1f3dfcba0ed8fc1aaf9&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Weazel News",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "casino",
+        name = "Casino",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458594148257792/Casino.png?ex=67f39315&is=67f24195&hm=b97a8a9598b3bf30b4680f947a894c362f1f0ffd4ad0514fe65428e384af2b54&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Casino",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "brinks",
+        name = "Brinks",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458630730842133/Brinks.png?ex=67f3931d&is=67f2419d&hm=39fcbd8934c2bc928fceccbda90387e5b4f0e1b4203fbddd498b7215c203bce1&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Brinks",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "lsfd",
+        name = "Los Santos Fire Department",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1357458554193314004/LSFD.png?ex=67f3930b&is=67f2418b&hm=3d7a277f8d5f1a690e434a090661b7fb755f2719472fbc190a355e8df5809e23&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Los Santos Fire Department",
+            coords = {
+                x =984.2,
+                y = -219.0
+            }
+        }
+    },
+    {
+        job = "catcafe",
+        name = "Cat Café",
+        icon = "https://media.discordapp.net/attachments/1353703511669604353/1358543747020750948/catcafe.png?ex=67f439f5&is=67f2e875&hm=6c492c6fb4f776d4a2d90079cbddf56f53e9cfe82e87d80f58bfa413e05b609d&=&format=webp&quality=lossless",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Cat Café",
             coords = {
                 x =984.2,
                 y = -219.0
@@ -210,7 +510,7 @@ Config.CustomApps = {} -- https://docs.lbscripts.com/phone/custom-apps/
 
 Config.Valet = {}
 Config.Valet.Enabled = true -- allow players to get their vehicles from the phone
-Config.Valet.Price = 100 -- price to get your vehicle
+Config.Valet.Price = 1000 -- price to get your vehicle
 Config.Valet.Model = `S_M_Y_XMech_01`
 Config.Valet.Drive = true -- should a ped bring the car, or should it just spawn in front of the player?
 Config.Valet.DisableDamages = false -- disable vehicle damages (engine & body health) on esx
@@ -370,11 +670,8 @@ Config.PhoneNumber = {}
 Config.PhoneNumber.Format = "({3}) {3}-{4}" -- Don't touch unless you know what you're doing. IMPORTANT: The sum of the numbers needs to be equal to the phone number length + prefix length
 Config.PhoneNumber.Length = 7 -- This is the length of the phone number WITHOUT the prefix.
 Config.PhoneNumber.Prefixes = { -- These are the first numbers of the phone number, usually the area code. They all need to be the same length
-    "205",
-    "907",
-    "480",
-    "520",
-    "602"
+    "555"
+
 }
 
 Config.Battery = {} -- WITH THESE SETTINGS, A FULL CHARGE WILL LAST AROUND 2 HOURS.

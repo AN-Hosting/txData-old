@@ -1,0 +1,152 @@
+Config = {
+    --- Compatibility Settings
+    Resource = GetCurrentResourceName(),
+    Lang = 'fr', -- check the prefixes in the locales folder or create your own
+    Target = 'qb-target', -- 'qb-target' or 'ox_target'
+    Inventory = 'qs-inventory', -- 'ox_inventory', 'qs-inventory' or 'ps-inventory'
+    Logging = 'qb', -- 'ox_lib' or 'qb' or 'esx'
+
+    --- Items
+    MaleSeed = 'weed_amnesia_seed_m',
+    FemaleSeed = 'weed_amnesia_seed_f',
+    FertilizerItem = 'weed_nutrition',
+    WaterItem = 'water_bottle',
+    BranchItem = 'weed_amnesia_head',
+    WeedItem = 'weed_amnesia_head',
+    PackedWeedItem = 'weed_amnesia',
+    SusPackageItem = 'weedplant_package',
+
+    --- Props
+    WeedProps = {
+        [1] = joaat('bkr_prop_weed_01_small_01a'),
+        [2] = joaat('bkr_prop_weed_med_01a'),
+        [3] = joaat('bkr_prop_weed_med_01b'),
+        [4] = joaat('bkr_prop_weed_lrg_01a'),
+        [5] = joaat('bkr_prop_weed_lrg_01b')
+
+    },
+
+    PackageProp = joaat('prop_mp_drug_package'),
+
+    --- Ground MaterialHash
+    GroundHashes = {
+        [1333033863] = true,
+        [-1286696947] = true,
+        [223086562] = true,
+        [-1885547121] = true,
+        [-461750719] = true,
+        [951832588] = true,
+        [-1942898710] = true,
+        [510490462] = true,
+        -- Hashes supplémentaires couramment utilisés
+        [-1595148316] = true, -- Grass/sol standard
+        [-1942898710] = true, -- Terre
+        [1619704960] = true, -- Sol de campagne
+        [1144315879] = true, -- Sol de forêt
+        [3008270349] = true, -- Sol de montagne
+        [2409420175] = true, -- Sol de désert
+        [-700658213] = true, -- Herbe/gazon entretenu
+        [-2041329971] = true, -- Terrain vague
+        [-840216541] = true, -- Sol agricole
+        [-2073312001] = true, -- Terre meuble
+        [1331920991] = true, -- Terrain ondulé
+        [0] = true, -- Fallback pour surface non identifiée
+    },
+
+    --- Growing Related Settings
+    SpawnRadius = 75.0, -- radius for which to spawn plants in
+    rayCastingDistance = 10.0, -- distance in meters
+    ClearOnStartup = false, -- Clear dead plants on script start-up
+    ObjectZOffset = - 0.5, -- Z-coord offset for WeedProps
+    FireTime = 10000, -- Time in milliseconds
+
+    GrowTime = 10, -- Time in minutes for a plant to grow from 0 to 100
+    LoopUpdate = 1, -- Time in minutes to perform a loop update for water, nutrition, health, growth, etc.
+    WaterDecay = 1.5, -- Percent of water that decays every minute
+    FertilizerDecay = 1.5, -- Percent of fertilizers that decays every minute
+
+    FertilizerThreshold = 10,
+    WaterThreshold = 10,
+    HealthBaseDecay = {15, 20}, -- Min/Max Amount of health decay when the plant is below the above thresholds for water and nutrition
+
+    --- Rewards Configuration
+    Rewards = {
+        -- Récompenses pour plantes femelles
+        Female = {
+            UseWeedItemDirect = true, -- Si true, donne directement des têtes de weed au lieu de branches
+            WeedPerHealth = 25, -- Diviseur pour calculer le nombre de têtes de weed (health / WeedPerHealth)
+            MinWeed = 1, -- Nombre minimum de têtes
+            MaxWeed = 4, -- Nombre maximum de têtes
+            -- Toutes les métadonnées sont désactivées car nous utilisons directement l'export AddItem
+        },
+        -- Récompenses pour plantes mâles
+        Male = {
+            SeedsPerHealth = 20, -- Diviseur pour calculer le nombre de graines (health / SeedsPerHealth)
+            AddBonusWeed = true, -- Ajouter aussi quelques têtes de weed
+            WeedPerHealth = 50, -- Diviseur pour calculer le bonus de weed (health / WeedPerHealth)
+            MaxBonusWeed = 2, -- Maximum de têtes bonus
+        }
+    },
+
+    --- Weedrun Related Settings
+    WeedRunStart = vec4(-36.85, 1947.46, 190.19, 168.51),
+    PedModel = 'a_m_y_breakdance_01',
+    PackageTime = 2, -- Time in minutes to wait for packaging
+    DeliveryWaitTime = {8, 12}, -- Time in seconds (min, max) the player has to wait to receive a new delivery location
+    CallCopsChance = 80, -- 80%
+    PayOut = {1000, 1250}, -- Min/max payout for delivering a suspicious package
+
+    DropOffLocations = { -- Drop-off locations
+        vec4(74.5, -762.17, 31.68, 160.98),
+        vec4(100.58, -644.11, 44.23, 69.11),
+        vec4(175.45, -445.95, 41.1, 92.72),
+        vec4(130.3, -246.26, 51.45, 219.63),
+        vec4(198.1, -162.11, 56.35, 340.09),
+        vec4(341.0, -184.71, 58.07, 159.33),
+        vec4(-26.96, -368.45, 39.69, 251.12),
+        vec4(-155.88, -751.76, 33.76, 251.82),
+        vec4(-305.02, -226.17, 36.29, 306.04),
+        vec4(-347.19, -791.04, 33.97, 3.06),
+        vec4(-703.75, -932.93, 19.22, 87.86),
+        vec4(-659.35, -256.83, 36.23, 118.92),
+        vec4(-934.18, -124.28, 37.77, 205.79),
+        vec4(-1214.3, -317.57, 37.75, 18.39),
+        vec4(-822.83, -636.97, 27.9, 160.23),
+        vec4(308.04, -1386.09, 31.79, 47.23),
+        vec4(-1041.13, -392.04, 37.81, 25.98),
+        vec4(-731.69, -291.67, 36.95, 330.53),
+        vec4(-835.17, -353.65, 38.68, 265.05),
+        vec4(-1062.43, -436.19, 36.63, 121.55),
+        vec4(-1147.18, -520.47, 32.73, 215.39),
+        vec4(-1174.68, -863.63, 14.11, 34.24),
+        vec4(-1688.04, -1040.9, 13.02, 232.85),
+        vec4(-1353.48, -621.09, 28.24, 300.64),
+        vec4(-1029.98, -814.03, 16.86, 335.74),
+        vec4(-893.09, -723.17, 19.78, 91.08),
+        vec4(-789.23, -565.2, 30.28, 178.86),
+        vec4(-345.48, -1022.54, 30.53, 341.03),
+        vec4(218.9, -916.12, 30.69, 6.56),
+        vec4(57.66, -1072.3, 29.45, 245.38)
+    },
+
+    DropOffPeds = { -- Drop-off ped models
+        'a_m_y_stwhi_02',
+        'a_m_y_stwhi_01',
+        'a_f_y_genhot_01',
+        'a_f_y_vinewood_04',
+        'a_m_m_golfer_01',
+        'a_m_m_soucent_04',
+        'a_m_o_soucent_02',
+        'a_m_y_epsilon_01',
+        'a_m_y_epsilon_02',
+        'a_m_y_mexthug_01'
+    }
+}
+
+-- Afficher les hashes de terrain actuellement configurés
+if IsDuplicityVersion() then
+    print("^3[ps-weedplanting] ^5Liste des GroundHashes configurés:^7")
+    for hash, _ in pairs(Config.GroundHashes) do
+        print("^3[ps-weedplanting] ^5- " .. tostring(hash) .. "^7")
+    end
+end

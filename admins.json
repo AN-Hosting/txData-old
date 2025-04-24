@@ -110,9 +110,26 @@
   },
   {
     "$schema": 1,
-    "name": "Anaking",
+    "name": "Ckev10",
     "master": false,
-    "password_hash": "$2a$11$MY7WEudBd5NzMlgTDJV8U.KBJTo7Vi3Ts2PFW/CUACics3RvwpdE6",
+    "password_hash": "$2a$11$lzjIaIhdOB9dy6nj4Y5uJePFAZTT8UpVSIOvzmkqViZAH5KVOED2S",
+    "password_temporary": true,
+    "providers": {
+      "discord": {
+        "id": "779475033843564565",
+        "identifier": "discord:779475033843564565",
+        "data": {}
+      }
+    },
+    "permissions": [
+      "console.view"
+    ]
+  },
+  {
+    "$schema": 1,
+    "name": "thedarkssaidfr",
+    "master": false,
+    "password_hash": "$2a$11$aonp0S5oYj6r0LW.03CKoufZxzq6WVX32y3yp97PuvspUvwCKRK8O",
     "password_temporary": true,
     "providers": {
       "discord": {
@@ -122,7 +139,9 @@
       }
     },
     "permissions": [
-      "all_permissions"
+      "console.view",
+      "console.write",
+      "control.server"
     ]
   }
 ]

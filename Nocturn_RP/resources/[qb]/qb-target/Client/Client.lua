@@ -1045,32 +1045,32 @@ RegisterNUICallback('SET_MENU_STATE', function(data)
 end) 
 
 
-local QBCore = exports['qb-core']:GetCoreObject()
+-- local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    local Player = QBCore.Functions.GetPlayerData()
-    if Player.job.onduty then
-        Config.SelfOptions.optionjob.subOptions[1].label = "Quitté son service 🟢"
-    else
-        Config.SelfOptions.optionjob.subOptions[1].label = "Prendre son service 🔴"
-    end
-end)
+-- RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
+-- AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+--     local Player = QBCore.Functions.GetPlayerData()
+--     if Player.job.onduty then
+--         Config.SelfOptions.optionjob.subOptions[1].label = "Quitté son service 🟢"
+--     else
+--         Config.SelfOptions.optionjob.subOptions[1].label = "Prendre son service 🔴"
+--     end
+-- end)
 
-RegisterNetEvent('QBCore:Client:OnJobUpdate')
-AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
-    if JobInfo.onduty then
-        Config.SelfOptions.optionjob.subOptions[1].label = "Quitté son service 🟢"
-    else
-        Config.SelfOptions.optionjob.subOptions[1].label = "Prendre son service 🔴"
-    end
-end)
+-- RegisterNetEvent('QBCore:Client:OnJobUpdate')
+-- AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
+--     if JobInfo.onduty then
+--         Config.SelfOptions.optionjob.subOptions[1].label = "Quitté son service 🟢"
+--     else
+--         Config.SelfOptions.optionjob.subOptions[1].label = "Prendre son service 🔴"
+--     end
+-- end)
 
-RegisterNetEvent('QBCore:Client:SetDuty')
-AddEventHandler('QBCore:Client:SetDuty', function(duty)
-    if duty then
-        Config.SelfOptions.optionjob.subOptions[1].label = "Quitté son service 🟢"
-    else
-        Config.SelfOptions.optionjob.subOptions[1].label = "Prendre son service 🔴"
-    end
-end) 
+-- RegisterNetEvent('QBCore:Client:SetDuty')
+-- AddEventHandler('QBCore:Client:SetDuty', function(duty)
+--     if duty then
+--         Config.SelfOptions.optionjob.subOptions[1].label = "Quitté son service 🟢"
+--     else
+--         Config.SelfOptions.optionjob.subOptions[1].label = "Prendre son service 🔴"
+--     end
+-- end) 

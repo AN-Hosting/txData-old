@@ -70,7 +70,7 @@ Config.TruckDeposit = 125
 Config.MaxDeliveries = 20
 Config.DeliveryPrice = 500
 Config.RewardItem = 'cryptostick'
-Config.Fuel = 'LegacyFuel'
+Config.Fuel = 'Lc_fuel'
 
 Config.EnableDelivery = false
 Config.DeliveryText = '[E] - Interact'
@@ -591,7 +591,6 @@ Config.Locations = {
         -- ['requiredGrade'] = 3,
         -- ['requiredGang'] = { 'mechanic', 'police' },
     },
-
     ['robsliquor5'] = {
         ['label'] = 'Superette Rob\'s',
         ['coords'] = vector4(1134.2, -982.91, 46.42, 277.24),
@@ -606,6 +605,25 @@ Config.Locations = {
         ['blipscale'] = 0.6,
         ['blipcolor'] = 75,
         ['delivery'] = vector4(1129.73, -989.27, 45.97, 280.98),
+        ['account'] = 'money', -- Set your account here
+        -- ['requiredJob'] = { 'mechanic', 'police' },
+        -- ['requiredGrade'] = 3,
+        -- ['requiredGang'] = { 'mechanic', 'police' },
+    },
+    ['robsliquor6'] = {
+        ['label'] = 'Superette Rob\'s',
+        ['coords'] = vector4(1392.33, 3606.33, 34.98, 211.7),
+        ['ped'] = 'mp_m_shopkeep_01',
+        ['scenario'] = 'WORLD_HUMAN_STAND_MOBILE',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-shopping-basket',
+        ['targetLabel'] = 'Superette',
+        ['products'] = Config.Products['normal'],
+        ['showblip'] = true,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.6,
+        ['blipcolor'] = 75,
+        ['delivery'] = vector4(1392.33, 3606.33, 34.98, 211.7),
         ['account'] = 'money', -- Set your account here
         -- ['requiredJob'] = { 'mechanic', 'police' },
         -- ['requiredGrade'] = 3,

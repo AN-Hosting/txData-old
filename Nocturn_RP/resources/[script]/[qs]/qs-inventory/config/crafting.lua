@@ -1,24 +1,15 @@
 --[[
     Configuring the Crafting System
 
-    The qs-inventory's crafting system is entirely independent, meaning it operates without
-    needing additional DLC. This crafting system is designed to be intuitive and adaptable
-    to your server needs, allowing you to create complex recipes and control crafting outcomes
-    with ease.
-
-    Noteworthy features:
-    - Customizable success rates per item (1-100%), which sets the probability of successful crafting.
-    - Reputation-based access to crafting recipes (specific to QBCore) that allows items to unlock
-      based on a player's reputation points.
-
-    Read through each section to understand the structure of the system, and check examples below
-    for reference on crafting items.
-
-    **Important:** If you use the Reputation system, be sure to configure the 'rep' fields and thresholds
-    based on your server's design.
+    Le système de crafting a été désactivé car nous utilisons maintenant n-crafting.
+    Tous les crafts ont été déplacés vers le système n-crafting pour une meilleure organisation.
 ]]
 
-Config.Crafting = true -- Toggle the crafting system on or off
+Config.Crafting = false -- Système de crafting désactivé car remplacé par n-crafting
+Config.CraftingReputation = false
+Config.ThresholdItems = false
+
+-- Les recettes ont été déplacées vers n-crafting/jobs/
 
 --[[
     Reputation System (Exclusive to QBCore Framework)
@@ -32,9 +23,6 @@ Config.Crafting = true -- Toggle the crafting system on or off
 
     Set thresholds to only show items that match or exceed a player's reputation level.
 ]]
-
-Config.CraftingReputation = false -- Enable to activate reputation gating for crafting items (QBCore only)
-Config.ThresholdItems = false     -- Items only visible if rep >= threshold; QBCore-only feature
 
 --[[
     Crafting Recipes Configuration
@@ -79,111 +67,111 @@ Config.ThresholdItems = false     -- Items only visible if rep >= threshold; QBC
 ]]
 
 -- Sample External Crafting Event
-function OpenCrafting()
-    local CustomCrafting = {
-        [1] = {
-            name = "bubbletea",
-            label = "Bubble Tea",
-            amount = 10,
-            info = {},
-            costs = {
-                ["burger_milk"] = 1,
-                ["sugar"] = 1,
-                ["boba"] = 1
-            },
-            type = "item",
-            slot = 1,
-            threshold = 0,
-            points = 1,
-            time = 5000,
-            chance = 100
-        },
-        [2] = {
-            name = "bubbleteablue",
-            label = "Bubble Tea Bleu",
-            amount = 10,
-            info = {},
-            costs = {
-                ["burger_milk"] = 1,
-                ["blueberry"] = 1,
-                ["boba"] = 1
-            },
-            type = "item",
-            slot = 2,
-            threshold = 0,
-            points = 1,
-            time = 5500,
-            chance = 100
-        },
-        [3] = {
-            name = "matcha",
-            label = "Matcha Latte",
-            amount = 10,
-            info = {},
-            costs = {
-                ["matcha"] = 1,
-                ["burger_milk"] = 1,
-                ["sugar"] = 1
-            },
-            type = "item",
-            slot = 3,
-            threshold = 0,
-            points = 1,
-            time = 4500,
-            chance = 100
-        },
-        [4] = {
-            name = "mochipink",
-            label = "Mochi Rose",
-            amount = 8,
-            info = {},
-            costs = {
-                ["flour"] = 1,
-                ["sugar"] = 1,
-                ["strawberry"] = 1
-            },
-            type = "item",
-            slot = 4,
-            threshold = 0,
-            points = 1,
-            time = 6000,
-            chance = 100
-        },
-        [5] = {
-            name = "mochiblue",
-            label = "Mochi Bleu",
-            amount = 8,
-            info = {},
-            costs = {
-                ["flour"] = 1,
-                ["sugar"] = 1,
-                ["blueberry"] = 1
-            },
-            type = "item",
-            slot = 5,
-            threshold = 0,
-            points = 1,
-            time = 6000,
-            chance = 100
-        }
-    }
+-- function OpenCrafting()
+--     local CustomCrafting = {
+--         [1] = {
+--             name = "bubbletea",
+--             label = "Bubble Tea",
+--             amount = 10,
+--             info = {},
+--             costs = {
+--                 ["burger_milk"] = 1,
+--                 ["sugar"] = 1,
+--                 ["boba"] = 1
+--             },
+--             type = "item",
+--             slot = 1,
+--             threshold = 0,
+--             points = 1,
+--             time = 5000,
+--             chance = 100
+--         },
+--         [2] = {
+--             name = "bubbleteablue",
+--             label = "Bubble Tea Bleu",
+--             amount = 10,
+--             info = {},
+--             costs = {
+--                 ["burger_milk"] = 1,
+--                 ["blueberry"] = 1,
+--                 ["boba"] = 1
+--             },
+--             type = "item",
+--             slot = 2,
+--             threshold = 0,
+--             points = 1,
+--             time = 5500,
+--             chance = 100
+--         },
+--         [3] = {
+--             name = "matcha",
+--             label = "Matcha Latte",
+--             amount = 10,
+--             info = {},
+--             costs = {
+--                 ["matcha"] = 1,
+--                 ["burger_milk"] = 1,
+--                 ["sugar"] = 1
+--             },
+--             type = "item",
+--             slot = 3,
+--             threshold = 0,
+--             points = 1,
+--             time = 4500,
+--             chance = 100
+--         },
+--         [4] = {
+--             name = "mochipink",
+--             label = "Mochi Rose",
+--             amount = 8,
+--             info = {},
+--             costs = {
+--                 ["flour"] = 1,
+--                 ["sugar"] = 1,
+--                 ["strawberry"] = 1
+--             },
+--             type = "item",
+--             slot = 4,
+--             threshold = 0,
+--             points = 1,
+--             time = 6000,
+--             chance = 100
+--         },
+--         [5] = {
+--             name = "mochiblue",
+--             label = "Mochi Bleu",
+--             amount = 8,
+--             info = {},
+--             costs = {
+--                 ["flour"] = 1,
+--                 ["sugar"] = 1,
+--                 ["blueberry"] = 1
+--             },
+--             type = "item",
+--             slot = 5,
+--             threshold = 0,
+--             points = 1,
+--             time = 6000,
+--             chance = 100
+--         }
+--     }
 
-    local crafting = {
-        label = "Cat Café Kitchen",
-        slots = 20,
-        items = CustomCrafting
-    }
+--     local crafting = {
+--         label = "Cat Café Kitchen",
+--         slots = 20,
+--         items = CustomCrafting
+--     }
 
-    TriggerServerEvent("inventory:server:OpenInventory", "crafting", "Crafting_" .. math.random(1, 99999), crafting)
-end
+--     TriggerServerEvent("inventory:server:OpenInventory", "crafting", "Crafting_" .. math.random(1, 99999), crafting)
+-- end
 
-RegisterNetEvent("catcafe:client:OpenCrafting")
-AddEventHandler("catcafe:client:OpenCrafting", function()
-    local PlayerData = QBCore.Functions.GetPlayerData()
-    if PlayerData.job.name == "catcafe" then
-        OpenCrafting()
-    end
-end)
+-- RegisterNetEvent("catcafe:client:OpenCrafting")
+-- AddEventHandler("catcafe:client:OpenCrafting", function()
+--     local PlayerData = QBCore.Functions.GetPlayerData()
+--     if PlayerData.job.name == "catcafe" then
+--         OpenCrafting()
+--     end
+-- end)
 
 --[[ Crafting Tables Definition
 
@@ -195,7 +183,7 @@ end)
 Config.CraftingTables = {
     [1] = {
         name = 'Police Crafting',
-        isjob = 'police',
+        isjob = 'lspd',
         grades = 'all',
         text = '[E] - Police Craft',
         blip = {
@@ -206,18 +194,18 @@ Config.CraftingTables = {
             colour = 0,
             id = 365
         },
-        location = vec3(459.771423, -989.050537, 24.898926),
+        location = vec3(452.11, -988.87, 23.95),
         items = {
             [1] = {
                 name = 'weapon_pistol',
                 amount = 50,
                 info = {},
                 costs = {
-                    ['iron'] = 80,
-                    ['metalscrap'] = 70,
+                    ['iron'] = 1,
+                    --[[ ['metalscrap'] = 70,
                     ['rubber'] = 8,
                     ['steel'] = 60,
-                    ['lockpick'] = 5,
+                    ['lockpick'] = 5, ]]
                 },
                 type = 'weapon',
                 slot = 1,
@@ -227,7 +215,7 @@ Config.CraftingTables = {
                 time = 5500,
                 chance = 100
             },
-            [2] = {
+            --[[ [2] = {
                 name = 'weapon_smg',
                 amount = 1,
                 info = {},
@@ -264,7 +252,7 @@ Config.CraftingTables = {
                 threshold = 0,
                 time = 12000,
                 chance = 100
-            }
+            } ]]
         }
     },
     [2] = {
@@ -628,6 +616,94 @@ Config.CraftingTables = {
                 slot = 20,
                 threshold = 0,
                 time = 4000,
+                chance = 100
+            }
+        }
+    },
+    [4] = {
+        name = 'Burgershot Kitchen',
+        isjob = 'burgershot',
+        grades = 'all',
+        text = '[E] - Burgershot Cuisine',
+        blip = {
+            enabled = true,
+            title = 'Burgershot Kitchen',
+            scale = 0.8,
+            display = 4,
+            colour = 1,
+            id = 106
+        },
+        location = vector3(1449.75, 3569.02, 36.9),
+        items = {
+            [1] = {
+                name = "bsbleeder",
+                label = "Bleeder Burger",
+                amount = 10,
+                info = {},
+                costs = {
+                    ["bread"] = 1,
+                    ["meat"] = 1,
+                    ["bslettuce"] = 1,
+                    ["bscheese"] = 1
+                },
+                type = "item",
+                slot = 1,
+                threshold = 0,
+                points = 1,
+                time = 5000,
+                chance = 100
+            },
+            [2] = {
+                name = "bsmoneyshot",
+                label = "Moneyshot Burger",
+                amount = 10,
+                info = {},
+                costs = {
+                    ["bread"] = 1,
+                    ["meat"] = 2,
+                    ["bslettuce"] = 1,
+                    ["bscheese"] = 2
+                },
+                type = "item",
+                slot = 2,
+                threshold = 0,
+                points = 1,
+                time = 6000,
+                chance = 100
+            },
+            [3] = {
+                name = "bstorpedo",
+                label = "Torpedo Burger",
+                amount = 10,
+                info = {},
+                costs = {
+                    ["bread"] = 1,
+                    ["meat"] = 1,
+                    ["bscheese"] = 1
+                },
+                type = "item",
+                slot = 3,
+                threshold = 0,
+                points = 1,
+                time = 4000,
+                chance = 100
+            },
+            [4] = {
+                name = "bsheartstopper",
+                label = "Heartstopper Burger",
+                amount = 10,
+                info = {},
+                costs = {
+                    ["bread"] = 1,
+                    ["meat"] = 3,
+                    ["bscheese"] = 3,
+                    ["bslettuce"] = 1
+                },
+                type = "item",
+                slot = 4,
+                threshold = 0,
+                points = 1,
+                time = 7000,
                 chance = 100
             }
         }

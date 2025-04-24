@@ -130,7 +130,7 @@ QBShared.Jobs = {
 			['4'] = { name = 'Directeur', isboss = true, payment = 150 },
 		},
 	},
-	auroexotic = {
+	autzoexotic = {
 		label = 'Auto Exotic',
 		type = 'mechanic',
 		defaultDuty = false,

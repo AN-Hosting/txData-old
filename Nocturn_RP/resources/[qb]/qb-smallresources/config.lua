@@ -1,7 +1,7 @@
 Config = {}
 
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
-Config.PauseMapText = ''                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
+Config.PauseMapText = 'Nocturn Rôleplay'                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
 Config.HarnessUses = 20
 Config.DamageNeeded = 100.0                                  -- amount of damage till you can push your vehicle. 0-1000
 Config.Logging = 'discord'                                   -- fivemanage
@@ -94,46 +94,45 @@ Config.RelieveWeedStress = math.random(15, 20) -- stress relief amount (100 max)
 
 Config.Consumables = {
     eat = { -- default food items
-        ['sandwich'] = math.random(35, 54),
-        ['tosti'] = math.random(40, 50),
-        ['twerks_candy'] = math.random(35, 54),
-        ['snikkel_candy'] = math.random(40, 50)
+        ['sandwich'] = math.random(8, 12),
+        ['tosti'] = math.random(8, 12),
+        ['twerks_candy'] = math.random(5, 8),
+        ['snikkel_candy'] = math.random(8, 8),
+        ['cake'] = math.random(40, 50),
+        ['cakepop'] = math.random(40, 50),
+        ['catcookie'] = math.random(40, 50),
+        ['catdonut'] = math.random(40, 50),
+        ['catpizza'] = math.random(40, 50),
+        ['catrice'] = math.random(40, 50),
+        ['miso'] = math.random(40, 50),
+        ['noodlebowl'] = math.random(40, 50),
+        ['pawcakes'] = math.random(40, 50),
+        ['purrito'] = math.random(40, 50),
+        ['ramen'] = math.random(40, 50),
+        ['mochiblue'] = math.random(40, 50),
+        ['mochigreen'] = math.random(40, 50),
+        ['mochiorange'] = math.random(40, 50),
+        ['mochipink'] = math.random(40, 50)
     },
     drink = { -- default drink items
-        ['water_bottle'] = math.random(35, 54),
-        ['kurkakola'] = math.random(35, 54),
-        ['coffee'] = math.random(40, 50)
+        ['water_bottle'] = math.random(20, 40),
+        ['kurkakola'] = math.random(20, 40),
+        ['coffee'] = math.random(8, 10),
+        ['bubbletea'] = math.random(45, 55),
+        ['bubbleteablue'] = math.random(45, 55),
+        ['bubbleteagreen'] = math.random(45, 55),
+        ['bubbleteaorange'] = math.random(45, 55),
+        ['bubbleteapink'] = math.random(45, 55),
+        ['latte'] = math.random(40, 50),
+        ['mochameow'] = math.random(45, 55)
     },
     alcohol = { -- default alcohol items
         ['whiskey'] = math.random(20, 30),
         ['beer'] = math.random(30, 40),
         ['vodka'] = math.random(20, 40),
+        ['sake'] = math.random(20, 40)
     },
     custom = { -- put any custom items here
-        -- ['newitem'] = {
-        --     progress = {
-        --         label = 'Using Item...',
-        --         time = 5000
-        --     },
-        --     animation = {
-        --         animDict = 'amb@prop_human_bbq@male@base',
-        --         anim = 'base',
-        --         flags = 8,
-        --     },
-        --     prop = {
-        --         model = false,
-        --         bone = false,
-        --         coords = false, -- vector 3 format
-        --         rotation = false, -- vector 3 format
-        --     },
-        --     replenish = {'''
-        --         type = 'Hunger', -- replenish type 'Hunger'/'Thirst' / false
-        --         replenish = math.random(20, 40),
-        --         isAlcohol = false, -- if you want it to add alcohol count
-        --         event = false, -- 'eventname' if you want it to trigger an outside event on use useful for drugs
-        --         server = false -- if the event above is a server event
-        --     }
-        -- }
     }
 }
 
