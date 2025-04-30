@@ -4,11 +4,12 @@ games { 'gta5' }
 --Author : molo modding--
 
 this_is_a_map "yes"
-client_scripts {'client.lua'}
 lua54 'yes'
 
 client_scripts {
-    'npc.lua'
+    'npc.lua',
+    'client.lua',
+    'donttouch.lua'
 }
 
 data_file('DLC_ITYP_REQUEST')('stream/meta/int_club.ytyp')
@@ -28,4 +29,5 @@ files {
   
   }
 
+dependency '/assetpacks'
 dependency '/assetpacks'
