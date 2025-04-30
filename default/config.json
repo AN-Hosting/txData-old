@@ -6,7 +6,7 @@
   },
   "server": {
     "quiet": true,
-    "dataPath": "/root/nocturnrp/dev/txData/Nocturn_RP/"
+    "dataPath": "C:/Users/Administrator/Documents/Fivem/NocturnRP/devellopement/txData/Nocturn_RP"
   },
   "restarter": {
     "schedule": [

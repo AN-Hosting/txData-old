@@ -129,8 +129,7 @@
     "$schema": 1,
     "name": "thedarkssaidfr",
     "master": false,
-    "password_hash": "$2a$11$aonp0S5oYj6r0LW.03CKoufZxzq6WVX32y3yp97PuvspUvwCKRK8O",
-    "password_temporary": true,
+    "password_hash": "$2a$11$BDw1uxXy9jCUSPrCsJ273OEqF5/URWoD8AozWmYd8RiBl6ZUBBCrO",
     "providers": {
       "discord": {
         "id": "1349422681551798336",
