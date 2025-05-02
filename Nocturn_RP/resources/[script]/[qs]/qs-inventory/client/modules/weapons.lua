@@ -291,7 +291,7 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent(Config.InventoryPrefix .. ':client:LegacyFuel', function(fuel)
+RegisterNetEvent(Config.InventoryPrefix .. ':client:cdn-fuel', function(fuel)
     Debug('Your gasoline can has: %', fuel)
     TriggerServerEvent('weapons:server:UpdateWeaponAmmo', CurrentWeaponData, fuel)
     TriggerServerEvent('weapons:server:UpdateWeaponQuality', CurrentWeaponData, 1, fuel)

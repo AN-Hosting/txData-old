@@ -165,8 +165,8 @@ function GetVehicleStatus(vehicle)
 	local fuelLevel = 65.0
 	if (GetResourceState("myFuel") == "started") then
 		fuelLevel = exports["myFuel"]:GetFuel(vehicle)
-	elseif (GetResourceState("LegacyFuel") == "started") then
-		fuelLevel = exports["LegacyFuel"]:GetFuel(vehicle)
+	elseif (GetResourceState("cdn-fuel") == "started") then
+		fuelLevel = exports["cdn-fuel"]:GetFuel(vehicle)
 	else
 		fuelLevel = GetVehicleFuelLevel(vehicle)
 	end
@@ -218,8 +218,8 @@ function SetVehicleStatus(vehicle, status)
 	-- 6 fuel level
 	if (GetResourceState("myFuel") == "started") then
 		exports["myFuel"]:SetFuel(vehicle, status[6] * 1.0)
-	elseif (GetResourceState("LegacyFuel") == "started") then
-		exports["LegacyFuel"]:SetFuel(vehicle, status[6] * 1.0)
+	elseif (GetResourceState("cdn-fuel") == "started") then
+		exports["cdn-fuel"]:SetFuel(vehicle, status[6] * 1.0)
 	else
 		SetVehicleFuelLevel(vehicle, status[6] * 1.0)
 	end

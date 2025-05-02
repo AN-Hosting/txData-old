@@ -123,9 +123,9 @@ QBShared.Items = {
     weapon_flare                 = { name = 'weapon_flare', label = 'Fusée de Détresse', weight = 1000, type = 'weapon', ammotype = 'AMMO_FLARE', image = 'weapon_flare.png', unique = true, useable = false, description = 'Une fusée éclairante pour la signalisation d\'urgence' },
 
     -- Miscellaneous
-    weapon_petrolcan             = { name = 'weapon_petrolcan', label = 'Jerrican', weight = 1000, type = 'weapon', ammotype = 'AMMO_PETROLCAN', image = 'weapon_petrolcan.png', unique = true, useable = false, description = 'Un conteneur robuste en acier pressé pour les liquides' },
+    -- weapon_petrolcan             = { name = 'weapon_petrolcan', label = 'Jerrican', weight = 1000, type = 'weapon', ammotype = 'AMMO_PETROLCAN', image = 'weapon_petrolcan.png', unique = true, useable = false, description = 'Un conteneur robuste en acier pressé pour les liquides' },
     weapon_fireextinguisher      = { name = 'weapon_fireextinguisher', label = 'Extincteur', weight = 1000, type = 'weapon', ammotype = nil, image = 'weapon_fireextinguisher.png', unique = true, useable = false, description = 'Un appareil portable qui projette de l\'eau, de la mousse ou du gaz pour éteindre un feu' },
-    weapon_hazardcan             = { name = 'weapon_hazardcan', label = 'Jerrican Dangereux', weight = 1000, type = 'weapon', ammotype = 'AMMO_PETROLCAN', image = 'weapon_hazardcan.png', unique = true, useable = true, description = 'Un jerrican contenant des produits dangereux' },
+    -- weapon_hazardcan             = { name = 'weapon_hazardcan', label = 'Jerrican Dangereux', weight = 1000, type = 'weapon', ammotype = 'AMMO_PETROLCAN', image = 'weapon_hazardcan.png', unique = true, useable = true, description = 'Un jerrican contenant des produits dangereux' },
 
     -- Weapon Attachments
     clip_attachment              = { name = 'clip_attachment', label = 'Chargeur', weight = 1000, type = 'item', image = 'clip_attachment.png', unique = false, useable = true, shouldClose = true, description = 'Un chargeur pour arme à feu' },
@@ -340,8 +340,10 @@ QBShared.Items = {
     cleaningkit                  = { name = 'cleaningkit', label = 'Kit de Nettoyage', weight = 250, type = 'item', image = 'cleaningkit.png', unique = false, useable = true, shouldClose = true, description = 'Un kit pour faire briller votre véhicule comme au premier jour' },
     tunerlaptop                  = { name = 'tunerlaptop', label = 'Ordinateur de Diagnostic', weight = 2000, type = 'item', image = 'tunerchip.png', unique = true, useable = true, shouldClose = true, description = 'Un ordinateur portable spécialisé pour optimiser les performances du véhicule' },
     harness                      = { name = 'harness', label = 'Harnais de Course', weight = 1000, type = 'item', image = 'harness.png', unique = true, useable = true, shouldClose = true, description = 'Un harnais de sécurité pour rester en place dans toutes les situations' },
-    jerry_can                    = { name = 'jerry_can', label = 'Jerrican 20L', weight = 20000, type = 'item', image = 'jerry_can.png', unique = false, useable = true, shouldClose = true, description = 'Un bidon rempli de carburant' },
+    -- jerry_can                    = { name = 'jerry_can', label = 'Jerrican 20L', weight = 20000, type = 'item', image = 'jerry_can.png', unique = false, useable = true, shouldClose = true, description = 'Un bidon rempli de carburant' },
     tirerepairkit                = { name = 'tirerepairkit', label = 'Kit Réparation Pneus', weight = 1000, type = 'item', image = 'tirerepairkit.png', unique = false, useable = true, shouldClose = true, description = 'Un kit pour réparer les pneus crevés' },
+    syphoningkit				 = {name = "syphoningkit", 					label = "Kit de Siphonnage", 			weight = 5000, 		type = "item", 		image = "syphoningkit.png", 		unique = true, 		useable = true, 	shouldClose = true,   combinable = nil,   description = "Un kit conçu pour siphonner l'essence des véhicules."},
+	jerrycan				 	 = {name = "jerrycan", 						label = "Jerrican", 				weight = 15000, 	type = "item", 		image = "jerrycan.png", 			unique = true, 		useable = true, 	shouldClose = true,   combinable = nil,   description = "Un jerrican conçu pour contenir de l'essence."},
 
     -- Mechanic Parts
     veh_toolbox                  = { name = 'veh_toolbox', label = 'Boîte à Outils', weight = 1000, type = 'item', image = 'veh_toolbox.png', unique = false, useable = true, shouldClose = true, description = 'Pour vérifier l\'état du véhicule' },

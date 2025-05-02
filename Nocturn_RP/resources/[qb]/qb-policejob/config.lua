@@ -52,7 +52,7 @@ Config.BlipColors = {
     ['ambulance'] = 1 -- Red
 }
 
-Config.FuelScript = 'LegacyFuel'
+Config.FuelScript = 'cdn-fuel'
 Config.LicenseRank = 2
 Config.BlockWallThermals = true -- true/false; lowers thermal cam intensity to stop penetration through walls or tunnels
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'

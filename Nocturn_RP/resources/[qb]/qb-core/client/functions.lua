@@ -168,7 +168,7 @@ end
 
 -- NUI Calls
 
---[[function QBCore.Functions.Notify(text, texttype, length, icon)
+function QBCore.Functions.Notify(text, texttype, length, icon)
     local message = {
         action = 'notify',
         type = texttype or 'primary',
@@ -187,14 +187,14 @@ end
     end
 
     SendNUIMessage(message)
-end]]
-function QBCore.Functions.Notify(text, texttype, length, icon)
-    if texttype == 'primary' then texttype = 'Inform' end
-    local message = text
-    local title = texttype ~= nil and texttype or 'Inform'
-    local duration = length ~= nil and length or 5000
-    exports['qs-interface']:AddNotify(message, title, duration, icon)
 end
+-- function QBCore.Functions.Notify(text, texttype, length, icon)
+--     if texttype == 'primary' then texttype = 'Inform' end
+--     local message = text
+--     local title = texttype ~= nil and texttype or 'Inform'
+--     local duration = length ~= nil and length or 5000
+--     exports['qs-interface']:AddNotify(message, title, duration, icon)
+-- end
 
 --[[function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
     if GetResourceState('progressbar') ~= 'started' then error('progressbar needs to be started in order for QBCore.Functions.Progressbar to work') end
@@ -221,51 +221,29 @@ end
     end)
 end]]
 function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
-    if GetResourceState('qs-interface') == 'started' then
-        local success = exports['qs-interface']:ProgressBar({
-            duration = duration,
-            label = label,
-            position = 'bottom',
-            useWhileDead = useWhileDead,
-            canCancel = canCancel,
-            disable = disableControls,
-            anim = {
-                dict = animation and animation.animDict or nil,
-                clip = animation and animation.anim or nil,
-                flag = animation and animation.flags or nil
-            },
-            prop = prop
-        })
-
-        if success and onFinish then
-            onFinish()
-        elseif not success and onCancel then
-            onCancel()
-        end
-    elseif GetResourceState('progressbar') == 'started' then
-        exports['progressbar']:Progress({
-            name = name:lower(),
-            duration = duration,
-            label = label,
-            useWhileDead = useWhileDead,
-            canCancel = canCancel,
-            controlDisables = disableControls,
-            animation = animation,
-            prop = prop,
-            propTwo = propTwo,
-        }, function(cancelled)
-            if not cancelled then
-                if onFinish then
-                    onFinish()
-                end
-            else
-                if onCancel then
-                    onCancel()
-                end
-            end
-        end)
+    if GetResourceState('ox_lib') ~= 'started' then error('ox_lib needs to be started in order for QBCore.Functions.Progressbar to work') end
+    local disable = {}
+    if disableControls.disableMovement then disable.move = true end
+    if disableControls.disableCarMovement then disable.car = true end
+    if disableControls.disableMouse then disable.mouse = true end
+    if disableControls.disableCombat then disable.combat = true end
+    local anim = {}
+    if animation ~= nil then
+        anim.dict = animation.animDict
+        anim.clip = animation.anim
+        anim.flags = animation.flags
+    end
+    if lib.progressBar({
+        label = label,
+        duration = duration,
+        useWhileDead = useWhileDead,
+        canCancel = canCancel,
+        disable = disable,
+        anim = anim,
+    }) then
+        onFinish()
     else
-        error('Neither qs-interface nor progressbar is started. Cannot display progress bar.')
+        onCancel()
     end
 end
 

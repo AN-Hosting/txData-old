@@ -17,7 +17,8 @@ shared_scripts {
     'shared/gangs.lua',
     'shared/weapons.lua',
     'shared/locations.lua',
-    'fixDeleteVehicle.lua'
+    'fixDeleteVehicle.lua',
+    '@ox_lib/init.lua',
 }
 
 client_scripts {
