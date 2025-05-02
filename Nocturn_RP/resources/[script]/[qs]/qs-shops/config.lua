@@ -95,6 +95,8 @@ Config.Products = {
         { name = 'sandwich',      price = 2,   amount = 50 },
         { name = 'lighter',       price = 2,   amount = 50 },
         { name = 'rolling_paper', price = 2,   amount = 50 },
+        { name = 'jerrycan',       price = 5000,   amount = 50, info = { gasamount = 20 } },
+        { name = 'syphoningkit', price = 5000,   amount = 50, info = { gasamount = 0 } },
     },
     --['liquor'] = {
     --    { name = 'beer',    price = 7,  amount = 50 },
