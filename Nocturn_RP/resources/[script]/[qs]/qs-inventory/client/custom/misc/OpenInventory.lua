@@ -1,9 +1,18 @@
-RegisterNetEvent(Config.InventoryPrefix .. ':client:OpenInventory', function(PlayerAmmo, inventory, other)
+local checkDistanceInventories = {
+    'shop',
+    'stash',
+    'crafting',
+    'attachment_crafting',
+    'traphouse',
+    'customcrafting'
+}
+
+RegisterNetEvent(Config.InventoryPrefix .. ':client:OpenInventory', function(PlayerAmmo, inventory, other, otherName)
     if not inventory then return Error('Inventory is not working, clear the inventory column [sql] to continue.') end
     inventory = FormatItemsToInfo(inventory)
     ToggleHud(false)
     ToggleHotbar(false)
-    SetNuiFocus(true, true)
+    SetFocus(true)
     IdleCamera(true)
     SetPedCanPlayAmbientAnims(PlayerPedId(), false)
     SetResourceKvp('idleCam', 'off')
@@ -11,6 +20,8 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:OpenInventory', function(Pla
     if other then
         currentOtherInventory = other.name
     end
+
+    OpenedInventoryCoords = GetEntityCoords(PlayerPedId())
 
     TriggerServerCallback(Config.InventoryPrefix .. ':server:QualityDecay', function(data)
         local hungerValue = hunger
@@ -50,6 +61,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:OpenInventory', function(Pla
             blackmoney = data.money.crypto or 'Not found'
         end
 
+
         SendNUIMessage({
             action = 'open',
             inventory = inventory,
@@ -83,6 +95,9 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:OpenInventory', function(Pla
             labelChanger = Config.LabelChange
         })
         inInventory = true
+        if table.includes(checkDistanceInventories, otherName) then
+            CheckNearbyOtherInventory()
+        end
     end, inventory, other)
 
     if not Config.Handsup then return end

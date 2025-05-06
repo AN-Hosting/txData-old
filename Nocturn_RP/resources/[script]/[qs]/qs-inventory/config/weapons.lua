@@ -56,7 +56,7 @@ Config.Throwables = { -- Defines throwable items that players can use
     'smokegrenade',
     'snowball',
     'stickybomb',
-    'newspaper', 
+    'newspaper',
 }
 
 ---@type table<number, {item: string, type: string, isForEveryWeapon?: boolean}>
@@ -96,6 +96,10 @@ Config.AmmoItems = {
     {
         item = 'snp_ammo',
         type = 'AMMO_SNIPER'
+    },
+    {
+        item = 'police_rifle_ammo',
+        type = 'AMMO_POLICE_RIFLE'
     },
     {
         item = 'master_ammo',
@@ -245,12 +249,13 @@ Config.WeaponRepairPoints = {
 }
 
 Config.WeaponRepairCosts = {
-    pistol = 1000, -- Cost to repair pistols
-    smg = 3000,    -- Cost to repair submachine guns
-    mg = 4000,     -- Cost to repair machine guns
-    rifle = 5000,  -- Cost to repair rifles
-    sniper = 7000, -- Cost to repair sniper rifles
-    shotgun = 6000 -- Cost to repair shotguns
+    ['Pistol'] = 1000,            -- Cost to repair pistols
+    ['Submachine Gun'] = 3000,    -- Cost to repair submachine guns
+    ['Light Machine Gun'] = 4000, -- Cost to repair machine guns
+    ['Assault Rifle'] = 5000,     -- Cost to repair rifles
+    ['Sniper Rifle'] = 7000,      -- Cost to repair sniper rifles
+    ['Shotgun'] = 6000,           -- Cost to repair shotguns
+    ['Heavy Weapons'] = 10000,
 }
 
 --[[

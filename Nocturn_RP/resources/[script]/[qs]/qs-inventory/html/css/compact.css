@@ -1,0 +1,160 @@
+.compact {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+
+.compact #inventory-container:before {
+    background-color: transparent;
+}
+
+.compact .inv-container {
+    flex-direction: column;
+    align-items: end;
+    justify-content: start;
+    top: 0;
+    margin-left: -2vh;
+}
+
+.compact .inventory-playerstats {
+    position: relative;
+    top: 1vh;
+    right: 1.2vh;
+    display: none;
+}
+
+.compact .inventory-playerdata {
+    position: absolute;
+    top: 57vh;
+    right: 1.2vh;
+    display: none;
+}
+
+.compact .ply-inv-container {
+    top: 1.3vh;
+    height: 48.6vh;
+    right: 0;
+}
+
+.compact .player-inventory {
+    height: 44vh;
+}
+
+.compact .oth-inv-container {
+    position: absolute;
+    top: 59vh;
+    height: 48.6vh;
+    right: -1vh;
+}
+
+.compact .other-inventory {
+    position: relative;
+    height: 33vh;
+}
+
+.compact .inv-options-list {
+    width: 100%;
+    max-width: 580px;
+    min-width: 580px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    top: -2.5vh;
+}
+
+.compact .inv-options .inv-options-list {
+    position: absolute;
+    display: flex !important;
+    justify-content: end;
+    gap: 9px;
+    height: 8vh;
+    width: 54.5vh;
+    right: 1vh;
+}
+
+.compact .inv-option-item {
+    position: relative;
+    bottom: 5vh;
+    height: 4vh;
+    width: 12.3%;
+}
+
+.compact #inventory-custom {
+    bottom: 5vh;
+    height: 4vh;
+}
+
+.compact .custom-inventory {
+    margin-top: 2.5vh;
+    height: 36vh;
+    margin-left: 1.7vh;
+    padding-right: .6vh;
+}
+
+.compact #weapon-attachments {
+    padding: 1vh;
+}
+
+.compact .iconBigger {
+    position: relative;
+    width: 2vh;
+}
+
+.compact .clothes-inventory {
+    position: relative;
+    right: 95vh;
+    top: -50vh !important;
+}
+
+.compact .returnButton {
+    width: 1vh !important;
+}
+
+.compact .logo-container {
+    top: 3vh;
+    left: 8vh !important;
+}
+
+.compact .sixth-slot {
+    left: 5vh;
+}
+
+.compact .ply-iteminfo-container {
+    position: absolute;
+    z-index: 9999;
+    font-family: "CabinetGrotesk-Bold";
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    left: 0;
+    top: 0;
+    width: 15vw;
+    min-height: 16vh;
+    display: none;
+    min-width: auto;
+    margin: auto;
+
+    padding: 1.5vh;
+    border-radius: 0.5vh;
+    border: 0.1vh solid rgba(52, 68, 82, 0);
+    background: radial-gradient(
+                120.05% 120.05% at 50.14% -58.24%,
+                rgba(69, 100, 129, 0) 0%,
+                #0e151b 100%
+            )
+            padding-box,
+        linear-gradient(
+                180deg,
+                rgba(52, 68, 82, 0) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
+    border-image-source: linear-gradient(
+        180deg,
+        rgba(52, 68, 82, 0) 0%,
+        #ffffff 100%
+    );
+}
+
+.compact #weapon-attachments p {
+    font-size: 0.8vh !important;
+}

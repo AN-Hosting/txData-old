@@ -122,65 +122,113 @@ RegisterNetEvent('weapons:client:masterAmmo', function(amount, itemData)
     end
 end)
 
-RegisterNetEvent('weapons:client:AddAmmo', function(type, amount, itemData, masterAmmo)
+lib.callback.register('weapons:addAmmo', function(itemData)
+    local ped = cache.ped
+    if IsPedReloading(ped) then
+        return
+    end
+    local weapon = GetSelectedPedWeapon(ped)
+    if not CurrentWeaponData or not WeaponList[weapon] or WeaponList[weapon]['name'] == 'weapon_unarmed' then
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_NO_WEAPON'), 'error')
+        return
+    end
+    local total = GetAmmoInPedWeapon(ped, weapon)
+    local retval = GetMaxAmmoInClip(ped, weapon, 1)
+    local _, ammoclip = GetAmmoInClip(ped, weapon)
+    local _, maxammo = GetMaxAmmo(ped, weapon)
+    if IsPedInAnyVehicle(ped, false) and Config.ForceToOnlyOneMagazine then
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_VEHICLE_ITEMS'), 'error')
+        return
+    end
+    if Config.ForceToOnlyOneMagazine and ammoclip > 0 then
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_MAGAZINE_LIMIT'), 'error')
+        return
+    end
+    if not retval then
+        return
+    end
+    retval = tonumber(retval)
+
+    if maxammo ~= total then
+        TriggerServerCallback('weapon:server:GetWeaponAmmo', function(ammo)
+            if ammo then
+                SetAmmoInClip(ped, weapon, 0)
+                AddAmmoToPed(ped, weapon, retval + ammoclip)
+                TriggerServerEvent('weapons:server:AddWeaponAmmo', CurrentWeaponData, total + retval)
+                --TriggerServerEvent("weapons:server:UpdateWeaponAmmo", CurrentWeaponData, total + retval)
+                TriggerServerEvent('weapons:server:removeWeaponAmmoItem', itemData)
+            end
+        end, CurrentWeaponData)
+    else
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_MAX_AMMO'), 'error')
+    end
+end)
+
+RegisterNetEvent('weapons:client:AddAmmo', function(ammoType, amount, itemData, masterAmmo)
     local ped = PlayerPedId()
     if IsPedReloading(ped) then
         return -- SendTextMessage('Do not spam the reload', 'error')
     end
     local weapon = GetSelectedPedWeapon(ped)
-    if CurrentWeaponData and WeaponList[weapon] and WeaponList[weapon]['name'] ~= 'weapon_unarmed' and WeaponList[weapon]['ammotype'] == type:upper() then
-        local total = GetAmmoInPedWeapon(ped, weapon)
-        local retval = GetMaxAmmoInClip(ped, weapon, 1)
-        local _, ammoclip = GetAmmoInClip(ped, weapon)
-        local _, maxammo = GetMaxAmmo(ped, weapon)
-        if IsPedInAnyVehicle(ped, false) and Config.ForceToOnlyOneMagazine then
-            SendTextMessage(Lang('INVENTORY_NOTIFICATION_VEHICLE_ITEMS'), 'error')
-            return
-        end
-        if Config.ForceToOnlyOneMagazine and ammoclip > 0 then
-            SendTextMessage(Lang('INVENTORY_NOTIFICATION_MAGAZINE_LIMIT'), 'error')
-            return
-        end
-        if retval then
-            retval = tonumber(retval)
-            itemData = lib.callback.await('weapons:GetWeaponAmmoItem', 0, type, masterAmmo)
-
-            if not itemData then
-                print('Nice try forehead :)')
-                return
-            end
-
-            if maxammo ~= total then
-                TriggerServerCallback('weapon:server:GetWeaponAmmo', function(ammo)
-                    if ammo then
-                        SetAmmoInClip(ped, weapon, 0)
-                        AddAmmoToPed(ped, weapon, retval + ammoclip)
-                        TriggerServerEvent('weapons:server:AddWeaponAmmo', CurrentWeaponData, total + retval)
-                        --TriggerServerEvent("weapons:server:UpdateWeaponAmmo", CurrentWeaponData, total + retval)
-                        TriggerServerEvent('weapons:server:removeWeaponAmmoItem', itemData)
-                    end
-                end, CurrentWeaponData)
-            else
-                SendTextMessage(Lang('INVENTORY_NOTIFICATION_MAX_AMMO'), 'error')
-            end
-        end
-    else
+    if not CurrentWeaponData or not WeaponList[weapon] or WeaponList[weapon]['name'] == 'weapon_unarmed' then
         SendTextMessage(Lang('INVENTORY_NOTIFICATION_NO_WEAPON'), 'error')
+        return
+    end
+    local weaponAmmoType = type(WeaponList[weapon]['ammotype']) == 'table' and WeaponList[weapon]['ammotype'] or { WeaponList[weapon]['ammotype'] }
+    Debug('ammoType', ammoType, weaponAmmoType)
+    if not table.includes(weaponAmmoType, ammoType:upper()) then
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_NO_AMMO'), 'error')
+        return
+    end
+    local total = GetAmmoInPedWeapon(ped, weapon)
+    local retval = GetMaxAmmoInClip(ped, weapon, 1)
+    local _, ammoclip = GetAmmoInClip(ped, weapon)
+    local _, maxammo = GetMaxAmmo(ped, weapon)
+    if IsPedInAnyVehicle(ped, false) and Config.ForceToOnlyOneMagazine then
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_VEHICLE_ITEMS'), 'error')
+        return
+    end
+    if Config.ForceToOnlyOneMagazine and ammoclip > 0 then
+        SendTextMessage(Lang('INVENTORY_NOTIFICATION_MAGAZINE_LIMIT'), 'error')
+        return
+    end
+    if retval then
+        retval = tonumber(retval)
+        itemData = lib.callback.await('weapons:GetWeaponAmmoItem', 0, ammoType, masterAmmo)
+
+        if not itemData then
+            print('Nice try forehead :)')
+            return
+        end
+
+        if maxammo ~= total then
+            TriggerServerCallback('weapon:server:GetWeaponAmmo', function(ammo)
+                if ammo then
+                    SetAmmoInClip(ped, weapon, 0)
+                    AddAmmoToPed(ped, weapon, retval + ammoclip)
+                    TriggerServerEvent('weapons:server:AddWeaponAmmo', CurrentWeaponData, total + retval)
+                    --TriggerServerEvent("weapons:server:UpdateWeaponAmmo", CurrentWeaponData, total + retval)
+                    TriggerServerEvent('weapons:server:removeWeaponAmmoItem', itemData)
+                end
+            end, CurrentWeaponData)
+        else
+            SendTextMessage(Lang('INVENTORY_NOTIFICATION_MAX_AMMO'), 'error')
+        end
     end
 end)
-
 
 RegisterNetEvent('weapons:client:ConfigureTint')
 AddEventHandler('weapons:client:ConfigureTint', function(ItemData)
     TintItemData = ItemData
-    SetNuiFocus(true, true)
+    SetFocus(true)
     SendNUIMessage({
         action = 'showTintMenu'
     })
 end)
 
 function closeGui()
-    SetNuiFocus(false, false)
+    print('hay anani')
+    SetFocus(false)
     SendNUIMessage({ action = 'hide' })
 end
 
@@ -249,7 +297,7 @@ LastUpdatedAmmoTime = nil
 CreateThread(function()
     while true do
         local ped = PlayerPedId()
-        if FiringWeapon then
+        if IsPedArmed(ped, 7) == 1 and (IsControlJustReleased(0, 24) or IsDisabledControlJustReleased(0, 24)) then
             local weapon = GetSelectedPedWeapon(ped)
             local ammo = GetAmmoInPedWeapon(ped, weapon)
             TriggerServerEvent('weapons:server:UpdateWeaponAmmo', CurrentWeaponData, tonumber(ammo))
@@ -291,7 +339,7 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent(Config.InventoryPrefix .. ':client:cdn-fuel', function(fuel)
+RegisterNetEvent(Config.InventoryPrefix .. ':client:LegacyFuel', function(fuel)
     Debug('Your gasoline can has: %', fuel)
     TriggerServerEvent('weapons:server:UpdateWeaponAmmo', CurrentWeaponData, fuel)
     TriggerServerEvent('weapons:server:UpdateWeaponQuality', CurrentWeaponData, 1, fuel)
@@ -328,8 +376,7 @@ CreateThread(function()
                         if CurrentWeaponData and next(CurrentWeaponData) then
                             if not data.RepairingData.Ready then
                                 local WeaponData = WeaponList[GetHashKey(CurrentWeaponData.name)]
-                                local WeaponClass = (SplitStr(WeaponData.ammotype, '_')[2]):lower()
-                                DrawText3D(data.coords.x, data.coords.y, data.coords.z, Lang('INVENTORY_TEXT_REPAIR_PRICE') .. Config.WeaponRepairCosts[WeaponClass], 'repair_weapon', 'E')
+                                DrawText3D(data.coords.x, data.coords.y, data.coords.z, Lang('INVENTORY_TEXT_REPAIR_PRICE') .. Config.WeaponRepairCosts[WeaponData.weapontype], 'repair_weapon', 'E')
                                 if IsControlJustPressed(0, 38) then
                                     TriggerServerCallback('weapons:server:RepairWeapon', function(HasMoney)
                                         if HasMoney then

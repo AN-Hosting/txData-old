@@ -131,7 +131,7 @@ Locales["en"] = {
     ["INVENTORY_TEXT_REPAIR_TAKE"] = '[E] - Retrieve weapon',
     ["INVENTORY_TEXT_REPAIR_PRICE"] = '[E] Repair weapon, €',
     ["INVENTORY_TEXT_REPAIR_NO_WEAPON"] = 'You don\'t have a weapon in hand',
-    ["INVENTORY_TEXT_THROW_ITEM_BUTTON"] = 'Press ~INPUT_CONTEXT~ to throw the item\nPress ~INPUT_CONTEXT_SECONDARY~ to cancel',
+    ["INVENTORY_TEXT_THROW_ITEM_BUTTON"] = 'Press ~INPUT_CONTEXT~ to throw the item \n Press ~INPUT_CONTEXT_SECONDARY~ to cancel',
     ["INVENTORY_TEXT_PICKUP_ITEM"] = '[E] - Pick up item',
             -- Progressbar
     ["INVENTORY_PROGRESS_CRAFTING"] = 'Crafting...',

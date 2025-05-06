@@ -1,15 +1,24 @@
 --[[
     Configuring the Crafting System
 
-    Le système de crafting a été désactivé car nous utilisons maintenant n-crafting.
-    Tous les crafts ont été déplacés vers le système n-crafting pour une meilleure organisation.
+    The qs-inventory's crafting system is entirely independent, meaning it operates without
+    needing additional DLC. This crafting system is designed to be intuitive and adaptable
+    to your server needs, allowing you to create complex recipes and control crafting outcomes
+    with ease.
+
+    Noteworthy features:
+    - Customizable success rates per item (1-100%), which sets the probability of successful crafting.
+    - Reputation-based access to crafting recipes (specific to QBCore) that allows items to unlock
+      based on a player's reputation points.
+
+    Read through each section to understand the structure of the system, and check examples below
+    for reference on crafting items.
+
+    **Important:** If you use the Reputation system, be sure to configure the 'rep' fields and thresholds
+    based on your server's design.
 ]]
 
-Config.Crafting = false -- Système de crafting désactivé car remplacé par n-crafting
-Config.CraftingReputation = false
-Config.ThresholdItems = false
-
--- Les recettes ont été déplacées vers n-crafting/jobs/
+Config.Crafting = true -- Toggle the crafting system on or off
 
 --[[
     Reputation System (Exclusive to QBCore Framework)
@@ -23,6 +32,9 @@ Config.ThresholdItems = false
 
     Set thresholds to only show items that match or exceed a player's reputation level.
 ]]
+
+Config.CraftingReputation = false -- Enable to activate reputation gating for crafting items (QBCore only)
+Config.ThresholdItems = false     -- Items only visible if rep >= threshold; QBCore-only feature
 
 --[[
     Crafting Recipes Configuration
@@ -67,111 +79,43 @@ Config.ThresholdItems = false
 ]]
 
 -- Sample External Crafting Event
--- function OpenCrafting()
---     local CustomCrafting = {
---         [1] = {
---             name = "bubbletea",
---             label = "Bubble Tea",
---             amount = 10,
---             info = {},
---             costs = {
---                 ["burger_milk"] = 1,
---                 ["sugar"] = 1,
---                 ["boba"] = 1
---             },
---             type = "item",
---             slot = 1,
---             threshold = 0,
---             points = 1,
---             time = 5000,
---             chance = 100
---         },
---         [2] = {
---             name = "bubbleteablue",
---             label = "Bubble Tea Bleu",
---             amount = 10,
---             info = {},
---             costs = {
---                 ["burger_milk"] = 1,
---                 ["blueberry"] = 1,
---                 ["boba"] = 1
---             },
---             type = "item",
---             slot = 2,
---             threshold = 0,
---             points = 1,
---             time = 5500,
---             chance = 100
---         },
---         [3] = {
---             name = "matcha",
---             label = "Matcha Latte",
---             amount = 10,
---             info = {},
---             costs = {
---                 ["matcha"] = 1,
---                 ["burger_milk"] = 1,
---                 ["sugar"] = 1
---             },
---             type = "item",
---             slot = 3,
---             threshold = 0,
---             points = 1,
---             time = 4500,
---             chance = 100
---         },
---         [4] = {
---             name = "mochipink",
---             label = "Mochi Rose",
---             amount = 8,
---             info = {},
---             costs = {
---                 ["flour"] = 1,
---                 ["sugar"] = 1,
---                 ["strawberry"] = 1
---             },
---             type = "item",
---             slot = 4,
---             threshold = 0,
---             points = 1,
---             time = 6000,
---             chance = 100
---         },
---         [5] = {
---             name = "mochiblue",
---             label = "Mochi Bleu",
---             amount = 8,
---             info = {},
---             costs = {
---                 ["flour"] = 1,
---                 ["sugar"] = 1,
---                 ["blueberry"] = 1
---             },
---             type = "item",
---             slot = 5,
---             threshold = 0,
---             points = 1,
---             time = 6000,
---             chance = 100
---         }
---     }
+--[[function OpenCrafting()
+    local CustomCrafting = {
+        [1] = {
+            name = 'weapon_pistol',
+            amount = 50,
+            info = {},
+            costs = { ['tosti'] = 1 },
+            type = 'weapon',
+            slot = 1,
+            rep = 'attachmentcraftingrep',
+            points = 1,
+            threshold = 0,
+            time = 5500,
+            chance = 100
+        },
+        [2] = {
+            name = 'water_bottle',
+            amount = 1,
+            info = {},
+            costs = { ['tosti'] = 1 },
+            type = 'item',
+            slot = 2,
+            rep = 'attachmentcraftingrep',
+            points = 1,
+            threshold = 0,
+            time = 8500,
+            chance = 100
+        },
+    }
 
---     local crafting = {
---         label = "Cat Café Kitchen",
---         slots = 20,
---         items = CustomCrafting
---     }
-
---     TriggerServerEvent("inventory:server:OpenInventory", "crafting", "Crafting_" .. math.random(1, 99999), crafting)
--- end
-
--- RegisterNetEvent("catcafe:client:OpenCrafting")
--- AddEventHandler("catcafe:client:OpenCrafting", function()
---     local PlayerData = QBCore.Functions.GetPlayerData()
---     if PlayerData.job.name == "catcafe" then
---         OpenCrafting()
---     end
--- end)
+    local crafting = {
+        label = 'Craft',
+        items = exports['qs-inventory']:SetUpCrafing(CustomCrafting)
+    }
+    TriggerServerEvent('inventory:server:SetInventoryItems', CustomCrafting)
+    TriggerServerEvent('inventory:server:OpenInventory', 'customcrafting', crafting.label, crafting)
+end]]
 
 --[[ Crafting Tables Definition
 
@@ -182,528 +126,356 @@ Config.ThresholdItems = false
 
 Config.CraftingTables = {
     [1] = {
-        name = 'Police Crafting',
-        isjob = 'lspd',
-        grades = 'all',
-        text = '[E] - Police Craft',
-        blip = {
-            enabled = true,
-            title = 'Police Crafting',
-            scale = 1.0,
-            display = 4,
-            colour = 0,
-            id = 365
-        },
-        location = vec3(452.11, -988.87, 23.95),
-        items = {
-            [1] = {
-                name = 'weapon_pistol',
-                amount = 50,
-                info = {},
-                costs = {
-                    ['iron'] = 1,
-                    --[[ ['metalscrap'] = 70,
-                    ['rubber'] = 8,
-                    ['steel'] = 60,
-                    ['lockpick'] = 5, ]]
-                },
-                type = 'weapon',
-                slot = 1,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 5500,
-                chance = 100
-            },
-            --[[ [2] = {
-                name = 'weapon_smg',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['iron'] = 80,
-                    ['metalscrap'] = 120,
-                    ['rubber'] = 10,
-                    ['steel'] = 65,
-                    ['lockpick'] = 10,
-                },
-                type = 'weapon',
-                slot = 2,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 8500,
-                chance = 100
-            },
-            [3] = {
-                name = 'weapon_carbinerifle',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['iron'] = 120,
-                    ['metalscrap'] = 120,
-                    ['rubber'] = 20,
-                    ['steel'] = 90,
-                    ['lockpick'] = 14,
-                },
-                type = 'weapon',
-                slot = 3,
-                rep = 'craftingrep',
-                points = 2,
-                threshold = 0,
-                time = 12000,
-                chance = 100
-            } ]]
-        }
-    },
-    [2] = {
-        name = 'Attachment Crafting',
-        isjob = false,
-        grades = 'all',
-        text = '[E] - Craft Attachment',
-        blip = {
-            enabled = true,
-            title = 'Attachment Crafting',
-            scale = 1.0,
-            display = 4,
-            colour = 0,
-            id = 365
-        },
-        location = vec3(90.303299, 3745.503418, 39.771484),
-        items = {
-            [1] = {
-                name = 'pistol_extendedclip',
-                amount = 50,
-                info = {},
-                costs = {
-                    ['metalscrap'] = 140,
-                    ['steel'] = 250,
-                    ['rubber'] = 60,
-                },
-                type = 'item',
-                slot = 1,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 8000,
-                chance = 90
-            },
-            [2] = {
-                name = 'pistol_suppressor',
-                amount = 50,
-                info = {},
-                costs = {
-                    ['metalscrap'] = 165,
-                    ['steel'] = 285,
-                    ['rubber'] = 75,
-                },
-                type = 'item',
-                slot = 2,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 8000,
-                chance = 90
-            },
-        }
-    },
-    [3] = {
         name = 'Cat Café Crafting',
         isjob = 'catcafe',
         grades = 'all',
         text = '[E] - Cat Café Crafting',
         blip = {
             enabled = true,
-            title = 'Cat Café Kitchen',
-            scale = 0.8,
+            title = 'Cat Café Crafting',
+            scale = 1.0,
             display = 4,
-            colour = 9,
-            id = 89
+            colour = 0,
+            id = 365
         },
-        location = vector3(-290.69, -83.71, 49.5),
+        location = vec3(-287.16, -78.21, 49.5), -- À ajuster selon tes besoinsvector3(-287.16, -78.21, 49.5)
         items = {
+            -- Mochis
             [1] = {
-                name = 'bubbletea',
-                amount = 10,
+                name = 'bmochi',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["burger_milk"] = 1,
-                    ["sugar"] = 1,
-                    ["boba"] = 1
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['blueberry'] = 2,
                 },
-                type = "item",
+                type = 'item',
                 slot = 1,
-                threshold = 0,
                 time = 5000,
                 chance = 100
             },
             [2] = {
-                name = 'bubbleteablue',
-                amount = 10,
+                name = 'pmochi',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["burger_milk"] = 1,
-                    ["blueberry"] = 1,
-                    ["boba"] = 1
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['strawberry'] = 2,
                 },
-                type = "item",
+                type = 'item',
                 slot = 2,
-                threshold = 0,
-                time = 5500,
-                chance = 100
-            },
-            [3] = {
-                name = 'bubbleteagreen',
-                amount = 10,
-                info = {},
-                costs = {
-                    ["matcha"] = 1,
-                    ["burger_milk"] = 1,
-                    ["boba"] = 1
-                },
-                type = "item",
-                slot = 3,
-                threshold = 0,
-                time = 4500,
-                chance = 100
-            },
-            [4] = {
-                name = 'bubbleteaorange',
-                amount = 10,
-                info = {},
-                costs = {
-                    ["orange"] = 1,
-                    ["burger_milk"] = 1,
-                    ["boba"] = 1
-                },
-                type = "item",
-                slot = 4,
-                threshold = 0,
-                time = 4500,
-                chance = 100
-            },
-            [5] = {
-                name = 'bubbleteapink',
-                amount = 10,
-                info = {},
-                costs = {
-                    ["strawberry"] = 1,
-                    ["burger_milk"] = 1,
-                    ["boba"] = 1
-                },
-                type = "item",
-                slot = 5,
-                threshold = 0,
-                time = 4500,
-                chance = 100
-            },
-            [6] = {
-                name = 'mochiblue',
-                amount = 8,
-                info = {},
-                costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 1,
-                    ["blueberry"] = 1
-                },
-                type = "item",
-                slot = 6,
-                threshold = 0,
-                time = 6000,
-                chance = 100
-            },
-            [7] = {
-                name = 'mochigreen',
-                amount = 8,
-                info = {},
-                costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 1,
-                    ["matcha"] = 1
-                },
-                type = "item",
-                slot = 7,
-                threshold = 0,
-                time = 6000,
-                chance = 100
-            },
-            [8] = {
-                name = 'mochiorange',
-                amount = 8,
-                info = {},
-                costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 1,
-                    ["orange"] = 1
-                },
-                type = "item",
-                slot = 8,
-                threshold = 0,
-                time = 6000,
-                chance = 100
-            },
-            [9] = {
-                name = 'mochipink',
-                amount = 8,
-                info = {},
-                costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 1,
-                    ["strawberry"] = 1
-                },
-                type = "item",
-                slot = 9,
-                threshold = 0,
-                time = 6000,
-                chance = 100
-            },
-            [10] = {
-                name = 'pawcakes',
-                amount = 5,
-                info = {},
-                costs = {
-                    ["flour"] = 2,
-                    ["sugar"] = 1,
-                    ["burger_milk"] = 1
-                },
-                type = "item",
-                slot = 10,
-                threshold = 0,
-                time = 7000,
-                chance = 100
-            },
-            [11] = {
-                name = 'catcookie',
-                amount = 8,
-                info = {},
-                costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 1,
-                    ["burger_milk"] = 1
-                },
-                type = "item",
-                slot = 11,
-                threshold = 0,
                 time = 5000,
                 chance = 100
             },
-            [12] = {
-                name = 'catdonut',
-                amount = 6,
+            [3] = {
+                name = 'gmochi',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 2,
-                    ["burger_milk"] = 1
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['mint'] = 2,
                 },
-                type = "item",
-                slot = 12,
-                threshold = 0,
+                type = 'item',
+                slot = 3,
+                time = 5000,
+                chance = 100
+            },
+            [4] = {
+                name = 'omochi',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['orange'] = 2,
+                },
+                type = 'item',
+                slot = 4,
+                time = 5000,
+                chance = 100
+            },
+            -- Boba Teas
+            [5] = {
+                name = 'bobatea',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                },
+                type = 'item',
+                slot = 5,
+                time = 4000,
+                chance = 100
+            },
+            [6] = {
+                name = 'bbobatea',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['blueberry'] = 1,
+                },
+                type = 'item',
+                slot = 6,
+                time = 4000,
+                chance = 100
+            },
+            [7] = {
+                name = 'gbobatea',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['mint'] = 1,
+                },
+                type = 'item',
+                slot = 7,
+                time = 4000,
+                chance = 100
+            },
+            [8] = {
+                name = 'pbobatea',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['strawberry'] = 1,
+                },
+                type = 'item',
+                slot = 8,
+                time = 4000,
+                chance = 100
+            },
+            [9] = {
+                name = 'obobatea',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['orange'] = 1,
+                },
+                type = 'item',
+                slot = 9,
+                time = 4000,
+                chance = 100
+            },
+            -- Autres boissons
+            [10] = {
+                name = 'nekolatte',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 10,
+                time = 4000,
+                chance = 100
+            },
+            [11] = {
+                name = 'sake',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['rice'] = 2,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 11,
                 time = 6000,
                 chance = 100
             },
-            [13] = {
-                name = 'catpizza',
-                amount = 4,
+            -- Plats
+            [12] = {
+                name = 'miso',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["flour"] = 2,
-                    ["nori"] = 1,
-                    ["tofu"] = 1
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
                 },
-                type = "item",
+                type = 'item',
+                slot = 12,
+                time = 5000,
+                chance = 100
+            },
+            [13] = {
+                name = 'cake',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 2,
+                    ['strawberry'] = 3,
+                    ['milk'] = 1,
+                },
+                type = 'item',
                 slot = 13,
-                threshold = 0,
                 time = 8000,
                 chance = 100
             },
             [14] = {
-                name = 'catrice',
-                amount = 5,
+                name = 'bento',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["rice"] = 1,
-                    ["nori"] = 1
+                    ['rice'] = 2,
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 14,
-                threshold = 0,
-                time = 4000,
+                time = 7000,
                 chance = 100
             },
             [15] = {
-                name = 'mochameow',
-                amount = 6,
+                name = 'riceball',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["flour"] = 1,
-                    ["sugar"] = 1,
-                    ["coffee"] = 1
+                    ['rice'] = 1,
+                    ['nori'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 15,
-                threshold = 0,
-                time = 6000,
+                time = 4000,
                 chance = 100
             },
             [16] = {
-                name = 'purrito',
-                amount = 4,
+                name = 'nekocookie',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["flour"] = 1,
-                    ["rice"] = 1,
-                    ["tofu"] = 1
+                    ['flour'] = 1,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 16,
-                threshold = 0,
-                time = 7000,
+                time = 4000,
                 chance = 100
             },
             [17] = {
-                name = 'ramen',
-                amount = 3,
+                name = 'nekodonut',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["noodles"] = 1,
-                    ["tofu"] = 1,
-                    ["nori"] = 1
+                    ['flour'] = 1,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 17,
-                threshold = 0,
-                time = 8000,
+                time = 4000,
                 chance = 100
             },
             [18] = {
-                name = 'bento',
-                amount = 3,
+                name = 'mocha',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["rice"] = 1,
-                    ["tofu"] = 1,
-                    ["nori"] = 1
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 18,
-                threshold = 0,
-                time = 8000,
+                time = 4000,
                 chance = 100
             },
             [19] = {
-                name = 'miso',
-                amount = 5,
+                name = 'cakepop',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["tofu"] = 1,
-                    ["nori"] = 1
+                    ['flour'] = 1,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 19,
-                threshold = 0,
-                time = 5000,
+                time = 4000,
                 chance = 100
             },
             [20] = {
-                name = 'latte',
-                amount = 6,
+                name = 'pancake',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["coffee"] = 1,
-                    ["burger_milk"] = 1
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
                 },
-                type = "item",
+                type = 'item',
                 slot = 20,
-                threshold = 0,
-                time = 4000,
-                chance = 100
-            }
-        }
-    },
-    [4] = {
-        name = 'Burgershot Kitchen',
-        isjob = 'burgershot',
-        grades = 'all',
-        text = '[E] - Burgershot Cuisine',
-        blip = {
-            enabled = true,
-            title = 'Burgershot Kitchen',
-            scale = 0.8,
-            display = 4,
-            colour = 1,
-            id = 106
-        },
-        location = vector3(1449.75, 3569.02, 36.9),
-        items = {
-            [1] = {
-                name = "bsbleeder",
-                label = "Bleeder Burger",
-                amount = 10,
-                info = {},
-                costs = {
-                    ["bread"] = 1,
-                    ["meat"] = 1,
-                    ["bslettuce"] = 1,
-                    ["bscheese"] = 1
-                },
-                type = "item",
-                slot = 1,
-                threshold = 0,
-                points = 1,
                 time = 5000,
                 chance = 100
             },
-            [2] = {
-                name = "bsmoneyshot",
-                label = "Moneyshot Burger",
-                amount = 10,
+            [21] = {
+                name = 'pizza',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["bread"] = 1,
-                    ["meat"] = 2,
-                    ["bslettuce"] = 1,
-                    ["bscheese"] = 2
+                    ['flour'] = 2,
+                    ['tofu'] = 1,
                 },
-                type = "item",
-                slot = 2,
-                threshold = 0,
-                points = 1,
+                type = 'item',
+                slot = 21,
+                time = 7000,
+                chance = 100
+            },
+            [22] = {
+                name = 'purrito',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
+                },
+                type = 'item',
+                slot = 22,
                 time = 6000,
                 chance = 100
             },
-            [3] = {
-                name = "bstorpedo",
-                label = "Torpedo Burger",
-                amount = 10,
+            [23] = {
+                name = 'noodlebowl',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["bread"] = 1,
-                    ["meat"] = 1,
-                    ["bscheese"] = 1
+                    ['noodles'] = 1,
+                    ['tofu'] = 1,
                 },
-                type = "item",
-                slot = 3,
-                threshold = 0,
-                points = 1,
-                time = 4000,
+                type = 'item',
+                slot = 23,
+                time = 5000,
                 chance = 100
             },
-            [4] = {
-                name = "bsheartstopper",
-                label = "Heartstopper Burger",
-                amount = 10,
+            [24] = {
+                name = 'ramen',
+                amount = 1,
                 info = {},
                 costs = {
-                    ["bread"] = 1,
-                    ["meat"] = 3,
-                    ["bscheese"] = 3,
-                    ["bslettuce"] = 1
+                    ['noodles'] = 1,
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
                 },
-                type = "item",
-                slot = 4,
-                threshold = 0,
-                points = 1,
-                time = 7000,
+                type = 'item',
+                slot = 24,
+                time = 6000,
                 chance = 100
             }
         }

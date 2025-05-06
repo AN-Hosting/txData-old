@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/context-menu.css" />
     <link rel="stylesheet" type="text/css" href="css/trade.css" />
+    <link rel="stylesheet" type="text/css" href="css/compact.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -76,7 +77,9 @@
         <div class="weapon-attachments-remove"><i class="fas fa-trash"></i></div>
 
         <div class="weapon-attachments-back">
-            <div class="iconBigger returnIcon"></div>
+            <div class="iconBigger returnIcon">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
         </div>
     </div>
 
@@ -193,11 +196,15 @@
                                 <p>THROW</p>
                             </div>
                             <div class="inv-option-item" id="clothmenu">
-                                <div class="iconBigger clothIcon"></div>
+                                <div class="iconBigger clothIcon">
+                                    <i class="fa-solid fa-shirt"></i>
+                                </div>
                                 <!-- <p>CLOTHING</p> -->
                             </div>
                             <div class="inv-option-item" id="inventory-custom">
-                                <div class="iconBigger settingsIcon"></div>
+                                <div class="iconBigger settingsIcon">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </div>
                                 <!-- <p>CONFIGURATION</p> -->
                             </div>
                             <div class="inv-option-item" id="reset-localstorage">
@@ -490,19 +497,19 @@
 
     <script>
         function scaleContainer() {
-          const container = document.querySelector('.container');
-          if (container) {
-            const scaleX = window.innerWidth / container.offsetWidth;
-            const scaleY = window.innerHeight / container.offsetHeight;
-            const scale = Math.min(scaleX, scaleY);
-    
-            container.style.transform = `scale(${scale})`;
-          }
+            const container = document.querySelector('.container');
+            if (container) {
+                const scaleX = window.innerWidth / container.offsetWidth;
+                const scaleY = window.innerHeight / container.offsetHeight;
+                const scale = Math.min(scaleX, scaleY);
+
+                container.style.transform = `scale(${scale})`;
+            }
         }
-    
+
         window.addEventListener('load', scaleContainer);
         window.addEventListener('resize', scaleContainer);
-      </script>
+    </script>
 </body>
 
 </html>

@@ -4,10 +4,11 @@ game 'gta5'
 
 lua54 'yes'
 
-version '3.3.3'
+version '3.3.67'
 
 data_file 'WEAPONINFO_FILE_PATCH' 'weaponsnspistol.meta'
 
+-- 'http://127.0.0.1:5500/html/ui.html'
 ui_page 'html/ui.html'
 
 ox_libs {

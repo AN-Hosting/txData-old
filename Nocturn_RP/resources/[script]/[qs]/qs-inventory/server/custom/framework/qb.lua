@@ -12,6 +12,10 @@ if not Config.QBX then
     ItemList = QBCore.Shared.Items
 end
 
+RegisterNetEvent('QBCore:Server:PlayerLoaded', function(Player)
+    InitDrops(Player.PlayerData.source)
+end)
+
 UseCashAsItem = true -- Choose whether to use money as an item
 CashItem = 'cash'     -- Choose the money item, it only works if I enable the configurable above
 

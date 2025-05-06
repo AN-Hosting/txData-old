@@ -295,7 +295,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:OpenInventory', function(nam
 			end
 		end
 		Wait(0)
-		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv)
+		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv, name)
 		OpenedSecondInventories[src] = secondInv
 	else
 		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src])
@@ -526,7 +526,7 @@ function OpenInventory(name, id, other, origin)
 			end
 		end
 		Wait(0)
-		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv)
+		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv, name)
 		OpenedSecondInventories[src] = secondInv
 	else
 		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src])

@@ -791,7 +791,8 @@ ItemList = {
         ['unique'] = true,
         ['useable'] = false,
         ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'A lightweight automatic rifle'
+        ['description'] = 'A lightweight automatic rifle',
+        ['disableThrow'] = true
     },
     ['weapon_carbinerifle_mk2'] = {
         ['name'] = 'weapon_carbinerifle_mk2',
@@ -2221,6 +2222,19 @@ ItemList = {
         ['object'] = 'prop_ld_ammo_pack_02',
         ['description'] = 'Ammo for Rifles'
     },
+    ['police_rifle_ammo']           = {
+        ['name'] = 'police_rifle_ammo',
+        ['label'] = 'Police Rifle ammo',
+        ['weight'] = 1000,
+        ['type'] = 'item',
+        ['image'] = 'rifle_ammo.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['object'] = 'prop_ld_ammo_pack_02',
+        ['description'] = 'Ammo for Police Rifles'
+    },
     ['smg_ammo']                    = {
         ['name'] = 'smg_ammo',
         ['label'] = 'SMG ammo',
@@ -2451,6 +2465,7 @@ ItemList = {
         ['decay'] = 0.07,
         ['delete'] = false,
         ['object'] = 'prop_sandwich_01',
+        ['disableThrow'] = true,
         ['client'] = {
             status = {
                 hunger = 200000,
@@ -3384,32 +3399,6 @@ ItemList = {
         ['combinable'] = nil,
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'Damn you lost your key again?'
-    },
-    ['chain']                       = {
-        ['name'] = 'chain',
-        ['label'] = 'Chain',
-        ['weight'] = 100,
-        ['type'] = 'item',
-        ['image'] = 'goldchain.png',
-        ['unique'] = true,
-        ['useable'] = true,
-        ['shouldClose'] = false,
-        ['combinable'] = nil,
-        ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'It is very fragile, watch out'
-    },
-    ['watch']                       = {
-        ['name'] = 'watch',
-        ['label'] = 'Watch',
-        ['weight'] = 100,
-        ['type'] = 'item',
-        ['image'] = 'rolex.png',
-        ['unique'] = false,
-        ['useable'] = false,
-        ['shouldClose'] = false,
-        ['combinable'] = nil,
-        ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'It is very fragile, watch out'
     },
 
     -- Tools
@@ -4761,6 +4750,58 @@ ItemList = {
         ['combinable'] = nil,
         ['description'] = 'A nice piece of clothing'
     },
+    ['chain']                       = {
+        ['name'] = 'chain',
+        ['label'] = 'Chain',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'goldchain.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'It is very fragile, watch out'
+    },
+    ['vest']                        = {
+        ['name'] = 'vest',
+        ['label'] = 'Vest',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'vest.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'Body Armor'
+    },
+    ['bracelets']                   = {
+        ['name'] = 'bracelets',
+        ['label'] = 'Bracelets',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'bracelets.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'It is very fragile, watch out'
+    },
+    ['watch']                       = {
+        ['name'] = 'watch',
+        ['label'] = 'Watch',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'rolex.png',
+        ['unique'] = false,
+        ['useable'] = false,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'It is very fragile, watch out'
+    },
 
     -- Trading Cards
     ['tradingcard_psa']             = {
@@ -5030,482 +5071,409 @@ ItemList = {
     },
     ['bento'] = {
         ['name'] = 'bento',
-        ['label'] = 'Bento',
-        ['weight'] = 1000,
+        ['label'] = 'Bento Box',
+        ['weight'] = 500,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'bento.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un repas japonais dans une boîte compartimentée.'
+        ['shouldClose'] = true,
+        ['description'] = 'A delicious Japanese lunch box.'
     },
-
     ['blueberry'] = {
         ['name'] = 'blueberry',
-        ['label'] = 'Myrtille',
-        ['weight'] = 1000,
+        ['label'] = 'Blueberry',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'blueberry.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un petit fruit bleu sucré et juteux.'
+        ['shouldClose'] = true,
+        ['description'] = 'Fresh blueberries.'
     },
-
     ['boba'] = {
         ['name'] = 'boba',
         ['label'] = 'Boba',
-        ['weight'] = 1000,
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'boba.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Perles de tapioca utilisées dans les bubble teas.'
+        ['shouldClose'] = true,
+        ['description'] = 'Tapioca pearls for bubble tea.'
     },
-
     ['bubbletea'] = {
         ['name'] = 'bubbletea',
-        ['label'] = 'Bubble Tea',
-        ['weight'] = 1000,
+        ['label'] = 'Boba Tea',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'bubbletea.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Une boisson taïwanaise avec des perles de tapioca.'
+        ['shouldClose'] = true,
+        ['description'] = 'A refreshing bubble tea drink.'
     },
-
     ['bubbleteablue'] = {
         ['name'] = 'bubbleteablue',
-        ['label'] = 'Bubble Tea Bleu',
-        ['weight'] = 1000,
+        ['label'] = 'Blue Boba Tea',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'bubbleteablue.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Boisson au thé bleu avec perles.'
+        ['shouldClose'] = true,
+        ['description'] = 'A blue bubble tea drink.'
     },
-
     ['bubbleteagreen'] = {
         ['name'] = 'bubbleteagreen',
-        ['label'] = 'Bubble Tea Vert',
-        ['weight'] = 1000,
+        ['label'] = 'Green Boba Tea',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'bubbleteagreen.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Boisson au thé vert avec perles.'
+        ['shouldClose'] = true,
+        ['description'] = 'A green bubble tea drink.'
     },
-
     ['bubbleteaorange'] = {
         ['name'] = 'bubbleteaorange',
-        ['label'] = 'Bubble Tea Orange',
-        ['weight'] = 1000,
+        ['label'] = 'Orange Boba Tea',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'bubbleteaorange.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Boisson au thé orange avec perles.'
+        ['shouldClose'] = true,
+        ['description'] = 'An orange bubble tea drink.'
     },
-
     ['bubbleteapink'] = {
         ['name'] = 'bubbleteapink',
-        ['label'] = 'Bubble Tea Rose',
-        ['weight'] = 1000,
+        ['label'] = 'Pink Boba Tea',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'bubbleteapink.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Boisson au thé rose avec perles.'
+        ['shouldClose'] = true,
+        ['description'] = 'A pink bubble tea drink.'
     },
-
-    ['burger-milk'] = {
+    ['burger_milk'] = {
         ['name'] = 'burger_milk',
-        ['label'] = 'Lait',
-        ['weight'] = 1000,
+        ['label'] = 'Milk',
+        ['weight'] = 300,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'burger-milk.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Une bouteille de lait frais.'
+        ['shouldClose'] = true,
+        ['description'] = 'Carton of Milk.'
     },
-
-    ['burger-onion'] = {
+    ['burger_onion'] = {
         ['name'] = 'burger_onion',
-        ['label'] = 'Oignon',
-        ['weight'] = 1000,
+        ['label'] = 'Onion',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'burger_onion.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un petit oignon doré.'
+        ['shouldClose'] = true,
+        ['description'] = 'Fresh onion.'
     },
-
     ['cake'] = {
         ['name'] = 'cake',
-        ['label'] = 'Gâteau',
-        ['weight'] = 1000,
+        ['label'] = 'Strawberry Cake',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'cake.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un délicieux gâteau aux fruits.'
+        ['shouldClose'] = true,
+        ['description'] = 'A sweet strawberry cake.'
     },
-
     ['cakepop'] = {
         ['name'] = 'cakepop',
-        ['label'] = 'Cake Pop',
-        ['weight'] = 1000,
+        ['label'] = 'Cat Cake-Pop',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'cakepop.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un mini gâteau sur un bâtonnet.'
+        ['shouldClose'] = true,
+        ['description'] = 'A cute cat cake-pop.'
     },
-
     ['catcookie'] = {
         ['name'] = 'catcookie',
-        ['label'] = 'Cookie Chat',
-        ['weight'] = 1000,
+        ['label'] = 'Neko Cookie',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'catcookie.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un biscuit en forme de chat.'
+        ['shouldClose'] = true,
+        ['description'] = 'A cat-shaped cookie.'
     },
-
     ['catdonut'] = {
         ['name'] = 'catdonut',
-        ['label'] = 'Donut Chat',
-        ['weight'] = 1000,
+        ['label'] = 'Neko Donut',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'catdonut.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un donut mignon décoré comme un chat.'
+        ['shouldClose'] = true,
+        ['description'] = 'A cat-shaped donut.'
     },
-
     ['catpizza'] = {
         ['name'] = 'catpizza',
-        ['label'] = 'Pizza Chat',
-        ['weight'] = 1000,
+        ['label'] = 'Kitty Pizza',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'catpizza.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Une petite pizza avec une tête de chat.'
+        ['shouldClose'] = true,
+        ['description'] = 'A pizza with a cat face.'
     },
-
     ['catrice'] = {
         ['name'] = 'catrice',
-        ['label'] = 'Riz Chat',
-        ['weight'] = 1000,
+        ['label'] = 'Neko Onigiri',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'catrice.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un bol de riz décoré comme un chat.'
+        ['shouldClose'] = true,
+        ['description'] = 'A rice ball shaped like a cat.'
     },
-
     ['flour'] = {
         ['name'] = 'flour',
-        ['label'] = 'Farine',
-        ['weight'] = 1000,
+        ['label'] = 'Flour',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'flour.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un ingrédient de base pour la pâtisserie.'
+        ['shouldClose'] = true,
+        ['description'] = 'Baking flour.'
     },
-
     ['latte'] = {
         ['name'] = 'latte',
-        ['label'] = 'Latte',
-        ['weight'] = 1000,
+        ['label'] = 'Neko Latte',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'latte.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un café au lait mousseux.'
+        ['shouldClose'] = true,
+        ['description'] = 'A cute cat latte.'
     },
-
     ['matcha'] = {
         ['name'] = 'matcha',
         ['label'] = 'Matcha',
-        ['weight'] = 1000,
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'matcha.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Thé vert japonais en poudre.'
+        ['shouldClose'] = true,
+        ['description'] = 'Green tea powder.'
     },
-
     ['miso'] = {
         ['name'] = 'miso',
-        ['label'] = 'Soupe Miso',
-        ['weight'] = 1000,
+        ['label'] = 'Miso Soup',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'miso.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Soupe traditionnelle japonaise.'
+        ['shouldClose'] = true,
+        ['description'] = 'A bowl of miso soup.'
     },
-
     ['mochameow'] = {
         ['name'] = 'mochameow',
-        ['label'] = 'Mochi Café',
-        ['weight'] = 1000,
+        ['label'] = 'Mocha Meow',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'mochameow.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Mochi en forme de chat saveur café.'
+        ['shouldClose'] = true,
+        ['description'] = 'A mocha drink with a cat design.'
     },
-
     ['mochiblue'] = {
         ['name'] = 'mochiblue',
-        ['label'] = 'Mochi Bleu',
-        ['weight'] = 1000,
+        ['label'] = 'Blue Mochi',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'mochiblue.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Mochi en forme de chat bleu.'
+        ['shouldClose'] = true,
+        ['description'] = 'A blue mochi dessert.'
     },
-
     ['mochigreen'] = {
         ['name'] = 'mochigreen',
-        ['label'] = 'Mochi Vert',
-        ['weight'] = 1000,
+        ['label'] = 'Green Mochi',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'mochigreen.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Mochi en forme de chat vert.'
+        ['shouldClose'] = true,
+        ['description'] = 'A green mochi dessert.'
     },
-
     ['mochiorange'] = {
         ['name'] = 'mochiorange',
-        ['label'] = 'Mochi Orange',
-        ['weight'] = 1000,
+        ['label'] = 'Orange Mochi',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'mochiorange.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Mochi en forme de chat orange.'
+        ['shouldClose'] = true,
+        ['description'] = 'An orange mochi dessert.'
     },
-
     ['mochipink'] = {
         ['name'] = 'mochipink',
-        ['label'] = 'Mochi Rose',
-        ['weight'] = 1000,
+        ['label'] = 'Pink Mochi',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'mochipink.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Mochi en forme de chat rose.'
+        ['shouldClose'] = true,
+        ['description'] = 'A pink mochi dessert.'
     },
-
     ['noodlebowl'] = {
         ['name'] = 'noodlebowl',
-        ['label'] = 'Bol de Nouilles',
-        ['weight'] = 1000,
+        ['label'] = 'Bowl of Noodles',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'noodlebowl.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un bol chaud rempli de nouilles.'
+        ['shouldClose'] = true,
+        ['description'] = 'A bowl of noodles.'
     },
-
     ['noodles'] = {
         ['name'] = 'noodles',
-        ['label'] = 'Nouilles',
-        ['weight'] = 1000,
+        ['label'] = 'Instant Noodles',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'noodles.png',
         ['unique'] = false,
-        ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Des nouilles instantanées croustillantes.'
+        ['useable'] = false,
+        ['shouldClose'] = true,
+        ['description'] = 'Pack of instant noodles.'
     },
-
     ['nori'] = {
         ['name'] = 'nori',
         ['label'] = 'Nori',
-        ['weight'] = 1000,
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'nori.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Algue séchée utilisée dans les sushis.'
+        ['shouldClose'] = true,
+        ['description'] = 'Seaweed sheet.'
     },
-
     ['orange'] = {
         ['name'] = 'orange',
         ['label'] = 'Orange',
-        ['weight'] = 1000,
+        ['weight'] = 200,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'orange.png',
         ['unique'] = false,
-        ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un fruit juteux et sucré.'
+        ['useable'] = false,
+        ['shouldClose'] = false,
+        ['description'] = 'An orange fruit.'
     },
-
     ['pawcakes'] = {
         ['name'] = 'pawcakes',
-        ['label'] = 'Crêpes Patte',
-        ['weight'] = 1000,
+        ['label'] = 'PawCake',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'pawcakes.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Crêpes décorées comme des pattes.'
+        ['shouldClose'] = true,
+        ['description'] = 'A pancake shaped like a paw.'
     },
-
     ['purrito'] = {
         ['name'] = 'purrito',
         ['label'] = 'Purrito',
-        ['weight'] = 1000,
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'purrito.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un burrito avec une touche féline.'
+        ['shouldClose'] = true,
+        ['description'] = 'A burrito with a cat twist.'
     },
-
     ['ramen'] = {
         ['name'] = 'ramen',
-        ['label'] = 'Ramen',
-        ['weight'] = 1000,
+        ['label'] = 'Bowl of Ramen',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'ramen.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Bol de nouilles japonaises.'
+        ['shouldClose'] = true,
+        ['description'] = 'A bowl of ramen.'
     },
-
     ['rice'] = {
         ['name'] = 'rice',
-        ['label'] = 'Riz',
-        ['weight'] = 1000,
+        ['label'] = 'Bowl of Rice',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'rice.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un bol de riz blanc cuit.'
+        ['shouldClose'] = true,
+        ['description'] = 'A bowl of rice.'
     },
-
     ['sake'] = {
         ['name'] = 'sake',
-        ['label'] = 'Saké',
-        ['weight'] = 1000,
+        ['label'] = 'Sake',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'sake.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Boisson alcoolisée japonaise à base de riz.'
+        ['shouldClose'] = true,
+        ['description'] = 'Traditional Japanese rice wine.'
     },
-
     ['strawberry'] = {
         ['name'] = 'strawberry',
-        ['label'] = 'Fraise',
-        ['weight'] = 1000,
+        ['label'] = 'Strawberry',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'strawberry.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un fruit rouge et sucré.'
+        ['shouldClose'] = true,
+        ['description'] = 'Fresh strawberry.'
     },
-
     ['sugar'] = {
         ['name'] = 'sugar',
-        ['label'] = 'Sucre',
-        ['weight'] = 1000,
+        ['label'] = 'Sugar',
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'sugar.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Un ingrédient sucrant de base.'
+        ['shouldClose'] = true,
+        ['description'] = 'Sweet sugar.'
     },
-
     ['tofu'] = {
         ['name'] = 'tofu',
         ['label'] = 'Tofu',
-        ['weight'] = 1000,
+        ['weight'] = 100,
         ['type'] = 'item',
-        ['ammotype'] = nil,
         ['image'] = 'tofu.png',
         ['unique'] = false,
         ['useable'] = true,
-        ['rare'] = 'common',
-        ['description'] = 'Protéine végétale faite de soja.'
+        ['shouldClose'] = true,
+        ['description'] = 'A block of tofu.'
     },
 }

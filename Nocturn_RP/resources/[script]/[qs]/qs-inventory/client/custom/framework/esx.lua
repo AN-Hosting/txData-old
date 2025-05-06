@@ -25,9 +25,6 @@ RegisterNetEvent('esx:playerLoaded', function(xPlayer)
         Config.WeaponRepairPoints[k].IsRepairing = data.IsRepairing
         Config.WeaponRepairPoints[k].RepairingData = data.RepairingData
     end
-    TriggerServerCallback(Config.InventoryPrefix .. ':server:GetCurrentDrops', function(theDrops)
-        Drops = theDrops
-    end)
     if Config.Crafting then
         CreateBlips()
     end

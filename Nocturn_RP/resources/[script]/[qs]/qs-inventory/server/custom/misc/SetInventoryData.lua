@@ -30,7 +30,17 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 			TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_CANT_MOVE'), 'inform')
 			return
 		end
-		TriggerClientEvent('clothes:takeOffClothes', src, item.name)
+		local data = table.find(Config.ClothingSlots, function(v)
+			if v.slot == fromSlot then
+				return true
+			end
+			return false
+		end)
+		item.info.armor = GetPedArmour(GetPlayerPed(src))
+		if data then
+			TriggerClientEvent('inventory:takeoffClothing', src, data)
+		end
+
 		AddItem(src, item.name, 1, toSlot, item.info, nil, nil, nil, true)
 		RemoveFromClothes(identifier, fromSlot, item.name, 1)
 		TriggerClientEvent(Config.InventoryPrefix .. ':saveClothes', src)
@@ -674,6 +684,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 						TriggerClientEvent(Config.InventoryPrefix .. ':client:forceCloseInventory', src)
 					end
 				else
+					TriggerClientEvent(Config.InventoryPrefix .. ':client:UpdatePlayerInventory', src, true)
 					TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_MONEY'), 'error')
 					return
 				end
@@ -689,6 +700,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, itemInfo['label'] .. ' ' .. Lang('INVENTORY_NOTIFICATION_BOUGHT'), 'success')
 					SendWebhook(Webhooks.swap, 'Swapped Item', 7393279, '**' .. GetPlayerName(src) .. '** bought a ' .. itemInfo['label'] .. '  for €' .. price)
 				else
+					TriggerClientEvent(Config.InventoryPrefix .. ':client:UpdatePlayerInventory', src, true)
 					TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_MONEY'), 'error')
 					return
 				end
@@ -709,6 +721,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					TriggerClientEvent(Config.InventoryPrefix .. ':client:forceCloseInventory', src)
 				end
 			else
+				TriggerClientEvent(Config.InventoryPrefix .. ':client:UpdatePlayerInventory', src, true)
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_MONEY'), 'error')
 				return
 			end
@@ -719,6 +732,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, itemInfo['label'] .. ' ' .. Lang('INVENTORY_NOTIFICATION_BOUGHT'), 'success')
 				SendWebhook(Webhooks.bought, 'Shop item bought', 7393279, '**' .. GetPlayerName(src) .. '** bought a ' .. itemInfo['label'] .. ' for €' .. price)
 			else
+				TriggerClientEvent(Config.InventoryPrefix .. ':client:UpdatePlayerInventory', src, true)
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_MONEY'), 'error')
 				return
 			end

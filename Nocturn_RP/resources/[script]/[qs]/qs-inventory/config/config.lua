@@ -102,7 +102,7 @@ Config.QBX = qbxHas
 
 Config.FetchOldInventory = false -- Set to `true` only once to start the migration process, then return to `false` immediately after.
 
-Config.UseTarget = true         -- Set to true to enable targeting with either 'qb-target' or 'ox_target', or false to disable entirely.
+Config.UseTarget = true          -- Set to true to enable targeting with either 'qb-target' or 'ox_target', or false to disable entirely.
 
 --[[
     General Configuration Guide for the Inventory System
@@ -116,10 +116,10 @@ Config.UseTarget = true         -- Set to true to enable targeting with either '
 ]]
 
 Config.ThrowKeybind = 'E'          -- Sets the keybinding for throwing items from the inventory (default: 'E').
-Config.BlockedSlot = true          -- Locks the sixth slot to prevent stealing; valuable items placed here are protected.
+Config.BlockedSlot = false          -- Locks the sixth slot to prevent stealing; valuable items placed here are protected.
 Config.GiveItemHideName = false    -- Hides item names during give-item actions, showing only the item ID for privacy.
 Config.OpenProgressBar = false     -- Enable to add a progress bar for inventory opening, reducing duplication risks.
-Config.EnableSounds = true         -- Select if you want the default inventory sounds completely muted
+Config.EnableSounds = false         -- Select if you want the default inventory sounds completely muted
 Config.EnableThrow = true          -- Enables the ability to throw items from the inventory.
 Config.EnableTrade = true          -- Enables the option to execute safe trade, MMORPG style.
 Config.EnableChangeLabel = true    -- Enable option tu change item labels in one click.
@@ -185,8 +185,180 @@ Config.notStoredItems = {
 -- QB Documentation: https://docs.quasar-store.com/
 Config.Clothing = true -- Enables clothing options in the inventory, with a corresponding button.
 
+---@type ClotheSlot[]
+Config.ClothingSlots = {
+    {
+        name = 'helmet',
+        slot = 1,
+        type = 'head',
+        wearType = 'prop',
+        componentId = 0,
+        anim = {
+            dict = 'mp_masks@standard_car@ds@',
+            anim = 'put_on_mask',
+            flags = 49
+        }
+    },
+    {
+        name = 'mask',
+        slot = 2,
+        type = 'head',
+        wearType = 'prop',
+        componentId = 1,
+        anim = {
+            dict = 'mp_masks@standard_car@ds@',
+            anim = 'put_on_mask',
+            flags = 49
+        }
+    },
+    {
+        name = 'glasses',
+        slot = 3,
+        type = 'head',
+        wearType = 'prop',
+        componentId = 1,
+        anim = {
+            dict = 'clothingspecs',
+            anim = 'take_off',
+            flags = 49
+        }
+    },
+    {
+        name = 'torso',
+        slot = 4,
+        type = 'body',
+        wearType = 'drawable',
+        componentId = 11,
+        anim = {
+            dict = 'missmic4',
+            anim = 'michael_tux_fidget',
+            flags = 49
+        }
+    },
+    {
+        name = 'tshirt',
+        slot = 5,
+        type = 'body',
+        wearType = 'drawable',
+        componentId = 8,
+        anim = {
+            dict = 'clothingtie',
+            anim = 'try_tie_negative_a',
+            flags = 49
+        }
+    },
+    {
+        name = 'jeans',
+        slot = 6,
+        type = 'body',
+        wearType = 'drawable',
+        componentId = 4,
+        anim = {
+            dict = 'missmic4',
+            anim = 'michael_tux_fidget',
+            flags = 49
+        }
+    },
+    {
+        name = 'arms',
+        slot = 7,
+        type = 'body',
+        wearType = 'drawable',
+        componentId = 3,
+        anim = {
+            dict = 'nmt_3_rcm-10',
+            anim = 'cs_nigel_dual-10',
+            flags = 49
+        }
+    },
+    {
+        name = 'shoes',
+        slot = 8,
+        type = 'body',
+        wearType = 'drawable',
+        componentId = 6,
+        anim = {
+            dict = 'random@domestic',
+            anim = 'pickup_low',
+            flags = 49
+        }
+    },
+    {
+        name = 'ears',
+        slot = 9,
+        type = 'body',
+        wearType = 'prop',
+        componentId = 2,
+        anim = {
+            dict = 'mp_cp_stolen_tut',
+            anim = 'b_think',
+            flags = 49
+        }
+    },
+    {
+        name = 'bag',
+        slot = 10,
+        type = 'addon',
+        wearType = 'drawable',
+        componentId = 5,
+        anim = {
+            dict = 'anim@heists@ornate_bank@grab_cash',
+            anim = 'intro',
+            flags = 49
+        }
+    },
+    {
+        name = 'watch',
+        slot = 11,
+        type = 'addon',
+        wearType = 'prop',
+        componentId = 6,
+        anim = {
+            dict = 'nmt_3_rcm-10',
+            anim = 'cs_nigel_dual-10',
+            flags = 49
+        }
+    },
+    {
+        name = 'bracelets',
+        slot = 12,
+        type = 'addon',
+        wearType = 'prop',
+        componentId = 7,
+        anim = {
+            dict = 'nmt_3_rcm-10',
+            anim = 'cs_nigel_dual-10',
+            flags = 49
+        }
+    },
+    {
+        name = 'chain',
+        slot = 13,
+        type = 'addon',
+        wearType = 'drawable',
+        componentId = 7,
+        anim = {
+            dict = 'nmt_3_rcm-10',
+            anim = 'cs_nigel_dual-10',
+            flags = 49
+        }
+    },
+    {
+        name = 'vest',
+        slot = 14,
+        type = 'addon',
+        wearType = 'drawable',
+        componentId = 9,
+        anim = {
+            dict = 'nmt_3_rcm-10',
+            anim = 'cs_nigel_dual-10',
+            flags = 49
+        }
+    },
+}
+
 Config.IsIllenium = GetResourceState('illenium-appearance') == 'started'
-Config.TakePreviousClothes = false             -- Determines if previously worn clothes are added back to inventory upon changing.
+Config.TakePreviousClothes = true             -- Determines if previously worn clothes are added back to inventory upon changing.
 
 Config.ItemDropObject = `prop_paper_bag_small` -- Sets the model for dropped items. Can be set to `false` for no visual object.
 Config.DropRefreshTime = 15 * 60               -- Sets how often dropped items are refreshed (in seconds).
@@ -294,6 +466,13 @@ Config.Defaults = {
         chain = -1,
     }
 }
+
+--[[
+    Turns your inventory into a compact, side-mounted system that
+    lets you move around while using it, in true Quasar style.
+]]
+
+Config.CompactInventory = false -- Enables a compact inventory view, reducing the size of the inventory window for a more streamlined appearance.
 
 -- Key Bindings: Configure shortcut keys for inventory actions
 -- Check the documentation for guidelines on modifying these key mappings

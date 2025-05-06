@@ -7,8 +7,8 @@ local target_name = GetResourceState('ox_target'):find('started') and 'qtarget' 
 CreateThread(function()
     -- Selling
     for k, v in pairs(Config.SellItems) do
-        exports[target_name]:AddBoxZone(k, vec3(v['coords'].x, v['coords'].y, v['coords'].z), 1.5, 1.5, {
-            name = k,
+        exports[target_name]:AddBoxZone(k .. '_selling', vec3(v['coords'].x, v['coords'].y, v['coords'].z), 1.5, 1.5, {
+            name = k .. '_selling',
             heading = 90.0,
             debugPoly = Config.ZoneDebug,
             minZ = v['coords'].z - 1,
@@ -38,8 +38,8 @@ CreateThread(function()
     -- Crafting
     if Config.Crafting then
         for k, v in pairs(Config.CraftingTables) do
-            exports[target_name]:AddBoxZone(k, vec3(v.location.x, v.location.y, v.location.z), 2.5, 2.5, {
-                name = k,
+            exports[target_name]:AddBoxZone(k .. '_crafting', vec3(v.location.x, v.location.y, v.location.z), 2.5, 2.5, {
+                name = k .. '_crafting',
                 heading = 90.0,
                 debugPoly = Config.ZoneDebug,
                 minZ = v.location.z - 1,
@@ -109,14 +109,4 @@ CreateThread(function()
         },
         distance = 1.0
     })
-
-    -- exports[target_name]:Player({
-    --     name = 'search_player',
-    --     icon = 'fas fa-search',
-    --     label = 'Search Player',
-    --     distance = 1.5,
-    --     onSelect = function(data)
-    --         TriggerEvent(Config.InventoryPrefix .. ':client:search')
-    --     end
-    -- })
 end)

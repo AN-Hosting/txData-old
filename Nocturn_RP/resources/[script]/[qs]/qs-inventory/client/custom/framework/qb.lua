@@ -29,9 +29,6 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
         Config.WeaponRepairPoints[k].IsRepairing = data.IsRepairing
         Config.WeaponRepairPoints[k].RepairingData = data.RepairingData
     end
-    TriggerServerCallback(Config.InventoryPrefix .. ':server:GetCurrentDrops', function(theDrops)
-        Drops = theDrops
-    end)
     if Config.Crafting then
         CreateBlips()
     end
@@ -84,31 +81,27 @@ function GetGangLevel()
 end
 
 function SendTextMessage(msg, type)
-    -- if type == 'inform' then
-    --     lib.notify({
-    --         title = 'Inventory',
-    --         description = msg,
-    --         type = 'inform'
-    --     })
-    -- end
-    -- if type == 'error' then
-    --     lib.notify({
-    --         title = 'Inventory',
-    --         description = msg,
-    --         type = 'error'
-    --     })
-    -- end
-    -- if type == 'success' then
-    --     lib.notify({
-    --         title = 'Inventory',
-    --         description = msg,
-    --         type = 'success'
-    --     })
-    -- end
-    
-        local duration = length ~= nil and length or 5000
-        exports['qs-interface']:AddNotify(msg, title, duration, icon)
-
+    if type == 'inform' then
+        lib.notify({
+            title = 'Inventory',
+            description = msg,
+            type = 'inform'
+        })
+    end
+    if type == 'error' then
+        lib.notify({
+            title = 'Inventory',
+            description = msg,
+            type = 'error'
+        })
+    end
+    if type == 'success' then
+        lib.notify({
+            title = 'Inventory',
+            description = msg,
+            type = 'success'
+        })
+    end
 end
 
 function ShowHelpNotification(msg)

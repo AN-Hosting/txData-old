@@ -38,6 +38,40 @@ function Split(s, delimiter)
     return result;
 end
 
+RegisterNetEvent('weapons:reloadWeapon', function(ammoType)
+    local src = source
+    local player = GetPlayerFromId(src)
+    local items = GetItems(player)
+    if not ammoType then
+        Error('Your weapons.lua is broken! AMMO_TYPE is not found. Please follow our docs and use our qb-core if it needs!')
+        return
+    end
+    ammoType = type(ammoType) == 'table' and ammoType or { ammoType }
+    local ammoItems = {}
+    for k, v in pairs(ammoType) do
+        local item = table.find(Config.AmmoItems, function(item) return item.type == v end)
+        if item then
+            ammoItems[#ammoItems + 1] = item.item
+        end
+    end
+    local item
+    for k, v in pairs(items) do
+        if v.name == table.find(Config.AmmoItems, function(item) return item.isForEveryWeapon end).item then
+            item = v
+            break
+        end
+        if table.includes(ammoItems, v.name) then
+            item = v
+            break
+        end
+    end
+    if not item then
+        TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_AMMO'), 'error')
+        return
+    end
+    lib.callback.await('weapons:addAmmo', src, item)
+end)
+
 lib.callback.register('weapons:GetWeaponAmmoItem', function(source, ammoType, checkMaster)
     local player = GetPlayerFromId(source)
     local items = GetItems(player)
@@ -45,16 +79,20 @@ lib.callback.register('weapons:GetWeaponAmmoItem', function(source, ammoType, ch
         Error('Your weapons.lua is broken! AMMO_TYPE is not found. Please follow our docs and use our qb-core if it needs!')
         return
     end
-    local ammoName = Split(ammoType, '_')
-    ammoName = ammoName[2]:lower() .. '_' .. ammoName[1]:lower()
-    if ammoName == 'sniper_ammo' then
-        ammoName = 'snp_ammo'
+    ammoType = type(ammoType) == 'table' and ammoType or { ammoType }
+    local ammoItems = {}
+    for k, v in pairs(ammoType) do
+        local item = table.find(Config.AmmoItems, function(item) return item.type == v end)
+        if item then
+            ammoItems[#ammoItems + 1] = item.item
+        end
     end
+    Debug('ammoType', ammoType)
     for k, v in pairs(items) do
         if checkMaster and v.name == table.find(Config.AmmoItems, function(item) return item.isForEveryWeapon end).item then
             return v
         end
-        if v.name == ammoName then
+        if table.includes(ammoItems, v.name) then
             return v
         end
     end
@@ -121,19 +159,18 @@ RegisterServerCallback('weapons:server:RepairWeapon', function(source, cb, Repai
     local minute = 60 * 1000
     local Timeout = math.random(5 * minute, 10 * minute)
     local WeaponData = WeaponList[GetHashKey(data.name)]
-    local WeaponClass = (SplitStr(WeaponData.ammotype, '_')[2]):lower()
     local items = GetItems(Player)
 
     if items[data.slot] then
         if items[data.slot].info.quality then
             if items[data.slot].info.quality ~= 100 then
                 local cash = GetAccountMoney(src, 'money')
-                if cash >= Config.WeaponRepairCosts[WeaponClass] then
+                if cash >= Config.WeaponRepairCosts[WeaponData.weapontype] then
                     items[data.slot].info.quality = 100
                     SetItemMetadata(src, data.slot, items[data.slot].info)
                     TriggerClientEvent(Config.InventoryPrefix .. ':client:CheckWeapon', src, data.name)
                     TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_TEXT_REPAIR_REPAIRED'), 'error')
-                    RemoveAccountMoney(src, 'money', Config.WeaponRepairCosts[WeaponClass])
+                    RemoveAccountMoney(src, 'money', Config.WeaponRepairCosts[WeaponData.weapontype])
                     cb(true)
                 else
                     TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_MONEY'), 'error')

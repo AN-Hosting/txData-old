@@ -28,6 +28,7 @@ RegisterNetEvent('esx:playerLoaded', function(id, player)
 
     player.setAccountMoney('money', money, 'dropped')
     player.setAccountMoney('black_money', black_money, 'dropped')
+    InitDrops(id)
 end)
 
 function RegisterServerCallback(name, cb)

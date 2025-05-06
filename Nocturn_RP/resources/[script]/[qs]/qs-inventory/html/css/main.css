@@ -165,7 +165,8 @@ body,
 
 .clothes-inventory,
 .custom-inventory {
-    min-width: 550px;
+    min-width: 564px;
+    margin-top: -45px;
 }
 
 .oth-inv-container {
@@ -318,6 +319,7 @@ body {
     position: relative;
     max-width: 100px;
     min-height: 102.2px;
+    height: 102.2px;
     float: left;
     font-family: "CabinetGrotesk-Bold";
     margin: 1px;
@@ -1812,6 +1814,7 @@ body {
 }
 
 .custom-details {
+    background: transparent !important;
     border-radius: 5px;
     border: 1px solid rgba(128, 128, 128, 1);
     background: radial-gradient(
@@ -1907,6 +1910,11 @@ body {
 
 #reset-localstorage {
     display: none;
+}
+
+#reset-localstorage p {
+    position: relative;
+    bottom: 7%;
 }
 
 .flexik {
@@ -2168,23 +2176,21 @@ input[type="range"]:hover {
     right: -8.2%;
 }
 
-.iconBigger {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 26px;
-    width: 26px;
+.fa-arrow-left {
+    font-size: 2.3vh !important;
 }
 
-.clothIcon {
-    background-image: url("../icons/clothing.svg");
+.fa-shirt {
+    font-size: 1.8vh !important;
 }
 
-.settingsIcon {
-    background-image: url("../icons/settings.svg");
+.fa-sliders {
+    padding-top: 20%;
+    font-size: 1.8vh !important;
 }
 
-.returnIcon {
-    background-image: url("../icons/arrowLeft.svg");
+.settingsIcon .fa-arrow-left {
+    padding-top: 25%;
 }
 
 .player-weight-progressbar {
@@ -2558,7 +2564,7 @@ input[type="range"]:hover {
 }
 
 .serialBlue {
-    color: #00a3ff;
+    color: var(--primary-color);
 }
 
 .filled {
