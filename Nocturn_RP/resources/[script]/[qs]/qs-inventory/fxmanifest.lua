@@ -4,7 +4,7 @@ game 'gta5'
 
 lua54 'yes'
 
-version '3.3.67'
+version '3.3.71'
 
 data_file 'WEAPONINFO_FILE_PATCH' 'weaponsnspistol.meta'
 

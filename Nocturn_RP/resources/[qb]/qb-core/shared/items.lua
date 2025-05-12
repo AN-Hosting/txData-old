@@ -424,17 +424,23 @@ QBShared.Items = {
     newsbmic                     = { name = 'newsbmic', label = 'Micro Perche', weight = 100, type = 'item', image = 'newsbmic.png', unique = true, useable = true, shouldClose = true, description = 'Une perche micro professionnelle' },
 
     -- Clothes
-    tshirt                       = { name = 'tshirt', label = 'T-shirt', weight = 0, type = 'item', image = 'tshirt.png', unique = true, useable = true, shouldClose = true,  description = 'Un haut simple et confortable' },
-    torso                        = { name = 'torso', label = 'Haut', weight = 0, type = 'item', image = 'torso.png', unique = true, useable = true, shouldClose = true,  description = 'Un vêtement pour le haut du corps' },
-    arms                         = { name = 'arms', label = 'Manches', weight = 0, type = 'item', image = 'arms.png', unique = true, useable = true, shouldClose = true,  description = 'Des manches pour compléter votre tenue' },
-    jeans                        = { name = 'jeans', label = 'Jean', weight = 0, type = 'item', image = 'jeans.png', unique = true, useable = true, shouldClose = true,  description = 'Un pantalon en denim classique' },
-    shoes                        = { name = 'shoes', label = 'Chaussures', weight = 0, type = 'item', image = 'shoes.png', unique = true, useable = true, shouldClose = true,  description = 'Une paire de chaussures confortable' },
-    mask                         = { name = 'mask', label = 'Masque', weight = 0, type = 'item', image = 'mask.png', unique = true, useable = true, shouldClose = true,  description = 'Pour cacher votre visage' },
-    ears                         = { name = 'ears', label = 'Accessoires Oreilles', weight = 0, type = 'item', image = 'ears.png', unique = true, useable = true, shouldClose = true,  description = 'Des accessoires pour vos oreilles' },
-    glasses                      = { name = 'glasses', label = 'Lunettes', weight = 0, type = 'item', image = 'glasses.png', unique = true, useable = true, shouldClose = true,  description = 'Pour protéger vos yeux avec style' },
-    helmet                       = { name = 'helmet', label = 'Casque', weight = 0, type = 'item', image = 'helmet.png', unique = true, useable = true, shouldClose = true,  description = 'Protection pour votre tête' },
-    bag                          = { name = 'bag', label = 'Sac', weight = 0, type = 'item', image = 'bag.png', unique = true, useable = true, shouldClose = true,  description = 'Pour transporter vos affaires' },
+    tshirt                       = { name = 'tshirt', label = 'T-shirt', weight = 0, type = 'item', image = 'tshirt.png', unique = true, useable = true, shouldClose = false,  description = 'Un haut simple et confortable' },
+    torso                        = { name = 'torso', label = 'Haut', weight = 0, type = 'item', image = 'torso.png', unique = true, useable = true, shouldClose = false,  description = 'Un vêtement pour le haut du corps' },
+    arms                         = { name = 'arms', label = 'Manches', weight = 0, type = 'item', image = 'arms.png', unique = true, useable = true, shouldClose = false,  description = 'Des manches pour compléter votre tenue' },
+    jeans                        = { name = 'jeans', label = 'Jean', weight = 0, type = 'item', image = 'jeans.png', unique = true, useable = true, shouldClose = false,  description = 'Un pantalon en denim classique' },
+    shoes                        = { name = 'shoes', label = 'Chaussures', weight = 0, type = 'item', image = 'shoes.png', unique = true, useable = true, shouldClose = false,  description = 'Une paire de chaussures confortable' },
+    mask                         = { name = 'mask', label = 'Masque', weight = 0, type = 'item', image = 'mask.png', unique = true, useable = true, shouldClose = false,  description = 'Pour cacher votre visage' },
+    ears                         = { name = 'ears', label = 'Accessoires Oreilles', weight = 0, type = 'item', image = 'ears.png', unique = true, useable = true, shouldClose = false,  description = 'Des accessoires pour vos oreilles' },
+    glasses                      = { name = 'glasses', label = 'Lunettes', weight = 0, type = 'item', image = 'glasses.png', unique = true, useable = true, shouldClose = false,  description = 'Pour protéger vos yeux avec style' },
+    helmet                       = { name = 'helmet', label = 'Casque', weight = 0, type = 'item', image = 'helmet.png', unique = true, useable = true, shouldClose = false,  description = 'Protection pour votre tête' },
+    bag                          = { name = 'bag', label = 'Sac', weight = 0, type = 'item', image = 'bag.png', unique = true, useable = true, shouldClose = false,  description = 'Pour transporter vos affaires' },
     chain                        = { name = 'chain', label = 'Chaîne', weight = 100, type = 'item', image = 'goldchain.png', unique = true, useable = true, shouldClose = false,  rare = 'epic', description = 'Un accessoire brillant pour le cou' },
+    vest = {    name = 'vest',    label = 'Vest',    weight = 100,    type = 'item',    image = 'vest.png',    unique = true,    useable = true,    shouldClose = false,    combinable = nil,    rare = 'epic',    description = 'Body Armor'},
+    bracelets = {    name = 'bracelets',    label = 'Bracelets',    weight = 100,    type = 'item',    image = 'bracelets.png',    unique = true,    useable = true,    shouldClose = false,    combinable = nil,    rare = 'epic',    description = 'It is very fragile, watch out'},
+    watch = {    name = 'watch',    label = 'Montre',    weight = 100,    type = 'item',    image = 'rolex.png',    unique = true,    useable = true,    shouldClose = false,    combinable = nil,    rare = 'epic',    description = 'It is very fragile, watch out'},
+    
+    
+    
     -- Cat café
     bento                        = { name = 'bento', label = 'Bento', weight = 500, type = 'item', image = 'bento.png', unique = false, useable = true, shouldClose = false, description = 'Un délicieux repas japonais' },
     blueberry                    = { name = 'blueberry', label = 'Myrtilles', weight = 100, type = 'item', image = 'blueberry.png', unique = false, useable = true, shouldClose = false, description = 'Une poignée de myrtilles fraîches' },

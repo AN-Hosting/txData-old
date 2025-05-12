@@ -9,7 +9,7 @@ Identifier = 'identifier'
 VehicleTable = 'owned_vehicles'
 es_extended = 'es_extended'
 WeaponList = WeaponList
-ItemList = ItemList
+ItemList = FormatItems(ItemList)
 
 StarterItems = {
     ['id_card'] = 1,

@@ -154,56 +154,6 @@ end
 
 exports("ReloadPhone", ReloadPhone)
 
-local phoneVariation
-
----Check if the player has a phone
----@return boolean
-function HasPhoneItem(number)
-    if not Config.Item.Require then
-        return true
-    end
-
-    if Config.Item.Unique then
-        return HasPhoneNumber(number)
-    end
-
-    if Config.Item.Name then
-        return HasItem(Config.Item.Name)
-    end
-
-    if phoneVariation and HasItem(Config.Item.Names[phoneVariation].name) then
-        return true
-    end
-
-    if not phoneVariation then
-        local storedVariation = GetResourceKvpInt("phone_variation")
-
-        if storedVariation and Config.Item.Names[storedVariation] and HasItem(Config.Item.Names[storedVariation].name) then
-            phoneVariation = storedVariation
-
-            SetPhoneVariation(storedVariation)
-
-            return true
-        end
-    end
-
-    for i = 1, #Config.Item.Names do
-        local item = Config.Item.Names[i]
-
-        if HasItem(item.name) then
-            phoneVariation = i
-
-            SetPhoneVariation(i)
-
-            return true
-        end
-    end
-
-    return false
-end
-
-exports("HasPhoneItem", HasPhoneItem)
-
 ---@param appIdentifier string
 ---@param jobName? string
 ---@param jobGrade? number
@@ -263,3 +213,30 @@ function HasAccessToApp(appIdentifier, jobName, jobGrade)
 
     return true
 end
+
+---@param vehicle number
+---@param plate string
+function GiveVehicleKey(vehicle, plate)
+    TriggerEvent("vehiclekeys:client:SetOwner", plate)
+end
+
+-- ---@param uploadType "Video" | "Image" | "Audio"
+-- ---@return UploadMethod?
+-- function CustomGetUploadMethod(uploadType)
+--     local methods = UploadMethods[Config.UploadMethod[uploadType]]
+
+--     if not methods then
+--         infoprint("error", "Upload methods not found for ", uploadType)
+--         return
+--     end
+
+--     ---@type UploadMethod?
+--     local method = methods[uploadType] or methods.Default
+
+--     if not method then
+--         infoprint("error", "Upload method not found for ", uploadType)
+--         return
+--     end
+
+--     return method
+-- end

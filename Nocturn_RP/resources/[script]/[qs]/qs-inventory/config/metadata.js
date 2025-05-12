@@ -177,18 +177,6 @@ function FormatItemInfo(itemData) {
             $(".item-info-description").html(
                 "<p>" + itemData.info.uses + " uses left.</p>"
             );
-        } else if (itemData.name == "syphoningkit") { // Kit de Siphonnage (CDN-Fuel ou CDN-Syphoning!)
-            $(".item-info-title").html("<p>" + itemData.label + "</p>");
-            $(".item-info-description").html(
-                "<p>" + "Un kit utilisé pour siphonner l'essence des véhicules! <br><br>" + itemData.info.gasamount + " Litres à l'intérieur.</p>" +
-                "</span></p><p style=\"padding-top: .8vh;font-size:11px\"><b>Poids: </b>" + ((itemData.weight * itemData.amount) / 1000).toFixed(1) + " | <b>Quantité: </b> " + itemData.amount
-            );
-        } else if (itemData.name == "jerrycan") { // Jerrican (CDN-Fuel!)
-            $(".item-info-title").html("<p>" + itemData.label + "</p>");
-            $(".item-info-description").html(
-                "<p>" + "Un jerrican, conçu pour contenir du carburant! <br><br>" + itemData.info.gasamount + " Litres à l'intérieur.</p>" +
-                "</span></p><p style=\"padding-top: .8vh;font-size:11px\"><b>Poids: </b>" + ((itemData.weight * itemData.amount) / 1000).toFixed(1) + " | <b>Quantité: </b> " + itemData.amount
-            );
         } else if (itemData.name == "weapontint_url") {
             $(".item-info-title").html("<p>" + `${itemData.info.label || label}` + "</p>");
             $(".item-info-description").html(

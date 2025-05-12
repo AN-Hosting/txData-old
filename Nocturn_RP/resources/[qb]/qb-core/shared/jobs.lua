@@ -229,7 +229,7 @@ QBShared.Jobs = {
         	['4'] = { name = 'Gérant(e)', isboss = true, payment = 150 },
 		},
 	},
-	vanillaunicorn = {
+	unicorn = {
 		label = 'Vanilla Unicorn',
 		defaultDuty = false,
 		offDutyPay = false,

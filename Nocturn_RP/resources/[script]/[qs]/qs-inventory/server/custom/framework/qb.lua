@@ -9,7 +9,7 @@ Identifier = 'citizenid'
 VehicleTable = 'player_vehicles'
 if not Config.QBX then
     WeaponList = QBCore.Shared.Weapons
-    ItemList = QBCore.Shared.Items
+    ItemList = FormatItems(QBCore.Shared.Items)
 end
 
 RegisterNetEvent('QBCore:Server:PlayerLoaded', function(Player)

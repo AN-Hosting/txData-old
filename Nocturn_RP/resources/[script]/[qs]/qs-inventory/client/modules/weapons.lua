@@ -227,7 +227,6 @@ AddEventHandler('weapons:client:ConfigureTint', function(ItemData)
 end)
 
 function closeGui()
-    print('hay anani')
     SetFocus(false)
     SendNUIMessage({ action = 'hide' })
 end

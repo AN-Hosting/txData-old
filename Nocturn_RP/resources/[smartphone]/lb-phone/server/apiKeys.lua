@@ -1,7 +1,7 @@
 -- Webhook for instapic posts, recommended to be a public channel
-INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/1353675821176586270/MxhqJrYwsRXkhywwCevxmH4o-sgH1qjGHRHialjIGWrfZ0SdXj6G_o6qLnMzte5VISid/"
+INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/"
 -- Webhook for birdy posts, recommended to be a public channel
-BIRDY_WEBHOOK = "https://discord.com/api/webhooks/1353733640344829972/Y_VEZJPgEHrC-S40caAXhGeBd_hUvAS1RGPbf8ZhyQlrqQ_xKa_uCn1R8HpxrC_WfIMH/"
+BIRDY_WEBHOOK = "https://discord.com/api/webhooks/"
 
 -- Discord webhook for server logs
 LOGS = {
@@ -30,7 +30,7 @@ DISCORD_TOKEN = nil -- you can set a discord bot token here to get the players d
 -- You can get your API keys from https://fivemanage.com/
 -- A video tutorial for how to set up Fivemanage can be found here: https://www.youtube.com/watch?v=y3bCaHS6Moc
 API_KEYS = {
-    Video = "MiJAHUKnVKGAsbHPZDoNuLpmW5qvUlOI",
-    Image = "qF08mw8WBG6aadR12wO8FnSvEVmFt5gx",
-    Audio = "7JHMlgfxreluKtZCuqx38jnt2a397puv",
+    Video = "API_KEY_HERE",
+    Image = "API_KEY_HERE",
+    Audio = "API_KEY_HERE",
 }
