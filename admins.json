@@ -142,5 +142,22 @@
       "console.write",
       "control.server"
     ]
+  },
+  {
+    "$schema": 1,
+    "name": "nicohydrebzh",
+    "master": false,
+    "password_hash": "$2a$11$FJopQAmK9l/PdFsRt75touknlkQIUAkM9XHoN25e0FH5cPkkI8.kq",
+    "password_temporary": true,
+    "providers": {
+      "discord": {
+        "id": "401666925542899713",
+        "identifier": "discord:401666925542899713",
+        "data": {}
+      }
+    },
+    "permissions": [
+      "all_permissions"
+    ]
   }
 ]
