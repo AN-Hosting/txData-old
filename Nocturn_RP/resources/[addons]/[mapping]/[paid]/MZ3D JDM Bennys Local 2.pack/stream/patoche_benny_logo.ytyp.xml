@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+    <Item type="CBaseArchetypeDef">
+      <lodDist value="103.278" />
+      <flags value="0" />
+      <specialAttribute value="0" />
+      <bbMin x="-2.2445" y="-0.109786" z="-0.538952" />
+      <bbMax x="2.09606" y="-0.0097864" z="-0.0390747" />
+      <bsCentre x="-0.074222" y="-0.0597864" z="-0.289014" />
+      <bsRadius value="2.18519" />
+      <hdTextureDist value="77.4583" />
+      <name>patoche_benny_logo_high_0</name>
+      <textureDictionary>patoche_benny_logo_high_0</textureDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <physicsDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>patoche_benny_logo_high_0</assetName>
+      <extensions />
+    </Item>
+  </archetypes>
+  <name>patoche_benny_logo</name>
+  <dependencies />
+  <compositeEntityTypes />
+</CMapTypes>
