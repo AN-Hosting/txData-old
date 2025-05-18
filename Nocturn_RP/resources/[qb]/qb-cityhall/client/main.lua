@@ -212,7 +212,7 @@ local function spawnPeds()
             local opts = nil
             if current.drivingschool then
                 opts = {
-                    label = 'Take Driving Lessons',
+                    label = 'Prenez des leçons de conduite',
                     icon = 'fa-solid fa-car-side',
                     action = function()
                         TriggerServerEvent('qb-cityhall:server:sendDriverTest', Config.DrivingSchools[closestDrivingSchool].instructors)
@@ -220,7 +220,7 @@ local function spawnPeds()
                 }
             elseif current.cityhall then
                 opts = {
-                    label = 'Open Cityhall',
+                    label = 'Ouvrir le menu de la ville',
                     icon = 'fa-solid fa-city',
                     action = function()
                         inRangeCityhall = true
@@ -249,10 +249,10 @@ local function spawnPeds()
                         if inside then
                             if current.drivingschool then
                                 inRangeDrivingSchool = true
-                                exports['qb-core']:DrawText('[E] Take Driving Lessons')
+                                exports['qb-core']:DrawText('[E] Prendre des leçons de conduite')
                             elseif current.cityhall then
                                 inRangeCityhall = true
-                                exports['qb-core']:DrawText('[E] Open Cityhall')
+                                exports['qb-core']:DrawText('[E] Ouvrir le menu de la ville')
                             end
                         else
                             exports['qb-core']:HideText()
@@ -320,7 +320,7 @@ RegisterNetEvent('qb-cityhall:client:requestId', function(data)
         local license = Config.Cityhalls[closestCityhall].licenses[data.type]
         if license and data.cost == license.cost then
             TriggerServerEvent('qb-cityhall:server:requestId', data.type, closestCityhall)
-            QBCore.Functions.Notify(('You have received your %s for $%s'):format(license.label, data.cost), 'success', 3500)
+            QBCore.Functions.Notify(('Vous avez reçu votre %s pour $%s'):format(license.label, data.cost), 'success', 3500)
         else
             QBCore.Functions.Notify(Lang:t('error.not_in_range'), 'error')
         end
