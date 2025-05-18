@@ -138,11 +138,11 @@ Config.CraftingTables = {
             colour = 0,
             id = 365
         },
-        location = vec3(-287.16, -78.21, 49.5), -- À ajuster selon tes besoinsvector3(-287.16, -78.21, 49.5)
+        location = vec3(-287.16, -78.21, 49.5),
         items = {
             -- Mochis
             [1] = {
-                name = 'bmochi',
+                name = 'mochiblue',
                 amount = 1,
                 info = {},
                 costs = {
@@ -156,7 +156,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [2] = {
-                name = 'pmochi',
+                name = 'mochipink',
                 amount = 1,
                 info = {},
                 costs = {
@@ -170,13 +170,13 @@ Config.CraftingTables = {
                 chance = 100
             },
             [3] = {
-                name = 'gmochi',
+                name = 'mochigreen',
                 amount = 1,
                 info = {},
                 costs = {
                     ['flour'] = 2,
                     ['sugar'] = 1,
-                    ['mint'] = 2,
+                    ['matcha'] = 2,
                 },
                 type = 'item',
                 slot = 3,
@@ -184,7 +184,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [4] = {
-                name = 'omochi',
+                name = 'mochiorange',
                 amount = 1,
                 info = {},
                 costs = {
@@ -199,7 +199,7 @@ Config.CraftingTables = {
             },
             -- Boba Teas
             [5] = {
-                name = 'bobatea',
+                name = 'bubbletea',
                 amount = 1,
                 info = {},
                 costs = {
@@ -213,7 +213,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [6] = {
-                name = 'bbobatea',
+                name = 'bubbleteablue',
                 amount = 1,
                 info = {},
                 costs = {
@@ -228,7 +228,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [7] = {
-                name = 'gbobatea',
+                name = 'bubbleteagreen',
                 amount = 1,
                 info = {},
                 costs = {
@@ -243,7 +243,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [8] = {
-                name = 'pbobatea',
+                name = 'bubbleteapink',
                 amount = 1,
                 info = {},
                 costs = {
@@ -258,7 +258,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [9] = {
-                name = 'obobatea',
+                name = 'bubbleteaorange',
                 amount = 1,
                 info = {},
                 costs = {
@@ -274,7 +274,7 @@ Config.CraftingTables = {
             },
             -- Autres boissons
             [10] = {
-                name = 'nekolatte',
+                name = 'latte',
                 amount = 1,
                 info = {},
                 costs = {
@@ -343,7 +343,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [15] = {
-                name = 'riceball',
+                name = 'catrice',
                 amount = 1,
                 info = {},
                 costs = {
@@ -356,7 +356,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [16] = {
-                name = 'nekocookie',
+                name = 'catcookie',
                 amount = 1,
                 info = {},
                 costs = {
@@ -370,7 +370,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [17] = {
-                name = 'nekodonut',
+                name = 'catdonut',
                 amount = 1,
                 info = {},
                 costs = {
@@ -384,7 +384,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [18] = {
-                name = 'mocha',
+                name = 'mochameow',
                 amount = 1,
                 info = {},
                 costs = {
@@ -411,7 +411,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [20] = {
-                name = 'pancake',
+                name = 'pawcakes',
                 amount = 1,
                 info = {},
                 costs = {
@@ -425,7 +425,7 @@ Config.CraftingTables = {
                 chance = 100
             },
             [21] = {
-                name = 'pizza',
+                name = 'catpizza',
                 amount = 1,
                 info = {},
                 costs = {
@@ -478,6 +478,180 @@ Config.CraftingTables = {
                 time = 6000,
                 chance = 100
             }
+        }
+    }
+}
+
+Config.CraftingTables[2] = {
+    name = 'Burgershot Crafting',
+    isjob = 'burgershot',
+    grades = 'all',
+    text = '[E] - Burgershot Crafting',
+    blip = {
+        enabled = true,
+        title = 'Burgershot Crafting',
+        scale = 1.0,
+        display = 4,
+        colour = 1,
+        id = 106
+    },
+    location = vec3(-1195.19, -896.75, 13.79),
+    items = {
+        [1] = {
+            name = 'bsmoneyshot',
+            amount = 1,
+            info = {},
+            costs = {
+                ['meat'] = 2,
+                ['bread'] = 1,
+                ['bscheese'] = 1,
+                ['bslettuce'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
+            },
+            type = 'item',
+            slot = 1,
+            time = 5000,
+            chance = 100
+        },
+        [2] = {
+            name = 'bsmysteryburger',
+            amount = 1,
+            info = {},
+            costs = {
+                ['meat'] = 1,
+                ['bread'] = 1,
+                ['bscheese'] = 1,
+                ['bsmushroom'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
+            },
+            type = 'item',
+            slot = 2,
+            time = 5000,
+            chance = 100
+        },
+        [3] = {
+            name = 'bsnamuh',
+            amount = 1,
+            info = {},
+            costs = {
+                ['meat'] = 2,
+                ['bread'] = 1,
+                ['bscheese'] = 1,
+                ['bscarrot'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
+            },
+            type = 'item',
+            slot = 3,
+            time = 5000,
+            chance = 100
+        },
+        [4] = {
+            name = 'bstorpedo',
+            amount = 1,
+            info = {},
+            costs = {
+                ['bread'] = 1,
+                ['sausage'] = 1,
+                ['bscheese'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
+            },
+            type = 'item',
+            slot = 4,
+            time = 4000,
+            chance = 100
+        },
+        [5] = {
+            name = 'bsweiner',
+            amount = 1,
+            info = {},
+            costs = {
+                ['bread'] = 1,
+                ['sausage'] = 1,
+                ['bslettuce'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+            },
+            type = 'item',
+            slot = 5,
+            time = 4000,
+            chance = 100
+        },
+        [6] = {
+            name = 'bscreampie',
+            amount = 1,
+            info = {},
+            costs = {
+                ['flour'] = 2,
+                ['sugar'] = 1,
+                ['milk'] = 1,
+            },
+            type = 'item',
+            slot = 6,
+            time = 4000,
+            chance = 100
+        },
+        [7] = {
+            name = 'bsdonut',
+            amount = 1,
+            info = {},
+            costs = {
+                ['flour'] = 2,
+                ['sugar'] = 1,
+                ['milk'] = 1,
+            },
+            type = 'item',
+            slot = 7,
+            time = 4000,
+            chance = 100
+        },
+        [8] = {
+            name = 'bsfries',
+            amount = 1,
+            info = {},
+            costs = {
+                ['potato'] = 2,
+                ['salt'] = 1,
+            },
+            type = 'item',
+            slot = 8,
+            time = 3000,
+            chance = 100
+        },
+        [9] = {
+            name = 'bsmilkshake',
+            amount = 1,
+            info = {},
+            costs = {
+                ['milk'] = 2,
+                ['sugar'] = 1,
+                ['vanille'] = 1,
+            },
+            type = 'item',
+            slot = 9,
+            time = 4000,
+            chance = 100
+        },
+        [10] = {
+            name = 'bscoffee',
+            amount = 1,
+            info = {},
+            costs = {
+                ['bscoffeebeans'] = 1,
+                ['water_bottle'] = 1,
+                ['sugar'] = 1,
+            },
+            type = 'item',
+            slot = 10,
+            time = 3000,
+            chance = 100
         }
     }
 }

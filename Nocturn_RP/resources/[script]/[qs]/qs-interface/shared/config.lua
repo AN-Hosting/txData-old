@@ -61,7 +61,7 @@ Config.Framework = DependencyCheck(frameworks) or 'standalone' -- Automatically 
     and whether the interface starts automatically.
 ]]
 
-Config.ServerName = 'Quasar Roleplay'           -- Server name
+Config.ServerName = 'Nocturn RP'           -- Server name
 Config.MenuKeybind = 'F9'                       -- Key to open the menu
 Config.SeatbeltKeybind = 'G'                    -- Key to toggle seatbelt
 Config.SeatbeltKeybind_Name = 'Toggle seatbelt' -- Seatbelt label in Settings > Keybinds > FiveM

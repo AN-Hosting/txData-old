@@ -106,8 +106,8 @@ QBShared.Jobs = {
 			['4'] = { name = 'Directeur', isboss = true, payment = 150 },
 		},
 	},
-	luxury = {
-		label = 'Luxury Auto',
+	pdm = {
+		label = 'Premium deluxe motor',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -130,7 +130,7 @@ QBShared.Jobs = {
 			['4'] = { name = 'Directeur', isboss = true, payment = 150 },
 		},
 	},
-	autzoexotic = {
+	autoexotic = {
 		label = 'Auto Exotic',
 		type = 'mechanic',
 		defaultDuty = false,

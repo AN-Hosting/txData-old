@@ -18,7 +18,7 @@ Config.TargetBankDistance = 1.5 -- Distance to target a bank from qb-target ( To
 
 Config.DebugTargetZones = false -- Set to true only if you need to check the position of a zone
 
-Config.UseCashAsItem = false -- Set to true if you have cash as item on qb-core
+Config.UseCashAsItem = true -- Set to true if you have cash as item on qb-core
 
 Config.IBANPrefix = "OK" -- IBAN prefix
 
@@ -36,7 +36,7 @@ Config.AnimTime = 2 -- Seconds (ATM animation)
 
 Config.UseQBManagement = false -- If true it will use the management_funds table | If false the okokbanking_societies table
 
-Config.UseQBBanking = true -- Useful for latest QBCore versions
+Config.UseQBBanking = false -- Useful for latest QBCore versions
 
 Config.RequireCreditCardForATM = false -- Set to true if you would like players to access the ATM with a card item | If false there is no item requirement
 
