@@ -1,4 +1,4 @@
-print("^1TEST PRINT - MULTICHARACTER SERVER LOADED^7")
+-- print("^1TEST PRINT - MULTICHARACTER SERVER LOADED^7")
 
 local QBCore = exports['qb-core']:GetCoreObject()
 local hasDonePreloading = {}
@@ -21,7 +21,7 @@ local function GiveStarterItems(source)
             info.firstname = Player.PlayerData.charinfo.firstname
             info.lastname = Player.PlayerData.charinfo.lastname
             info.birthdate = Player.PlayerData.charinfo.birthdate
-            info.type = "Class C Driver License"
+            info.type = "Vehicle"
         end
         exports['qb-inventory']:AddItem(src, v.item, v.amount, false, info, 'qb-multicharacter:GiveStarterItems')
     end
@@ -89,9 +89,9 @@ end)
 
 RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
-    print("^3[DEBUG] Received loadUserData event^7") -- Debug 1
-    print("^3[DEBUG] Source:", src)                  -- Debug 2
-    print("^3[DEBUG] cData:", json.encode(cData))    -- Debug 3
+    -- print("^3[DEBUG] Received loadUserData event^7") -- Debug 1
+    -- print("^3[DEBUG] Source:", src)                  -- Debug 2
+    -- print("^3[DEBUG] cData:", json.encode(cData))    -- Debug 3
 
     if not cData then
         print("^1[ERROR] cData is nil^7")
@@ -103,24 +103,24 @@ RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
         return
     end
 
-    print("^3[DEBUG] Attempting login^7") -- Debug 4
+    -- print("^3[DEBUG] Attempting login^7") -- Debug 4
     if QBCore.Player.Login(src, cData.citizenid) then
-        print("^3[DEBUG] Login successful^7") -- Debug 5
+        -- print("^3[DEBUG] Login successful^7") -- Debug 5
         repeat
             Wait(10)
         until hasDonePreloading[src]
         
-        print("^3[DEBUG] Preloading complete^7") -- Debug 6
+        -- print("^3[DEBUG] Preloading complete^7") -- Debug 6
         print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has successfully loaded!')
         QBCore.Commands.Refresh(src)
         loadHouseData(src)
         
         if Config.SkipSelection then
-            print("^3[DEBUG] SkipSelection is true^7") -- Debug 7
+            -- print("^3[DEBUG] SkipSelection is true^7") -- Debug 7
             local coords = type(cData.position) == 'string' and json.decode(cData.position) or cData.position
             TriggerClientEvent('qb-multicharacter:client:spawnLastLocation', src, coords, cData)
         else
-            print("^3[DEBUG] SkipSelection is false^7") -- Debug 8
+            -- print("^3[DEBUG] SkipSelection is false^7") -- Debug 8
             if GetResourceState('qb-apartments') == 'started' then
                 TriggerClientEvent('apartments:client:setupSpawnUI', src, cData)
             else

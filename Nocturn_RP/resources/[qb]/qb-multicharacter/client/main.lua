@@ -174,7 +174,7 @@ end)
 -- NUI Callbacks
 
 RegisterNUICallback('closeUI', function(data, cb)
-    print("^3[DEBUG-CLIENT] closeUI callback triggered^7")
+    -- print("^3[DEBUG-CLIENT] closeUI callback triggered^7")
     
     -- Vérification et initialisation des données
     if not data then
@@ -188,8 +188,8 @@ RegisterNUICallback('closeUI', function(data, cb)
         cData = data.cData
     end
     
-    print("^3[DEBUG-CLIENT] Data content:", json.encode(data))
-    print("^3[DEBUG-CLIENT] cData content:", json.encode(cData))
+    -- print("^3[DEBUG-CLIENT] Data content:", json.encode(data))
+    -- print("^3[DEBUG-CLIENT] cData content:", json.encode(cData))
     
     DoScreenFadeOut(10)
     TriggerServerEvent('qb-multicharacter:server:loadUserData', cData)
