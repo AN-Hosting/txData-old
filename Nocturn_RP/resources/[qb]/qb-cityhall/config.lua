@@ -21,7 +21,7 @@ Config.Cityhalls = {
             display = 4,
             scale = 0.65,
             colour = 0,
-            title = 'City Services'
+            title = 'Services Publics'
         },
         licenses = {
             ['id_card'] = {
@@ -51,7 +51,7 @@ Config.DrivingSchools = {
             display = 4,
             scale = 0.65,
             colour = 3,
-            title = 'Driving School'
+            title = 'Ecole de Conduite'
         },
         instructors = {
             -- 'SRI85140',
