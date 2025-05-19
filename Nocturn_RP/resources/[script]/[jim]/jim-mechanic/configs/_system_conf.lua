@@ -1,17 +1,17 @@
 Config = Config or {}
 
 Config = {
-	Lan = "en", -- Pick your language file here
+	Lan = "fr", -- Pick your language file here
 	System = {
-		Debug = false, -- Set to true to show green debug boxes to help track any issues
-		EventDebug = false,
+		Debug = true, -- Set to true to show green debug boxes to help track any issues
+		EventDebug = true,
 
-		Menu = "ox",  				-- "qb", "ox", "gta"
-		Notify = "gta",				-- "qb", "ox", "gta", "esx"
-		drawText = "gta",			-- "qb", "ox", "gta"
-		ProgressBar = "gta", 		-- "qb", "ox", "gta", "esx"
+		Menu = "qb",  				-- "qb", "ox", "gta"
+		Notify = "qb",				-- "qb", "ox", "gta", "esx"
+		drawText = "qb",			-- "qb", "ox", "gta"
+		ProgressBar = "qb", 		-- "qb", "ox", "gta", "esx"
 
-		skillCheck = "gta",			-- "qb", "ox"
+		skillCheck = "qb",			-- "qb", "ox"
 
 		distkph = false, 			-- Set to false to read distance travelled in Miles.
 
@@ -20,28 +20,27 @@ Config = {
 
 Config.General = {
 	JimShops = false,			-- Enable to open shops in jim-shops menu's
-	showClockInTill = true,		-- Enable to show toggle duty options at payment tills
-	showBossMenuTill = true,	-- Enable to show bossmenu options at payment tills
+	showClockInTill = false,		-- Enable to show toggle duty options at payment tills
+	showBossMenuTill = false,	-- Enable to show bossmenu options at payment tills
 }
 
 Config.Main = { -- Main variables
 	isVehicleOwned = false, 	-- Enable this if you only want changes to be made to owned vehicles
 								-- False to allow modifications to unowned vehicles
 
-	ItemRequiresJob = true, 	-- Enable this if items should require a mechanic job
+	ItemRequiresJob = false, 	-- Enable this if items should require a mechanic job
 								-- Disable this to allow any player to use mechanic items
 
 	JobLocationRequired = false, -- Enable this to lock most modifications to specified job locations
 								-- Disable this to allow vehicle modifications anywhere
 
-	LocationBlips = true, 		-- Enable to show job location blips on the map
+	LocationBlips = false, 		-- Enable to show job location blips on the map
 								-- Disable to hide blips
 
-	CosmeticsJob = true, 		-- Cosmetic items, like hood and rims requires a mechanic job role
+	CosmeticsJob = false, 		-- Cosmetic items, like hood and rims requires a mechanic job role
 								-- Disable this so everyone can use cosmetic items
 
 	JobRoles = { 				-- These are the job roles who can use items if RequiresJob is enabled.
-		"mechanic",
 		"bennys",
 	},
 
@@ -97,7 +96,7 @@ Config.Discord = {
 	-- You will need to set custom info in each job location in /locations
 	-- But for the ones you don't add info to, it will default to these numbers
 
-	DiscordPreview = true, 		-- Set to true if you want to use discord receipts at all
+	DiscordPreview = false, 		-- Set to true if you want to use discord receipts at all
 	DiscordDefault = "", 		-- Set this to the default channel API link if one isn't set for a location
 	DiscordColour = 16753920, 	-- This is the default "decimal" number colour
 }

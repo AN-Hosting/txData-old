@@ -32,7 +32,7 @@ debugMode = Config.System.Debug
 
 QBInvNew = true
 
-InventoryWeight = 120000
+InventoryWeight = 60000
 
 -- [[ Server.Cfg Convar Check ]]--
 -- Check server convars for hard set defaults, otherwise it uses per script configurations

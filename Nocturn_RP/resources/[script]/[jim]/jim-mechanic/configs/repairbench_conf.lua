@@ -14,8 +14,8 @@ Config.Emergency = {
     LockEmergency = true,  -- Enable this to lock make only "Emergency" (Class 18) vehicles to be used with the bench
 
     Locations = {
-        { coords = vec4(451.05, -973.19, 25.7, 180.0), prop = false, }, -- MRPD UNDERGROUND PARKING
-        { coords = vec4(342.51, -570.98, 28.8, 70.0), prop = false, }, -- PILL BOX GARAGE
+        { coords = vec4(0.05, -0.19, 0.7, 0.0), prop = false, }, -- MRPD UNDERGROUND PARKING
+        -- { coords = vec4(342.51, -570.98, 28.8, 70.0), prop = false, }, -- PILL BOX GARAGE
     },
 
     CosmeticTable = { 			-- This controls what will appear in the emergency mech bench, "false" to hide it

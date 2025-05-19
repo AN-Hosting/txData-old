@@ -1,7 +1,7 @@
 Config = Config or {}
 
 Config.Odometer = {
-    ShowOdo = true, 					-- Wether the distance is showed in car by default
+    ShowOdo = false, 					-- Wether the distance is showed in car by default
                                         -- This can be toggled by players on the fly by players with /showodo
 
     ShowToAll = false,					-- If enabled, the odometer, like the milage will be shown to passengers aswell as the driver
