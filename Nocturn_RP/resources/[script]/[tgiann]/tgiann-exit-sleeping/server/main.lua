@@ -165,8 +165,8 @@ AddEventHandler('tgiann-exit-sleeping:server:stopCarrying', function(citizenId, 
         citizenId 
     })
     
-    print("stopCarrying", citizenId, netId)
-    print(playerCoords.x, playerCoords.y, playerCoords.z, playerHeading)
+    -- print("stopCarrying", citizenId, netId)
+    -- print(playerCoords.x, playerCoords.y, playerCoords.z, playerHeading)
 end)
 
 AddEventHandler('onResourceStop', function(resourceName)

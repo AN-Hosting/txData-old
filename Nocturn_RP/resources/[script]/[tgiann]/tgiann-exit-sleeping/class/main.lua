@@ -33,7 +33,7 @@ function Sleeping:new(data)
     self.__index = self
     if IsDuplicityVersion() then -- Server
         TriggerClientEvent('tgiann-exit-sleeping:client:sync', -1, "new", data.citizenId, data)
-        print("sync")
+        -- print("sync")
         if not data.isOld then
             
             MySQL.insert.await('INSERT INTO `tgiann_exit_sleeping` (citizenid, sleepData) VALUES (?, ?)', {
@@ -83,7 +83,7 @@ function Sleeping:setCoords(newCoords)
             }), 
             self.citizenId 
         })
-        print("Database updated with new coords:", json.encode(newCoords))
+        -- print("Database updated with new coords:", json.encode(newCoords))
     end
     debug("setCoords", self.citizenId, newCoords)
 end
