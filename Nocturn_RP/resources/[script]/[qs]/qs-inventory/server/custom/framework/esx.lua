@@ -40,6 +40,10 @@ function GetPlayerFromId(source)
 end
 
 function GetPlayerSourceFromIdentifier(identifier)
+    local player = ESX.GetPlayerFromIdentifier(identifier)
+    if not player then
+        return nil
+    end
     return ESX.GetPlayerFromIdentifier(identifier).source
 end
 
@@ -67,11 +71,19 @@ end
 
 function GetJobName(source)
     local player = GetPlayerFromId(source)
+    if not player then
+        Debug('Player not found', source)
+        return 'unemployed'
+    end
     return player?.getJob().name
 end
 
 function GetJobGrade(source)
     local player = GetPlayerFromId(source)
+    if not player then
+        Debug('Player not found', source)
+        return 0
+    end
     return player.getJob().grade
 end
 
@@ -87,6 +99,10 @@ end
 
 function AddAccountMoney(source, account, amount)
     local player = GetPlayerFromId(source)
+    if not player then
+        Debug('AddAccountMoney Player not found', source)
+        return
+    end
     player.addAccountMoney(account, amount)
 end
 

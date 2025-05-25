@@ -203,7 +203,7 @@ Config.ClothingSlots = {
         name = 'mask',
         slot = 2,
         type = 'head',
-        wearType = 'prop',
+        wearType = 'drawable',
         componentId = 1,
         anim = {
             dict = 'mp_masks@standard_car@ds@',
@@ -388,7 +388,7 @@ Config.Genders = {
 Config.OpenInventoryAnim = true                         -- Enables a player animation when opening the inventory
 Config.OpenInventoryScene = false                       -- Toggles the scene animation when the inventory is opened
 Config.Logo = 'https://anhosting.fr/logo.png' -- Path to a logo image (use a URL or a local path such as './icons/logo.png') or set false
-Config.IdleCamera = true                                -- Enables or disables idle camera functionality in the inventory screen
+Config.IdleCamera = false                                -- Enables or disables idle camera functionality in the inventory screen
 
 -- Configure additional sidebar options within the inventory display:
 Config.InventoryOptions = {
@@ -438,18 +438,21 @@ Config.ItemRarities = {
 -- Default character appearance options (adjust as needed for custom clothing setups)
 Config.Defaults = {
     ['female'] = {
-        torso = 15,
-        jeans = 14,
-        shoes = 45,
+        torso = 18,
+        jeans = 19,
+        shoes = 34,
         arms = 15,
         helmet = -1,
         glasses = -1,
         mask = 0,
-        tshirt = -1,
+        tshirt = 2,
         ears = -1,
         bag = 0,
         watch = -1,
-        chain = -1,
+        chain = 0,
+        bracelets = -1,
+        vest = 0,
+
     },
     ['male'] = {
         torso = 15,
@@ -463,7 +466,9 @@ Config.Defaults = {
         ears = -1,
         bag = 0,
         watch = -1,
-        chain = -1,
+        chain = 0,
+        bracelets = -1,
+        vest = 0
     }
 }
 
@@ -472,7 +477,7 @@ Config.Defaults = {
     lets you move around while using it, in true Quasar style.
 ]]
 
-Config.CompactInventory = false -- Enables a compact inventory view, reducing the size of the inventory window for a more streamlined appearance.
+Config.CompactInventory = true -- Enables a compact inventory view, reducing the size of the inventory window for a more streamlined appearance.
 
 -- Key Bindings: Configure shortcut keys for inventory actions
 -- Check the documentation for guidelines on modifying these key mappings
@@ -504,7 +509,7 @@ Config.KeyBinds = {
     you can use /save-inventories for save all inventories to the database (if you need to restart the script)
 ]]
 
-Config.Debug = false                  -- Enables detailed print logs for debugging; leave off for production
+Config.Debug = false                 -- Enables detailed print logs for debugging; leave off for production
 Config.ZoneDebug = false             -- Toggles additional debug information for zones; use only if you're troubleshooting specific zones
 Config.InventoryPrefix = 'inventory' -- Prefix for inventory references in the codebase; modifying this requires codebase-wide adjustments
 Config.SaveInventoryInterval = 12500

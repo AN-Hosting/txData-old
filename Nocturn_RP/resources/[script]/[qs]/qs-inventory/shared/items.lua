@@ -788,6 +788,7 @@ ItemList = {
         ['type'] = 'weapon',
         ['ammotype'] = 'AMMO_RIFLE',
         ['image'] = 'weapon_carbinerifle.png',
+        ['objectRotation'] = vec3(80.0, 60.0, 0.0),
         ['unique'] = true,
         ['useable'] = false,
         ['rare'] = 'epic', -- epic, legendary, common
@@ -1911,6 +1912,7 @@ ItemList = {
         ['combinable'] = nil,
         ['rare'] = 'common', -- epic, legendary, common
         ['object'] = 'prop_cs_spray_can',
+        ['objectRotation'] = vec3(15.0, 60.0, 1.5),
         ['description'] = 'Default/Black Weapon Tint'
     },
     ['green_weapontint']            = {

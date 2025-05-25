@@ -140,9 +140,9 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
 							Debug('trunk 132')
-							local success = RemoveItemFromOtherInventory('trunk', plate, fromSlot, itemInfo['name'], toAmount, src)
+							local success = RemoveItemFromOtherInventory('trunk', plate, toSlot, itemInfo['name'], toAmount, src)
 							if not success then
-								return Error('SetInventoryData', 'Trunk', 'Item not found', src, fromSlot)
+								return Error('SetInventoryData', 'Trunk', 'Item not found', src, toSlot)
 							end
 							AddItem(src, toItemData.name, toAmount, fromSlot, toItemData.info, nil, fromItemData['created'], nil, true)
 							TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, toItemData, toAmount, 'add')
@@ -153,7 +153,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					end
 				end
 				local itemInfo = ItemList[fromItemData.name:lower()]
-				AddToTrunk(plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'])
+				AddItemToOtherInventory('trunk', plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'], src)
 				SendWebhook(Webhooks.trunk, 'Deposit Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') deposit item in trunk!**\n**Name:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. fromAmount .. '\n**Plate:** ' .. plate)
 			elseif SplitStr(toInventory, '-')[1] == 'glovebox' then
 				local plate = SplitStr(toInventory, '-')[2]
@@ -167,7 +167,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					if toItemData.amount >= toAmount then
 						if toItemData.name ~= fromItemData.name then
 							Debug('trunk 159')
-							local success = RemoveItemFromOtherInventory('glovebox', plate, fromSlot, itemInfo['name'], toAmount, src)
+							local success = RemoveItemFromOtherInventory('glovebox', plate, toSlot, itemInfo['name'], toAmount, src)
 							if not success then
 								return Error('SetInventoryData', 'Glovebox', 'Item not found', src, fromSlot)
 							end
@@ -180,7 +180,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					end
 				end
 				local itemInfo = ItemList[fromItemData.name:lower()]
-				AddToGlovebox(plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'])
+				AddItemToOtherInventory('glovebox', plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'], src)
 				SendWebhook(Webhooks.glovebox, 'Deposit Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') deposit item in glovebox!**\n**Name:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. fromAmount .. '\n**Plate:** ' .. plate)
 			elseif SplitStr(toInventory, '-')[1] == 'stash' then
 				local stashId = SplitStr(toInventory, '-')[2]
@@ -207,7 +207,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					end
 				end
 				local itemInfo = ItemList[fromItemData.name:lower()]
-				AddToStash(stashId, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'])
+				AddItemToOtherInventory('stash', stashId, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'], src)
 				SendWebhook(Webhooks.stash, 'Deposit Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') deposit item in stash!**\n**Name:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. fromAmount .. '\n**Stash id:** ' .. stashId)
 			elseif SplitStr(toInventory, '_')[1] == 'garbage' then
 				local garbageId = SplitStr(toInventory, '_')[2]
@@ -384,6 +384,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 		local plate = SplitStr(fromInventory, '-')[2]
 		local fromItemData = Trunks[plate].items[fromSlot]
 		fromAmount = tonumber(fromAmount) or fromItemData.amount
+		Debug('fromSlot', fromSlot, 'toSlot', toSlot, 'fromAmount', fromAmount, 'toAmount', toAmount)
 		if fromItemData and fromItemData.amount >= fromAmount then
 			local itemInfo = ItemList[fromItemData.name:lower()]
 			if toInventory == 'player' or toInventory == 'hotbar' then
@@ -402,7 +403,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 						if toItemData.name ~= fromItemData.name then
 							RemoveItem(src, toItemData.name, toAmount, toSlot, nil, true)
 							TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, toItemData, toAmount, 'remove')
-							AddToTrunk(plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
+							AddItemToOtherInventory('trunk', plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'], src)
 							SendWebhook(Webhooks.swap, 'Swapped Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') swapped item!**\n**Name:** ' .. toItemData.name .. '\n**Amount:** ' .. toAmount .. '\n**With item:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. toAmount .. '\n**Plate:** ' .. plate)
 						end
 					else
@@ -425,14 +426,14 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 							itemInfo = ItemList[toItemData.name:lower()]
 							Debug('trunk 410')
 							RemoveItemFromOtherInventory('trunk', plate, toSlot, itemInfo['name'], toAmount, src)
-							AddToTrunk(plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
+							AddItemToOtherInventory('trunk', plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'], src)
 						end
 					else
 						print('Dupe Blocked - 12')
 					end
 				end
 				itemInfo = ItemList[fromItemData.name:lower()]
-				AddToTrunk(plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'])
+				AddItemToOtherInventory('trunk', plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'], src)
 				SendWebhook(Webhooks.trunk, 'Deposit Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') deposit item in trunk!**\n**Name:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. fromAmount .. '\n**Plate:** ' .. plate)
 			end
 		else
@@ -459,7 +460,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 						if toItemData.name ~= fromItemData.name then
 							RemoveItem(src, toItemData.name, toAmount, toSlot, nil, true)
 							TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, toItemData, toAmount, 'remove')
-							AddToGlovebox(plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
+							AddItemToOtherInventory('glovebox', plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'], src)
 							SendWebhook(Webhooks.swap, 'Swapped Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: *' .. src .. ')* swapped item!**\n**Name:** ' .. toItemData.name .. '\n**Amount:** ' .. toAmount .. '\n**With item:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. toAmount .. '\n**Plate:** ' .. plate)
 						end
 					else
@@ -482,14 +483,14 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 							itemInfo = ItemList[toItemData.name:lower()]
 							Debug('trunk 473')
 							RemoveItemFromOtherInventory('glovebox', plate, toSlot, itemInfo['name'], toAmount, src)
-							AddToGlovebox(plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
+							AddItemToOtherInventory('glovebox', plate, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'], src)
 						end
 					else
 						print('Dupe Blocked - 14')
 					end
 				end
 				itemInfo = ItemList[fromItemData.name:lower()]
-				AddToGlovebox(plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'])
+				AddItemToOtherInventory('glovebox', plate, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'], src)
 				SendWebhook(Webhooks.glovebox, 'Deposit Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') deposit item in glovebox!**\n**Name:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. fromAmount .. '\n**Plate:** ' .. plate)
 			end
 		else
@@ -517,14 +518,13 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 						if toItemData.name ~= fromItemData.name then
 							RemoveItem(src, toItemData.name, toAmount, toSlot, nil, true)
 							TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, toItemData, toAmount, 'remove')
-							AddToStash(stashId, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
+							AddItemToOtherInventory('stash', stashId, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'], src)
 							SendWebhook(Webhooks.swap, 'Swapped Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') swapped item!**\n**Name:** ' .. toItemData.name .. '\n**Amount:** ' .. toAmount .. '\n**With item:** ' .. fromItemData.name .. '\n**Amount:** ' .. fromAmount .. '\n**Stash id:** ' .. stashId)
 						end
 					else
 						print('Dupe Blocked - 15')
 					end
 				end
-				SaveStashItems(stashId, Stashes[stashId].items)
 				AddItem(src, fromItemData.name, fromAmount, toSlot, fromItemData.info, nil, fromItemData['created'], nil, true)
 				TriggerEvent(Config.InventoryPrefix .. ':server:updateCash', src, fromItemData, fromAmount, 'add')
 			else
@@ -541,14 +541,14 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 							itemInfo = ItemList[toItemData.name:lower()]
 							Debug('532')
 							RemoveItemFromOtherInventory('stash', stashId, toSlot, itemInfo['name'], toAmount, src)
-							AddToStash(stashId, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'])
+							AddItemToOtherInventory('stash', stashId, fromSlot, toSlot, itemInfo['name'], toAmount, toItemData.info, fromItemData['created'], src)
 						end
 					else
 						print('Dupe Blocked - 16')
 					end
 				end
 				itemInfo = ItemList[fromItemData.name:lower()]
-				AddToStash(stashId, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'])
+				AddItemToOtherInventory('stash', stashId, toSlot, fromSlot, itemInfo['name'], fromAmount, fromItemData.info, fromItemData['created'], src)
 				SendWebhook(Webhooks.stash, 'Deposit Item', 7393279, '**' .. GetPlayerName(src) .. ' (id: ' .. src .. ') deposit item in stash!**\n**Name:** ' .. itemInfo['name'] .. '\n**Amount:** ' .. fromAmount .. '\n**Stash id:** ' .. stashId)
 			end
 		else
@@ -714,7 +714,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 					itemData.info.quality = 100
 				end
 				AddItem(src, itemData.name, fromAmount, toSlot, itemData.info, nil, nil, nil, true)
-				TriggerClientEvent('shops:client:UpdateShop', src, SplitStr(shopType, '_')[2], itemData, fromAmount)
+				TriggerEvent('qb-shops:server:UpdateShopItems', shopType, itemData, fromAmount)
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, itemInfo['label'] .. ' ' .. Lang('INVENTORY_NOTIFICATION_BOUGHT'), 'success')
 				SendWebhook(Webhooks.bought, 'Shop item bought', 7393279, '**' .. GetPlayerName(src) .. '** bought a ' .. itemInfo['label'] .. ' for €' .. price)
 				if isWeapon then
@@ -728,6 +728,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 		else
 			if money >= price then
 				RemoveAccountMoney(src, RegisteredShops[shopType].account, price or 0)
+				TriggerEvent('qb-shops:server:UpdateShopItems', shopType, itemData, fromAmount)
 				AddItem(src, itemData.name, fromAmount, toSlot, itemData.info, nil, nil, nil, true)
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, itemInfo['label'] .. ' ' .. Lang('INVENTORY_NOTIFICATION_BOUGHT'), 'success')
 				SendWebhook(Webhooks.bought, 'Shop item bought', 7393279, '**' .. GetPlayerName(src) .. '** bought a ' .. itemInfo['label'] .. ' for €' .. price)
@@ -738,7 +739,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:SetInventoryData', function(
 			end
 		end
 	elseif fromInventory == 'crafting' then
-		local itemData = Config.CraftingTables[craftingKey].items[fromSlot]
+		local itemData = OpenedSecondInventories[src].inventory[fromSlot]
 
 		if hasCraftItems(src, itemData.costs, fromAmount) then
 			if not NotStoredItems(itemData.name, src, fromAmount) then

@@ -54,13 +54,21 @@ function HandleCloseSecondInventories(src, type, id)
 			Debug('Trunk id not found', id)
 			return
 		end
-		Trunks[id].isOpen = false
+		if IsVehicleOwned then
+			SaveOwnedVehicleItems(id, Trunks[id].items)
+		else
+			Trunks[id].isOpen = false
+		end
 	elseif type == 'glovebox' then
 		if not Gloveboxes[id] then return end
-		Gloveboxes[id].isOpen = false
+		if IsVehicleOwned then
+			SaveOwnedGloveboxItems(id, Gloveboxes[id].items)
+		else
+			Gloveboxes[id].isOpen = false
+		end
 	elseif type == 'stash' then
 		if not Stashes[id] then return end
-		Stashes[id].isOpen = false
+		SaveStashItems(id, Stashes[id].items)
 	elseif type == 'drop' then
 		if Drops[id] then
 			Drops[id].isOpen = false
@@ -81,6 +89,11 @@ function HandleCloseSecondInventories(src, type, id)
 				end)
 			end
 		end
+	elseif type == 'clothing' and Config.Clothing then
+		local identifier = GetPlayerIdentifier(src)
+		local clotheItems = GetClotheItems(src)
+		if not clotheItems then return end
+		SaveClotheItems(identifier, clotheItems)
 	end
 end
 
@@ -89,22 +102,22 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:handleInventoryClosed', func
 	HandleCloseSecondInventories(src, type, id)
 end)
 
-AddEventHandler('onResourceStop', function(resource)
-	if resource == GetCurrentResourceName() then
-		SaveOtherInventories()
-	end
-end)
+-- AddEventHandler('onResourceStop', function(resource)
+-- 	if resource == GetCurrentResourceName() then
+-- 		SaveOtherInventories()
+-- 	end
+-- end)
 
-RegisterCommand('save-inventories', function(source, args)
-	if source ~= 0 then
-		return Error(source, 'This command can use only by console')
-	end
-	SaveOtherInventories()
-end)
+-- RegisterCommand('save-inventories', function(source, args)
+-- 	if source ~= 0 then
+-- 		return Error(source, 'This command can use only by console')
+-- 	end
+-- 	SaveOtherInventories()
+-- end)
 
-CreateThread(function()
-	while true do
-		Wait(Config.SaveInventoryInterval)
-		SaveOtherInventories()
-	end
-end)
+-- CreateThread(function()
+-- 	while true do
+-- 		Wait(Config.SaveInventoryInterval)
+-- 		SaveOtherInventories()
+-- 	end
+-- end)

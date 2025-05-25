@@ -16,7 +16,7 @@ RegisterNetEvent('QBCore:Server:PlayerLoaded', function(Player)
     InitDrops(Player.PlayerData.source)
 end)
 
-UseCashAsItem = true -- Choose whether to use money as an item
+UseCashAsItem = false -- Choose whether to use money as an item
 CashItem = 'cash'     -- Choose the money item, it only works if I enable the configurable above
 
 ListAccountsSteal = {
@@ -33,7 +33,11 @@ function GetPlayerFromId(source)
 end
 
 function GetPlayerSourceFromIdentifier(identifier)
-    return QBCore.Functions.GetPlayerByCitizenId(identifier).PlayerData.source
+    local player = QBCore.Functions.GetPlayerByCitizenId(identifier)
+    if not player then
+        return nil
+    end
+    return player.PlayerData.source
 end
 
 function GetPlayerFromIdentifier(identifier)

@@ -38,7 +38,7 @@ Locales = Locales or {}
     are available in the locales folder, but you can also create your own by adding a new file.
 ]]
 
-Config.Language = 'fr' -- Default language of the asset
+Config.Language = 'en' -- Default language of the asset
 
 --[[
     Framework Detection
@@ -61,11 +61,12 @@ Config.Framework = DependencyCheck(frameworks) or 'standalone' -- Automatically 
     and whether the interface starts automatically.
 ]]
 
-Config.ServerName = 'Nocturn RP'           -- Server name
-Config.MenuKeybind = 'F9'                       -- Key to open the menu
-Config.SeatbeltKeybind = 'G'                    -- Key to toggle seatbelt
-Config.SeatbeltKeybind_Name = 'Toggle seatbelt' -- Seatbelt label in Settings > Keybinds > FiveM
-Config.AutoStartUI = true                       -- Automatically start the interface on server startup
+Config.ServerName = 'Nocturn Roleplay'                            -- Server name
+Config.MenuKeybind = 'F9'                                        -- Key to open the menu
+Config.SeatbeltKeybind = 'G'                                     -- Key to toggle seatbelt
+Config.SeatbeltKeybind_Name = 'Toggle seatbelt'                  -- Seatbelt label in Settings > Keybinds > FiveM
+Config.AutoStartUI = true                                        -- Automatically start the interface on server startup
+Config.InitEditorEveryTime = GetConvarBool('qs:showcase', false) -- the player is forced to configure the hud every time he log into the game. (Mainly used for the showcase server)
 
 --[[
     Interface Options
@@ -81,7 +82,7 @@ local voiceChatList = {
 
 Config.VoiceChat = DependencyCheck(voiceChatList) or 'standalone' -- Auto-detects voice chat system
 Config.ConfigurationMenu = true                                   -- Welcome, preview, and configuration menu
-Config.EnableCinematicMode = false
+Config.EnableCinematicMode = true
 Config.UseStress = false                                           -- Enable stress bar in the HUD screen (just enables the stress bar, not the stress system)
 Config.Stress = false                                              -- Enables stress system
 Config.StressChance = 0.1                                         -- Default: 10% -- Percentage Stress Chance When Shooting (0-1)
@@ -217,8 +218,8 @@ Config.Optional.Displayers = {}
 Config.Optional.Displayers.ID = true     -- Display player ID
 Config.Optional.Displayers.Online = true -- Show online player count
 Config.Optional.Displayers.Job = true    -- Show job information
-Config.Optional.Displayers.Cash = false   -- Show cash balance
-Config.Optional.Displayers.Bank = false   -- Show bank balance
+Config.Optional.Displayers.Cash = true   -- Show cash balance
+Config.Optional.Displayers.Bank = true   -- Show bank balance
 
 --[[
     Vehicle Data Tracking

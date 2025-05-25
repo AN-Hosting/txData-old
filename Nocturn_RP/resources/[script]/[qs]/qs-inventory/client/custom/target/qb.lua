@@ -81,19 +81,21 @@ CreateThread(function()
     end
 
     -- Vending shops
-    for k, v in pairs(Config.Vendings) do
-        exports[target_name]:AddTargetModel(v['Model'], {
-            options = {
-                {
-                    icon = 'fa-solid fa-cash-register',
-                    label = 'Vending',
-                    action = function()
-                        TriggerEvent(Config.InventoryPrefix .. ':client:openVending', { category = v['Category'] })
-                    end
+    if Config.Vendings then
+        for k, v in pairs(Config.Vendings) do
+            exports[target_name]:AddTargetModel(v['Model'], {
+                options = {
+                    {
+                        icon = 'fa-solid fa-cash-register',
+                        label = 'Vending',
+                        action = function()
+                            TriggerEvent(Config.InventoryPrefix .. ':client:openVending', { category = v['Category'] })
+                        end
+                    },
                 },
-            },
-            distance = 2.5
-        })
+                distance = 2.5
+            })
+        end
     end
 
     -- Gargabe Code

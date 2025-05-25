@@ -263,9 +263,18 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:OpenInventory', function(nam
 				secondInv.name = 'otherplayer-' .. id
 				secondInv.label = 'Player-' .. id
 				secondInv.maxweight = Config.InventoryWeight.weight
-				secondInv.inventory = Inventories[id]
+				local items = {}
+				for k, v in pairs(Inventories[id]) do
+					if k ~= 41 or jobName == 'police' then
+						items[k] = v
+					end
+				end
+				secondInv.inventory = items
 				searchingInventories[src] = id
 				secondInv.slots = Config.InventoryWeight.slots
+				if jobName ~= 'police' then
+					secondInv.slots = secondInv.slots - 1
+				end
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', id, Lang('INVENTORY_NOTIFICATION_ROBBERY_WARNING'), 'inform')
 				Wait(250)
 			end

@@ -108,6 +108,10 @@
     font-style: normal;
 }
 
+:root {
+    overflow: hidden;
+}
+
 p {
     margin: 0 !important;
 }

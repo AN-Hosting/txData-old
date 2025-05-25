@@ -19,6 +19,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:CraftItems', function(itemNa
     end
 
     isCrafting = true
+    time = time or 1000
     ProgressBar('crafting_item', Lang('INVENTORY_PROGRESS_CRAFTING'), (time * amount), false, false, {
         move = true,
         car = true,

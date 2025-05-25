@@ -34,10 +34,10 @@ FiringWeapon = false
 CreateThread(function()
     while true do
         local ped = PlayerPedId()
-        if IsPedArmed(ped, 7) == 1 then
+        if IsPedArmed(ped, 7) == 1 and not inInventory then
             if IsControlJustPressed(0, 24) or IsDisabledControlJustPressed(0, 24) then
                 FiringWeapon = true
-            elseif IsControlJustReleased(0, 24) or IsDisabledControlJustReleased(0, 24) then
+            elseif IsControlJustReleased(0, 24) or IsDisabledControlJustReleased(0, 24) and not inInventory then
                 FiringWeapon = false
             end
         end
@@ -175,7 +175,6 @@ RegisterNetEvent('weapons:client:AddAmmo', function(ammoType, amount, itemData, 
         return
     end
     local weaponAmmoType = type(WeaponList[weapon]['ammotype']) == 'table' and WeaponList[weapon]['ammotype'] or { WeaponList[weapon]['ammotype'] }
-    Debug('ammoType', ammoType, weaponAmmoType)
     if not table.includes(weaponAmmoType, ammoType:upper()) then
         SendTextMessage(Lang('INVENTORY_NOTIFICATION_NO_AMMO'), 'error')
         return
