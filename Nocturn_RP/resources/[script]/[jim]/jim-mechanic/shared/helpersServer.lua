@@ -41,15 +41,19 @@ RegisterNetEvent(getScript()..":server:UpdateDrivingDistance", function(plate, d
 end)
 
 HelperServer.GetVehicleMilage = function(plate)
+	-- if locale cache is found, send that
     if vehicleDist[plate] then
         return vehicleDist[plate]
     else
+		-- if vehicle is owned, grab milage from database
 		if HelperServer.isVehicleOwned(plate) then
 			local result = MySQL.scalar.await("SELECT traveldistance FROM "..vehDatabase.." WHERE plate = ?", { plate })
 			vehicleDist[plate] = result or 0
-        	return vehicleDist[plate]
+			return vehicleDist[plate]
 		else
-			return 0
+			-- if not owned, generate a random number and cache it
+			vehicleDist[plate] = math.random(100,10000)
+			return vehicleDist[plate]
 		end
     end
 end

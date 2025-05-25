@@ -89,14 +89,33 @@ Paints.RGB.Apply = function(data)
     Paints.Effects.Spray(color)
 
     local rd, gd, bd = nil
+
+    local otherR, otherG, otherB = nil
     if data.select == locale("paintOptions", "primaryColor") then
         rd, gd, bd = GetVehicleCustomPrimaryColour(vehicle)
+        otherR, otherG, otherB = GetVehicleCustomSecondaryColour(vehicle)
     elseif data.select == locale("paintOptions", "secondaryColor") then
         rd, gd, bd = GetVehicleCustomSecondaryColour(vehicle)
+        otherR, otherG, otherB = GetVehicleCustomPrimaryColour(vehicle)
     end
 
-    local r1, g1, b1 = rd, gd, bd
     triggerNotify(nil, locale("common", "settingBaseCoat"), "success")
+
+    local r1, g1, b1 = rd, gd, bd
+
+    if data.select == locale("paintOptions", "primaryColor") then
+        SetVehicleColours(vehicle, data.finish, colorSecondary)
+        print(data.finish, colorSecondary)
+        if GetIsVehicleSecondaryColourCustom(vehicle) then
+            SetVehicleCustomPrimaryColour(vehicle, otherR, otherG, otherB)
+        end
+    elseif data.select == locale("paintOptions", "secondaryColor") then
+        print(colorPrimary, data.finish)
+        SetVehicleColours(vehicle, colorPrimary, data.finish)
+        if GetIsVehiclePrimaryColourCustom(vehicle) then
+            SetVehicleCustomPrimaryColour(vehicle, otherR, otherG, otherB)
+        end
+    end
 
     -- Base coat loop
     while (rd ~= 255 or gd ~= 255 or bd ~= 255) and spraying do
@@ -115,10 +134,8 @@ Paints.RGB.Apply = function(data)
 
         if data.select == locale("paintOptions", "primaryColor") then
             SetVehicleCustomPrimaryColour(vehicle, rd, gd, bd)
-            SetVehicleColours(vehicle, data.finish, colorSecondary)
         elseif data.select == locale("paintOptions", "secondaryColor") then
             SetVehicleCustomSecondaryColour(vehicle, rd, gd, bd)
-            SetVehicleColours(vehicle, colorPrimary, data.finish)
         end
 
         Wait(20)
@@ -181,10 +198,8 @@ Paints.RGB.Apply = function(data)
 
         if data.select == locale("paintOptions", "primaryColor") then
             SetVehicleCustomPrimaryColour(vehicle, rd, gd, bd)
-            SetVehicleColours(vehicle, data.finish, colorSecondary)
         elseif data.select == locale("paintOptions", "secondaryColor") then
             SetVehicleCustomSecondaryColour(vehicle, rd, gd, bd)
-            SetVehicleColours(vehicle, colorPrimary, data.finish)
         end
 
         Wait(40)

@@ -137,7 +137,7 @@ Cosmetics.subMenu = function(data)
             for i = 0, GetVehicleRoofLiveryCount(vehicle)-1 do
                 local txt, disabled, icon = "", false, ""
                 if GetVehicleRoofLivery(vehicle) == i then
-                    txt = locale("common", "stockLabel")
+                    txt = locale("common", "menuInstalledText")
                     disabled = true
                     icon = "fas fa-check"
                 end
@@ -161,7 +161,7 @@ Cosmetics.subMenu = function(data)
             for i = 0, GetVehicleLiveryCount(vehicle)-1 do
                 local txt, disabled, icon = "", false, ""
                 if GetVehicleLivery(vehicle) == i then
-                    txt = locale("common", "stockLabel")
+                    txt = locale("common", "menuInstalledText")
                     disabled = true
                     icon = "fas fa-check"
                 end
@@ -318,7 +318,6 @@ Cosmetics.subMenu = function(data)
                 onSelect = function()
                     SetVehicleModKit(data.veh, 0)
                     TriggerServerEvent(getScript()..":server:TestHorn", VehToNet(data.veh))
-                    Wait(1100)
                     CreateThread(function()
                         Wait(1200)
                         Cosmetics.subMenu(data)
@@ -355,7 +354,7 @@ Cosmetics.subMenu = function(data)
                 onSelect = function()
                     b.header = data.header
                     if data.horn then
-                        Cosmetics.HornTest(b, data)
+                        Cosmetics.HornTestMenu(b, data)
                     else
                         Cosmetics.Apply(b)
                     end
@@ -374,19 +373,20 @@ Cosmetics.subMenu = function(data)
 end
 
 Cosmetics.HornTestMenu = function(b, data)
-    local prevMod = GetVehicleMod(data.veh, tonumber(b.id))
     local Menu = {}
     Menu[#Menu+1] = {
         header = locale("hornsMod", "testHorn"),
         icon = "fas fa-circle-play",
         onSelect = function()
+            local currentId = GetVehicleMod(data.veh, tonumber(b.id))
             Helper.checkSetVehicleMod(data.veh, tonumber(b.id), tonumber(b.mod))
             SetVehicleModKit(data.veh, 0)
             TriggerServerEvent(getScript()..":server:TestHorn", VehToNet(data.veh))
-            Wait(1100)
             CreateThread(function()
                 Wait(1200)
-                Cosmetics.HornTest(b, data)
+                Helper.checkSetVehicleMod(data.veh, tonumber(b.id), currentId)
+                SetVehicleModKit(data.veh, 0)
+                Cosmetics.HornTestMenu(b, data)
             end)
         end,
     }
@@ -414,6 +414,7 @@ RegisterNetEvent(getScript()..":client:TestHorn", function(vehId)
 end)
 
 Cosmetics.Apply = function(data)
+    jsonPrint(data)
     local Ped = PlayerPedId()
     Helper.removePropHoldCoolDown()
     Wait(10)
@@ -442,7 +443,8 @@ Cosmetics.Apply = function(data)
                 emote = {}
             end
             if not data.oldLiv and not data.roofLiv then
-                SetVehicleLivery(vehicle, nil)
+                --SetVehicleLivery(vehicle, data.mod)
+                SetVehicleModKit(vehicle, 0)
             end
         end
         if data.part == "roof" or data.part == "spoiler" then
@@ -476,20 +478,26 @@ Cosmetics.Apply = function(data)
             if data.roofLiv then
                 if data.mod == -1 then data.mod = 0 end
                 SetVehicleRoofLivery(vehicle, data.mod)
+
             elseif data.oldLiv then
+                if data.mod == -1 then data.mod = nil end
                 SetVehicleLivery(vehicle, data.mod)
                 SetVehicleMod(vehicle, 48, -1, false)
+
             elseif data.plate then
                 if data.mod == -1 then data.mod = 0 end
                 SetVehicleNumberPlateTextIndex(vehicle, data.mod)
+
             elseif data.window then
                 if data.mod == -1 then data.mod = 0 end
                 SetVehicleWindowTint(vehicle, tonumber(data.mod))
                 success = locale("common", "installedMsg")
+
             elseif data.extra then
                 local veh = Helper.getDamageTable(vehicle)
                 if IsVehicleExtraTurnedOn(vehicle, data.mod) then
                     SetVehicleExtra(vehicle, data.mod, 1)
+
                 else
                     SetVehicleExtra(vehicle, data.mod, 0)
                     SetVehicleFixed(vehicle)
@@ -497,11 +505,14 @@ Cosmetics.Apply = function(data)
                     if isStarted("qs-advancedgarages") then
                         exports["qs-advancedgarages"]:RepairNearestVehicle()
                     end
+
                 end
+
                 Helper.forceCarDamage(vehicle, veh)
                 Wait(100)
                 SetVehicleEngineHealth(vehicle, veh.engine)
                 SetVehicleBodyHealth(vehicle, veh.body)
+
             else
                 if not Helper.checkSetVehicleMod(vehicle, tonumber(data.id), tonumber(data.mod)) then
                     triggerNotify(nil, locale("checkDetails", "unavailable"), "error")

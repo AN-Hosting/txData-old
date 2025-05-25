@@ -3,7 +3,7 @@ Config = Config or {}
 Config.Crafting = {
     enable = true,                  -- Set to true to enable item crafting features
 
-    Stores = false, 				    -- Set true to turn on shop store features
+    Stores = true, 				    -- Set true to turn on shop store features
 
     craftCam = true,                -- Enable this to have custom camera angles when modifying/crafting
                                     -- Disable this to not use any custom cameras
@@ -21,15 +21,13 @@ Config.PlateChange = {
     UseItem = true,                 -- Can the users change plates with an item
     ItemToUse = "newplate",         -- The name of the item to allow changes
 
-    ItemRequiresJob = false,         -- Only allow set jobs to change plates
+    ItemRequiresJob = true,         -- Only allow set jobs to change plates
     ItemJobRestrictions = {         -- List of job roles that can change plates (if enabled)
         "mechanic",
-        "bennys"
     },
     CommandRequiresJob = true,      -- Only allow set jobs to change plates with a command
     CommandJobRestrictions = {      -- List of job roles that can change plates (if enabled)
         "mechanic",
-        "bennys"
     },
     UseCommand = true,              -- Set "true" if you want to use "/" commands.
     Command = "setplate",           -- the command to be used (if enabled)
@@ -43,7 +41,7 @@ Config.PlateChange = {
 }
 
 Config.Harness = {
-    HarnessControl = false,			-- Enable harness AND seatbelt features of the script, requires edits to smallresources and hud scripts
+    HarnessControl = true,			-- Enable harness AND seatbelt features of the script, requires edits to smallresources and hud scripts
                                     -- Disable to
     JobOnly = true,					-- Only allow job roles to add a Harness to vehicle, otherwise any one can add them
 
@@ -64,9 +62,14 @@ Config.Harness = {
     timeOn = 3000,					-- Time for the progress bar to put on harness
     timeOff = 2000,					-- Time for the progress bar to put on harness
 
-    minimumSpeed = 70,				-- Minimum speed for crash logic to be triggered
-    minimumSeatBeltSpeed = 110, 	-- Minimuim speed for ejecting with a seatbelt attached
+    diableCrashEjection = true,    -- If true, disable crash ejection
+
+    minimumSpeed = 22.5,			-- Minimum speed for crash logic to be triggered - Default: 20.0 (50 mph)
+    minimumSeatBeltSpeed = 45.0, 	-- Minimuim speed for ejecting with a seatbelt attached Default: 160.0 (100 mph)
     minimumDamage = 15.0, 			-- Minimum body damage for ejecting a player (default 15 = .15%)
+
+    harnessEjection = false,        -- Set this to true to allow ejection with a harness on
+    harnessSpeed = 67.5,           -- Minimum speed to eject with harness on Default: 200.0 (150 mph)
 
     crashKill = false,				-- Set to true if you want ejecting when crashing to kill/injure
 

@@ -1,10 +1,10 @@
 Config = Config or {}
 
 Config = {
-	Lan = "fr", -- Pick your language file here
+	Lan = "en", -- Pick your language file here
 	System = {
-		Debug = true, -- Set to true to show green debug boxes to help track any issues
-		EventDebug = true,
+		Debug = false, -- Set to true to show green debug boxes to help track any issues
+		EventDebug = false,
 
 		Menu = "qb",  				-- "qb", "ox", "gta"
 		Notify = "qb",				-- "qb", "ox", "gta", "esx"
@@ -20,27 +20,28 @@ Config = {
 
 Config.General = {
 	JimShops = false,			-- Enable to open shops in jim-shops menu's
-	showClockInTill = false,		-- Enable to show toggle duty options at payment tills
-	showBossMenuTill = false,	-- Enable to show bossmenu options at payment tills
+	showClockInTill = true,		-- Enable to show toggle duty options at payment tills
+	showBossMenuTill = true,	-- Enable to show bossmenu options at payment tills
 }
 
 Config.Main = { -- Main variables
 	isVehicleOwned = false, 	-- Enable this if you only want changes to be made to owned vehicles
 								-- False to allow modifications to unowned vehicles
 
-	ItemRequiresJob = false, 	-- Enable this if items should require a mechanic job
+	ItemRequiresJob = true, 	-- Enable this if items should require a mechanic job
 								-- Disable this to allow any player to use mechanic items
 
 	JobLocationRequired = false, -- Enable this to lock most modifications to specified job locations
 								-- Disable this to allow vehicle modifications anywhere
 
-	LocationBlips = false, 		-- Enable to show job location blips on the map
+	LocationBlips = true, 		-- Enable to show job location blips on the map
 								-- Disable to hide blips
 
-	CosmeticsJob = false, 		-- Cosmetic items, like hood and rims requires a mechanic job role
+	CosmeticsJob = true, 		-- Cosmetic items, like hood and rims requires a mechanic job role
 								-- Disable this so everyone can use cosmetic items
 
 	JobRoles = { 				-- These are the job roles who can use items if RequiresJob is enabled.
+		"mechanic",
 		"bennys",
 	},
 

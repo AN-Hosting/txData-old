@@ -299,7 +299,7 @@ local updateTimers = {}
 Helper.addCarToUpdateLoop = function(vehicle)
     if DoesEntityExist(vehicle) and vehicle ~= 0 and vehicle ~= nil then
         local newProps = getVehicleProperties(vehicle)
-        setVehicleProperties(vehicle, newProps)
+        --setVehicleProperties(vehicle, newProps)
 		local plate = Helper.getTrimmedPlate(vehicle)
         if updateTimers[vehicle] then
             debugPrint("^5Debug^7: ^2Vehicle ^7'^4"..plate.."^7' ^2already scheduled^7. ^2Cancelling old timer and updating properties^7.")
@@ -332,9 +332,9 @@ end
 Helper.SendCarUpdateSync = function(vehicle, mods)
 	local plate = Helper.getTrimmedPlate(vehicle)
     if Helper.isVehicleOwned(plate) then
-        TriggerServerEvent(getScript()..":server:updateVehicle", mods, trim(plate))
-        debugPrint("^5Debug^7: ^2Updating database mods for vehicle ^7'^4"..plate.."^7'.")
         Helper.saveStatus(vehicle)
+        debugPrint("^5Debug^7: ^2Updating database mods for vehicle ^7'^4"..plate.."^7'.")
+        TriggerServerEvent(getScript()..":server:updateVehicle", mods, trim(plate))
     else
         debugPrint("^5Debug^7: ^2Vehicle ^7'^3"..plate.."^7' ^2is ^1not ^2owned^7. ^2Skipping database update^7.")
     end

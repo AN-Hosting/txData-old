@@ -655,6 +655,8 @@ MechanicTools.Apply = function(data)
                 repairing = false
                 triggerNotify(nil, data.partname..locale("repairActions", "repairCancelled"), "error")
             end
+        else
+            repairing = false
         end
         Helper.removePropHoldCoolDown()
         if Config.Overrides.DoorAnimations then

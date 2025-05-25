@@ -1,6 +1,37 @@
 # Changelog
 
+## 3.6.06
+
+    - Add new file `adminCustoms.lua` - (adminCustoms.lua/commands.lua)
+        - It's basically the emergency repair bench but for admins only, to use whenever and whereever
+        - command for this is `/admincustoms`
+    - Rework of ejection logic - (modifiers_conf.lua/inCarLogic.lua)
+        - I'm hoping this makes it more accurate for both AltEjection on and off
+        - Also added new variables to config for HarnessControl to disble ejection completely
+        - And a toggle for allowing ejection with a harness on
+    - Remove job restriction for discord webhooks when previewing (if set) - (printdifferences.lua)
+        - If the preview function is used in a job location, that job locations discord webhook will be triggered regardless of the players job
+        - If used outside a location, it will default to the general discord webhook
+    - Adjust vehicle milage logic - (inCarLogic.lua/helpersServer.lua)
+        - Unowned cars now start at a random milage between 100 - 10000 instead of 0 and this number is now synced
+        - Fixes Cayo Perico making milage thing you are travelling 1000's of miles in a second
+
+    - Fix `GetGravityAmount()` check if players aren't the driver of the vehicle as some anticheats weren't happy about this (inCarLogic.lua)
+    - Fix prevent roll functions (when `oldPreventRoll = false`) from not doing anything - (inCarLogic.lua)
+        - This method adjusts the gravity of the vehicle until its returned to right side up
+        - It was cancelling itself out and not doing anything
+    - Fix stashes not changing size when setting them in the location files (makeLocs.lua)
+    - Fix stashLabels being target option labels in inventories that support it (makeLocs.lua)
+    - Fix issue when failing skillcheck when repairing not allowing users to use `mechanic_tools` again
+    - Fix potential issue of some vehicles not updating correctly - (helpers.lua)
+        - When saving there was a change the data being sent was overridden by the data already in database, making the change null
+    - Fix liveries not setting back to stock when using livery item if they were classed as "Old Liverys" by GTA engine - (cosmetics/main.lua)
+    - Fix horn item erroring when applying or testing horns - (cosmetics/main.lua)
+    - Fix RGB paints forcing the other to change its finish
+        - When setting primary and secondary RGB with paintcan on cars, it was forcing the other to the same finish
+
 ## 3.6.05
+
     - Slowed model load of the carlift prop, for some it was triggering too fast and erroring (carlifts.lua)
     - Placed server start functions behind onResourceStart() to help ESX load correctly (commands.lua/usableitems.lua/pushvehicle.lua)
         - This doesn't affect any other frameworks
@@ -8,6 +39,7 @@
     - Added cooldown to seatbelt toggling in the case of double presses (inCarLogic.lua)
 
 ## 3.6.04
+
     - Fix blip creation if location file has `Blip` and not `blip` (makelocs.lua)
     - Fix the "status" also updating the engine and body (encShared.lua / helpersServer.lua)
         - Not only was it doing this twice, it was somehow forcing the cars to be fixed.

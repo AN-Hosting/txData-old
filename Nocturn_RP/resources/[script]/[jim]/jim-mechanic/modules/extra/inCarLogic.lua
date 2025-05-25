@@ -108,7 +108,7 @@ RegisterNetEvent(getScript()..":Client:EnteredVehicle", function()
     owned   = Helper.isVehicleOwned(plate)
     seat    = Helper.GetSeatPedIsIn(veh)
     local isStopped  = IsVehicleStopped(veh)
-    local getGravity = GetVehicleGravityAmount(veh)
+    local getGravity = seat == -1 and GetVehicleGravityAmount(veh) or nil
 
     if veh == 0 or (not GetIsVehicleElectric(model) and IsThisModelABicycle(model)) or IsThisModelATrain(model) or speedoBlackList(model) then
         return
@@ -225,23 +225,35 @@ RegisterNetEvent(getScript()..":Client:EnteredVehicle", function()
                 }
 
                 if Config.Harness.HarnessControl then
-                    if Config.Harness.AltEjection then -- This is here so the natives are changed way before a crash happened
-                        -- Alternate Ejection System (uses fivem natives)
-                        SetPedConfigFlag(Ped, 32, not HasHarness())
-                        if not HasHarness() then        -- If no harness, allow checks for ejection
-                            SetFlyThroughWindscreenParams(
-                                seatBeltOn() and Config.Harness.minimumSeatBeltSpeed or Config.Harness.minimumSpeed,
-                                1.0,
-                                17.0,
-                                10.0
-                            )
-                        else    -- if harness is buckled increase the ejection restriction to max (dont eject)
+                    -- Set GTA config flag for windscreen behavior (true = ejectable)
+                    SetPedConfigFlag(Ped, 32, Config.Harness.AltEjection and not Config.Harness.disableCrashEjection or false)
+
+                    if Config.Harness.AltEjection then
+                        -- If crash ejection is globally disabled OR harness is worn and ejection is not allowed
+                        if Config.Harness.disableCrashEjection or (HasHarness() and not Config.harnessEjection) then
+                            -- Set insane values so GTA never ejects
                             SetFlyThroughWindscreenParams(10000.0, 10000.0, 17.0, 500.0)
+                        else
+                            local speedDivisor = Config.System.distkph and 3.6 or 2.237
+                            local minSpeed
+
+                            if HasHarness() then
+                                -- Only applies if ejection with harness is allowed (already checked)
+                                minSpeed = Config.Harness.minimumSeatBeltSpeed * speedDivisor
+                            elseif seatBeltOn() then
+                                minSpeed = Config.Harness.minimumSeatBeltSpeed * speedDivisor
+                            else
+                                minSpeed = Config.Harness.minimumSpeed * speedDivisor
+                            end
+
+                            SetFlyThroughWindscreenParams(minSpeed, 1.0, 17.0, 10.0)
                         end
                     else
-                        SetFlyThroughWindscreenParams(10000.0, 10000.0, 17.0, 500.0) -- force GTA native behavior to false
+                        -- AltEjection is off, disable GTA ejection by setting unreachable params
+                        SetFlyThroughWindscreenParams(10000.0, 10000.0, 17.0, 500.0)
                     end
                 end
+
                 Wait(isStopped and 1000 or (Config.Harness.AltEjection and 600 or 200))
             end
             SetPedHelmet(Ped, true)
@@ -267,14 +279,14 @@ RegisterNetEvent(getScript()..":Client:EnteredVehicle", function()
 
         Helper.updateHudNitrous(nos[2] or 0, nos[1] or false, false)
 
-        dist = owned and triggerCallback(getScript()..":callback:distGrab", plate) or 0
+        dist = triggerCallback(getScript()..":callback:distGrab", plate)
 
         -- Loop to calculate milage while driving
         CreateThread(function()
             while vehIsIn == veh do
                 if seat == -1 then
                     local newCoords = GetEntityCoords(veh)
-                    DistAdd += (CalculateTravelDistanceBetweenPoints(newCoords, prevLoc) * (Config.System.distkph and 0.001 or 0.00062))
+                    DistAdd += (#(newCoords - prevLoc) * (Config.System.distkph and 0.001 or 0.00062))
                     prevLoc = newCoords
                 end
                 Wait(isStopped and 1000 or 5000)
@@ -292,15 +304,21 @@ RegisterNetEvent(getScript()..":Client:EnteredVehicle", function()
                         HandleVehicleDamageLimits(veh, model)
                     end
                     if Config.vehFailure.PreventRoll and not Config.vehFailure.oldPreventRoll and DoesEntityExist(veh) then
-                        SetVehicleGravityAmount(veh,
-                            IsEntityUpsidedown(veh) and not IsEntityInAir(veh) and (getGravity * 5) or getGravity
-                        )
+                        if IsEntityUpsidedown(veh) and not IsEntityInAir(veh) then
+                            SetVehicleGravityAmount(veh,
+                                (getGravity * 2)
+                            )
+                        else
+                            SetVehicleGravityAmount(veh,
+                                getGravity
+                            )
+                        end
                     end
                 end
 
-                if DoesEntityExist(veh) then
-                    SetVehicleGravityAmount(veh, getGravity)
-                end
+                --if DoesEntityExist(veh) then
+                --    SetVehicleGravityAmount(veh, getGravity)
+                --end
                 Wait(seat == -1 and 100 or 10000)
             end
         end)
@@ -349,18 +367,33 @@ AddEventHandler('entityDamaged', function (entity, _, weapon, _)
 
     -- Ejection Logic
     if Config.Harness.HarnessControl then
-        if not Config.Harness.AltEjection then -- Old Ejection System (uses damage detection)
-            if not HasHarness() and not Helper.isBike(model) then
-                if currentVehCache.thisSpeed > (Config.Harness.minimumSpeed or 60) then
-                    if frameBodyChange > (Config.Harness.minimumDamage or 15.0) then
-                        if (seatBeltOn() and currentVehCache.thisSpeed > (Config.Harness.minimumSeatBeltSpeed or 110)) or not seatBeltOn() then
-                            EjectFromVehicle(GetEntityVelocity(currentVehCache.currentVeh), currentVehCache.thisSpeed, frameBodyChange)
-                        end
-                    end
+        if not Config.Harness.AltEjection and not Config.Harness.disableCrashEjection and not Helper.isBike(model) then
+
+            -- Block ejection if wearing harness and it's supposed to prevent ejection
+            if HasHarness() and not Config.harnessEjection then goto skip end
+
+            local speed = currentVehCache.thisSpeed
+            local speedDivisor = Config.System.distkph and 3.6 or 2.237
+            local minSpeed
+
+            if HasHarness() and Config.harnessEjection then
+                minSpeed = Config.Harness.minimumSeatBeltSpeed * speedDivisor
+            elseif seatBeltOn() then
+                minSpeed = Config.Harness.minimumSeatBeltSpeed * speedDivisor
+            else
+                minSpeed = Config.Harness.minimumSpeed * speedDivisor
+            end
+
+            if speed > minSpeed then
+                if frameBodyChange > (Config.Harness.minimumDamage or 20.0) then
+                    EjectFromVehicle(GetEntityVelocity(currentVehCache.currentVeh), speed, frameBodyChange)
                 end
             end
+
+            ::skip::
         end
     end
+
 end)
 
 --==========================================================

@@ -22,5 +22,8 @@ onResourceStart(function()
 			TriggerClientEvent(getScript()..":client:fixEverything", source)
 		end, "admin"})
 	end
+	registerCommand("adminCustoms", { "Modify the current vehicle", {}, false, function(source)
+		TriggerClientEvent(getScript()..":AdminCustoms", source)
+	end, "admin"})
 
 end, true)

@@ -241,7 +241,8 @@ PrevFunc.printDifferences = function(vehicle, properties, newproperties)
             local colour   = 16753920
 
             for k, v in pairs(Locations) do
-                if inLocation == v.designatedName and hasJob((v.job or v.gang) or "") then
+                --if inLocation == v.designatedName and hasJob((v.job or v.gang) or "") then
+                if inLocation == v.designatedName then
                     if v.discord.link ~= "" then
                         shopName = " - "..(v.blip and v.blip.label or locale("common", "notApplicable"))
                         thumb    = "" -- v.payments.img

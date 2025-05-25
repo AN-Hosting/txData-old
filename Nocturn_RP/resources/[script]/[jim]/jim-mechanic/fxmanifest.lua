@@ -1,6 +1,6 @@
 name "Jim-Mechanic"
 author "Jimathy"
-version "3.6.05"
+version "3.6.06"
 description "Advanced Mechanic Script"
 fx_version "cerulean"
 game "gta5"
@@ -13,7 +13,7 @@ shared_scripts {
 	'configs/*.lua',
     'locations/*.lua',
 
-    --Jim Bridge - https://github.com/jimathy/jim-bridge
+    --Jim Bridge - https://github.com/jimathy/jim_bridge
     '@jim_bridge/starter.lua',
 
 	'shared/*.lua',
@@ -47,6 +47,7 @@ escrow_ignore {
 	'locales/*.lua',
 	'modules/*.lua',
 	'modules/**/**.lua',
+	'server/adminCustoms.lua',
 	'server/functionserver.lua',
     'server/main.lua',
     'server/commands.lua',

@@ -204,10 +204,11 @@ function createTarget(targetType, targets, id, loc, bossroles, stashCraft)
 						job = loc.job,
 						gang = loc.gang,
 						stash = stashName,
-						label = target.label..stashName,
+						label = (target.stashLabel or target.label).."["..stashName.."]",
 						coords = coords.xyz,
-						stashOptions = { slots = 50, maxweight = 400000 }}
-					)
+						slots = target.slots or 50,
+						maxweight = target.maxWeight or 400000,
+					})
 
 				elseif targetType == "Shops" then
 					local restrict = nil if loc.Restrictions and loc.Restrictions.Allow[1] then restrict = loc.Restrictions.Allow end
@@ -224,7 +225,13 @@ function createTarget(targetType, targets, id, loc, bossroles, stashCraft)
 
 
 				elseif targetType == "BossStash" then
-					openStash({ stash = target.stashName, label = target.label, coords = coords.xyz, maxWeight = target.maxWeight or 400000, slots = target.slots or 10 })
+					openStash({
+						stash = target.stashName,
+						label = (target.stashLabel or target.label).."["..target.stashName.."]",
+						coords = coords.xyz,
+						maxWeight = target.maxWeight or 400000,
+						slots = target.slots or 10
+					})
 
 				elseif targetType == "Payments" then
 					TriggerEvent("jim-payments:client:Charge", { job = loc.job, gang = loc.gang, coords = coords.xyz, img = loc.logo or nil})
@@ -247,9 +254,10 @@ function createTarget(targetType, targets, id, loc, bossroles, stashCraft)
 					if isStarted(OXInv) then
 						currentToken = triggerCallback(AuthEvent)
 						Wait(100)
+
 						TriggerServerEvent(getScript()..":server:makeOXStash",
 							stashName,
-							"Personal Storage ("..stashName..")",
+							"Personal Storage ["..stashName.."]",
 							target.slots or 10,
 							target.maxWeight or 400000,
 							citizenId,
@@ -262,17 +270,14 @@ function createTarget(targetType, targets, id, loc, bossroles, stashCraft)
 						stash = stashName,
 						coords = coords.xyz,
 						label = target.label,
+						slots = target.slots or 10,
 						maxWeight = target.maxWeight or 400000,
-						slots = target.slots or 10
 					})
 
 				elseif targetType == "Outfit" then
 					TriggerEvent("qb-clothing:client:openOutfitMenu")
 
 				elseif targetType == "NosRefill" then
-					jsonPrint(coords.xyz)
-					jsonPrint(data)
-					debugPrint(loc.job)
 					Nitrous.NosCanFill({ coords = coords.xyz, tank = type(data) == "table" and data.entity or data, society = loc.job })
 
 				end
@@ -296,6 +301,7 @@ function createTarget(targetType, targets, id, loc, bossroles, stashCraft)
             end
             if Config.General.showBossMenuTill then
 				local event = loc.gang and "qb-gangmenu" or "qb-bossmenu"
+				jsonPrint(bossroles)
                 options[#options+1] = {
 					action = function()
 						TriggerEvent(event..":client:OpenMenu", {
