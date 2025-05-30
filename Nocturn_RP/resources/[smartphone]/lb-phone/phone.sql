@@ -449,6 +449,8 @@ CREATE TABLE IF NOT EXISTS `phone_tinder_accounts` (
     `interested_women` BOOLEAN NOT NULL,
     `active` BOOLEAN NOT NULL DEFAULT TRUE,
 
+    `last_seen` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
     PRIMARY KEY (`phone_number`),
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

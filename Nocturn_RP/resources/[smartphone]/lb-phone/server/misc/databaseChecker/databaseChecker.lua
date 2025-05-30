@@ -802,12 +802,12 @@ for tableName, columns in pairs(defaultTables) do
         local column = checkTable[defaultColumn.column]
 
         if not checkTable[defaultColumn.column] then
-            infoprint("error", ("Missing column ^5%s^7 in the table ^5%s^7."):format(defaultColumn.column, tableName))
+            infoprint("warning", ("Missing column ^5%s^7 in the table ^5%s^7. (The database checker should fix this)"):format(defaultColumn.column, tableName))
 
             if not defaultColumn.isKey then
                 fixQueries[#fixQueries+1] = ("ALTER TABLE `%s` ADD COLUMN `%s` %s"):format(tableName, defaultColumn.column, GetLastArg(defaultColumn))
             else
-                infoprint("warning", ("Column ^5%s^7 in the table ^5%s^7 is a key and cannot be added automatically. Check the #updates channel for a query to run, or ask in #customer-support"):format(defaultColumn.column, tableName))
+                infoprint("error", ("Column ^5%s^7 in the table ^5%s^7 is a key and cannot be added automatically. Check the #updates channel for a query to run, or ask in #customer-support"):format(defaultColumn.column, tableName))
             end
 
             goto continueColumns

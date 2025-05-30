@@ -4,6 +4,7 @@ Config.Debug = false -- Set to true to enable debug mode
 Config.Logs = {}
 Config.Logs.Enabled = false
 Config.Logs.Service = "discord" -- fivemanage, discord or ox_lib. if discord, set your webhook in server/apiKeys.lua
+Config.Logs.Avatar = false -- attempt to get the player's avatar for discord logging?
 Config.Logs.Actions = {
     Calls = true,
     Messages = true,
@@ -42,7 +43,7 @@ Config.QBOldJobMethod = false -- use the old method to check job in qb-core? thi
 
 Config.Item = {}
 -- If you want to set up multiple items & frame colours, see https://docs.lbscripts.com/phone/configuration/#multiple-items--colored-phones
-Config.Item.Require = false -- require a phone item to use the phone
+Config.Item.Require = true -- require a phone item to use the phone
 Config.Item.Name = "phone" -- name of the phone item
 -- Config.Item.Names = {
 --     {
@@ -70,8 +71,8 @@ Config.Item.Name = "phone" -- name of the phone item
 --     }
 -- }
 
-Config.Item.Unique = false -- should each phone be unique? https://docs.lbscripts.com/phone/configuration/#unique-phones
-Config.Item.Inventory = "auto" --[[
+Config.Item.Unique = true -- should each phone be unique? https://docs.lbscripts.com/phone/configuration/#unique-phones
+Config.Item.Inventory = "qs-inventory" --[[
     The inventory you use, IGNORE IF YOU HAVE Config.Item.Unique DISABLED.
     Supported:
         * auto: auto-detect inventory (ONLY WORKS WITH THE ONE LISTED BELOW)
@@ -95,6 +96,7 @@ Config.DisableOpenNUI = true -- disable the phone from opening if another script
 Config.DynamicIsland = true -- if enabled, the phone will have a Iphone 14 Pro inspired Dynamic Island.
 Config.SetupScreen = true -- if enabled, the phone will have a setup screen when the player first uses the phone.
 
+Config.AutoDisableSparkAccounts = true -- automatically disable inactive spark accounts? This can be set to the amount of days the account needs to be inactive to disable it, or true to disable after 7 days.
 Config.AutoDeleteNotifications = true -- notifications that are more than X hours old, will be deleted. set to false to disable. if set to true, it will delete 1 week old notifications.
 Config.MaxNotifications = 50 -- the maximum amount of notifications a player can have. if they have more than this, the oldest notifications will be deleted. set to false to disable
 Config.DisabledNotifications = { -- an array of apps that should not send notifications, note that you should use the app identifier, found in config.json
@@ -147,7 +149,7 @@ Config.Companies.SeeEmployees = "everyone" -- who should be able to see employee
 Config.Companies.DeleteConversations = true -- allow employees to delete conversations?
 Config.Companies.Services = {
     {
-        job = "police",
+        job = "Police,
         name = "Police",
         icon = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png",
         canCall = true, -- if true, players can call the company
@@ -166,7 +168,7 @@ Config.Companies.Services = {
         -- end
     },
     {
-        job = "ambulance",
+        job = "ems",
         name = "Ambulance",
         icon = "https://cdn-icons-png.flaticon.com/128/1032/1032989.png",
         canCall = true, -- if true, players can call the company
@@ -181,14 +183,74 @@ Config.Companies.Services = {
         }
     },
     {
-        job = "mechanic",
-        name = "Mechanic",
+        job = "bennys",
+        name = "Bennys",
         icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "worker"}, -- ranks that can manage the company
         location = {
             name = "LS Customs",
+            coords = {
+                x = -336.6,
+                y = -134.3
+            }
+        }
+    },
+    {
+        job = "popsdiner",
+        name = "Pop Dinner",
+        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "worker"}, -- ranks that can manage the company
+        location = {
+            name = "Pop Dinner",
+            coords = {
+                x = -336.6,
+                y = -134.3
+            }
+        }
+    },
+    {
+        job = "burgershot",
+        name = "Burger Shot",
+        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "worker"}, -- ranks that can manage the company
+        location = {
+            name = "Burger Shot",
+            coords = {
+                x = -336.6,
+                y = -134.3
+            }
+        }
+    },
+    {
+        job = "catcafe",
+        name = "Cat Café",
+        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "worker"}, -- ranks that can manage the company
+        location = {
+            name = "Cat Café",
+            coords = {
+                x = -336.6,
+                y = -134.3
+            }
+        }
+    },
+    {
+        job = "pdm",
+        name = "PDM",
+        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "worker"}, -- ranks that can manage the company
+        location = {
+            name = "PDM",
             coords = {
                 x = -336.6,
                 y = -134.3
@@ -385,8 +447,8 @@ Config.Locales = { -- If your desired language isn't here, you may contribute at
     },
 }
 
-Config.DefaultLocale = "en"
-Config.DateLocale = "en-US" -- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
+Config.DefaultLocale = "fr"
+Config.DateLocale = "fr-FR" -- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
 Config.DateFormat = "auto" -- auto: use the date format from the locale, or set a custom format (e.g. "DDDD, MMMM DD")
 
 Config.FrameColor = "#39334d" -- This is the color of the phone frame. Default (#39334d) is SILVER.
@@ -422,11 +484,11 @@ Config.EnableMessagePay = true -- Allow players to pay other players via message
 Config.EnableVoiceMessages = true -- Allow players to send voice messages?
 Config.EnableGIFs = true
 
-Config.CityName = "Los Santos" -- The name that's being used in the weather app etc.
+Config.CityName = "Nocturn" -- The name that's being used in the weather app etc.
 Config.RealTime = true -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
 Config.CustomTime = false -- NOTE: disable Config.RealTime if using this. you can set this to a function that returns custom time, as a table: { hour = 0-24, minute = 0-60 }
 
-Config.EmailDomain = "lbscripts.com"
+Config.EmailDomain = "nocturn.com"
 Config.AutoCreateEmail = false -- should the phone automatically create an email for the player when they set up the phone?
 Config.DeleteMail = true -- allow players to delete mails in the mail app?
 Config.ConvertMailToMarkdown = false -- convert mails from html to markdown?
@@ -589,6 +651,12 @@ Config.TrendyTTS = {
     {"Singing - Dramatic", "en_female_ht_f08_wonderful_world"}
 }
 
+-- You can customize the function in lb-phone/server/custom/functions/webrtc.lua
+-- You can set your api key in lb-phone/server/apiKeys.lua
+Config.DynamicWebRTC = {}
+Config.DynamicWebRTC.Enabled = false -- enable dynamic WebRTC? (this will allow you to generate new WebRTC credentials for each user)
+Config.DynamicWebRTC.Service = "cloudflare" -- supported by default: cloudflare
+
 -- ICE Servers for WebRTC (ig live, live video). If you don't know what you're doing, leave this as it is.
 -- see https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/RTCPeerConnection
 -- Config.RTCConfig = {
@@ -723,7 +791,7 @@ Config.UploadMethod = {}
 -- If you want to host uploads yourself, you can use LBUpload: https://github.com/lbphone/lb-upload
 -- We STRONGLY discourage using Discord as an upload method, as uploaded files may become inaccessible after a while.
 Config.UploadMethod.Video = "Fivemanage" -- "Fivemanage" or "LBUpload" or "Custom"
-Config.UploadMethod.Image = "Fivemanage" -- "Fivemanage" or "LBUpload" or "Custom
+Config.UploadMethod.Image = "Fivemanage" -- "Fivemanage" or "LBUpload" or "Custom"
 Config.UploadMethod.Audio = "Fivemanage" -- "Fivemanage" or "LBUpload" or "Custom"
 
 Config.Video = {}
