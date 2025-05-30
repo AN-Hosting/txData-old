@@ -16,7 +16,7 @@ RegisterNetEvent('QBCore:Server:PlayerLoaded', function(Player)
     InitDrops(Player.PlayerData.source)
 end)
 
-UseCashAsItem = false -- Choose whether to use money as an item
+UseCashAsItem = true  -- Choose whether to use money as an item
 CashItem = 'cash'     -- Choose the money item, it only works if I enable the configurable above
 
 ListAccountsSteal = {
