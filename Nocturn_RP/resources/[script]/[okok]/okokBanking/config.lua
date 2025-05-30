@@ -6,7 +6,7 @@ Config.okokNotify = false -- true = okokNotify | false = QBCore Notify
 
 Config.okokTextUI = false -- true = okokTextUI | false = QBCore DrawText
 
-Config.UseOkOkBankingSounds = false -- true = Uses Sounds | false = No sounds
+Config.UseOkOkBankingSounds = true -- true = Uses Sounds | false = No sounds
 
 Config.UseTargetOnAtm = true -- Using qb-target and not TextUI to access to the atms
 

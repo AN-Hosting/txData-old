@@ -75,7 +75,7 @@ window.addEventListener('message', function(event) {
 				<div class="card h-100">
 					<div class="selectionPayReference card-body text-center selection-subcard" id="selectionPayReference" onclick="selectionPayReference()">
 						<span class="selection-subcard_card-title"><i class="fa-solid fa-receipt"></i></span>
-						<p class="selection-subcard_title">Payer<br>Référence</p>
+						<p class="selection-subcard_title">Payer par<br>Référence</p>
 					</div>
 				</div>
 			</div>
@@ -87,7 +87,7 @@ window.addEventListener('message', function(event) {
 				<div class="card h-100">
 					<div class="selectionCreateInvoice card-body text-center selection-subcard" id="selectionCreateInvoice" onclick="selectionCreateInvoice()">
 						<span class="selection-subcard_card-title"><i class="fas fa-paper-plane"></i></span>
-						<p class="selection-subcard_title">Créer<br>Facture</p>
+						<p class="selection-subcard_title">Créer une<br>Facture</p>
 					</div>
 				</div>
 			</div>
@@ -98,7 +98,7 @@ window.addEventListener('message', function(event) {
 					<div class="card h-100">
 						<div class="selectionSocietyInvoices card-body text-center selection-subcard_disabled" id="selectionSocietyInvoices" onclick="selectionSocietyInvoices()">
 							<span class="selection-subcard_card-title"><i class="fas fa-building"></i></span>
-							<p class="selection-subcard_title">Factures<br>Société</p>
+							<p class="selection-subcard_title">Factures de<br>Société</p>
 						</div>
 					</div>
 				</div>`;
@@ -108,7 +108,7 @@ window.addEventListener('message', function(event) {
 					<div class="card h-100">
 						<div class="card-body text-center selection-subcard" id="selectionInspectCitizen" onclick="selectionInspectCitizen()">
 							<span class="selection-subcard_card-title"><i class="fa-solid fa-magnifying-glass"></i></span>
-							<p class="selection-subcard_title">Inspecter<br>Citoyen</p>
+							<p class="selection-subcard_title">Inspecter un<br>Citoyen</p>
 						</div>
 					</div>
 				</div>`;
@@ -118,7 +118,7 @@ window.addEventListener('message', function(event) {
 					<div class="card h-100">
 						<div class="card-body text-center selection-subcard" id="selectionCityInvoices" onclick="selectionCityInvoices()">
 							<span class="selection-subcard_card-title"><i class="fa-solid fa-city"></i></span>
-							<p class="selection-subcard_title">Factures<br>Ville</p>
+							<p class="selection-subcard_title">Factures de<br>la Ville</p>
 						</div>
 					</div>
 				</div>`;
@@ -424,7 +424,7 @@ function renderMyInvoices(type){
 		$('#view_invoice_payall').hide();
 	}
 	else{
-		$('#view_invoice_payall').html(`TOUT PAYER (${total}€)`);
+		$('#view_invoice_payall').html(`PAY ALL (${total}€)`);
 	}
 
 	if(total <= 0){

@@ -68,7 +68,7 @@
 					<span class="close-button" id="closeSocietyInvoicesMenu"><i class="fas fa-times"></i></span>
 					<div class="row h-100">
 						<div class="col-md-12 section">
-							<span class="text-center page-title">Factures de la Société</span>
+							<span class="text-center page-title">Factures de Société</span>
 							<hr>
 							<div class="pendingdiv">
 								En attente: <span id="totalpending_value">0</span>€</span>
@@ -173,14 +173,14 @@
 					<span class="close-button" id="closePayReferenceMenu"><i class="fas fa-times"></i></span>
 					<div class="row h-100">
 						<div class="col-md-12 section">
-							<span class="text-center page-title">Payer une Référence</span>
+							<span class="text-center page-title">Payer par Référence</span>
 							<hr>
 							<div class="d-flex">
 								<input type="text" id="payreference_search" class="form-control me-1" placeholder="ID de Référence">
 								<button type="button" onclick="checkReference()" class="btn btn-blue ms-1" id="payreference_lookup"><i class="fa-solid fa-magnifying-glass"></i> RECHERCHER</button>
 							</div>
 							<hr class="mt-3">
-							<div class="text-center payreference_receiver">Bénéficiaire</div>
+							<div class="text-center payreference_receiver">Destinataire</div>
 							<div class="text-center mt-1 w-100 payreference_noinfo" id="payreference_receiver">Aucune Information Disponible</div>
 							<div class="text-center payreference_amount">Montant</div>
 							<div class="text-center mt-1 w-100 payreference_noinfo" id="payreference_amount">Aucune Information Disponible</div>
@@ -225,8 +225,8 @@
 						<div class="view_invoice_sdtf mt-m07">ID de Référence: <span id="paid_view_invoice_id">OK5D72W3E7</span></div>
 						<div class="view_invoice_sdtf mt-2">Envoyée le: <span id="paid_view_invoice_sent">26-06-2022 02:17:35</span></div>
 						<div class="view_invoice_sdtf">Échéance: <span id="paid_view_invoice_due">30-06-2022 02:17:35</span></div>
-						<div class="view_invoice_sdtf mt-3">À: <span id="paid_view_invoice_to">Arthur James</span></div>
-						<div class="view_invoice_sdtf">De: <span id="paid_view_invoice_from">Tommy Champion</span></div>
+						<div class="view_invoice_sdtf mt-3">Destinataire: <span id="paid_view_invoice_to">Arthur James</span></div>
+						<div class="view_invoice_sdtf">Expéditeur: <span id="paid_view_invoice_from">Tommy Champion</span></div>
 						<hr>
 						<div class="d-flex justify-content-between">
 							<span id="paid_view_invoice_item">Stationnement interdit</span> <span id="paid_view_invoice_item_price">385 €</span>
@@ -242,7 +242,7 @@
 							<span class="total">TOTAL</span> <span id="paid_view_invoice_total_price">500 €</span>
 						</div>
 						<div class="d-flex justify-content-center mt-3">
-							<span class="view_invoice_paid">PAYÉE LE: <span id="paid_view_invoice_paid_date">27-06-2022 02:18:15</span></span>
+							<span class="view_invoice_paid">PAYÉ LE: <span id="paid_view_invoice_paid_date">27-06-2022 02:18:15</span></span>
 						</div>
 						<div id="paid_view_invoice_note" class="notes-window mt-3">Notes: Vous devriez faire plus attention la prochaine fois</div>
 					</div>
@@ -259,8 +259,8 @@
 						<div class="view_invoice_sdtf mt-m07">ID de Référence: <span id="unpaid_view_invoice_id">OK5D72W3E7</span></div>
 						<div class="view_invoice_sdtf">Envoyée le: <span id="unpaid_view_invoice_sent">26-06-2022 02:17:35</span></div>
 						<div class="view_invoice_sdtf">Échéance: <span id="unpaid_view_invoice_due">30-06-2022 02:17:35</span></div>
-						<div class="view_invoice_sdtf mt-3">À: <span id="unpaid_view_invoice_to">Tommy Champion</span></div>
-						<div class="view_invoice_sdtf">De: <span id="unpaid_view_invoice_from">Police de Los Santos</span></div>
+						<div class="view_invoice_sdtf mt-3">Destinataire: <span id="unpaid_view_invoice_to">Tommy Champion</span></div>
+						<div class="view_invoice_sdtf">Expéditeur: <span id="unpaid_view_invoice_from">Police de Los Santos</span></div>
 						<hr>
 						<div class="d-flex justify-content-between">
 							<span id="unpaid_view_invoice_item">Stationnement interdit</span> <span id="unpaid_view_invoice_item_price">385 €</span>
@@ -293,8 +293,8 @@
 						<div class="view_invoice_sdtf mt-m07">ID de Référence: <span id="view_invoice_sent">OK5D72W3E7</span></div>
 						<div class="view_invoice_sdtf">Envoyée le: <span id="view_invoice_sent">26-06-2022 02:17:35</span></div>
 						<div class="view_invoice_sdtf">Échéance: <span id="view_invoice_due">30-06-2022 02:17:35</span></div>
-						<div class="view_invoice_sdtf mt-3">À: <span id="view_invoice_to">Tommy Champion</span></div>
-						<div class="view_invoice_sdtf">De: <span id="view_invoice_from">Police de Los Santos</span></div>
+						<div class="view_invoice_sdtf mt-3">Destinataire: <span id="view_invoice_to">Tommy Champion</span></div>
+						<div class="view_invoice_sdtf">Expéditeur: <span id="view_invoice_from">Police de Los Santos</span></div>
 						<hr>
 						<div class="d-flex justify-content-between">
 							<span id="view_invoice_item">Stationnement interdit</span> <span id="view_invoice_item_price">385 €</span>

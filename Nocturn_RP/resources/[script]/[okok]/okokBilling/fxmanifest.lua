@@ -4,6 +4,7 @@ game 'gta5'
 
 author 'okok#3488'
 description 'okokBillingV2'
+version '1.0.0'
 
 ui_page 'web/ui.html'
 
