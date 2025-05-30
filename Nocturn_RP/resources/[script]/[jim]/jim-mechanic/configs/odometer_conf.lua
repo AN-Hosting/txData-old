@@ -17,7 +17,7 @@ Config.Odometer = {
     HarnessHideWhenBuckled = true, 		-- If true, hide Harness icon when buckled
                                         -- If false, the icon changes to red to green when buckled
 
-    showSpeedometer = true,             -- If you wish to use the built in speedometer, enable this
+    showSpeedometer = false,             -- If you wish to use the built in speedometer, enable this
 
     OdoIconsToShow = {
         -- Simply if these are true, they will show on the odometer hud
