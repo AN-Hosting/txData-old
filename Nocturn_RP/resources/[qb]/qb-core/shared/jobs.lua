@@ -25,7 +25,7 @@ QBShared.Jobs = {
 			
 		},
 	},
-	lspd = {
+	police = {
 		label = 'Los Santos Police Department',
 		type = 'leo',
 		defaultDuty = false,
