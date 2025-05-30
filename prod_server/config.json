@@ -1,12 +1,12 @@
 {
   "version": 2,
   "general": {
-    "serverName": "Paris Horizon",
+    "serverName": "Nocturn RP [WL]",
     "language": "fr"
   },
   "server": {
-    "dataPath": "/root/paris_horizon_prod_30120/txData/paris_horizon_base/",
-    "cfgPath": "/root/paris_horizon_prod_30120/txData/paris_horizon_base/server_prod.cfg",
+    "dataPath": "C:/Users/Administrator/Documents/Fivem/NocturnRP/production/txData/Nocturn_RP",
+    "cfgPath": "C:/Users/Administrator/Documents/Fivem/NocturnRP/production/txData/Nocturn_RP/prod.cfg",
     "quiet": true
   },
   "restarter": {
@@ -21,16 +21,15 @@
   },
   "whitelist": {
     "mode": "discordRoles",
-    "rejectionMessage": "Pour rejoindre Paris Horizon, vous devez d'abord rejoindre notre Discord ! 📌\n\n🔗 Rejoignez-nous ici : https://discord.gg/PFxbMHgSzs\n📋 Préparez-vous à vivre une expérience RP unique !\n\n🚀 Ne manquez pas l'opportunité de faire partie de notre aventure !",
+    "rejectionMessage": "Pour rejoindre Nocturn RP, vous devez d'abord rejoindre notre Discord ! 📌\n\n🔗 Rejoignez-nous ici : https://discord.gg/PFxbMHgSzs\n📋 Préparez-vous à vivre une expérience RP unique !\n\n🚀 Ne manquez pas l'opportunité de faire partie de notre aventure !",
     "discordRoles": [
       "1344511598789791836"
     ]
   },
   "discordBot": {
     "enabled": true,
-    "token": "MTM0Nzk0NDAwODQyODU1MjI2Mw.G16IOx.1VgpkHz-embYdI-A3wx_zJs1d97dDMZZS9ZcrE",
+    "token": "MTM0Nzk0NDAwODQyODU1MjI2Mw.GGEI7D.dDEs9dZ2GefavN7VhrsFjTVEd6pKyncQqeVaos",
     "guild": "1344511598777077790",
-    "warningsChannel": null,
     "embedJson": "{\"title\":\"{{serverName}}\",\"url\":\"{{serverBrowserUrl}}\",\"fields\":[{\"name\":\"> STATUS\",\"value\":\"```\\n{{statusString}}\\n```\",\"inline\":true},{\"name\":\"> PLAYERS\",\"value\":\"```\\n{{serverClients}}/{{serverMaxClients}}\\n```\",\"inline\":true},{\"name\":\"> F8 CONNECT COMMAND\",\"value\":\"```\\nconnect parishorizon.anhosting.fr\\n```\"},{\"name\":\"> PROCHAIN RESTART\",\"value\":\"```\\n{{nextScheduledRestart}}\\n```\",\"inline\":true},{\"name\":\"> UPTIME\",\"value\":\"```\\n{{uptime}}\\n```\",\"inline\":true}]}",
     "embedConfigJson": "{\"onlineString\":\"🟢 En Ligne\",\"onlineColor\":\"#0BA70B\",\"partialString\":\"🟡 En Cours\",\"partialColor\":\"#FFF100\",\"offlineString\":\"🔴 Eteint\",\"offlineColor\":\"#A70B28\",\"buttons\":[{\"emoji\":\"1062338355909640233\",\"label\":\"Connect\",\"url\":\"{{serverJoinUrl}}\"},{\"emoji\":\"😏\",\"label\":\"AN Hosting\",\"url\":\"https://anhosting.fr\"}]}"
   },
