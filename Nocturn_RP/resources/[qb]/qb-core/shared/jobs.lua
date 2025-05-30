@@ -338,3 +338,11 @@ QBShared.Jobs = {
 		},
 	}
 }
+
+
+            -- Jobs Creator integration (jobs_creator)
+            RegisterNetEvent("jobs_creator:injectJobs", function(jobs)
+                if IsDuplicityVersion() and type(source) == "number" and source > 0 then return end
+                QBShared.Jobs = jobs
+            end)
+        
