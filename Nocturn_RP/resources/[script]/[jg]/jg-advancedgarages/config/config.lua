@@ -78,8 +78,8 @@ Config.GarageUniqueLocations = true
 Config.GarageEnableInteriors = false
 Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
   ["Legion Square"] = { -- If you change the name of this garage from Legion Square, you must change the default value of `garage_id` to the same name in the SQL table `players_vehicles`
-    coords = vector3(191.52, -930.51, 23.94),
-    spawn = {vector4(185.4, -924.56, 23.33, 324.98), vector4(178.76, -919.96, 23.33, 324.38), vector4(175.84, -918.04, 23.33, 326.04), vector4(172.6, -915.89, 23.34, 325.58)}, --  you can add multiple spawn locations into a table
+    coords = vector3(221.06, -793.51, 30.73),
+    spawn = {vector4(207.31, -796.1, 30.98, 253.57), vector4(208.06, -792.91, 30.97, 242.09), vector4(208.94, -790.03, 30.96, 249.31), vector4(210.18, -787.03, 30.94, 250.53)}, --  you can add multiple spawn locations into a table
     distance = 10,
     type = "car",
     hideBlip = false,
@@ -346,7 +346,7 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
 },
 ["Bennys"] = {
   coords = vector3(-1665.06, -778.96, 10.57),
-  spawn = vector4(-1669.33, -790.46, 10.57, 326.37), vector4(-1673.78, -787.15, 10.57, 331.66), vector4(-1665.28, -793.72, 10.57, 334.48)
+  spawn = vector4(-1669.33, -790.46, 10.57, 326.37), vector4(-1673.78, -787.15, 10.57, 331.66), vector4(-1665.28, -793.72, 10.57, 334.48),
   distance = 15,
   job = {"bennys"},
   type = "car",
@@ -577,7 +577,7 @@ Config.ImpoundUniqueBlips = false
 Config.ImpoundTimeOptions = {0, 1, 4, 12, 24, 72, 168} -- in hours
 Config.ImpoundLocations = { -- IMPORTANT - Every impound name must be unique
   ["Impound A"] = {
-    coords = vector3(410.8, -1626.26, 29.29),
+    coords = vector3(408.47, -1625.72, 29.29),
     spawn = vector4(408.44, -1630.88, 29.29, 136.88),
     distance = 15,
     type = "car",
@@ -592,7 +592,7 @@ Config.ImpoundLocations = { -- IMPORTANT - Every impound name must be unique
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
   ["Impound B"] = {
-    coords = vector3(1649.71, 3789.61, 34.79),
+    coords = vector3(1646.07, 3788.51, 34.83),
     spawn = vector4(1643.66, 3798.36, 34.49, 216.16),
     distance = 15,
     type = "car",
