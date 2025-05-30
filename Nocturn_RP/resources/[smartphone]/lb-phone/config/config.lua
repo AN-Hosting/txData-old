@@ -230,15 +230,15 @@ Config.Companies.Services = {
     {
         job = "catcafe",
         name = "Cat Café",
-        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
-        canCall = true, -- if true, players can call the company
-        canMessage = true, -- if true, players can message the company
-        bossRanks = {"boss", "worker"}, -- ranks that can manage the company
+        icon = "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+        canCall = true,
+        canMessage = true,
+        bossRanks = {"boss", "worker"},
         location = {
             name = "Cat Café",
             coords = {
-                x = -336.6,
-                y = -134.3
+                x = -290.94,
+                y = -82.96
             }
         }
     },
@@ -353,6 +353,12 @@ Config.Locations = { -- Locations that'll appear in the maps app.
         name = "Pillbox",
         description = "Pillbox Medical Hospital",
         icon = "https://cdn-icons-png.flaticon.com/128/1032/1032989.png",
+    },
+    {
+        position = vector2(-290.94, -82.96),
+        name = "Cat Café",
+        description = "Cat Café - Café à thème chat",
+        icon = "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
     },
 }
 
