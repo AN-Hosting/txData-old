@@ -38,7 +38,7 @@ Locales = Locales or {}
     are available in the locales folder, but you can also create your own by adding a new file.
 ]]
 
-Config.Language = 'en' -- Default language of the asset
+Config.Language = 'fr' -- Default language of the asset
 
 --[[
     Framework Detection
