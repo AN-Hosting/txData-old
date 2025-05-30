@@ -38,7 +38,7 @@ Config.UseQBManagement = false -- If true it will use the management_funds table
 
 Config.UseQBBanking = false -- Useful for latest QBCore versions
 
-Config.RequireCreditCardForATM = false -- Set to true if you would like players to access the ATM with a card item | If false there is no item requirement
+Config.RequireCreditCardForATM = true -- Set to true if you would like players to access the ATM with a card item | If false there is no item requirement
 
 Config.CreditCardItem = "creditcard" -- Required item to access the ATM
 
