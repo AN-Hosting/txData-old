@@ -149,7 +149,7 @@ Config.Companies.SeeEmployees = "everyone" -- who should be able to see employee
 Config.Companies.DeleteConversations = true -- allow employees to delete conversations?
 Config.Companies.Services = {
     {
-        job = "Police,
+        job = "police",
         name = "Police",
         icon = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png",
         canCall = true, -- if true, players can call the company
