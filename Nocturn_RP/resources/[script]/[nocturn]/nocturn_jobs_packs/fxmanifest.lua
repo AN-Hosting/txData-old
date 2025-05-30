@@ -1,7 +1,3 @@
-name "qb-PopsDiner"
-author "Jimathy"
-version "v1.1"
-description "PopsDiner Script By Jimathy"
 fx_version "cerulean"
 game "gta5"
 
@@ -19,5 +15,5 @@ server_scripts {
 }
 
 shared_scripts {
-    'config.lua',
+    'config/*.lua',
 }
