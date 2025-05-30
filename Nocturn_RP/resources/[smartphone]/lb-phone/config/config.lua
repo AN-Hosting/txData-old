@@ -156,7 +156,7 @@ Config.Companies.Services = {
         canMessage = true, -- if true, players can message the company
         bossRanks = { "boss" }, -- ranks that can manage the company
         location = {
-            name = "Mission Row",
+            name = "LSPD",
             coords = {
                 x = 428.9,
                 y = -984.5,
@@ -175,7 +175,7 @@ Config.Companies.Services = {
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "doctor"}, -- ranks that can manage the company
         location = {
-            name = "Pillbox",
+            name = "EMS",
             coords = {
                 x = 304.2,
                 y = -587.0
@@ -198,7 +198,7 @@ Config.Companies.Services = {
         }
     },
     {
-        job = "popsdiner",
+        job = "popdiner",
         name = "Pop Dinner",
         icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
         canCall = true, -- if true, players can call the company
@@ -265,7 +265,7 @@ Config.Companies.Services = {
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "driver"}, -- ranks that can manage the company
         location = {
-            name = "Taxi HQ",
+            name = "Taxi",
             coords = {
                 x = 984.2,
                 y = -219.0
