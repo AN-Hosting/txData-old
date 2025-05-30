@@ -235,7 +235,7 @@ local function GetSocietyMoney(job)
         return res
     end
 
-    return exports["qb-banking"]:GetAccountBalance(job)
+    return exports["okokBanking"]:GetAccountBalance(job)
 end
 
 RegisterLegacyCallback("services:getAccount", function(source, cb)
@@ -255,7 +255,7 @@ RegisterLegacyCallback("services:addMoney", function(source, cb, amount)
         return exports["qb-management"]:AddMoney(job, amount)
     end)
 
-    if success or exports["qb-banking"]:AddMoney(job, amount) then
+    if success or exports["okokBanking"]:AddMoney(job, amount) then
         RemoveMoney(source, amount)
     end
 
@@ -274,7 +274,7 @@ RegisterLegacyCallback("services:removeMoney", function(source, cb, amount)
     end)
 
     if not success then
-        res = exports["qb-banking"]:RemoveMoney(job, amount)
+        res = exports["okokBanking"]:RemoveMoney(job, amount)
     end
 
     if res then

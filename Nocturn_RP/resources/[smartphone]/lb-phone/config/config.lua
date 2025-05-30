@@ -149,14 +149,14 @@ Config.Companies.SeeEmployees = "everyone" -- who should be able to see employee
 Config.Companies.DeleteConversations = true -- allow employees to delete conversations?
 Config.Companies.Services = {
     {
-        job = "Police,
+        job = "police",
         name = "Police",
         icon = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
         bossRanks = { "boss" }, -- ranks that can manage the company
         location = {
-            name = "Mission Row",
+            name = "LSPD",
             coords = {
                 x = 428.9,
                 y = -984.5,
@@ -175,7 +175,7 @@ Config.Companies.Services = {
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "doctor"}, -- ranks that can manage the company
         location = {
-            name = "Pillbox",
+            name = "EMS",
             coords = {
                 x = 304.2,
                 y = -587.0
@@ -198,7 +198,7 @@ Config.Companies.Services = {
         }
     },
     {
-        job = "popsdiner",
+        job = "popdiner",
         name = "Pop Dinner",
         icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
         canCall = true, -- if true, players can call the company
@@ -265,9 +265,9 @@ Config.Companies.Services = {
         canMessage = true, -- if true, players can message the company
         bossRanks = {"boss", "driver"}, -- ranks that can manage the company
         location = {
-            name = "Taxi HQ",
+            name = "Taxi",
             coords = {
-                x =984.2,
+                x = 984.2,
                 y = -219.0
             }
         }
@@ -298,7 +298,7 @@ Config.CustomApps = {} -- https://docs.lbscripts.com/phone/custom-apps/
 Config.Valet = {}
 Config.Valet.Enabled = true -- allow players to get their vehicles from the phone
 Config.Valet.VehicleTypes = { "car", "vehicle" }
-Config.Valet.Price = 100 -- price to get your vehicle
+Config.Valet.Price = 10000 -- price to get your vehicle
 Config.Valet.Model = `S_M_Y_XMech_01`
 Config.Valet.Drive = true -- should a ped bring the car, or should it just spawn in front of the player?
 Config.Valet.DisableDamages = false -- disable vehicle damages (engine & body health) on esx
