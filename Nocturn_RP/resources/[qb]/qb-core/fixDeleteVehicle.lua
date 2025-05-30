@@ -1,9 +1,9 @@
 
 if (GetCurrentResourceName() == "AdvancedParking") then
-	print([[
-		Please check the installation documentation for AdvancedParking at https://docs.kiminaze.de on how to use this file.
-		Do not start this file inside AdvancedParking itself!
-	]])
+	-- print([[
+	-- 	Please check the installation documentation for AdvancedParking at https://docs.kiminaze.de on how to use this file.
+	-- 	Do not start this file inside AdvancedParking itself!
+	-- ]])
 	return
 end
 

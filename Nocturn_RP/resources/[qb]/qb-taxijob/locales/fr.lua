@@ -18,8 +18,8 @@ local Translations = {
         ['taxi_label_1'] = 'Taxi Standard',
         ['no_spawn_point'] = 'Impossible de trouver un emplacement pour amener le taxi',
         ['taxi_returned'] = 'Taxi Garé',
-        ['on_duty'] = '[E] - Go on duty',
-        ['off_duty'] = '[E] - Go off duty'
+        ['on_duty'] = '[E] - Prendre son service',
+        ['off_duty'] = '[E] - Fin de service'
     },
     menu = {
         ['taxi_menu_header'] = 'Taxi',

@@ -1,3 +1,10 @@
+--[[
+    FREE SCRIPT
+    DOWNLOAD @ https://store.rxscripts.xyz/
+    SUPPORT @ https://discord.gg/DHnjcW96an
+    BY RX Scripts © rxscripts.xyz
+--]]
+
 -- Variables
 local QBCore = exports['qb-core']:GetCoreObject()
 local frozen = false
@@ -346,14 +353,6 @@ QBCore.Commands.Add('admin', Lang:t('commands.open_admin'), {}, false, function(
     TriggerClientEvent('qb-admin:client:openMenu', source)
 end, 'admin')
 
-QBCore.Commands.Add('report', Lang:t('info.admin_report'), { { name = 'message', help = 'Message' } }, true, function(source, args)
-    local src = source
-    local msg = table.concat(args, ' ')
-    local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent('qb-admin:client:SendReport', -1, GetPlayerName(src), src, msg)
-    TriggerEvent('qb-log:server:CreateLog', 'report', 'Report', 'green', '**' .. GetPlayerName(source) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. source .. ') **Report:** ' .. msg, false)
-end)
-
 QBCore.Commands.Add('staffchat', Lang:t('commands.staffchat_message'), { { name = 'message', help = 'Message' } }, true, function(source, args)
     local msg = table.concat(args, ' ')
     local name = GetPlayerName(source)
@@ -427,29 +426,6 @@ QBCore.Commands.Add('delwarn', Lang:t('commands.delete_player_warning'), { { nam
         TriggerClientEvent('chat:addMessage', source, 'SYSTEM', 'warning', 'You have deleted warning (' .. selectedWarning .. ') , Reason: ' .. warnings[selectedWarning].reason)
         MySQL.query('DELETE FROM player_warns WHERE warnId = ?', { warnings[selectedWarning].warnId })
     end
-end, 'admin')
-
-QBCore.Commands.Add('reportr', Lang:t('commands.reply_to_report'), { { name = 'id', help = 'Player' }, { name = 'message', help = 'Message to respond with' } }, false, function(source, args)
-    local src = source
-    local playerId = tonumber(args[1])
-    table.remove(args, 1)
-    local msg = table.concat(args, ' ')
-    local OtherPlayer = QBCore.Functions.GetPlayer(playerId)
-    if msg == '' then return end
-    if not OtherPlayer then return TriggerClientEvent('QBCore:Notify', src, 'Player is not online', 'error') end
-    if not QBCore.Functions.HasPermission(src, 'admin') or IsPlayerAceAllowed(src, 'command') ~= 1 then return end
-    TriggerClientEvent('chat:addMessage', playerId, {
-        color = { 255, 0, 0 },
-        multiline = true,
-        args = { 'Admin Response', msg }
-    })
-    TriggerClientEvent('chat:addMessage', src, {
-        color = { 255, 0, 0 },
-        multiline = true,
-        args = { 'Report Response (' .. playerId .. ')', msg }
-    })
-    TriggerClientEvent('QBCore:Notify', src, 'Reply Sent')
-    TriggerEvent('qb-log:server:CreateLog', 'report', 'Report Reply', 'red', '**' .. GetPlayerName(src) .. '** replied on: **' .. OtherPlayer.PlayerData.name .. ' **(ID: ' .. OtherPlayer.PlayerData.source .. ') **Message:** ' .. msg, false)
 end, 'admin')
 
 QBCore.Commands.Add('setmodel', Lang:t('commands.change_ped_model'), { { name = 'model', help = 'Name of the model' }, { name = 'id', help = 'Id of the Player (empty for yourself)' } }, false, function(source, args)
@@ -542,3 +518,8 @@ QBCore.Commands.Add('heading', 'Copy heading to clipboard (Admin only)', {}, fal
     local src = source
     TriggerClientEvent('qb-admin:client:copyToClipboard', src, 'heading')
 end, 'admin')
+
+-- Commandes de rapport désactivées car nous utilisons RxReports
+QBCore.Commands.Add('report', 'Cette commande a été désactivée. Utilisez /report du système RxReports à la place.', {}, false, function() end)
+QBCore.Commands.Add('reportr', 'Cette commande a été désactivée. Utilisez le système RxReports à la place.', {}, false, function() end)
+QBCore.Commands.Add('reporttoggle', 'Cette commande a été désactivée. Utilisez /reportnotify du système RxReports à la place.', {}, false, function() end)

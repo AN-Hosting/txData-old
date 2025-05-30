@@ -130,8 +130,8 @@ QBShared.Jobs = {
 			['4'] = { name = 'Directeur', isboss = true, payment = 150 },
 		},
 	},
-	autoexotic = {
-		label = 'Auto Exotic',
+	bennys = {
+		label = 'Benny\'s Garage',
 		type = 'mechanic',
 		defaultDuty = false,
 		offDutyPay = false,
@@ -143,8 +143,8 @@ QBShared.Jobs = {
 			['4'] = { name = 'Directeur', isboss = true, payment = 150 },
 		},
 	},
-	bennys = {
-		label = 'Benny\'s Garage',
+	mechanic = {
+		label = 'Mechanic',
 		type = 'mechanic',
 		defaultDuty = false,
 		offDutyPay = false,
@@ -169,8 +169,20 @@ QBShared.Jobs = {
         	['5'] = { name = 'Chef de Bataillon', isboss = true, payment = 300 },
 		},
 	},
+	popsdiner = {
+		label = 'Pops Diner',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Employé(e)', payment = 50 },
+        	['1'] = { name = 'Cuisinier(e)', payment = 75 },
+        	['2'] = { name = 'Caissier(e)', payment = 90 },
+        	['3'] = { name = 'Manager', payment = 110 },
+        	['4'] = { name = 'Gérant(e)', isboss = true, payment = 130 },
+		},
+	},
 	burgershot = {
-		label = 'Burgershot',
+		label = 'Burger Shot',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {

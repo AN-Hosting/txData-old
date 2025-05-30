@@ -393,6 +393,19 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline)
         return self.PlayerData.money[moneytype]
     end
 
+    function self.Functions.ChangeIban(newIban)
+        if not newIban then return false end
+        self.PlayerData.charinfo.iban = newIban
+        if not self.Offline then
+            self.Functions.UpdatePlayerData()
+            MySQL.update('UPDATE players SET charinfo = ? WHERE citizenid = ?', {
+                json.encode(self.PlayerData.charinfo),
+                self.PlayerData.citizenid
+            })
+        end
+        return true
+    end
+
     function self.Functions.Save()
         if self.Offline then
             QBCore.Player.SaveOffline(self.PlayerData)
