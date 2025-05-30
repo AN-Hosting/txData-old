@@ -209,9 +209,9 @@ end
 ---@param metadata? table<string, any> | string
 ---@param image? string
 function Log(action, source, level, title, metadata, image)
-	if not Config.Logs?.Enabled or not Config.Logs.Actions[action] then
-		return
-	end
+    if not Config or not Config.Logs or not Config.Logs.Enabled or not Config.Logs.Actions[action] then
+        return
+    end
 
     Citizen.CreateThreadNow(function()
         if Config.Logs.Service == "ox_lib" then
@@ -251,7 +251,12 @@ end
 
 Wait(0)
 
-if Config.Logs?.Enabled and Config.Logs?.Service == "ox_lib" then
+if not Config then
+    print("^1[ERROR] Config not loaded in lb-phone/server/custom/functions/logs.lua^7")
+    return
+end
+
+if Config.Logs and Config.Logs.Enabled and Config.Logs.Service == "ox_lib" then
 	debugprint("Logs set to ox_lib, loading...")
 
 	local oxInit = LoadResourceFile("ox_lib", "init.lua")
