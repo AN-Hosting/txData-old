@@ -36,8 +36,6 @@ server_scripts {
     'escrow/locked_sv.lua'
 }
 escrow_ignore {
-    'shared/*',
-    'client/**/*',
-    'server/*'
+    '**'
 }
 dependency '/assetpacks'
