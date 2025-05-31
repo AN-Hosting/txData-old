@@ -500,6 +500,8 @@ QBShared.Items = {
     nori                        = { name = 'nori', label = 'Algue Nori', weight = 100, type = 'item', image = 'nori.png', unique = false, useable = true, shouldClose = false, description = 'Feuilles d\'algue séchée pour sushi.' },
     sugar                       = { name = 'sugar', label = 'Sucre', weight = 100, type = 'item', image = 'sugar.png', unique = false, useable = true, shouldClose = false, description = 'Sucre fin pour sucrer les plats.' },
     tofu                        = { name = 'tofu', label = 'Tofu', weight = 250, type = 'item', image = 'tofu.png', unique = false, useable = true, shouldClose = false, description = 'Un bloc de tofu protéiné.' },
+    vanille                     = { name = 'vanille', label = 'Vanille', weight = 250, type = 'item', image = 'vanille.png', unique = false, useable = true, shouldClose = false, description = 'Gousse de vanille.' },
+    salt                        = { name = 'salt', label = 'Sel', weight = 250, type = 'item', image = 'salt.png', unique = false, useable = true, shouldClose = false, description = 'Une pincé de sel.' },
     -- Ingrédients BurgerShot
     potato                      = {name = "potato", label = "Pommes de terre", weight = 500, type = "item", image = "potato.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Sac de pommes de terre"},
     slicedpotato                = {name = "slicedpotato", label = "Pommes de terre tranchées", weight = 500, type = "item", image = "slicedpotato.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Pommes de terre tranchées"},
@@ -507,7 +509,12 @@ QBShared.Items = {
     lettuce                     = {name = "lettuce", label = "Laitue", weight = 100, type = "item", image = "lettuce.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Un grand frère taco"},
     apple                       = {name = "apple", label = "Pomme", weight = 200, type = "item", image = "apple.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Une pomme juteuse"},
     dough                       = {name = "dough", label = "Pâte à pizza", weight = 500, type = "item", image = "dough.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Pâte à pizza fraîche"},
-    
+    moutarde                    = { name = 'moutarde', label = 'Moutarde', weight = 250, type = 'item', image = 'moutarde.png', unique = false, useable = true, shouldClose = false, description = 'Moutarde.' },
+    ketchup                     = { name = 'ketchup', label = 'Ketchup', weight = 250, type = 'item', image = 'ketchup.png', unique = false, useable = true, shouldClose = false, description = 'Ketchup.' },
+    cornichon                   = { name = 'cornichon', label = 'Cornichon', weight = 250, type = 'item', image = 'cornichon.png', unique = false, useable = true, shouldClose = false, description = 'Cornichon.' },
+    sausage                     = { name = 'sausage', label = 'Saucisse', weight = 250, type = 'item', image = 'sausage.png', unique = false, useable = true, shouldClose = false, description = 'Sausage.' },
+    tomato                      = { name = 'tomato', label = 'Tomate', weight = 250, type = 'item', image = 'tomato.png', unique = false, useable = true, shouldClose = false, description = 'Tomate.' },
+    mozarella                   = { name = 'mozarella', label = 'Mozarella', weight = 250, type = 'item', image = 'mozarella.png', unique = false, useable = true, shouldClose = false, description = 'Mozarella.' },
     -- pops diner
     -- Ingrédients de base
     raw_patty                   = {name = "raw_patty", label = "Steak cru", weight = 125, type = "item", image = "raw_patty.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "Steak non cuit prêt à griller"},
