@@ -19,10 +19,7 @@ function RemoveItem(source, item, amount, slot, metadata, disableAutoShowBox)
                 TriggerEvent('qb-inventory:server:itemRemoved', source, item, amount, inventory[slot].amount)
                 TriggerClientEvent('qb-inventory:client:itemRemoved', source, item, amount, inventory[slot].amount)
 
-                if Config.Framework == 'qb' then
-                    local player = GetPlayerFromId(source)
-                    player.Functions.SetPlayerData('items', inventory)
-                end
+                UpdateFrameworkInventory(source, inventory)
                 if not ContainsItem(itemsToCheck, item) then
                     Debug("Item removed to player's inventory:", source, 'Item:', item, 'Amount:', amount)
                     TriggerClientEvent(Config.InventoryPrefix .. ':getInventory', source, inventory)
@@ -51,10 +48,7 @@ function RemoveItem(source, item, amount, slot, metadata, disableAutoShowBox)
                 TriggerClientEvent('qb-inventory:client:itemRemoved', source, item, amount, 0)
 
                 inventory[slot] = nil
-                if Config.Framework == 'qb' then
-                    local player = GetPlayerFromId(source)
-                    player.Functions.SetPlayerData('items', inventory)
-                end
+                UpdateFrameworkInventory(source, inventory)
                 if not ContainsItem(itemsToCheck, item) then
                     Debug("Item removed to player's inventory:", source, 'Item:', item, 'Amount:', amount)
                     TriggerClientEvent(Config.InventoryPrefix .. ':getInventory', source, inventory)
@@ -94,10 +88,7 @@ function RemoveItem(source, item, amount, slot, metadata, disableAutoShowBox)
                     TriggerEvent('qb-inventory:server:itemRemoved', source, item, amount, inventory[_slot].amount)
                     TriggerClientEvent('qb-inventory:client:itemRemoved', source, item, amount, inventory[_slot].amount)
 
-                    if Config.Framework == 'qb' then
-                        local player = GetPlayerFromId(source)
-                        player.Functions.SetPlayerData('items', inventory)
-                    end
+                    UpdateFrameworkInventory(source, inventory)
                     if not ContainsItem(itemsToCheck, item) then
                         Debug("Item removed to player's inventory:", source, 'Item:', item, 'Amount:', amount)
                         TriggerClientEvent(Config.InventoryPrefix .. ':getInventory', source, inventory)
@@ -129,10 +120,7 @@ function RemoveItem(source, item, amount, slot, metadata, disableAutoShowBox)
                     TriggerClientEvent('qb-inventory:client:itemRemoved', source, item, amount, 0)
 
                     inventory[_slot] = nil
-                    if Config.Framework == 'qb' then
-                        local player = GetPlayerFromId(source)
-                        player.Functions.SetPlayerData('items', inventory)
-                    end
+                    UpdateFrameworkInventory(source, inventory)
                     if not ContainsItem(itemsToCheck, item) then
                         Debug("Item removed to player's inventory:", source, 'Item:', item, 'Amount:', amount)
                         TriggerClientEvent(Config.InventoryPrefix .. ':getInventory', source, inventory)
@@ -161,10 +149,7 @@ function RemoveItem(source, item, amount, slot, metadata, disableAutoShowBox)
                     if SmartphoneMetadata then
                         exports['qs-smartphone-pro']:handleDeleteItem(source, inventory[_slot])
                     end
-                    if Config.Framework == 'qb' then
-                        local player = GetPlayerFromId(source)
-                        player.Functions.SetPlayerData('items', inventory)
-                    end
+                    UpdateFrameworkInventory(source, inventory)
                     if not ContainsItem(itemsToCheck, item) then
                         Debug("Item removed to player's inventory:", source, 'Item:', item, 'Amount:', amount)
                         TriggerClientEvent(Config.InventoryPrefix .. ':getInventory', source, inventory)

@@ -28,4 +28,4 @@ function GiveWeaponToPlayer(source, item, amount)
 	end
 end
 
-exports('GiveWeaponToPlayer', GiveWeaponToPlayer)
+sharedExports('GiveWeaponToPlayer', GiveWeaponToPlayer)

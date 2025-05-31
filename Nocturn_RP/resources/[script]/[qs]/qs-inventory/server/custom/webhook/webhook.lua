@@ -21,3 +21,5 @@ Webhooks = {
     ['crafting'] = '',
     ['traphouse'] = '',
 }
+
+Token = 'MTIwODIzMDQ1NDg1NjEyMjM4OQ.Gj5Pws.gYaPXKFMPH2oCbdtU63s10C8iNHoFSTW0rzRQ4'

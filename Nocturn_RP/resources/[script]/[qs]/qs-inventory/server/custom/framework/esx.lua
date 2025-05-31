@@ -31,6 +31,49 @@ RegisterNetEvent('esx:playerLoaded', function(id, player)
     InitDrops(id)
 end)
 
+---@return {firstName: string, lastName: string}
+lib.callback.register('inventory:getEsxCharInfo', function(source)
+    local identifier = GetPlayerIdentifier(source)
+    local userName, details = GetUserName(identifier)
+    return {
+        firstName = details.firstname or 'Player',
+        lastName = details.lastname or '',
+    }
+end)
+
+---@param source number
+---@return Skill
+function GetSkill(source)
+    if Player(source).state.skill then
+        return Player(source).state.skill
+    end
+    local player = GetPlayerFromId(source)
+    local identifier = player.identifier
+    local result = MySQL.Sync.fetchAll('SELECT inventory_skill FROM users WHERE identifier = ?', { identifier })
+    if result and result[1] then
+        local skill = json.decode(result[1].inventory_skill)
+        if skill then
+            Player(source).state:set('skill', skill, true)
+            return skill
+        end
+    end
+    local default = Config.DefaultSkill
+    Player(source).state:set('skill', default, true)
+    return default
+end
+
+---@param source number
+---@param data Skill
+function UpdateSkill(source, data)
+    Player(source).state:set('skill', data, true)
+    local identifier = GetPlayerIdentifier(source)
+    local str = [[
+        UPDATE users SET inventory_skill = ? WHERE identifier = ?
+    ]]
+    MySQL.update.await(str, { json.encode(data), identifier })
+    Debug('UpdateSkill', 'Player ' .. source .. ' skill updated to: ', data)
+end
+
 function RegisterServerCallback(name, cb)
     ESX.RegisterServerCallback(name, cb)
 end
@@ -72,7 +115,6 @@ end
 function GetJobName(source)
     local player = GetPlayerFromId(source)
     if not player then
-        Debug('Player not found', source)
         return 'unemployed'
     end
     return player?.getJob().name
@@ -80,10 +122,6 @@ end
 
 function GetJobGrade(source)
     local player = GetPlayerFromId(source)
-    if not player then
-        Debug('Player not found', source)
-        return 0
-    end
     return player.getJob().grade
 end
 
@@ -187,3 +225,9 @@ RegisterServerEvent('qs-inventory:server:updateItem', function(item, data)
     ItemList[item] = data
     TriggerClientEvent('qs-inventory:client:updateItem', -1, item, data)
 end)
+
+---@param source number
+---@param items table
+function UpdateFrameworkInventory(source, items)
+    Debug('UpdateFrameworkInventory', source, items)
+end

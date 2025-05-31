@@ -4,38 +4,44 @@ game 'gta5'
 
 lua54 'yes'
 
-version '3.3.95'
+version '1.0.49'
+
+this_is_a_map 'yes'
 
 data_file 'WEAPONINFO_FILE_PATCH' 'weaponsnspistol.meta'
+data_file 'DLC_ITYP_REQUEST' 'stream/qs_gradient_00.ytyp'
 
--- 'http://127.0.0.1:5500/html/ui.html'
 ui_page 'html/ui.html'
+-- ui_page 'http://127.0.0.1:5500/html/ui.html'
 
 ox_libs {
-    'table',
+    'table'
 }
 
 files {
     'config/*.js',
+    'config/*.json',
     'html/ui.html',
     'html/css/*.css',
     'html/js/*.js',
     'html/js/modules/*.js',
+    'html/backgrounds/*.webp',
     'html/images/*.png',
+    'html/assets/**',
     'html/images/*.jpg',
     'html/cloth/*.png',
     'html/icons/**',
     'html/font/**',
     'html/*.ttf',
     'weaponsnspistol.meta',
-    'html/sounds/*.wav',
+    'html/sounds/*'
 }
 
 shared_scripts {
     '@ox_lib/init.lua',
     'shared/*.lua',
     'config/*.lua',
-    'locales/*.lua',
+    'locales/*.lua'
 }
 
 client_script {
@@ -44,7 +50,8 @@ client_script {
     'client/modules/*.lua',
     'client/custom/misc/*.lua',
     'client/custom/target/*.lua',
-    'client/custom/provider/*.lua'
+    'client/custom/provider/*.lua',
+    'client/custom/clothing/*.lua'
 }
 
 server_scripts {
@@ -53,7 +60,7 @@ server_scripts {
     'server/custom/webhook/*.lua',
     'server/*.lua',
     'server/modules/*.lua',
-    'server/custom/**/**.lua',
+    'server/custom/**/**.lua'
 }
 
 escrow_ignore {
@@ -61,27 +68,20 @@ escrow_ignore {
     'shared/weapons.lua',
     'config/*.lua',
     'locales/*.lua',
-    'client/custom/framework/*.lua',
-    'client/custom/misc/*.lua',
-    'client/custom/target/*.lua',
-    'client/custom/provider/*.lua',
-    'client/modules/suggestion.lua',
-    'server/custom/framework/*.lua',
-    'server/custom/webhook/*.lua',
-    'server/custom/misc/*.lua',
+    'client/custom/**/**',
+    'server/custom/**/**',
     'client/modules/weapons.lua',
-    'server/modules/weapons.lua',
+    'server/modules/weapons.lua'
 }
 
 dependencies {
+    'MugShotBase64',
     '/server:4752', -- ⚠️PLEASE READ⚠️ This requires at least server build 4700 or higher
-    'ox_lib',       -- Required
+    'ox_lib'        -- Required
 }
 
 provide {
-    -- 'ox_inventory' -- Uncomment this line only if you have qbx but better way is the remove 'ox_inventory' dependency on every scripts.
+    'qs-inventory'
 }
-
-dependency '/assetpacks'
 
 dependency '/assetpacks'

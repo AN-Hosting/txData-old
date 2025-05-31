@@ -12,12 +12,8 @@ if not Config.QBX then
     ItemList = FormatItems(QBCore.Shared.Items)
 end
 
-RegisterNetEvent('QBCore:Server:PlayerLoaded', function(Player)
-    InitDrops(Player.PlayerData.source)
-end)
-
-UseCashAsItem = true  -- Choose whether to use money as an item
-CashItem = 'cash'     -- Choose the money item, it only works if I enable the configurable above
+UseCashAsItem = true -- Choose whether to use money as an item
+CashItem = 'cash'    -- Choose the money item, it only works if I enable the configurable above
 
 ListAccountsSteal = {
     { account = 'cash', name = 'Cash' },
@@ -42,6 +38,39 @@ end
 
 function GetPlayerFromIdentifier(identifier)
     return QBCore.Functions.GetPlayerByCitizenId(identifier)
+end
+
+---@param source number
+---@return Skill
+function GetSkill(source)
+    if Player(source).state.skill then
+        return Player(source).state.skill
+    end
+    local player = GetPlayerFromId(source)
+    local identifier = player.PlayerData.citizenid
+    local result = MySQL.Sync.fetchAll('SELECT inventory_skill FROM players WHERE citizenid = ?', { identifier })
+    if result and result[1] then
+        local skill = json.decode(result[1].inventory_skill)
+        if skill then
+            Player(source).state:set('skill', skill, true)
+            return skill
+        end
+    end
+    local default = Config.DefaultSkill
+    Player(source).state:set('skill', default, true)
+    return default
+end
+
+---@param source number
+---@param data Skill
+function UpdateSkill(source, data)
+    Player(source).state:set('skill', data, true)
+    local identifier = GetPlayerIdentifier(source)
+    local str = [[
+        UPDATE players SET inventory_skill = ? WHERE citizenid = ?
+    ]]
+    MySQL.update.await(str, { json.encode(data), identifier })
+    Debug('UpdateSkill', 'Player ' .. source .. ' skill updated to: ', data)
 end
 
 function PlayerIsAdmin(source)
@@ -131,6 +160,15 @@ function IsVehicleOwnedAbleToOpen(plate, id)
     else
         return val
     end
+end
+
+---@param source number
+---@param items table
+function UpdateFrameworkInventory(source, items)
+    local player = GetPlayerFromId(source)
+    player.Functions.SetPlayerData('items', items)
+    UpdateCashItem(source)
+    Debug('UpdateFrameworkInventory', source, items)
 end
 
 RegisterServerCallback(Config.InventoryPrefix .. ':server:checkDead', function(_, cb, id)

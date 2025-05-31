@@ -38,40 +38,6 @@ function Split(s, delimiter)
     return result;
 end
 
-RegisterNetEvent('weapons:reloadWeapon', function(ammoType)
-    local src = source
-    local player = GetPlayerFromId(src)
-    local items = GetItems(player)
-    if not ammoType then
-        Error('Your weapons.lua is broken! AMMO_TYPE is not found. Please follow our docs and use our qb-core if it needs!')
-        return
-    end
-    ammoType = type(ammoType) == 'table' and ammoType or { ammoType }
-    local ammoItems = {}
-    for k, v in pairs(ammoType) do
-        local item = table.find(Config.AmmoItems, function(item) return item.type == v end)
-        if item then
-            ammoItems[#ammoItems + 1] = item.item
-        end
-    end
-    local item
-    for k, v in pairs(items) do
-        if v.name == table.find(Config.AmmoItems, function(item) return item.isForEveryWeapon end).item then
-            item = v
-            break
-        end
-        if table.includes(ammoItems, v.name) then
-            item = v
-            break
-        end
-    end
-    if not item then
-        TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_AMMO'), 'error')
-        return
-    end
-    lib.callback.await('weapons:addAmmo', src, item)
-end)
-
 lib.callback.register('weapons:GetWeaponAmmoItem', function(source, ammoType, checkMaster)
     local player = GetPlayerFromId(source)
     local items = GetItems(player)
@@ -79,20 +45,16 @@ lib.callback.register('weapons:GetWeaponAmmoItem', function(source, ammoType, ch
         Error('Your weapons.lua is broken! AMMO_TYPE is not found. Please follow our docs and use our qb-core if it needs!')
         return
     end
-    ammoType = type(ammoType) == 'table' and ammoType or { ammoType }
-    local ammoItems = {}
-    for k, v in pairs(ammoType) do
-        local item = table.find(Config.AmmoItems, function(item) return item.type == v end)
-        if item then
-            ammoItems[#ammoItems + 1] = item.item
-        end
+    local ammoName = Split(ammoType, '_')
+    ammoName = ammoName[2]:lower() .. '_' .. ammoName[1]:lower()
+    if ammoName == 'sniper_ammo' then
+        ammoName = 'snp_ammo'
     end
-    Debug('ammoType', ammoType)
     for k, v in pairs(items) do
         if checkMaster and v.name == table.find(Config.AmmoItems, function(item) return item.isForEveryWeapon end).item then
             return v
         end
-        if table.includes(ammoItems, v.name) then
+        if v.name == ammoName then
             return v
         end
     end
@@ -113,7 +75,6 @@ end)
 RegisterServerCallback('weapons:server:RemoveAttachment', function(source, cb, AttachmentData, ItemData)
     local src = source
     local Inventory = GetItems(GetPlayerFromId(src))
-    Debug('Attachmentdata', AttachmentData)
     local AttachmentComponent = Config.WeaponAttachments[ItemData.name:upper()][AttachmentData.attachment]
     if Inventory[ItemData.slot] then
         if Inventory[ItemData.slot].info.attachments and next(Inventory[ItemData.slot].info.attachments) then
@@ -139,7 +100,7 @@ RegisterServerCallback('weapons:server:RemoveAttachment', function(source, cb, A
                     end
                 end
                 Wait(200)
-                TriggerClientEvent(Config.InventoryPrefix .. ':RefreshWeaponAttachments', src, Inventory[ItemData.slot], false, AttachmentComponent.component)
+                TriggerClientEvent(Config.InventoryPrefix .. ':RefreshWeaponAttachments', src, Inventory[ItemData.slot], false, AttachmentComponent.component or AttachmentData.attachment)
                 TriggerClientEvent(Config.InventoryPrefix .. ':RefreshWeaponAttachments', src)
             else
                 cb(false)
@@ -159,18 +120,20 @@ RegisterServerCallback('weapons:server:RepairWeapon', function(source, cb, Repai
     local minute = 60 * 1000
     local Timeout = math.random(5 * minute, 10 * minute)
     local WeaponData = WeaponList[GetHashKey(data.name)]
+    local WeaponClass = (SplitStr(WeaponData.ammotype, '_')[2]):lower()
     local items = GetItems(Player)
 
     if items[data.slot] then
         if items[data.slot].info.quality then
             if items[data.slot].info.quality ~= 100 then
                 local cash = GetAccountMoney(src, 'money')
-                if cash >= Config.WeaponRepairCosts[WeaponData.weapontype] then
+                if cash >= Config.WeaponRepairCosts[WeaponClass] then
                     items[data.slot].info.quality = 100
                     SetItemMetadata(src, data.slot, items[data.slot].info)
                     TriggerClientEvent(Config.InventoryPrefix .. ':client:CheckWeapon', src, data.name)
                     TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_TEXT_REPAIR_REPAIRED'), 'error')
-                    RemoveAccountMoney(src, 'money', Config.WeaponRepairCosts[WeaponData.weapontype])
+                    TriggerEvent('weapons:weaponRepaired', src, WeaponData.name, WeaponData.label, WeaponData.ammotype, WeaponData.slot)
+                    RemoveAccountMoney(src, 'money', Config.WeaponRepairCosts[WeaponClass])
                     cb(true)
                 else
                     TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', src, Lang('INVENTORY_NOTIFICATION_NO_MONEY'), 'error')
@@ -286,7 +249,7 @@ RegisterNetEvent('weapons:server:SetWeaponQuality', function(data, hp)
     SetItemMetadata(src, data.slot, WeaponSlot.info)
 end)
 
-exports('GetCurrentWeapon', function(source)
+sharedExports('GetCurrentWeapon', function(source)
     local currentWeapon = lib.callback.await('weapons:client:GetCurrentWeapon', source)
     return currentWeapon
 end)
@@ -384,6 +347,7 @@ RegisterNetEvent('weapons:server:EquipAttachment', function(ItemData, CurrentWea
                     urltint = tint
                 }
                 Inventory[CurrentWeaponData.slot].info.tinturl = tint
+                TriggerEvent('inventory:addAttachment', src, AttachmentData.item, AttachmentData.component or AttachmentData.attachment, AttachmentData.type, AttachmentData.tint)
                 TriggerClientEvent('addAttachment', src, AttachmentData.component, tint)
                 SetItemMetadata(src, CurrentWeaponData.slot, Inventory[CurrentWeaponData.slot].info)
                 RemoveItem(src, ItemData.name, 1, ItemData.slot)
@@ -402,7 +366,8 @@ RegisterNetEvent('weapons:server:EquipAttachment', function(ItemData, CurrentWea
                 urltint = tint
             }
             Inventory[CurrentWeaponData.slot].info.tinturl = tint
-            TriggerClientEvent('addAttachment', src, AttachmentData.component, tint)
+            TriggerEvent('inventory:addAttachment', src, AttachmentData.item, AttachmentData.component, AttachmentData.type, AttachmentData.tint)
+            TriggerClientEvent('addAttachment', src, AttachmentData.component or AttachmentData.attachment, tint)
             SetItemMetadata(src, CurrentWeaponData.slot, Inventory[CurrentWeaponData.slot].info)
             RemoveItem(src, ItemData.name, 1, ItemData.slot)
             Debug('Attachment used: [' .. ItemData.name .. '], slot: [' .. json.encode(ItemData.slot) .. ']')
@@ -413,9 +378,8 @@ RegisterNetEvent('weapons:server:EquipAttachment', function(ItemData, CurrentWea
         AddItem(src, GiveBackItem, 1)
         Wait(100)
     end
-
     if sendData then
-        TriggerClientEvent(Config.InventoryPrefix .. ':RefreshWeaponAttachments', src, Inventory[CurrentWeaponData.slot], AttachmentData.component)
+        TriggerClientEvent(Config.InventoryPrefix .. ':RefreshWeaponAttachments', src, Inventory[CurrentWeaponData.slot], AttachmentData.component or AttachmentData.attachment)
         Wait(100)
         TriggerClientEvent(Config.InventoryPrefix .. ':RefreshWeaponAttachments', src)
     end

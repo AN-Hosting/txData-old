@@ -17,10 +17,24 @@ function IsPlayerLoaded()
     return playerLoaded
 end
 
+CreateThread(function()
+    if playerLoaded and HandleSkillLoad then
+        HandleSkillLoad()
+    end
+end)
+
+---@return {firstName: string, lastName: string}
+function GetUserName()
+    return lib.callback.await('inventory:getEsxCharInfo', 0)
+end
+
 RegisterNetEvent('esx:playerLoaded', function(xPlayer)
-    PlayerData = xPlayer
+    PausePlayerData = xPlayer
     LocalPlayer.state:set('inv_busy', false, true)
     Wait(1250)
+    if HandleSkillLoad then
+        HandleSkillLoad()
+    end
     for k, data in pairs(Config.WeaponRepairPoints) do
         Config.WeaponRepairPoints[k].IsRepairing = data.IsRepairing
         Config.WeaponRepairPoints[k].RepairingData = data.RepairingData
@@ -34,7 +48,7 @@ end)
 
 RegisterNetEvent('esx:onPlayerLogout')
 AddEventHandler('esx:onPlayerLogout', function()
-    PlayerData = {}
+    PausePlayerData = {}
     LocalPlayer.state:set('inv_busy', true, true)
     RemoveAllNearbyDrops()
     for k in pairs(Config.WeaponRepairPoints) do
@@ -45,7 +59,7 @@ AddEventHandler('esx:onPlayerLogout', function()
 end)
 
 RegisterNetEvent('esx:setJob', function()
-    PlayerData = GetPlayerData()
+    PausePlayerData = GetPlayerData()
     if Config.Crafting then
         CreateBlips()
     end
@@ -233,6 +247,30 @@ function ProgressBar(name, label, duration, useWhileDead, canCancel, disableCont
         onCancel()
     end
 end
+
+RegisterCommand('cancelProgressBar', function()
+    exports['qs-interface']:ProgressBar({
+        duration = 1000,
+        label = 'test',
+        useWhileDead = false,
+        canCancel = false,
+        disable = {
+            move = true,
+            car = true,
+            mouse = false,
+            combat = true,
+        },
+        anim = {
+            dict = 'mp_player_inteat@burger',
+            clip = 'mp_player_int_eat_burger_fp'
+        },
+        prop = {
+            model = 'prop_cs_burger_01',
+            pos = vec3(0.02, 0.02, -0.02),
+            rot = vec3(0.0, 0.0, 0.0)
+        }
+    })
+end)
 
 function ProgressBarSync(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop)
     if GetResourceState('qs-interface') == 'started' then

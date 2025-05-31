@@ -465,7 +465,7 @@ WeaponList = {
         name = 'weapon_carbinerifle',
         label = 'Carbine Rifle',
         weapontype = 'Assault Rifle',
-        ammotype = { 'AMMO_RIFLE', 'AMMO_POLICE_RIFLE' },
+        ammotype = 'AMMO_RIFLE',
         damagereason = 'Ended / Rifled / Shot down / Floored'
     },
     [`weapon_carbinerifle_mk2`] = {

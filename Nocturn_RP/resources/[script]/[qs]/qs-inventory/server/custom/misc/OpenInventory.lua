@@ -263,18 +263,9 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:OpenInventory', function(nam
 				secondInv.name = 'otherplayer-' .. id
 				secondInv.label = 'Player-' .. id
 				secondInv.maxweight = Config.InventoryWeight.weight
-				local items = {}
-				for k, v in pairs(Inventories[id]) do
-					if k ~= 41 or jobName == 'police' then
-						items[k] = v
-					end
-				end
-				secondInv.inventory = items
+				secondInv.inventory = FormatInventoryByType(Inventories[id], other?.type)
 				searchingInventories[src] = id
 				secondInv.slots = Config.InventoryWeight.slots
-				if jobName ~= 'police' then
-					secondInv.slots = secondInv.slots - 1
-				end
 				TriggerClientEvent(Config.InventoryPrefix .. ':client:sendTextMessage', id, Lang('INVENTORY_NOTIFICATION_ROBBERY_WARNING'), 'inform')
 				Wait(250)
 			end
@@ -304,7 +295,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':server:OpenInventory', function(nam
 			end
 		end
 		Wait(0)
-		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv, name)
+		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv)
 		OpenedSecondInventories[src] = secondInv
 	else
 		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src])
@@ -535,11 +526,11 @@ function OpenInventory(name, id, other, origin)
 			end
 		end
 		Wait(0)
-		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv, name)
+		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src], secondInv)
 		OpenedSecondInventories[src] = secondInv
 	else
 		TriggerClientEvent(Config.InventoryPrefix .. ':client:OpenInventory', src, {}, Inventories[src])
 	end
 end
 
-exports('OpenInventory', OpenInventory)
+sharedExports('OpenInventory', OpenInventory)

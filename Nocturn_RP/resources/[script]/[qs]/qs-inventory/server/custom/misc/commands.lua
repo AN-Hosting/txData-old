@@ -122,11 +122,6 @@ RegisterCommand('checkitem', function(source)
 	return print('Tosti item amount:', item and item.amount or 0)
 end)
 
-RegisterCommand('rob', function(source)
-	if Config.Framework == 'esx' then return end
-	TriggerClientEvent('police:client:RobPlayer', source)
-end)
-
 RegisterCommand('invitems', function(source)
 	if Config.Framework == 'qb' then return end
 	local playerId = tonumber(source)
