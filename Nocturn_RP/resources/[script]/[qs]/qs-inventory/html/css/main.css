@@ -1,11 +1,51 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap";
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     margin: unset;
     padding: unset;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/Poppins-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/Poppins-Bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.inventory-route-label {
+    width: max-content;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/Poppins-SemiBold.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/Poppins-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../font/Poppins-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
 }
 
 @font-face {
@@ -108,8 +148,112 @@
     font-style: normal;
 }
 
-:root {
-    overflow: hidden;
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
 }
 
 p {
@@ -126,19 +270,14 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 1vh;
     background: #000;
 }
 
-::-webkit-scrollbar,
 ::-webkit-scrollbar {
-    width: 3px;
-    filter: drop-shadow(1px 1px 3px rgba(0, 148, 255, 1));
+    width: 0.3vh;
+    filter: drop-shadow(1px 0.1vh 3px var(--primary-color));
 }
 
 ::-webkit-scrollbar-track,
@@ -148,29 +287,29 @@ input[type="number"]::-webkit-outer-spin-button {
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 148, 255, 0.9);
+    background: var(--primary-color);
 }
 
-html,
-body,
 .container {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    position: absolute;
     width: 100%;
     height: 100%;
 }
 
 * {
-    cursor: none !important;
+    /* cursor: none !important; */
 }
 
 .ply-inv-container,
 .oth-inv-container {
-    max-width: 590px;
+    max-width: 55vh;
 }
 
-.clothes-inventory,
-.custom-inventory {
-    min-width: 564px;
-    margin-top: -45px;
+.clothes-inventory {
+    max-width: 55vh;
 }
 
 .oth-inv-container {
@@ -193,36 +332,62 @@ body {
     height: 100%;
     width: 100%;
     align-items: center;
-    align-content: center;
     justify-content: center;
-    top: 50%;
-    left: 50%;
     z-index: 100;
-    transform: translate(-50%, -50%);
     display: none;
 }
 
-#inventory-container:before {
-    content: "";
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 15540vh;
-    width: 1550vw;
-    top: -550%;
-    left: -550%;
-    position: absolute;
-    z-index: -1;
-}
-
 .openClothesMenu:before {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    /* background-color: rgba(0, 0, 0, 0.1) !important; */
     transition: all 0.3s;
 }
 
-.inventory-animation {
+#inventory-container-articles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.inventory-container-article {
+    position: absolute !important;
+    opacity: 0;
+    transform: translateX(100);
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    gap: 1.5vh;
+    pointer-events: none;
+    padding: 2.5vh;
+}
+
+.inventory-container-article[data-page="settings"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.inventory-container-article[data-page="pause_menu"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.inventory-container-article[data-page="weapon_attachments"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#inventory-container-main {
     height: 100%;
     display: flex;
     position: relative;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -235,68 +400,99 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
+    /* background: radial-gradient(
+                120.05% 120.05% at 50.14% -58.24%,
+                var(--primary-color) 0%,
+                #2d3842 100%
+            )
+            padding-box,
+        linear-gradient(
+                180deg,
+                rgba(65, 100, 131, 0.3) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
+    border-image-source: linear-gradient(
+        180deg,
+        rgba(52, 68, 82, 0) 0%,
+        #ffffff 100%
+    ); */
 }
 
-.inv-container {
-    position: absolute;
-    top: 17%;
+/* .inv-container {
     display: flex;
     justify-content: center;
     align-content: center;
-    min-width: 100vw;
+    gap: 1.5vh;
+    max-height: 100%;
+} */
+
+.inv-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 1.5vh;
     max-height: 100%;
 }
 
-.player-inventory,
-.other-inventory {
-    display: grid;
+#player-inventory,
+.other-inventory,
+#wallet-inventory {
+    /* display: grid; */
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
-    grid-template-columns: repeat(5, 1fr);
-    max-height: 51vh;
-    width: 100%;
-    padding-left: 2%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    /* grid-template-columns: repeat(5, minmax(0, 1fr)); */
+    max-height: 50vh;
+    max-width: 30.2vw;
+    overflow: hidden scroll;
     z-index: 100;
+    box-sizing: border-box;
+    margin: 0;
+    /* padding: 0; */
+    padding-right: 0.5vh;
+}
+
+#wallet-inventory {
+    overflow: hidden;
 }
 
 .other-inventory:has(.item_selling) {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.custom-inventory {
-    max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    display: none;
-}
-
 .ply-hotbar-inventory {
     position: absolute;
-    bottom: 10%;
-    left: 1z5.5%;
+    /* bottom: calc(10% * var(--scale)); */
+    /* left: calc(15.5% * var(--scale)); */
     z-index: 105;
 }
 
-.player-inventory > .item-slot > .item-slot-key > p {
+.player-inventory > .item-slot > .item-slot-key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    font-weight: bolder;
     color: #fff;
-    padding: 3.24px;
-    text-align: center;
-    width: 19px;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
     overflow: auto;
-    font-size: 13.88px;
-    line-height: 19.44px;
-    font-family: "CabinetGrotesk-Bold";
+    font-size: 1.2vh;
+    right: 0.5vh;
+    background: var(--primary-color);
+    border: 0.1vh solid var(--border-color);
+    box-shadow: 0 0 27.86px 0 var(--primary-color);
+    font-family: Poppins;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 0.5vh;
+    height: 2vh;
+    aspect-ratio: 1/1;
+    top: 0.5vh;
 }
 
 .inv-options {
     position: sticky;
     margin-top: 7.5vh;
-    max-height: 500px;
+    max-height: 50vh;
     display: flex;
     align-items: center;
     align-content: center;
@@ -304,37 +500,18 @@ body {
     min-width: 13%;
 }
 
-.logo-container {
-    position: absolute;
-    overflow: hidden;
-    text-align: center;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo-container img {
-    position: relative;
-    max-width: 100%;
-    max-height: 100px;
-}
-
 .item-slot {
     position: relative;
-    max-width: 100px;
-    min-height: 102.2px;
-    height: 102.2px;
+    height: 9.5vh;
+    aspect-ratio: 1/1;
     float: left;
     font-family: "CabinetGrotesk-Bold";
-    margin: 1px;
     transition: opacity 0.2s;
-    margin: 4px;
+    margin: 0.4vh;
     opacity: 1;
-    border-radius: 9px;
+    border-radius: 0.6vh;
     cursor: grab;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
-    border: 1px solid rgba(128, 128, 128, 1);
+    border: 0.1vh solid rgba(128, 128, 128, 1);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
@@ -354,19 +531,29 @@ body {
     );
 }
 
+.item-slot img {
+    pointer-events: none;
+    /* Prevent images from interfering with drag-and-drop */
+}
+
 .player-inventory .item-slot:nth-child(1),
 .player-inventory .item-slot:nth-child(2),
 .player-inventory .item-slot:nth-child(3),
 .player-inventory .item-slot:nth-child(4),
 .player-inventory .item-slot:nth-child(5) {
-    border: 1px solid rgba(52, 68, 82, 0);
+    border: 0.1vh solid rgba(52, 68, 82, 0);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
                 #0e151b 100%
             )
             padding-box,
-        linear-gradient(180deg, rgba(52, 68, 82, 0) 30%, #00a3ff 70%) border-box;
+        linear-gradient(
+                180deg,
+                rgba(52, 68, 82, 0) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
     border-image-source: linear-gradient(
         180deg,
         rgba(52, 68, 82, 0) 0%,
@@ -383,7 +570,7 @@ body {
 }
 
 .inv-option-item {
-    margin-top: 10%;
+    margin-top: 10vh;
 }
 
 .btn-inv {
@@ -396,10 +583,10 @@ body {
 #item-amount {
     color: #fff;
     text-align: center;
-    font-size: 13.5px;
+    font-size: 1.2vh;
     font-family: "CabinetGrotesk-Bold";
-    border-radius: 6px;
-    border: 1px solid rgba(128, 128, 128, 1);
+    border-radius: 0.6vh;
+    border: 0.1vh solid rgba(128, 128, 128, 1);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
@@ -426,9 +613,9 @@ body {
     left: 0;
     right: 0;
     width: 237.6px;
-    height: 118.8px;
+    height: 18vh;
     background-color: rgba(235, 235, 235, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.01);
+    border: 0.1vh solid rgba(255, 255, 255, 0.01);
     top: 21.6px;
 }
 
@@ -437,7 +624,7 @@ body {
     color: #fff;
     font-family: "CabinetGrotesk-Bold";
     background-color: rgba(0, 0, 0, 0.192);
-    font-size: 11.88px;
+    font-size: 1.05vh;
     padding: 4.32px;
     text-align: center;
 }
@@ -447,7 +634,7 @@ body {
     color: #fff;
     font-family: "CabinetGrotesk-Bold";
     font-weight: 200;
-    font-size: 11.88px;
+    font-size: 1.05vh;
     margin-left: 8.64px;
     margin-top: 4.32px;
     margin-bottom: 2.7px;
@@ -462,32 +649,36 @@ body {
 .inv-option-item > p {
     color: #fff;
     text-align: center;
-    line-height: 48px;
     text-transform: uppercase;
-    font-size: 12.96px;
+    font-size: 1.2vh;
     font-weight: 900;
     cursor: pointer;
     font-family: "CabinetGrotesk-Bold";
 }
 
 .inv-option-item {
-    width: 8vw;
-    height: 50px;
+    width: 7vw;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     background-color: #000;
-    border: 1px solid rgba(255, 255, 255, 0.01);
-    border-radius: 6px;
-    border: 1px solid rgba(52, 68, 82, 0);
+    border: 0.1vh solid rgba(255, 255, 255, 0.01);
+    border-radius: 0.6vh;
+    border: 0.1vh solid rgba(52, 68, 82, 0);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
                 #0e151b 100%
             )
             padding-box,
-        linear-gradient(180deg, rgba(52, 68, 82, 0) 30%, #00a3ff 70%) border-box;
+        linear-gradient(
+                180deg,
+                rgba(52, 68, 82, 0) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
     border-image-source: linear-gradient(
         180deg,
         rgba(52, 68, 82, 0) 0%,
@@ -517,11 +708,11 @@ body {
 
 .btn-combine {
     position: relative;
-    margin-top: 20px;
+    margin-top: 2vh;
     width: 78%;
     left: 2px;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.01);
+    border: 0.1vh solid rgba(255, 255, 255, 0.01);
     background-color: rgba(220, 20, 60, 0.6);
     text-align: center;
     line-height: 48px;
@@ -537,38 +728,54 @@ body {
     text-align: center;
     line-height: 48px;
     text-transform: uppercase;
-    font-size: 11.88px;
+    font-size: 1.05vh;
     font-family: "CabinetGrotesk-Bold";
     background-color: #000;
 }
 
 .item-slot-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 2px;
-    right: 4px;
+    left: 0.5vh;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    height: 1.6vh;
+    border-radius: 0.5vh;
+    top: 0.5vh;
+    /* width: 5vh; */
+    padding: 0.9vh 0.5vw;
+    max-width: 8vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.other-inventory .item-slot-amount p {
-    width: 100%;
-    text-align: right;
+#quick-slot-list .item-slot-amount > p {
+    max-width: 3.5vh;
 }
 
 .item-slot-amount > p {
     color: #fff;
-    text-align: right;
-    font-size: 10px;
-    width: 60px;
+    font-family: Poppins;
+    font-style: italic;
+    font-size: 0.9vh;
     white-space: nowrap;
-    text-overflow: ellipsis;
     overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 5vh;
 }
 
 .item-slot-label {
     position: absolute;
     bottom: 0;
     width: 100%;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 0.5vh;
+    border-bottom-right-radius: 0.5vh;
     overflow: hidden;
 }
 
@@ -576,18 +783,16 @@ body {
     text-transform: uppercase;
     font-weight: 800;
     color: #fff;
-    width: 100px;
+    width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 9.5px;
-    padding: 3px;
+    font-size: 0.9vh;
+    padding: 0.3vh;
     text-align: center;
     font-family: "CabinetGrotesk-Extrabold";
     font-style: normal;
     font-weight: 800;
-    font-size: 11.8764px;
-    line-height: 15px;
     text-align: center;
     color: #ffffff;
     margin: 0;
@@ -595,9 +800,9 @@ body {
 
 .item-slot-quality {
     position: absolute;
-    bottom: 20.8px;
+    bottom: 2vh;
     width: 100%;
-    height: 7px;
+    height: 0.4vh;
     opacity: 0.71;
     background-color: rgba(32, 6, 6, 0.15);
 }
@@ -605,7 +810,7 @@ body {
 .item-slot-quality-bar {
     position: absolute;
     width: 0;
-    height: 7px;
+    height: 0.4vh;
     background-color: green;
     z-index: 1;
 }
@@ -618,18 +823,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
-    max-height: 100%;
+    height: 100%;
+    width: 100%;
     padding: 0.9vw;
     position: relative;
-    z-index: 2;
+    /* z-index: 2; */
+    padding-top: 1.8vh;
 }
 
 .item-slot-img img {
-    width: 55px;
-    height: 55px;
-    max-width: 100%;
-    max-height: 100%;
+    position: relative;
+    height: 90%;
+    aspect-ratio: 100/100;
 }
 
 .ui-draggable-dragging {
@@ -650,34 +855,60 @@ body {
 
 #player-inv-label {
     position: relative;
+    bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 30vh;
+    font-style: normal;
+    font-family: Poppins !important;
+    font-weight: 600;
+    font-size: 3vh;
+    text-shadow: 0 0 5px rgb(255 255 255 / 47%);
+    text-transform: capitalize;
+    color: white;
+}
+
+.inventory-title {
+    display: flex;
+    position: relative;
+    gap: 0;
+    align-items: center;
+    width: 20vw;
+    max-width: 20vw;
+    height: 100%;
+}
+
+.inventory-title span {
+    position: relative;
     color: #fff;
     white-space: nowrap;
     text-overflow: ellipsis;
-    bottom: 0;
-    white-space: nowrap;
-    max-width: 75%;
-    text-overflow: ellipsis;
     overflow: hidden;
-    font-family: "CabinetGrotesk-Black";
-    text-transform: uppercase;
     font-style: normal;
-    font-weight: 900;
-    max-width: 400px;
-    font-size: 2vw;
-    line-height: 3.5vw;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 4vh;
+    text-shadow: 0 0 5px rgb(255 255 255 / 47%);
+}
+
+.inventory-title svg {
+    position: relative;
+    height: 110%;
+    aspect-ratio: 1/1;
 }
 
 .weight_flex {
     display: flex;
     justify-content: center;
-    margin-bottom: 5px;
+    margin-bottom: 0.5vh;
     align-items: center;
     align-content: center;
 }
 
 .weightIcon {
     height: 14px;
-    margin-right: 5px;
+    margin-right: 0.5vh;
     width: 14px;
     background-image: url("../icons/weightIcon.svg");
     background-position: center;
@@ -685,52 +916,71 @@ body {
 }
 
 #player-inv-weight,
-#other-inv-weight {
-    font-size: 12px;
-    font-weight: 900;
-    font-family: "CabinetGrotesk-Bold";
-    letter-spacing: 2.16px;
+#other-inv-weight,
+#wallet-inv-weight {
+    letter-spacing: 0.2vh;
     top: 0%;
     font-style: normal;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    color: #656f77;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 0.7vh;
+    color: rgba(113, 113, 113, 1);
+    margin-right: 0.5vh;
+    white-space: nowrap;
+}
+
+#other-inv-label,
+#wallet-inv-label,
+.clothe-title {
+    position: relative;
+    bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 3vh;
+    text-shadow: 0 0 5px rgb(255 255 255 / 47%);
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+    bottom: 0;
+    left: 0.7vh;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 3vh;
+    text-shadow: 0 0 5px rgb(255 255 255 / 47%);
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 1);
 }
 
 #other-inv-label {
-    position: relative;
-    color: #fff;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    bottom: 0;
-    white-space: nowrap;
-    max-width: 75%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-family: "CabinetGrotesk-Black";
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: 900;
-    max-width: 400px;
-    font-size: 2vw;
-    line-height: 3.5vw;
+    max-width: 18vw;
+}
+
+@media (min-width: 3840px) {
+    #other-inv-label {
+        max-width: 17vw;
+    }
 }
 
 #other-inv-weight {
     font-family: "Cabinet Grotesk";
     font-style: normal;
     font-weight: 700;
-    font-size: 11px;
-    line-height: 14px;
     text-align: center;
     color: #656f77;
-    font-size: 12px;
+    font-size: 1.2vh;
     font-weight: 900;
     font-family: "CabinetGrotesk-Bold";
-    letter-spacing: 2.16px;
+    letter-spacing: 0.2vh;
     float: right;
-    margin-right: 5px;
+    margin-right: 0.5vh;
 }
 
 .player-inv-weight {
@@ -741,38 +991,48 @@ body {
 
 .player-inv-weight > p {
     color: #fff;
-    font-size: 12px;
+    font-size: 1.2vh;
     font-family: "CabinetGrotesk-Bold";
 }
 
 .other-inv-info,
-.player-inv-info {
-    min-width: 580px;
+.player-inv-info,
+.wallet-inv-info {
+    position: relative;
+    max-width: 30.2vw;
+    width: 30.2vw;
     display: flex;
-    padding-left: 1vw;
+    align-items: center;
     justify-content: space-between;
 }
 
 .ply-iteminfo-container {
+    position: absolute;
+    z-index: 9999;
     font-family: "CabinetGrotesk-Bold";
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    left: 0;
+    top: 0;
+    width: 15vw;
+    min-height: 16vh;
     display: none;
-    min-width: 50%;
-    min-height: 150px;
-    text-align: left;
-    width: 99%;
-    margin-left: 0.5vw;
-    margin-top: 0.5vw;
-    padding: 22px;
-    position: relative;
-    border-radius: 5px;
-    border: 1px solid rgba(52, 68, 82, 0);
+    padding: 1.5vh;
+    border-radius: 0.5vh;
+    border: 0.1vh solid rgba(52, 68, 82, 0);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
                 #0e151b 100%
             )
             padding-box,
-        linear-gradient(180deg, rgba(52, 68, 82, 0) 30%, #00a3ff 70%) border-box;
+        linear-gradient(
+                180deg,
+                rgba(52, 68, 82, 0) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
     border-image-source: linear-gradient(
         180deg,
         rgba(52, 68, 82, 0) 0%,
@@ -786,8 +1046,11 @@ body {
 
 .ply-iteminfo {
     display: flex;
+    gap: 2vh;
     width: 95%;
+    height: 100%;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .item-info-types {
@@ -796,14 +1059,13 @@ body {
 }
 
 .item-info-types i {
-    font-size: 16px;
-    margin: 6px;
+    font-size: 1.5vh;
+    margin: 0.6vh;
     color: #fff;
 }
 
 .iteminfo-content {
-    width: 70%;
-    max-width: 350px;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -811,61 +1073,54 @@ body {
     text-transform: uppercase;
     font-weight: 900;
     font-family: "CabinetGrotesk-Bold";
-    font-size: 17px;
+    font-size: 1.6vh;
     color: #fff;
-    padding-top: 1px;
+    padding-top: 0.1vh;
 }
 
 .item-info-description strong {
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 1.4vh;
     font-family: "CabinetGrotesk-Bold";
     color: #fff;
     padding-top: 5.4px;
-    min-height: 60px;
-    max-height: 140px;
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .item-info-description {
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 1.25vh;
     font-family: "CabinetGrotesk-Bold";
     color: #fff;
     padding-top: 5.4px;
-    min-width: 15vw;
-    max-width: 19vw;
-    max-height: 130px;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
 }
 
 .item-info-img {
     position: relative;
-    width: 90px;
-    height: 100%;
+    height: 9vh;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .item-info-img img {
-    max-width: 100%;
-    max-height: 100%;
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 110/110;
     object-fit: cover;
 }
 
 .itemboxes-container {
-    height: 110px;
+    height: fit-content;
     width: 50vh;
     position: absolute;
     left: 50%;
     bottom: 5%;
     transform: translateX(-50%);
     overflow: hidden;
+    z-index: 999;
 }
 
 .template {
@@ -875,39 +1130,46 @@ body {
 .itembox-container {
     display: none;
     position: relative;
-    width: 100px;
-    height: 105px;
+    height: 10vh;
+    width: 10vh;
     float: left;
     background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #4b4b4b;
-    margin: 2px;
+    border: 0.1vh solid #4b4b4b;
+    margin: 0.2vh;
     transition: opacity 0.2s;
     opacity: 1;
-    border-radius: 5px;
+    border-radius: 0.5vh;
+}
+
+#itembox-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 .itembox-container img {
-    width: 40px;
-    height: auto;
-    margin-top: 1.2vh;
+    position: relative;
+    height: 4.5vh;
+    aspect-ratio: 110/110;
 }
 
 #itembox-action {
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 0.2vh;
     justify-content: space-between;
     font-weight: bolder;
     color: #fff;
-    padding: 3.24px;
+    padding: 0.5vh 0.3vh;
     text-align: center;
-    width: auto;
-    min-width: 50px;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    font-size: 12px;
-    line-height: 19.44px;
+    width: 100%;
+    border-top-left-radius: 0.5vh;
+    border-bottom-right-radius: 0.5vh;
+    font-size: 1.15vh;
     border: none !important;
     font-family: "CabinetGrotesk-Bold";
 }
@@ -917,7 +1179,7 @@ body {
 }
 
 #itembox-action > p {
-    font-size: 10px;
+    font-size: 0.95vh;
     font-family: "CabinetGrotesk-Bold";
 }
 
@@ -926,8 +1188,8 @@ body {
     bottom: 0;
     z-index: 55;
     width: 100%;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 0.5vh;
+    border-bottom-right-radius: 0.5vh;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -935,16 +1197,23 @@ body {
     text-transform: uppercase;
     font-weight: 800;
     color: #fff;
-    width: 100px;
+    width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 9.5px;
-    padding: 3px;
+    font-size: 0.9vh;
+    padding: 0.3vh;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 0.1vh;
     font-family: "CabinetGrotesk-Bold";
     margin: 0;
+}
+
+#itembox-count {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 6vh;
 }
 
 .requiredItem-container {
@@ -962,10 +1231,10 @@ body {
     height: 118.8px;
     float: left;
     margin-left: 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 0.5vh;
+    border-bottom-right-radius: 0.5vh;
     background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #ad0000;
+    border: 0.1vh solid #ad0000;
 }
 
 #requiredItem-action {
@@ -988,7 +1257,7 @@ body {
 
 #requiredItem-label > p {
     color: #fff;
-    font-size: 11px;
+    font-size: 1.05vh;
     text-align: center;
     text-transform: uppercase;
     line-height: 32.4px;
@@ -998,55 +1267,96 @@ body {
     display: none;
     position: absolute;
     bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 0 auto;
-    left: 0;
-    right: 0;
     width: fit-content;
     z-index: 105;
 }
 
 .z-hotbar-inventory > .z-hotbar-item-slot > .z-hotbar-item-slot-key > p {
     position: absolute;
-    font-weight: bolder;
     color: #fff;
-    padding: 3.24px;
+    padding: 0.3vh;
+    right: 0.6vh;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        #006299 0%,
+        var(--primary-color) 100%
+    );
+    border-radius: 0.4vh;
+    height: 2.1vh;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.1.1vh solid var(--primary-color);
+    box-shadow: 0 0 5px 0 var(--primary-color);
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 0.95vh;
     text-align: center;
-    width: 19px;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    font-size: 11.88px;
-    line-height: 19.44px;
-    font-family: "CabinetGrotesk-Bold";
+    vertical-align: middle;
+    top: 0.5vh;
 }
 
 .z-hotbar-item-slot {
     position: relative;
-    width: 110px;
-    height: 115px;
+    height: 10vh;
+    aspect-ratio: 1/1;
     float: left;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #4b4b4b;
     margin: 2px;
     top: -7px;
     transition: opacity 0.2s;
     opacity: 1;
-    border-radius: 5px;
+    border-radius: 1vh !important;
+    border: unset !important;
+}
+
+.z-hotbar-item-slot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(52, 68, 82, 0) 0%, #2d2d2d 100%);
+    border-radius: inherit;
+    padding: 0.017vh;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .z-hotbar-item-slot-amount {
     position: absolute;
-    top: 2px;
-    right: 4px;
+    top: 0.5vh;
+    left: 0.5vh;
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.z-hotbar-item-slot-amount > p {
+.z-hotbar-item-slot-amount p {
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.95vh;
+    vertical-align: middle;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border-radius: 0.4vh;
+    border: 0.17vh solid;
+    border-image-source: linear-gradient(
+        180deg,
+        rgba(52, 68, 82, 0) 0%,
+        #2d2d2d 100%
+    );
+    padding: 0.1vh;
     color: #fff;
-    text-align: right;
-    font-size: 10px;
-    width: 60px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 
 .z-hotbar-item-slot-label {
@@ -1062,14 +1372,14 @@ body {
     text-transform: uppercase;
     font-weight: 800;
     color: #fff;
-    width: 100px;
+    width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 9.5px;
-    padding: 3px;
+    font-size: 0.9vh;
+    padding: 0.3vh;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 0.1vh;
     font-family: "Poppins", sans-serif;
     margin: 0;
 }
@@ -1078,18 +1388,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 100%;
-    max-height: 100%;
-    padding: 0.9vw;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.z-hotbar-item-slot .item-slot-label > p {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1vh;
+    line-height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto !important;
+}
+
+.z-hotbar-item-slot-label {
+    background: transparent !important;
 }
 
 .z-hotbar-item-slot-img img {
-    margin-top: 5%;
     display: block;
-    width: 60px;
-    height: 60px;
-    max-width: 100%;
-    max-height: 100%;
+    height: 60%;
+    aspect-ratio: 110/110;
 }
 
 .ammo-container {
@@ -1171,10 +1491,8 @@ body {
 .weapon-attachments-container {
     position: absolute;
     left: 0;
-    width: 100vw;
-    z-index: 1231831971293812371223;
-    height: 100vh;
-    display: none;
+    width: 100%;
+    height: 100%;
 }
 
 .weapon-attachments-info {
@@ -1186,6 +1504,17 @@ body {
     max-height: 76.5%;
     border-radius: 10px;
     font-family: "CabinetGrotesk-Bold";
+}
+
+.weapon-attachments-from-square {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 1vh;
+    border: 0.1vh solid #4b4b4b;
+    transition: opacity 0.2s;
+    opacity: 1;
 }
 
 .weapon-attachments-info:after {
@@ -1202,54 +1531,83 @@ body {
 }
 
 .weapon-attachments-container-title {
-    font-size: 32.4px;
-    font-family: "CabinetGrotesk-Black";
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     font-style: normal;
-    font-weight: 900;
-    font-size: 3vw;
-    line-height: 3.5vw;
+    font-size: 2.5vh;
+    font-family: Poppins;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .weapon-attachments-container-description {
-    font-size: 18.36px;
-    margin-bottom: 10px;
-    font-family: "CabinetGrotesk-Medium";
     font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 25px;
-    color: #ffffff;
-    overflow: auto;
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 1.5vh;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    color: rgb(255 255 255 / 50%) !important;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
 .weapon-attachments-container-details {
-    margin-top: 2rem;
-    font-size: 15.12px;
-    font-family: "CabinetGrotesk-Extrabold";
+    margin-top: 3vh;
+    font-family: "Poppins";
     text-transform: uppercase;
     font-style: normal;
     font-weight: 800;
-    font-size: 13.1909px;
-    line-height: 16px;
-    color: #ffffff;
+    font-size: 1.3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weapon-attachments-container-details span {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2.3vh;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+span.serialBlue {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 2.3vh;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: var(--primary-color);
+}
+
+.weapon-attachments-container-details span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
 }
 
 .weapon-attachments-container-detail-durability {
-    height: 6.27px;
-    width: 258px;
-    margin-top: 20px;
-    background-color: rgba(20, 151, 235, 0.2);
-    border-radius: 9px;
-    margin-bottom: 10px;
+    height: 0.8vh;
+    width: 24vh;
+    margin-top: 2vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.9vh;
+    margin-bottom: 1vh;
 }
 
 .weapon-attachments-container-detail-durability-total {
     height: 100%;
     width: 50%;
-    border-radius: 9px;
-    background-color: rgba(20, 151, 235, 1);
-    box-shadow: 1px 1px 13px rgba(20, 151, 235, 1);
+    border-radius: 0.9vh;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 15px 0 var(--primary-color);
 }
 
 .weapon-attachments-container-image {
@@ -1272,12 +1630,13 @@ body {
     overflow: hidden;
     white-space: nowrap;
     background: red;
-    height: 16.7%;
+    height: fit-content;
     display: flex;
-    border-radius: 10px;
+    border-radius: 1vh;
     background: rgba(0, 0, 0, 0.5);
     flex-direction: row;
     cursor: grab;
+    z-index: 9999 !important;
 }
 
 .weapon-attachments > .weapon-attachment {
@@ -1295,20 +1654,24 @@ body {
 
 .weapon-attachments-title {
     position: absolute;
-    bottom: 151.2px;
+    bottom: 10vh;
     left: 0;
     margin: 42px;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: "CabinetGrotesk-Bold";
-    font-size: 18px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
 }
 
 .weapon-attachment {
     position: relative;
-    height: 113.4px;
-    width: 113.4px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #4b4b4b;
+    height: 9vh;
+    width: 9vh;
+    background-color: var(--secondary-gradient);
+    border: 0.1vh solid #4b4b4b;
     margin: 10px;
     bottom: 5px;
     float: left;
@@ -1317,38 +1680,37 @@ body {
 
 .weapon-attachment:hover {
     background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid #1d1d1d;
+    border: 0.1vh solid #1d1d1d;
 }
 
 .weapon-attachment-label {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
     padding: 2.1%;
+    color: white;
 }
 
 .weapon-attachment-label > p {
-    color: #fff;
-    font-size: 11.88px;
-    text-align: center;
     text-transform: uppercase;
-    line-height: 20.52px;
-    font-family: "CabinetGrotesk-Extrabold";
     font-style: normal;
-    font-weight: 800;
-    font-size: 11.8764px;
-    line-height: 15px;
-    text-align: center;
     max-height: 2vh;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1vh;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .weapon-attachment-img {
-    max-width: 100%;
-    max-height: 100%;
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1/1;
     padding: 0.5vw;
 }
 
@@ -1356,34 +1718,39 @@ body {
     display: block;
     position: relative;
     margin: 0 auto;
-    margin-top: 10%;
-    width: 70px;
-    height: 70px;
-    max-width: 100%;
-    max-height: 100%;
+    height: 80%;
+    aspect-ratio: 110/110;
 }
 
 .weapon-attachments-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    width: 70.2px;
-    height: 70.2px;
-    border-radius: 2px;
+    height: 6.5vh;
+    aspect-ratio: 1/1;
+    border-radius: 0.2vh;
     margin: 0 auto;
-    left: 50%;
+    left: 0;
     transform: translateX(-50%);
     right: 0%;
     bottom: 80%;
     text-align: center;
     color: #fff;
-    font-size: 21.6px;
-    border: 2px solid rgba(52, 68, 82, 0);
+    font-size: 2vh;
+    border: 0.2vh solid rgba(52, 68, 82, 0);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
                 #0e151b 100%
             )
             padding-box,
-        linear-gradient(180deg, rgba(52, 68, 82, 0) 30%, #00a3ff 70%) border-box;
+        linear-gradient(
+                180deg,
+                rgba(52, 68, 82, 0) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
     border-image-source: linear-gradient(
         180deg,
         rgba(52, 68, 82, 0) 0%,
@@ -1393,22 +1760,18 @@ body {
 }
 
 .weapon-attachments-remove:hover {
-    border: 1px solid white;
-    box-shadow: 1px 1px 13px 5px rgba(0, 148, 255, 0.5);
+    border: 0.1vh solid var(--primary-color);
+    box-shadow: 0.1vh 0.1vh 13px 5px var(--primary-color);
     background: radial-gradient(
         49.48% 49.48% at 50.52% 50.52%,
-        rgba(0, 163, 255, 1) 0%,
-        #00a3ff 100%
+        var(--primary-color) 0%,
+        var(--primary-color) 100%
     );
     border-image-source: linear-gradient(
         180deg,
         rgba(52, 68, 82, 0) 0%,
         #ffffff 100%
     );
-}
-
-.weapon-attachments-remove > i {
-    line-height: 70.2px;
 }
 
 .weapon-attachments-remove-hover {
@@ -1426,31 +1789,30 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin: 10px;
-    width: 108px;
-    height: 40.8px;
+    margin: 2vh;
+    width: 7vw;
+    height: 5vh;
     background-color: #0f0f0f;
-    border-radius: 1px;
+    border-radius: 0.1vh;
     text-align: center;
-    line-height: 64.8px;
     color: #fff;
     font-family: "CabinetGrotesk-Bold";
-    border: 1px solid rgba(52, 68, 82, 0);
+    border: 0.1vh solid rgba(52, 68, 82, 0);
     background: linear-gradient(0deg, #0e151b, #0e151b);
-    border-radius: 17.52581px;
+    border-radius: 1.7vh;
     transition: all 0.1s linear;
     cursor: pointer;
 }
 
 .weapon-attachments-back:hover {
     border: unset;
-    border-ardius: 12px;
+    border-radius: 1.2vh;
     transform: scale(1.1);
-    box-shadow: 1px 1px 13px 5px rgba(0, 148, 255, 0.5);
+    box-shadow: 0.1vh 0.1vh 13px 5px var(--primary-color);
     background: radial-gradient(
         49.48% 49.48% at 50.52% 50.52%,
-        rgba(0, 163, 255, 1) 0%,
-        #00a3ff 100%
+        var(--primary-color) 0%,
+        var(--primary-color) 100%
     );
     border-image-source: unset;
 }
@@ -1468,29 +1830,35 @@ body {
 
 .weapon-attachments-line {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: 0.1vh;
+    height: 0.1vh;
 }
 
 .attachmentItem-container {
     position: absolute;
-    height: 113.4px;
-    width: 113.4px;
-    border: 1px solid rgba(52, 68, 82, 0);
+    height: 11vh;
+    aspect-ratio: 1/1;
+    z-index: 9999999;
+    cursor: grab;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0.1vh solid rgba(128, 128, 128, 1);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
                 #0e151b 100%
             )
             padding-box,
-        linear-gradient(180deg, rgba(52, 68, 82, 0) 30%, #00a3ff 70%) border-box;
+        linear-gradient(
+                180deg,
+                rgba(52, 68, 82, 0) 30%,
+                rgba(255, 255, 255, 0.2) 70%
+            )
+            border-box;
     border-image-source: linear-gradient(
         180deg,
-        rgba(52, 68, 82, 0) 0%,
+        rgba(128, 128, 128, 0.9) 0%,
         #ffffff 100%
     );
-    z-index: 9999999;
-    cursor: grab;
 }
 
 .weapon-attachments-weaponContainer {
@@ -1503,17 +1871,35 @@ body {
     cursor: grab;
 }
 
+.clothes-inventory {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 1vh;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
 .clothes-inventory .item-slot:has(.item-slot-img img) .item-slot-bg-image {
     display: none;
 }
 
-.clothes-inventory {
+.clothes-items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 0.5vh;
+    padding: 0 0.5vh;
+}
+
+/* .clothes-inventory {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 5px;
     padding: 0 5px;
-}
+} */
 
 .clothes-inventory .item-slot:nth-child(odd) {
     justify-self: start;
@@ -1525,27 +1911,17 @@ body {
 
 .clothes-inventory .item-slot {
     position: relative;
-    width: 112px;
-    height: 112px;
-    margin: 2px;
+    height: 9.5vh;
+    aspect-ratio: 1/1;
+    margin: 0.2vh;
     transition: opacity 0.2s;
     opacity: 1;
-    border-radius: 5px;
+    border-radius: 0.5vh;
 }
 
 .clothes-inventory .item-slot-img {
-    width: 5vw;
-    height: 4.5vw;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.clothes-inventory .item-slot-img img {
-    margin-top: 0;
-}
-
-.clothes-inventory .item-slot {
-    max-height: 102.2px;
+    height: 90%;
+    aspect-ratio: 110/110;
 }
 
 .clothes-inventory :is(.item-slot-amount, .item-slot-key) {
@@ -1558,29 +1934,25 @@ body {
     display: flex;
     top: 0;
     position: absolute;
-    margin: 1%;
-    top: 43%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .item-slot-bg-image img {
-    width: 100%;
-    height: 100%;
+    position: relative;
+    height: 60%;
+    aspect-ratio: 110/110;
     opacity: 0.22;
 }
 
 .item-slot-clothe-back {
     position: absolute;
-    right: 5px;
-    bottom: 2px;
+    right: 0.5vh;
+    bottom: 0.2vh;
     color: #fff;
-    padding: 4px;
+    padding: 0.4vh;
     background: #666;
-    border-radius: 9999px;
+    border-radius: 10vh;
     cursor: pointer;
     display: none;
 }
@@ -1590,15 +1962,15 @@ body {
 }
 
 .crafting-repair {
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    /* grid-template-columns: repeat(2, 1fr); */
 }
 
-.item_crafting {
+.other-inventory .item_crafting {
     justify-content: center;
     display: flex;
-    width: 250px;
-    max-width: 250px;
-    height: 150px;
+    width: 47.5%;
+    height: 15vh;
     position: relative;
 }
 
@@ -1612,46 +1984,58 @@ body {
 }
 
 .img_crafting {
-    max-width: 100%;
-    max-height: 100%;
-    top: 20%;
+    display: flex;
+    justify-content: flex-start;
     position: absolute;
-    left: 0;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.img_crafting img {
+    position: relative;
+    height: 70%;
+    aspect-ratio: 100/100;
 }
 
 .amount_crafting {
     position: absolute;
-    left: 14%;
-    right: auto;
+    left: 4%;
 }
 
 .label_crafting {
-    width: 39.5%;
+    width: 45%;
     left: 0;
     border-radius: 0;
 }
 
 .item-slot-costs-container {
-    left: 20%;
+    /* left: 20%; */
     right: 0;
     display: flex;
+    gap: 0.5vh;
     height: 100%;
-    width: 60%;
-    position: relative;
+    width: 50%;
+    /* position: relative; */
+    position: absolute;
     text-align: center;
     flex-direction: column;
-    overflow: auto;
-    position: relative;
-    z-index: 5;
+    overflow: hidden;
+    padding: 0.3vh;
 }
 
 .item-slot-costs {
     display: flex;
     text-align: left;
     justify-content: center;
+    align-items: center;
     height: 30%;
     margin: 2px;
-    border-radius: 5px;
+    border-radius: 0.5vh;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
 }
 
 .item-slot-costs-img img {
@@ -1664,8 +2048,8 @@ body {
 
 .item-slot-costs-label {
     color: #fff;
-    font-size: 10px;
-    line-height: 35px;
+    font-size: 1vh;
+    /* line-height: 35px; */
     width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -1716,111 +2100,28 @@ body {
     font-size: 11px;
 }
 
-.inventory-playerstats,
-.inventory-playerdata {
-    margin-top: 7vh;
-}
-
-.playerstats {
-    color: #fff;
-}
-
-.playerstat-item {
-    height: 80px;
-    width: 75px;
-    margin-bottom: 5px;
-    border-radius: 6px;
-    border: 1px solid rgba(52, 68, 82, 0);
-    background: radial-gradient(
-                120.05% 120.05% at 50.14% -58.24%,
-                rgba(69, 100, 129, 0) 0%,
-                #0e151b 100%
-            )
-            padding-box,
-        linear-gradient(180deg, rgba(52, 68, 82, 0) 30%, #00a3ff 70%) border-box;
-    border-image-source: linear-gradient(
-        180deg,
-        rgba(52, 68, 82, 0) 0%,
-        #ffffff 100%
-    );
-}
-
-.playerdata {
-    color: #fff;
-}
-
-.playerdata p {
-    color: #fff;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.playerstat-icon {
-    position: relative;
-    font-size: 20px;
-    text-align: center;
-    width: 75px;
-    padding-top: 21.6px;
-    font-weight: 600;
-    padding-bottom: 21.6px;
-    border-radius: 5px;
-    margin-bottom: 10.8px;
-}
-
-.playerstat-icon p {
-    color: #fff;
-}
-
-.playerstat-text {
-    position: relative;
-    top: 10.8px;
-    font-size: 11px;
-    text-align: center;
-    font-weight: 600;
-    font-family: "CabinetGrotesk-Bold";
-}
-
 .custom-primary-color,
 .custom-secondary-color {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    min-height: 160px;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(128, 128, 128, 1);
-    background: radial-gradient(
-                120.05% 120.05% at 50.14% -58.24%,
-                rgba(69, 100, 129, 0) 0%,
-                #0e151b 100%
-            )
-            padding-box,
-        linear-gradient(
-                180deg,
-                rgba(52, 68, 82, 0) 30%,
-                rgba(255, 255, 255, 0.1) 70%
-            )
-            border-box;
-    border-image-source: linear-gradient(
-        180deg,
-        rgba(128, 128, 128, 0.5) 0%,
-        #ffffff 100%
-    );
-    border-radius: 5px;
-    padding: 6px;
-    margin-bottom: 8px;
+    justify-content: space-evenly;
+    white-space: nowrap;
+    gap: 1vh;
 }
 
 .custom-border-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .custom-details {
-    background: transparent !important;
-    border-radius: 5px;
-    border: 1px solid rgba(128, 128, 128, 1);
+    width: 100%;
+    border-radius: 0.5vh;
+    border: 0.1vh solid rgba(128, 128, 128, 1);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
@@ -1845,18 +2146,17 @@ body {
     text-transform: uppercase;
     font-style: normal;
     font-weight: 900;
-    font-size: 15.7716px;
-    line-height: 27px;
+    font-size: 1.5vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #4b4b4b;
-    border-radius: 5px;
-    padding: 15px;
+    border: 0.1vh solid #4b4b4b;
+    border-radius: 0.5vh;
+    padding: 1.4vh;
     width: 50%;
     color: #fff;
-    border: 1px solid rgba(128, 128, 128, 1);
+    border: 0.1vh solid rgba(128, 128, 128, 1);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
                 rgba(69, 100, 129, 0) 0%,
@@ -1881,15 +2181,14 @@ body {
     text-transform: uppercase;
     font-style: normal;
     font-weight: 900;
-    font-size: 15.7716px;
-    line-height: 27px;
+    font-size: 1.5vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    padding: 15px;
-    height: 82px;
-    margin-bottom: 8px;
+    border-radius: 0.5vh;
+    padding: 1.4vh;
+    height: 8vh;
+    margin-bottom: 0.8vh;
     color: #fff;
 }
 
@@ -1898,58 +2197,55 @@ body {
     text-transform: uppercase;
     font-style: normal;
     font-weight: 900;
-    font-size: 15.7716px;
-    line-height: 27px;
+    font-size: 1.5vh;
+    margin-top: -1vh !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    padding: 15px;
+    border-radius: 0.5vh;
+    padding: 1.4vh;
     color: #fff;
-}
-
-.custom-border {
-    margin-right: 8px;
-}
-
-#reset-localstorage {
-    display: none;
-}
-
-#reset-localstorage p {
-    position: relative;
-    bottom: 7%;
 }
 
 .flexik {
     display: flex;
     width: 90%;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     align-content: center;
+    flex-direction: row;
 }
 
 .flexik_col {
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 80px;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 70px;
+    height: 70px;
+    gap: 10%;
+}
+
+.lbl {
+    flex-direction: row;
+    justify-content: start;
+    max-height: 70px;
+    height: 70px;
+    gap: 10%;
+
+    width: 30%;
 }
 
 .custom-border .flexik_col {
-    margin: 0rem 1rem;
+    margin: 0 1rem;
 }
 
 .custom-primary-color label,
 .custom-secondary-color label {
-    font-size: 14px;
+    font-size: 1.4vh;
     font-weight: 700;
-    margin-bottom: 10px;
     font-family: "CabinetGrotesk-Black";
     text-transform: uppercase;
     font-style: normal;
     font-weight: 900;
-    font-size: 15.7716px;
-    line-height: 27px;
 }
 
 input[type="color"],
@@ -1958,32 +2254,31 @@ input[type="color"] {
     border: none;
     background-color: transparent;
     outline: none;
-    height: 50px;
-    width: 60%;
-    margin-bottom: 13px;
-    border-radius: 10px;
+    height: 4vh;
+    width: 10vw;
+    border-radius: 1vh;
     -webkit-appearance: none;
     cursor: pointer;
 }
 
 input[type="color"] {
-    border-radius: 12px;
+    border-radius: 1.2vh;
     padding: 0;
 }
 
 input[type="color"]::-moz-color-swatch {
     border: none;
-    border-radius: 12px;
+    border-radius: 1.2vh;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
-    border-radius: 12px;
+    border-radius: 1.2vh;
 }
 
 input[type="color"]::-webkit-color-swatch {
     border: none;
-    border-radius: 12px;
+    border-radius: 1.2vh;
 }
 
 input[type="range"] {
@@ -1995,9 +2290,9 @@ input[type="range"] {
     --thumb-height: 1.375em;
     --thumb-width: 0.5em;
     --clip-edges: 0.0125em;
-    filter: drop-shadow(1px 1px 9px rgba(0, 148, 255, 1));
-    width: 100%;
-    color: rgba(0, 148, 255, 1) !important;
+    filter: drop-shadow(1px 0.1vh 9px var(--primary-color));
+    width: 50%;
+    color: var(--primary-color) !important;
     position: relative;
     background: #fff0;
     overflow: hidden;
@@ -2027,15 +2322,15 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    --thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
+    --thumb-radius: calc((var(--thumb-height) * 0.5) - 0.1vh);
     --clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
     --clip-bottom: calc(var(--thumb-height) - var(--clip-top));
-    --clip-further: calc(100% + 1px);
+    --clip-further: calc(100% + 0.1vh);
     --box-fill: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0
         100vmax currentColor;
     width: var(--thumb-width, var(--thumb-height));
     background: linear-gradient(currentColor 0 0) scroll no-repeat left center /
-        50% calc(var(--track-height) + 1px);
+        50% calc(var(--track-height) + 0.1vh);
     background-color: currentColor;
     box-shadow: var(--box-fill);
     border-radius: var(--thumb-width, var(--thumb-height));
@@ -2062,7 +2357,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 input[type="range"]::-webkit-slider-runnable-track {
     background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center /
-        100% calc(var(--track-height) + 1px);
+        100% calc(var(--track-height) + 0.1vh);
 }
 
 input[type="range"]:disabled::-webkit-slider-thumb {
@@ -2108,7 +2403,7 @@ input[type="range"]::-moz-range-progress {
 
 input[type="range"]::-moz-range-track,
 input[type="range"]::-moz-range-progress {
-    height: calc(var(--track-height) + 1px);
+    height: calc(var(--track-height) + 0.1vh);
     border-radius: var(--track-height);
 }
 
@@ -2136,13 +2431,13 @@ input[type="range"]:hover {
 }
 
 ::-webkit-scrollbar {
-    width: 2px;
-    border-radius: 2px;
+    width: 0.2vh;
+    border-radius: 0.2vh;
 }
 
 ::-webkit-scrollbar-track {
     background: rgb(0 0 0 / 0.05);
-    border-radius: 2px;
+    border-radius: 0.2vh;
     background: linear-gradient(
         270deg,
         rgba(69, 100, 129, 0) -26.87%,
@@ -2151,9 +2446,9 @@ input[type="range"]:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1497eb;
-    box-shadow: 1px 3px 20px #1497eb;
-    border-radius: 12px;
+    background: var(--primary-color);
+    box-shadow: 0.1vh 3px 20px var(--primary-color);
+    border-radius: 1.2vh;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -2173,69 +2468,54 @@ input[type="range"]:hover {
     width: 200px;
     margin-bottom: 1%;
     border-radius: 5px;
-    padding: 1px;
+    padding: 0.1vh;
 }
 
 .other-inv-info .progressbar {
     right: -8.2%;
 }
 
-.fa-arrow-left {
-    font-size: 2.3vh !important;
+.iconBigger {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 2.5vh;
+    aspect-ratio: 1/1;
 }
 
-.fa-shirt {
-    font-size: 1.8vh !important;
+.clothIcon {
+    background-image: url("../icons/clothing.svg");
 }
 
-.fa-sliders {
-    padding-top: 20%;
-    font-size: 1.8vh !important;
+.settingsIcon {
+    background-image: url("../icons/settings.svg");
 }
 
-.settingsIcon .fa-arrow-left {
-    padding-top: 25%;
-}
-
-.player-weight-progressbar {
-    gap: 2px;
+.returnIcon {
+    background-image: url("../icons/arrowLeft.svg");
 }
 
 .weight_bar_bordered {
-    height: 23px;
-    width: 13px;
-    border-radius: 6px;
-    border: 1px solid rgba(128, 128, 128, 1);
-    background: radial-gradient(
-                120.05% 120.05% at 50.14% -58.24%,
-                rgba(69, 100, 129, 0) 0%,
-                #0e151b 100%
-            )
-            padding-box,
-        linear-gradient(
-                180deg,
-                rgba(52, 68, 82, 0) 30%,
-                rgba(255, 255, 255, 0.2) 70%
-            )
-            border-box;
-    border-image-source: linear-gradient(
-        180deg,
-        rgba(128, 128, 128, 0.9) 0%,
-        #ffffff 100%
-    );
+    position: relative;
+    height: 2.2vh;
+    width: 2vw;
+    border-radius: 0.6vh;
+    background: var(--secondary-gradient);
+    border: solid;
+    border-image-source: var(--secondary-gradient);
 }
 
 .player-weight-progressbar,
-.other-weight-progressbar {
-    gap: 2px;
-    height: 20px;
+.other-weight-progressbar,
+.wallet-weight-progressbar {
+    gap: 0.2vh;
+    height: 2vh;
     transition: width 1s;
-    border-radius: 3px;
+    border-radius: 0.3vh;
 }
 
 .player-weight-progressbar,
 .other-weight-progressbar {
-    height: 50px;
+    height: 5vh;
     align-content: flex-end;
     justify-content: flex-end;
     align-items: flex-end;
@@ -2248,7 +2528,7 @@ input[type="range"]:hover {
     transform: translate(-50%, -50%);
     z-index: 120;
     background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     padding: 15px;
     border-radius: 5px;
     width: 40%;
@@ -2272,7 +2552,7 @@ input[type="range"]:hover {
     width: auto;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     color: #fff;
     border-radius: 5px;
     outline: none;
@@ -2289,7 +2569,7 @@ input[type="range"]:hover {
     border: none;
     outline: none;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     width: 28px;
     height: 28px;
     border-radius: 5px;
@@ -2317,7 +2597,7 @@ input[type="range"]:hover {
     transform: translate(-50%, -50%);
     z-index: 120;
     background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     padding: 15px;
     border-radius: 5px;
     width: 40%;
@@ -2342,7 +2622,7 @@ input[type="range"]:hover {
     border: none;
     outline: none;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     width: 28px;
     height: 28px;
     border-radius: 5px;
@@ -2457,7 +2737,7 @@ input[type="range"]:hover {
     justify-content: center;
 }
 
-.weapon-tint-full-screen {
+.weapon-tint-skill-screen {
     width: 100%;
     display: none;
     align-items: center;
@@ -2468,7 +2748,7 @@ input[type="range"]:hover {
     width: 45%;
     height: 20%;
     background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     border-radius: 8px !important;
     top: 50%;
     left: 50%;
@@ -2487,7 +2767,7 @@ input[type="range"]:hover {
     border: none;
     outline: none;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
     width: 28px;
     height: 28px;
     border-radius: 5px;
@@ -2502,12 +2782,12 @@ input[type="range"]:hover {
     height: 100.2px;
     float: left;
     background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #4b4b4b;
+    border: 0.1vh solid #4b4b4b;
     margin: 2px;
     top: -7px;
     transition: opacity 0.2s;
     opacity: 1;
-    border-radius: 5px;
+    border-radius: 0.5vh;
     cursor: grab;
 }
 
@@ -2572,15 +2852,24 @@ input[type="range"]:hover {
 }
 
 .filled {
-    border: 1px solid #00a3ff;
+    border: 0.1vh solid var(--primary-color);
     background: radial-gradient(
                 120.05% 120.05% at 50.14% -58.24%,
-                #00a3ff 0%,
-                #00a3ff 100%
+                var(--primary-color) 0%,
+                var(--primary-color) 100%
             )
             padding-box,
-        linear-gradient(180deg, #00a3ff 30%, #00a3ff 70%) border-box;
-    border-image-source: linear-gradient(180deg, #00a3ff 0%, #ffffff 100%);
+        linear-gradient(
+                180deg,
+                var(--primary-color) 30%,
+                var(--primary-color) 70%
+            )
+            border-box;
+    border-image-source: linear-gradient(
+        180deg,
+        var(--primary-color) 0%,
+        #ffffff 100%
+    );
 }
 
 .introQuasar {
@@ -2652,7 +2941,7 @@ input[type="range"]:hover {
     align-self: flex-end;
     place-self: flex-end;
     padding: 4px;
-    border-radius: 2px;
+    border-radius: 0.2vh;
     box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -2706,7 +2995,7 @@ input[type="range"]:hover {
 #border-color-picker,
 #secondary-color-picker,
 #primary-color-picker {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.1vh solid rgba(255, 255, 255, 0.2);
 }
 
 .legendary {
@@ -2734,13 +3023,15 @@ input[type="range"]:hover {
 }
 
 .item-slot-rare {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
     left: 50%;
     top: 50%;
     z-index: 1;
     transform: translate(-50%, -50%);
+    background: var(--primary-color);
+    /* border: .1vh solid var(--border-color); */
 }
 
 @keyframes updateConorAnimation {
@@ -2755,7 +3046,7 @@ input[type="range"]:hover {
 
 @keyframes ShakeEffect {
     0% {
-        transform: translate(1px, 1px) rotate(0deg);
+        transform: translate(1px, 0.1vh) rotate(0deg);
     }
 
     10% {
@@ -2779,11 +3070,11 @@ input[type="range"]:hover {
     }
 
     60% {
-        transform: translate(-3px, 1px) rotate(0deg);
+        transform: translate(-3px, 0.1vh) rotate(0deg);
     }
 
     70% {
-        transform: translate(3px, 1px) rotate(-1deg);
+        transform: translate(3px, 0.1vh) rotate(-1deg);
     }
 
     80% {
@@ -2809,321 +3100,1057 @@ input[type="range"]:hover {
     }
 }
 
-@media (max-width: 1560px) {
-    .attachmentItem-container {
-        height: 93.4px;
-        width: 93.4px;
-        transform: translateX(-150px);
-    }
+.player-inv-title {
+    display: flex;
+    align-items: center;
+    gap: 1.2vh;
+}
 
-    #attachment-canvas {
-        transform: translate(-50%, -50%) scale(0.7);
+.quick-slots {
+    top: -3.3vh;
+    padding: 2vh;
+    position: relative;
+}
+
+.quick-slots-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0.1vh solid rgba(255, 255, 255, 0.3);
+    border-left: transparent;
+    border-radius: 1vh;
+}
+
+.quick-slots-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 37%;
+    z-index: 5;
+    background: linear-gradient(5deg, rgba(52, 68, 82, 0) 0%, #2d2d2d 100%);
+    border-radius: inherit;
+    padding: 0.1vh;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.quick-slots-border::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36%;
+    border-radius: 1vh;
+    border-top-left-radius: 0;
+    z-index: 5;
+    padding: 0.1vh;
+    background: linear-gradient(180deg, rgba(52, 68, 82, 0) 0%, #2d2d2d 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.title-container {
+    position: absolute;
+    top: 55.5%;
+    width: 30vh;
+    left: 0;
+    transform: translateY(100%) rotate(-90deg);
+    transform-origin: left center;
+    padding: 0.4vh;
+    z-index: 20;
+}
+
+.title {
+    padding: 0.5vh 1vh;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.15vh;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1.7vh;
+    text-align: center;
+}
+
+.slot {
+    position: relative;
+    width: 100%;
+    height: 5vh;
+    border: 0.2vh solid var(--primary-color);
+    border-radius: 0.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e2e2e;
+    margin-top: 1vh;
+}
+
+.slot.active {
+    background-color: #005577;
+}
+
+.slot-number {
+    position: absolute;
+    top: 0.5vh;
+    left: 0.5vh;
+    font-size: 0.8rem;
+    background-color: #005577;
+    padding: 2px 5px;
+    border-radius: 0.3vh;
+    color: white;
+}
+
+.slot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.slot-content img {
+    width: 40%;
+    height: auto;
+    border-radius: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.slot-content p {
+    font-size: 0.8rem;
+    color: #e0e0e0;
+}
+
+#quick-slot-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-self: center;
+    position: relative;
+}
+
+/* #quick-slot-list .item-slot {
+    max-width: 10rem;
+    height: 8rem;
+    min-height: unset;
+} */
+
+ol,
+ul {
+    list-style: none;
+}
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 55vh;
+}
+
+.inventory-route {
+    display: flex;
+    align-items: center;
+    gap: 1.5vh;
+}
+
+#inventory-routes {
+    display: flex;
+    justify-content: space-between;
+    gap: 1vh;
+    position: relative;
+    width: 100%;
+    right: 2vh;
+}
+
+#inventory-close {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    position: relative;
+}
+
+#inventory-routes input[type="radio"]:checked + label i {
+    color: #fff;
+    /* background: var(--primary-gradient); */
+    background: var(--primary-color);
+    border-radius: 0.9vh;
+    border: 0.4vh solid var(--border-color);
+    box-shadow: 0 0 22px 0 var(--primary-color);
+}
+
+.inventory-route i {
+    font-size: 1.25rem;
+    padding: 10px;
+    border-radius: 9px;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        rgba(25, 63, 85, 0.35) 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    );
+    border: 1.43px solid;
+    border-image-source: var(--secondary-gradient);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    color: rgba(118, 118, 118, 1);
+}
+
+.inventory-route-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inventory-route-label span {
+    color: #fff;
+    font-size: 1.6vh;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.inventory-route-label small {
+    font-family: Poppins;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.2vh;
+    max-width: 7vw;
+    color: #ffffff40;
+    text-shadow: 0 0 5px #ffffff78;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.inv-active .inventory-route-label span {
+    color: var(--primary-color);
+}
+
+.inventory-route:hover .inventory-route-label span {
+    color: var(--primary-color);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.close-text {
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.3vh;
+    font-family: Poppins;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 2.1vh;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 0 15px rgb(255 255 255 / 47%);
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.3vh;
+    font-family: Poppins;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 2.1vh;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 0 15px rgb(255 255 255 / 47%);
+}
+
+.close-key {
+    border-radius: 0.5vh;
+    padding: 0.5vh 0.7vw;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        rgba(85, 25, 25, 0.35) 0%,
+        rgba(27, 14, 14, 0.94) 100%
+    );
+    border: 1.43px solid;
+    border-image-source: linear-gradient(
+        180deg,
+        rgba(52, 68, 82, 0) 0%,
+        rgba(48, 56, 63, 0.505038) 50.5%,
+        #2d2d2d 100%
+    );
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1.4vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+#inventory-container-header {
+    display: flex;
+    gap: 6vh;
+    position: absolute;
+    top: 4%;
+    width: 100%;
+    height: 4.5vh;
+    padding: 0 2vh;
+    z-index: 100;
+}
+
+#inventory-routes-btn {
+    display: flex;
+    gap: 3vh;
+    height: 100%;
+}
+
+.item-slot-label {
+    background: transparent !important;
+    border: transparent !important;
+}
+
+.item-slot-label > p {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1vh;
+    text-align: center;
+}
+
+/* !important needed to overwrite jquery's css files. */
+
+.context-menu-list {
+    position: absolute;
+    font-family: inherit;
+    font-size: inherit;
+    list-style-type: none;
+    border: unset;
+    box-shadow: unset;
+    border-radius: 0.8vh !important;
+    background: radial-gradient(
+        49.48% 49.48% at 50.52% 50.52%,
+        #28343c 0%,
+        rgba(14, 21, 27, 0.8) 100%
+    ) !important;
+    border: 0.17vh solid !important;
+    border-image-source: linear-gradient(
+        180deg,
+        rgba(52, 68, 82, 0) 0%,
+        #2d2d2d 100%
+    ) !important;
+}
+
+.context-menu-item {
+    position: relative;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1.4vh;
+    text-align: center;
+    color: rgba(139, 144, 147, 1) !important;
+    height: 3.5vh;
+    width: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8vh;
+    /* border: 1.7vh solid !important; */
+    border-image-source: linear-gradient(
+        180deg,
+        rgba(52, 68, 82, 0) 0%,
+        #2d2d2d 100%
+    ) !important;
+    background: transparent !important;
+}
+
+li.context-menu-item:hover span {
+    /* background: var(--primary-gradient); */
+    background: var(--primary-color);
+    border: 0.5vh solid var(--primary-color);
+    box-shadow: 0 0 27.86px 0 var(--primary-color);
+    color: #fff;
+}
+
+li.context-menu-item {
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+    z-index: 1;
+    position: relative;
+    height: auto;
+}
+
+li.context-menu-item span {
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8vh;
+    position: relative;
+    outline: none;
+}
+
+li.context-menu-item:hover::before {
+    padding: 0.4vh;
+    content: "";
+    position: absolute;
+    inset: -0.8vh !important;
+    border-radius: 1vh !important;
+    z-index: -1 !important;
+    background: conic-gradient(
+        from var(--angle),
+        var(--c2),
+        var(--primary-color) 0.1turn,
+        var(--primary-color) 0.15turn,
+        var(--c2) 0.25turn
+    ) !important;
+    animation: borderRotate var(--d) linear infinite forwards !important;
+    mask-composite: exclude !important;
+    margin: 0.4vh;
+}
+
+li.context-menu-item {
+    height: 5vh;
+}
+
+.item-slot {
+    position: relative;
+    outline: none;
+}
+
+.context-menu-active::before {
+    padding: 0.4vh;
+    content: "";
+    position: absolute;
+    inset: -0.8vh !important;
+    border-radius: 1vh !important;
+    z-index: -1 !important;
+    background: conic-gradient(
+        from var(--angle),
+        var(--c2),
+        var(--primary-color) 0.1turn,
+        var(--primary-color) 0.15turn,
+        var(--c2) 0.25turn
+    ) !important;
+    animation: borderRotate var(--d) linear infinite forwards !important;
+    mask-composite: exclude !important;
+    margin: 0.4vh !important;
+}
+
+.context-menu-active {
+    position: relative;
+}
+
+:root {
+    --d: 5000ms;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: rgba(0, 163, 255, 1);
+    --c2: transparent;
+
+    /* --primary-gradient: radial-gradient(50% 50% at 50% 50%, #006299 0%, #00A3FF 100%); */
+
+    --primary-color: #00a3ff;
+    --secondary-gradient: linear-gradient(180deg, #34445200 0%, #2d2d2d 100%);
+
+    --border-color: #0190e1;
+
+    --scale: 1;
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 450deg;
     }
 }
 
-@media (min-width: 2501px) {
-    .container {
-        transform: scale(2);
-        transform-origin: top left;
-    }
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 90deg;
+    inherits: true;
+}
 
-    .ply-inv-container,
-    .oth-inv-container {
-        max-width: 880px !important;
-    }
+@property --gradX {
+    syntax: "<percentage>";
+    initial-value: 50%;
+    inherits: true;
+}
 
-    .ply-inv-container,
-    .oth-inv-container {
-        width: 880px;
-    }
+@property --gradY {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: true;
+}
 
-    .player-inventory,
-    .other-inventory {
-        max-height: 55vh;
-    }
+.opactity-setting {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-    .item-slot {
-        position: relative;
-        max-width: 150px;
-        min-height: 150px;
-    }
+.row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+}
 
-    .sixth-slot {
-        position: fixed;
-        width: 150px;
-        top: 81vh;
-        left: -50vh;
-    }
+.slider-cont {
+    max-width: 50%;
+    width: 50%;
+}
 
-    .inv-option-item {
-        width: 12vw;
-    }
+.custom-border {
+    width: 100%;
+}
 
-    .clothes-inventory .item-slot {
-        position: relative;
-        width: 150px;
-        height: 150px;
-    }
+#settingsMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5vh;
+    position: absolute;
+    top: 55%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: auto;
+}
 
-    .item-slot-img img {
-        width: 90px;
-        height: 90px;
-        max-width: 100%;
-        max-height: 100%;
-    }
+.custom-border-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-    .clothes-inventory .item-slot-img {
-        width: 7vw;
-        height: 7vw;
-        max-width: 100%;
-        max-height: 100%;
-    }
+.blockcolor {
+    display: grid;
+    grid-template-columns: 30% 30% 10% 30%;
+    align-items: center;
+}
 
-    #clothmenu {
-        max-height: 70px;
-    }
+.bcname label {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 15px rgb(255 255 255 / 47%);
+}
 
-    .inv-option-item {
-        height: 80px;
-        margin-top: 0.75em;
-    }
+.bcop label {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1.4vh;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 1);
+}
 
-    .playerstat-item {
-        height: 125px;
-        width: 125px;
-        padding-top: 1.5em;
-        text-align: center;
-    }
+.bcop svg {
+    position: relative;
+    height: 1.4vh;
+    aspect-ratio: 1/1;
+}
 
-    .inv-options-list {
-        margin-top: 10em;
-    }
+.bcop {
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+}
 
-    .clothes-inventory .item-drag {
-        width: 150px !important;
-        height: 150px !important;
-    }
+.bcselect input {
+    margin: 0;
+}
 
-    .custom-inventory {
-        margin-top: 4em;
-    }
+.bcselect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .item-draggable {
-        width: 150px !important;
-        height: 150px !important;
-    }
+.bcper input[type="range"] {
+    filter: drop-shadow(0 0 22px var(--primary-color));
+    color: var(--primary-color) !important;
+}
 
-    .item-slot.ui-droppable.item-drag.ui-draggable.ui-draggable-handle.ui-draggable-dragging {
-        width: 150px !important;
-        height: 150px !important;
-    }
+.bcper input[type="range"] {
+    --track-height: 0.25vh;
+    --track-color: rgba(13, 13, 13, 1);
+    width: 100%;
+}
 
-    .inv-option-item > p {
-        font-size: 18px;
-    }
+.slider-cont {
+    max-width: 100%;
+    width: 50%;
+}
 
-    .playerstat-text {
-        font-size: 18px;
-    }
+.bcper {
+    width: 11vw;
+}
 
-    .playerstat-icon {
-        position: relative;
-        font-size: 25px;
-    }
+.blockcolor {
+    gap: 0;
+    padding: 1.56vh;
+}
 
-    .weapon-attachments-container-description {
-        font-size: 28px;
-    }
+.bcselect input {
+    border: unset !important;
+    width: 10vw;
+    height: 3vh;
+    border-radius: 0.6vh !important;
+}
 
-    .weapon-attachments-container-details {
-        font-size: 16px;
-    }
+.inventory-container-article[data-page="settings"] {
+    gap: 1vh;
+    background: transparent !important;
+}
 
-    .item-info-title {
-        font-size: 20px;
-    }
+.custom-details {
+    width: 100%;
+    border-radius: 0.5vh;
+    background: transparent;
+    border-image-source: unset;
+    border: unset;
+    gap: 1vh;
+    display: flex;
+    flex-direction: column;
+}
 
-    .item-info-description {
-        text-transform: uppercase;
-        font-size: 18px;
-    }
+.custom-border-radius {
+    height: 7vh;
+}
 
-    .item-slot-label {
-        display: flex;
-        justify-content: center;
-    }
+.bcname label {
+    text-transform: capitalize;
+    font-size: 2vh;
+}
 
-    .item-slot-label > p {
-        width: fit-content;
-        font-size: 14px;
-    }
+.bcper {
+    display: flex;
+    align-items: center;
+    margin-left: 1vh;
+}
 
-    .iteminfo-content {
-        width: 70%;
-        max-width: 600px;
-        overflow: hidden;
-    }
+.inv-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(87, 87, 87, 0.3);
+    border: 0.15vh solid rgba(87, 87, 87, 0.6);
+    border-radius: 0.5vh;
+    height: 4vh;
+    aspect-ratio: 1/1;
+    position: relative;
+}
 
-    .item-info-description {
-        max-width: 30vw;
-    }
+.inv-icon svg {
+    position: relative;
+    height: 50%;
+    aspect-ratio: 1/1;
+}
 
-    .weapon-attachments-title {
-        left: 5em;
-    }
+.inv-active .inv-icon {
+    /* background: var(--primary-gradient);
+    border: .4vh solid var(--primary-gradient);
+    border-image-source: var(--primary-gradient); */
+    background: var(--primary-color);
+    border: 0.4vh solid var(--primary-color);
+    border-image-source: var(--primary-color);
+    box-shadow: 0 0 22px 0 var(--primary-color);
+}
 
-    .weapon-attachments {
-        position: absolute;
-        bottom: 0;
-        left: 5.5em;
-    }
+.inv-icon svg path {
+    stroke: rgba(139, 144, 147, 1) !important;
+}
 
-    .weapon-attachment {
-        position: relative;
-        height: 150px;
-        width: 150px;
-    }
+.inv-active .inv-icon svg path {
+    stroke: #fff !important;
+}
 
-    .weapon-attachment-img > img {
-        display: block;
-        position: relative;
-        margin: 0 auto;
-        margin-top: 10%;
-        width: 90px;
-        height: 90px;
-        max-width: 100%;
-        max-height: 100%;
-    }
+.inventory-route:hover {
+    cursor: pointer;
+}
 
-    .weapon-attachment-label > p {
-        font-size: 14px;
-    }
+.inventory-route:hover .inv-icon {
+    /* background: var(--primary-gradient);
+    border: .4vh solid var(--primary-gradient);
+    border-image-source: var(--primary-gradient); */
+    background: var(--primary-color);
+    border: 0.4vh solid var(--primary-color);
+    border-image-source: var(--primary-color);
+    box-shadow: 0 0 22px 0 var(--primary-color);
+}
 
-    .attachmentItem-container {
-        position: absolute;
-        height: 150px;
-        width: 150px;
-    }
+.inventory-route:hover .inv-icon svg path {
+    stroke: #fff !important;
+}
 
-    .weapon-attachments {
-        max-height: fit-content;
-    }
+span.current-weight {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 1.2vh;
+    line-height: 100%;
+    color: var(--primary-color);
+}
 
-    .itembox-container {
-        width: 150px;
-        height: 150px;
-    }
+#player-inv-weight,
+#other-inv-weight,
+#wallet-inv-weight {
+    letter-spacing: 0.25vh;
+    top: 0;
+    font-style: normal;
+    color: rgba(113, 113, 113, 1);
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 1vh;
+    line-height: 100%;
+    text-indent: 0;
+}
 
-    .itemboxes-container {
-        height: 160px;
-    }
+.weight_flex {
+    display: flex;
+    width: 100%;
+    margin-right: 5px;
+}
 
-    .itembox-container img {
-        width: 90px;
-        height: 90px;
-    }
+.progressbar {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+    margin-bottom: 0;
+}
 
-    #itembox-label > p {
-        font-size: 14px;
-        width: 160px;
-    }
+.weight_bar_bordered {
+    height: 1.9vh;
+    width: 0.8vh;
+    border-radius: 0.4vh;
+}
 
-    #itembox-action {
-        font-size: 18px;
-        padding: 5px;
-    }
+.player-weight-progressbar,
+.other-weight-progressbar {
+    height: 4.9vh;
+    align-content: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+}
 
-    #itembox-action > p {
-        font-size: 20px;
-    }
+.weight_flex {
+    margin-bottom: 0;
+}
 
-    .z-hotbar-item-slot {
-        position: relative;
-        width: 150px;
-        height: 165px;
-    }
+.openClothesMenu .quick-slots {
+    margin-top: -10vh !important;
+}
 
-    .z-hotbar-item-slot-img img {
-        width: 90px;
-        height: 90px;
-    }
+input#item-amount {
+    width: 100%;
+    height: 5vh;
+    padding: 1.3vh 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 163, 255, 0.2),
+        rgba(0, 163, 255, 0)
+    );
+    border: 1px solid rgba(0, 163, 255, 0.4);
+    border-radius: 0.5vh;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2vh;
+    color: white;
+    text-align: center;
+}
 
-    .z-hotbar-item-slot-amount > p {
-        font-size: 16px;
-    }
+input#item-amount {
+    margin: 0;
+}
 
-    .z-hotbar-inventory > .z-hotbar-item-slot > .z-hotbar-item-slot-key > p {
-        font-size: 17px;
-    }
+.ival {
+    width: 48%; /* espacio proporcional en pantallas grandes */
+    margin-top: 3vh;
+    padding: 1.7vh;
+    border-radius: 1vh;
+    position: relative;
+}
 
-    .item-slot.item_crafting {
-        max-width: 400px;
-        width: 400px;
-    }
+.ival::before {
+    content: "";
+    position: absolute;
+    inset: -0.2vh;
+    background: linear-gradient(180deg, rgba(52, 68, 82, 0) 0%, #2d2d2d 100%);
+    border-radius: inherit;
+    padding: 0.1vh;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+}
 
-    .img_crafting {
-        max-width: 100%;
-        max-height: 100%;
-        top: 0%;
-        position: absolute;
-        left: 0;
-        padding: 2em;
-    }
+.ival h1 {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 2.1vh;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.31);
+    position: relative;
+    top: -1.5vh;
+}
 
-    .item-slot-costs-img img {
-        position: relative;
-        width: 40px;
-        top: 5px;
-        left: 5px;
-        margin-right: 10px;
-    }
+.ival-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2vh;
+    width: 53vh;
+}
 
-    .item-slot-costs-label {
-        color: #fff;
-        font-size: 18px;
-        line-height: 50px;
-        width: 100%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+.inv-option-item:hover {
+    transform: unset;
+}
 
-    .item-slot-amount > p {
-        color: #fff;
-        text-align: right;
-        font-size: 16px;
-        width: 75px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+.weapon-attachments {
+    background: unset !important;
+}
 
-    .other-inventory[data-inventory="selling-itemselling_Seller item"]
-        .item-slot {
-        max-width: 400px;
-        width: 400px;
-    }
+.weapon-attachments > .weapon-attachment {
+    flex-shrink: 0;
+    cursor: grab;
+}
 
-    .other-inventory[data-inventory="selling-itemselling_Seller item"]
-        .item-slot-amount {
-        color: #fff;
-        font-size: 18px;
-        line-height: 50px;
-        width: 100%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+.weapon-attachments-info {
+    position: absolute;
+    border-radius: 0.2vh;
+    margin: 0 auto;
+    left: 90%;
+    transform: translateX(-50%);
+    right: 0%;
+    bottom: 25%;
+}
 
-    .other-inventory[data-inventory="selling-itemselling_Seller item"]
-        .item-slot-amount
-        > p {
-        color: #fff;
-        text-align: right;
-        font-size: 16px;
-        width: 75px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+.weapon-attachments-back {
+    top: 10%;
+}
+
+.item-slot-rare {
+    background: unset !important;
+}
+
+.weapon-attachment-label {
+    background: unset !important;
+}
+
+.weapon-attachments-info::before {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: var(--primary-color);
+    filter: blur(4vh);
+    z-index: -1;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+
+.weapon-attachments-info {
+    background: unset !important;
+}
+
+#inventory-settings {
+    position: absolute;
+    right: 5vh;
+    bottom: 4vh;
+    padding: 0.7vh;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    font-size: 1.9vh;
+    box-shadow: 0px 0px 2.92342px 0.0531532px rgba(15, 115, 173, 0.588),
+        0px 0px 2.92342px 0.0531532px rgba(15, 121, 182, 0.588) inset;
+    background: radial-gradient(
+        100% 100% at 50% 50%,
+        rgba(11, 122, 187, 0.8) 0%,
+        rgba(30, 30, 30, 1) 100%
+    );
+    color: #5cbaf0;
+    text-shadow: 0px 0px 30.2479px rgba(92, 198, 240, 0.81);
+    z-index: 50;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 0px;
+}
+
+#render {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#glass-square {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    /* right: 0px; */
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+#glass-square:hover {
+    /* background-color: red; */
+}
+
+#ped {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.textShadow {
+    text-shadow: 0 0 23.402px rgba(255, 255, 255, 0.47);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#rob-items-button {
+    width: 100%;
+    height: 5vh;
+    background: linear-gradient(
+        to top,
+        rgba(0, 163, 255, 0.2),
+        rgba(0, 163, 255, 0)
+    );
+    border: 1px solid rgba(0, 163, 255, 0.4);
+    border-radius: 0.5vh;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2vh;
+    color: white;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+#rob-items-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#backgroundCanvas {
+    overflow: hidden;
+}
+
+.swiper-pagination {
+    position: relative;
+    bottom: 1.7vh !important;
+}
+
+span.swiper-pagination-bullet {
+    background: rgba(120, 120, 120, 1);
+    opacity: 1;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+}
+
+span.swiper-pagination-bullet {
+    margin-right: 10px !important;
+}
+
+span.swiper-pagination-bullet {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.background-slide {
+    width: 15vw;
+    height: 15vh;
+    aspect-ratio: 1 / 1;
+    border: 2px solid transparent;
+    border-radius: 0.5vh;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border 0.2s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#background-swiper {
+    width: 100%;
+    height: 20vh;
+}
+
+#custom-background-container {
+    position: relative;
+    top: 5vh;
+    height: 25vh;
+}
+
+#custom-background-container h1 {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 2.1vh;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#custom-background-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    margin-top: 2vh;
+}
+
+.swiper-slide-active {
+    scale: 1 !important;
+    box-shadow: 0 0 22px 0 var(--primary-color);
+    transition: 0.3s; /* 0.3s */
+}
+
+.swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 0.8;
+    top: 0.5vh;
+    transition: scale 0.3s; /* 0.3s */
 }

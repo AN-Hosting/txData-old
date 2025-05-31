@@ -7,8 +7,8 @@ local target_name = GetResourceState('ox_target'):find('started') and 'qtarget' 
 CreateThread(function()
     -- Selling
     for k, v in pairs(Config.SellItems) do
-        exports[target_name]:AddBoxZone(k .. '_selling', vec3(v['coords'].x, v['coords'].y, v['coords'].z), 1.5, 1.5, {
-            name = k .. '_selling',
+        exports[target_name]:AddBoxZone(k, vec3(v['coords'].x, v['coords'].y, v['coords'].z), 1.5, 1.5, {
+            name = k,
             heading = 90.0,
             debugPoly = Config.ZoneDebug,
             minZ = v['coords'].z - 1,
@@ -38,8 +38,8 @@ CreateThread(function()
     -- Crafting
     if Config.Crafting then
         for k, v in pairs(Config.CraftingTables) do
-            exports[target_name]:AddBoxZone(k .. '_crafting', vec3(v.location.x, v.location.y, v.location.z), 2.5, 2.5, {
-                name = k .. '_crafting',
+            exports[target_name]:AddBoxZone(k, vec3(v.location.x, v.location.y, v.location.z), 2.5, 2.5, {
+                name = k,
                 heading = 90.0,
                 debugPoly = Config.ZoneDebug,
                 minZ = v.location.z - 1,
@@ -81,21 +81,19 @@ CreateThread(function()
     end
 
     -- Vending shops
-    if Config.Vendings then
-        for k, v in pairs(Config.Vendings) do
-            exports[target_name]:AddTargetModel(v['Model'], {
-                options = {
-                    {
-                        icon = 'fa-solid fa-cash-register',
-                        label = 'Vending',
-                        action = function()
-                            TriggerEvent(Config.InventoryPrefix .. ':client:openVending', { category = v['Category'] })
-                        end
-                    },
+    for k, v in pairs(Config.Vendings) do
+        exports[target_name]:AddTargetModel(v['Model'], {
+            options = {
+                {
+                    icon = 'fa-solid fa-cash-register',
+                    label = 'Vending',
+                    action = function()
+                        TriggerEvent(Config.InventoryPrefix .. ':client:openVending', { category = v['Category'] })
+                    end
                 },
-                distance = 2.5
-            })
-        end
+            },
+            distance = 2.5
+        })
     end
 
     -- Gargabe Code

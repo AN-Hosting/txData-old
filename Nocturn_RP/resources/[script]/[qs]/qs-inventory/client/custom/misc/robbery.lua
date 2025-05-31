@@ -1,8 +1,30 @@
+local lib, anim = 'missminuteman_1ig_2', 'handsup_base'
+---@return boolean
+function CheckStealablePlayer()
+    if not Config.Handsup then
+        return false
+    end
+    local closestPlayer, closestDistance = GetClosestPlayer(GetEntityCoords(PlayerPedId()))
+    if not closestPlayer or closestPlayer == -1 or closestDistance > 3.0 then
+        return false
+    end
+    local playerId = GetPlayerServerId(closestPlayer)
+    local searchPlayerPed = GetPlayerPed(closestPlayer)
+    if searchPlayerPed and searchPlayerPed ~= 0 then
+        if Config.StealDeadPlayer and checkEntityDead(playerId, searchPlayerPed) then
+            return true
+        end
+        if IsEntityPlayingAnim(searchPlayerPed, lib, anim, 3) then
+            return true
+        end
+    end
+    return false
+end
+
 if not Config.Handsup then
     return
 end
 
-local lib, anim = 'missminuteman_1ig_2', 'handsup_base'
 local canHandsUp = true
 local deadPlayer = false
 
@@ -78,7 +100,9 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:search', function()
         local playerId = GetPlayerServerId(player)
         local searchPlayerPed = GetPlayerPed(player)
         if IsEntityPlayingAnim(searchPlayerPed, 'missminuteman_1ig_2', 'handsup_base', 3) or Config.StealDeadPlayer and checkEntityDead(playerId, searchPlayerPed) or GetEntityHealth(searchPlayerPed) <= 0 then
-            TriggerServerEvent(Config.InventoryPrefix .. ':server:OpenInventory', 'otherplayer', playerId)
+            TriggerServerEvent(Config.InventoryPrefix .. ':server:OpenInventory', 'otherplayer', playerId, {
+                type = 'all'
+            })
             checkPlayerIsNear(player)
             inRobbery = true
         else
@@ -88,6 +112,12 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:search', function()
         SendTextMessage(Lang('INVENTORY_NOTIFICATION_NO_PLAYERS'), 'error')
     end
 end)
+
+-- RegisterCommand('search', function(source, args, raw)
+--     TriggerServerEvent(Config.InventoryPrefix .. ':server:OpenInventory', 'otherplayer', 1, {
+--         type = 'hotbar' -- 'wallet', 'all' or 'hotbar'
+--     })
+-- end)
 
 RegisterNetEvent(Config.InventoryPrefix .. ':client:playerRobbery')
 AddEventHandler(Config.InventoryPrefix .. ':client:playerRobbery', function()

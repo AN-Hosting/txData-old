@@ -98,4 +98,4 @@ function GiveItemToPlayer(source, item, amount)
 	end
 end
 
-exports('GiveItemToPlayer', GiveItemToPlayer)
+sharedExports('GiveItemToPlayer', GiveItemToPlayer)

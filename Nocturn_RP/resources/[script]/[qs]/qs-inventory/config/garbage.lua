@@ -18,39 +18,39 @@
 Config.GarbageItems = {}
 
 Config.GarbageObjects = {
-    'prop_dumpster_02a', -- Standard dumpster
-    'prop_dumpster_4b',  -- Large blue dumpster
-    'prop_dumpster_4a',  -- Large green dumpster
-    'prop_dumpster_3a',  -- Smaller gray dumpster
-    'prop_dumpster_02b', -- Alternate dumpster model
-    'prop_dumpster_01a'  -- Basic dumpster model
+    'prop_dumpster_02a',     -- Standard dumpster
+    'prop_dumpster_4b',      -- Large blue dumpster
+    'prop_dumpster_4a',      -- Large green dumpster
+    'prop_dumpster_3a',      -- Smaller gray dumpster
+    'prop_dumpster_02b',     -- Alternate dumpster model
+    'prop_dumpster_01a'      -- Basic dumpster model
 }
 
 Config.GarbageItemsForProp = {
     [joaat('prop_dumpster_02a')] = {
-        label = 'Garbage', -- Label shown to players when interacting
-        slots = 30,        -- Number of item slots available in the dumpster
+        label = 'Garbage',    -- Label shown to players when interacting
+        slots = 30,           -- Number of item slots available in the dumpster
         items = {
             [1] = {
                 [1] = {
-                    name = 'aluminum', -- Item name: aluminum scrap
+                    name = 'aluminum',      -- Item name: aluminum scrap
                     amount = {
-                        min = 1,       -- Minimum amount spawned per search
-                        max = 5        -- Maximum amount spawned per search
+                        min = 1,           -- Minimum amount spawned per search
+                        max = 5            -- Maximum amount spawned per search
                     },
-                    info = {},         -- Additional item information
-                    type = 'item',     -- Type of loot (e.g., 'item' or 'weapon')
-                    slot = 1,          -- Slot position within the garbage inventory
+                    info = {},              -- Additional item information
+                    type = 'item',          -- Type of loot (e.g., 'item' or 'weapon')
+                    slot = 1,               -- Slot position within the garbage inventory
                 },
                 [2] = {
-                    name = 'metalscrap', -- Item name: metal scrap
+                    name = 'metalscrap',    -- Item name: metal scrap
                     amount = {
-                        min = 1,         -- Minimum amount spawned per search
-                        max = 5          -- Maximum amount spawned per search
+                        min = 1,           -- Minimum amount spawned per search
+                        max = 5            -- Maximum amount spawned per search
                     },
-                    info = {},           -- Additional item information
-                    type = 'item',       -- Type of loot (e.g., 'item' or 'weapon')
-                    slot = 2,            -- Slot position within the garbage inventory
+                    info = {},              -- Additional item information
+                    type = 'item',          -- Type of loot (e.g., 'item' or 'weapon')
+                    slot = 2,               -- Slot position within the garbage inventory
                 },
             },
             [2] = {

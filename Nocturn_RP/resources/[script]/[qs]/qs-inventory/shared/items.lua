@@ -50,7 +50,8 @@ ItemList = {
         ['image'] = 'placeholder.png',
         ['unique'] = true,
         ['useable'] = false,
-        ['description'] = 'Fisticuffs'
+        ['description'] = 'Fisticuffs',
+        ['useableIn'] = 'hotbar',
     },
     ['weapon_dagger'] = {
         ['name'] = 'weapon_dagger',
@@ -792,8 +793,7 @@ ItemList = {
         ['unique'] = true,
         ['useable'] = false,
         ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'A lightweight automatic rifle',
-        ['disableThrow'] = true
+        ['description'] = 'A lightweight automatic rifle'
     },
     ['weapon_carbinerifle_mk2'] = {
         ['name'] = 'weapon_carbinerifle_mk2',
@@ -805,7 +805,8 @@ ItemList = {
         ['unique'] = true,
         ['useable'] = true,
         ['rare'] = 'legendary', -- epic, legendary, common
-        ['description'] = 'Carbine Rifle MK2'
+        ['description'] = 'Carbine Rifle MK2',
+        ['disableThrow'] = true
     },
     ['weapon_advancedrifle'] = {
         ['name'] = 'weapon_advancedrifle',
@@ -2224,19 +2225,6 @@ ItemList = {
         ['object'] = 'prop_ld_ammo_pack_02',
         ['description'] = 'Ammo for Rifles'
     },
-    ['police_rifle_ammo']           = {
-        ['name'] = 'police_rifle_ammo',
-        ['label'] = 'Police Rifle ammo',
-        ['weight'] = 1000,
-        ['type'] = 'item',
-        ['image'] = 'rifle_ammo.png',
-        ['unique'] = false,
-        ['useable'] = true,
-        ['shouldClose'] = true,
-        ['combinable'] = nil,
-        ['object'] = 'prop_ld_ammo_pack_02',
-        ['description'] = 'Ammo for Police Rifles'
-    },
     ['smg_ammo']                    = {
         ['name'] = 'smg_ammo',
         ['label'] = 'SMG ammo',
@@ -2467,7 +2455,7 @@ ItemList = {
         ['decay'] = 0.07,
         ['delete'] = false,
         ['object'] = 'prop_sandwich_01',
-        ['disableThrow'] = true,
+        ['useableIn'] = 'wallet',
         ['client'] = {
             status = {
                 hunger = 200000,
@@ -2507,6 +2495,7 @@ ItemList = {
         ['object'] = 'prop_choc_ego',
         ['rare'] = 'common', -- epic, legendary, common
         ['description'] = 'Some delicious candy :O',
+        ['useableIn'] = 'inventory',
         ['client'] = {
             status = {
                 hunger = 200000,
@@ -3402,6 +3391,58 @@ ItemList = {
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'Damn you lost your key again?'
     },
+    ['chain']                       = {
+        ['name'] = 'chain',
+        ['label'] = 'Chain',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'goldchain.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'It is very fragile, watch out'
+    },
+    ['vest']                        = {
+        ['name'] = 'vest',
+        ['label'] = 'Vest',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'vest.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'Body Armor'
+    },
+    ['bracelets']                   = {
+        ['name'] = 'bracelets',
+        ['label'] = 'Bracelets',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'bracelets.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'It is very fragile, watch out'
+    },
+    ['watch']                       = {
+        ['name'] = 'watch',
+        ['label'] = 'Watch',
+        ['weight'] = 100,
+        ['type'] = 'item',
+        ['image'] = 'rolex.png',
+        ['unique'] = false,
+        ['useable'] = false,
+        ['shouldClose'] = false,
+        ['combinable'] = nil,
+        ['rare'] = 'epic', -- epic, legendary, common
+        ['description'] = 'It is very fragile, watch out'
+    },
 
     -- Tools
     ['lockpick']                    = {
@@ -3711,6 +3752,7 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['object'] = 'prop_amb_phone',
+        ['useableIn'] = 'hotbar',
         ['rare'] = 'common', -- epic, legendary, common
         ['description'] = 'They say that Quasar Smartphone is the same as an iPhone, what do you think?'
     },
@@ -3725,6 +3767,7 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['object'] = 'prop_amb_phone',
+        ['useableIn'] = 'hotbar',
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'They say that Quasar Smartphone is the same as an iPhone, what do you think?'
     },
@@ -3739,6 +3782,7 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['object'] = 'prop_amb_phone',
+        ['useableIn'] = 'hotbar',
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'They say that Quasar Smartphone is the same as an iPhone, what do you think?'
     },
@@ -3753,6 +3797,7 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['object'] = 'prop_amb_phone',
+        ['useableIn'] = 'hotbar',
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'They say that Quasar Smartphone is the same as an iPhone, what do you think?'
     },
@@ -3767,6 +3812,7 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['object'] = 'prop_amb_phone',
+        ['useableIn'] = 'hotbar',
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'They say that Quasar Smartphone is the same as an iPhone, what do you think?'
     },
@@ -3781,6 +3827,7 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['object'] = 'prop_amb_phone',
+        ['useableIn'] = 'hotbar',
         ['rare'] = 'epic', -- epic, legendary, common
         ['description'] = 'They say that Quasar Smartphone is the same as an iPhone, what do you think?'
     },
@@ -4751,58 +4798,6 @@ ItemList = {
         ['shouldClose'] = true,
         ['combinable'] = nil,
         ['description'] = 'A nice piece of clothing'
-    },
-    ['chain']                       = {
-        ['name'] = 'chain',
-        ['label'] = 'Chain',
-        ['weight'] = 100,
-        ['type'] = 'item',
-        ['image'] = 'goldchain.png',
-        ['unique'] = true,
-        ['useable'] = true,
-        ['shouldClose'] = false,
-        ['combinable'] = nil,
-        ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'It is very fragile, watch out'
-    },
-    ['vest']                        = {
-        ['name'] = 'vest',
-        ['label'] = 'Vest',
-        ['weight'] = 100,
-        ['type'] = 'item',
-        ['image'] = 'vest.png',
-        ['unique'] = true,
-        ['useable'] = true,
-        ['shouldClose'] = false,
-        ['combinable'] = nil,
-        ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'Body Armor'
-    },
-    ['bracelets']                   = {
-        ['name'] = 'bracelets',
-        ['label'] = 'Bracelets',
-        ['weight'] = 100,
-        ['type'] = 'item',
-        ['image'] = 'bracelets.png',
-        ['unique'] = true,
-        ['useable'] = true,
-        ['shouldClose'] = false,
-        ['combinable'] = nil,
-        ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'It is very fragile, watch out'
-    },
-    ['watch']                       = {
-        ['name'] = 'watch',
-        ['label'] = 'Watch',
-        ['weight'] = 100,
-        ['type'] = 'item',
-        ['image'] = 'rolex.png',
-        ['unique'] = false,
-        ['useable'] = false,
-        ['shouldClose'] = false,
-        ['combinable'] = nil,
-        ['rare'] = 'epic', -- epic, legendary, common
-        ['description'] = 'It is very fragile, watch out'
     },
 
     -- Trading Cards

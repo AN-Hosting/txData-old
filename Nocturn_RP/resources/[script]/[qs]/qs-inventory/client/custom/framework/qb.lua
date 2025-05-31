@@ -5,7 +5,7 @@ end
 QBCore = exports['qb-core']:GetCoreObject()
 if not Config.QBX then
     WeaponList = QBCore.Shared.Weapons
-    ItemList = QBCore.Shared.Items
+    ItemList = FormatItems(QBCore.Shared.Items)
 end
 
 local playerLoaded = LocalPlayer.state['isLoggedIn']
@@ -21,10 +21,28 @@ function TriggerServerCallback(name, cb, ...)
     QBCore.Functions.TriggerCallback(name, cb, ...)
 end
 
+CreateThread(function()
+    if playerLoaded and HandleSkillLoad then
+        HandleSkillLoad()
+    end
+end)
+
+
+---@return {firstName: string, lastName: string}
+function GetUserName()
+    return {
+        firstName = QBCore.Functions.GetPlayerData().charinfo.firstname or 'Player',
+        lastName = QBCore.Functions.GetPlayerData().charinfo.lastname or ''
+    }
+end
+
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-    PlayerData = GetPlayerData()
+    PausePlayerData = GetPlayerData()
     LocalPlayer.state:set('inv_busy', false, true)
     Wait(1250)
+    if HandleSkillLoad then
+        HandleSkillLoad()
+    end
     for k, data in pairs(Config.WeaponRepairPoints) do
         Config.WeaponRepairPoints[k].IsRepairing = data.IsRepairing
         Config.WeaponRepairPoints[k].RepairingData = data.RepairingData
@@ -38,7 +56,7 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
 end)
 
 RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
-    PlayerData = {}
+    PausePlayerData = {}
     LocalPlayer.state:set('inv_busy', true, true)
     RemoveAllNearbyDrops()
     for k in pairs(Config.WeaponRepairPoints) do
@@ -49,7 +67,7 @@ RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
 end)
 
 RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
-    PlayerData = val
+    PausePlayerData = val
     if Config.Crafting then
         CreateBlips()
     end

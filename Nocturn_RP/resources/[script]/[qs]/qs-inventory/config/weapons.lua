@@ -33,7 +33,7 @@ Config.WeaponAttachmentLines = {
     },
     ['scope'] = {
         bones = { 'WAPScop', 'WAPScop_2' },
-        offset = { x = 5, y = -25 },
+        offset = { x = -10, y = -25 },
     },
     ['clip'] = {
         bones = { 'WAPClip', 'WAPClip_2' },
@@ -96,10 +96,6 @@ Config.AmmoItems = {
     {
         item = 'snp_ammo',
         type = 'AMMO_SNIPER'
-    },
-    {
-        item = 'police_rifle_ammo',
-        type = 'AMMO_POLICE_RIFLE'
     },
     {
         item = 'master_ammo',
@@ -249,13 +245,12 @@ Config.WeaponRepairPoints = {
 }
 
 Config.WeaponRepairCosts = {
-    ['Pistol'] = 1000,            -- Cost to repair pistols
-    ['Submachine Gun'] = 3000,    -- Cost to repair submachine guns
-    ['Light Machine Gun'] = 4000, -- Cost to repair machine guns
-    ['Assault Rifle'] = 5000,     -- Cost to repair rifles
-    ['Sniper Rifle'] = 7000,      -- Cost to repair sniper rifles
-    ['Shotgun'] = 6000,           -- Cost to repair shotguns
-    ['Heavy Weapons'] = 10000,
+    pistol = 1000, -- Cost to repair pistols
+    smg = 3000,    -- Cost to repair submachine guns
+    mg = 4000,     -- Cost to repair machine guns
+    rifle = 5000,  -- Cost to repair rifles
+    sniper = 7000, -- Cost to repair sniper rifles
+    shotgun = 6000 -- Cost to repair shotguns
 }
 
 --[[
@@ -826,7 +821,7 @@ RegisterNetEvent('qb-weapons:getWeaponsAttachments', function(cb)
     cb(Config.WeaponAttachments)
 end)
 
-exports('GetWeaponTints', function()
+sharedExports('GetWeaponTints', function()
     return Config.WeaponTints
 end)
 
@@ -1205,8 +1200,8 @@ function GetConfigTints()
     return weaponTints
 end
 
-exports('getConfigWeaponTints', GetConfigTints)
+sharedExports('getConfigWeaponTints', GetConfigTints)
 
-exports('GetWeaponAttachments', function()
+sharedExports('GetWeaponAttachments', function()
     return Config.WeaponAttachments
 end)

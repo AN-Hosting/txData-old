@@ -68,11 +68,7 @@ function AddItem(source, item, amount, slot, info, data, created, lastinventory,
 
             TriggerEvent('qb-inventory:server:itemAdded', source, item, amount, inventory[slot].amount)
             TriggerClientEvent('qb-inventory:client:itemAdded', source, item, amount, inventory[slot].amount)
-
-            if Config.Framework == 'qb' then
-                local player = GetPlayerFromId(source)
-                player.Functions.SetPlayerData('items', inventory)
-            end
+            UpdateFrameworkInventory(source, inventory)
             if inventory[slot] and inventory[slot].name == 'money' and Config.Framework == 'esx' then
                 local player = GetPlayerFromId(source)
                 local money = GetItemTotalAmount(source, 'money')
@@ -106,10 +102,7 @@ function AddItem(source, item, amount, slot, info, data, created, lastinventory,
             TriggerEvent('qb-inventory:server:itemAdded', source, item, amount, amount)
             TriggerClientEvent('qb-inventory:client:itemAdded', source, item, amount, amount)
 
-            if Config.Framework == 'qb' then
-                local player = GetPlayerFromId(source)
-                player.Functions.SetPlayerData('items', inventory)
-            end
+            UpdateFrameworkInventory(source, inventory)
             if inventory[slot] and inventory[slot].name == 'money' and Config.Framework == 'esx' then
                 local player = GetPlayerFromId(source)
                 local money = GetItemTotalAmount(source, 'money')
@@ -154,10 +147,7 @@ function AddItem(source, item, amount, slot, info, data, created, lastinventory,
                         local money = GetItemTotalAmount(source, 'black_money')
                         player.setAccountMoney('black_money', money, 'dropped')
                     end
-                    if Config.Framework == 'qb' then
-                        local player = GetPlayerFromId(source)
-                        player.Functions.SetPlayerData('items', inventory)
-                    end
+                    UpdateFrameworkInventory(source, inventory)
                     if not ContainsItem(itemsToCheck, inventory[i].name) then
                         Debug("add item create new slot ::: added to player's inventory:", source, 'Item:', inventory[i].name, 'Amount:', inventory[i].amount, 'disable', disableAutoShowBox)
                         TriggerClientEvent(Config.InventoryPrefix .. ':getInventory', source, inventory)

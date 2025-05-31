@@ -50,7 +50,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:CraftItems', function(itemNa
         isCrafting = false
     end)
     TriggerScreenblurFadeOut(300)
-    if Config.Clothing then DeletePedScreen() end
+    DeletePedScreen()
 end)
 
 -- RegisterCommand('tt', function(source, args)

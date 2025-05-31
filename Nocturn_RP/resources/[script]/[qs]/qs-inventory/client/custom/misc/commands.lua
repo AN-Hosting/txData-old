@@ -25,9 +25,6 @@ local inventory_opening_disable = {
 
 local openingInv = false
 RegisterCommand('inventory', function()
-    if inInventory then
-        return Debug('Inventory is already open')
-    end
     if Config.OpenProgressBar and openingInv then return end
     if IsNuiFocused() then return Debug('NUI Focused') end
     if spamCount > 2 then
@@ -58,7 +55,7 @@ RegisterCommand('inventory', function()
     end
 
     if inInventory and not IsNuiFocused() then
-        SetFocus(true)
+        SetNuiFocus(true, true)
         return
     end
 
@@ -197,8 +194,6 @@ end, false)
 
 RegisterKeyMapping('hotbar', Lang('INVENTORY_KEYMAPPING_HOTBAR_LABEL'), 'keyboard', Config.KeyBinds.hotbar)
 
-RegisterKeyMapping('reloadweapon', Lang('INVENTORY_KEYMAPPING_RELOAD_LABEL'), 'keyboard', Config.KeyBinds.reload)
-
 RegisterCommand('reloadweapon', function()
     if not CurrentWeaponData?.name then return end
     local weaponData = WeaponList[joaat(CurrentWeaponData?.name)]
@@ -208,5 +203,9 @@ RegisterCommand('reloadweapon', function()
         Debug("You can't use this action because inv_busy is active (avoids dupes)")
         return SendTextMessage(Lang('INVENTORY_NOTIFICATION_NOT_ACCESSIBLE'), 'error')
     end
-    TriggerServerEvent('weapons:reloadWeapon', weaponData.ammotype)
+    local item = lib.callback.await('weapons:GetWeaponAmmoItem', 0, weaponData.ammotype, true)
+    if not item then return end
+    TriggerEvent('weapons:client:AddAmmo', weaponData.ammotype, GetWeaponClipSize(joaat(CurrentWeaponData?.name)), item, true)
 end, false)
+
+RegisterKeyMapping('reloadweapon', Lang('INVENTORY_KEYMAPPING_RELOAD_LABEL'), 'keyboard', Config.KeyBinds.reload)

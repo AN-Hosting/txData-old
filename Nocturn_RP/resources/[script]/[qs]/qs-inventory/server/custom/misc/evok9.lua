@@ -27,7 +27,7 @@ function evok9CheckInventoryItems(Identifier, InvType, cb)
         if result[1] and result[1].items then
             local items = json.decode(result[1].items) or {}
 
-            if type(items) ~= "table" then
+            if type(items) ~= 'table' then
                 return cb({})
             end
 

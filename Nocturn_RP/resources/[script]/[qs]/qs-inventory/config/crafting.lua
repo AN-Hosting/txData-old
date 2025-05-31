@@ -79,7 +79,7 @@ Config.ThresholdItems = false     -- Items only visible if rep >= threshold; QBC
 ]]
 
 -- Sample External Crafting Event
-function OpenCrafting()
+--[[function OpenCrafting()
     local CustomCrafting = {
         [1] = {
             name = 'weapon_pistol',
@@ -109,14 +109,13 @@ function OpenCrafting()
         },
     }
 
-    local items = exports['qs-inventory']:SetUpCrafing(CustomCrafting)
     local crafting = {
         label = 'Craft',
-        items = items
+        items = exports['qs-inventory']:SetUpCrafing(CustomCrafting)
     }
-    TriggerServerEvent('inventory:server:SetInventoryItems', items)
+    TriggerServerEvent('inventory:server:SetInventoryItems', CustomCrafting)
     TriggerServerEvent('inventory:server:OpenInventory', 'customcrafting', crafting.label, crafting)
-end
+end]]
 
 --[[ Crafting Tables Definition
 
@@ -127,366 +126,223 @@ end
 
 Config.CraftingTables = {
     [1] = {
-        name = 'Police Crafting',
-        isjob = 'police',
+        name = 'Cat Café Crafting',
+        isjob = 'catcafe',
         grades = 'all',
-        text = '[E] - Police Craft',
+        text = '[E] - Cat Café Crafting',
         blip = {
             enabled = true,
-            title = 'Police Crafting',
+            title = 'Cat Café Crafting',
             scale = 1.0,
             display = 4,
             colour = 0,
             id = 365
         },
-        location = vec3(459.771423, -989.050537, 24.898926),
+        location = vec3(-287.16, -78.21, 49.5),
         items = {
+            -- Mochis
             [1] = {
-                name = 'weapon_pistol',
-                amount = 50,
-                info = {},
-                costs = {
-                    ['iron'] = 80,
-                    ['metalscrap'] = 70,
-                    ['rubber'] = 8,
-                    ['steel'] = 60,
-                    ['lockpick'] = 5,
-                },
-                type = 'weapon',
-                slot = 1,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 5500,
-                chance = 100
-            },
-            [2] = {
-                name = 'weapon_smg',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['iron'] = 80,
-                    ['metalscrap'] = 120,
-                    ['rubber'] = 10,
-                    ['steel'] = 65,
-                    ['lockpick'] = 10,
-                },
-                type = 'weapon',
-                slot = 2,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 8500,
-                chance = 100
-            },
-            [3] = {
-                name = 'weapon_carbinerifle',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['iron'] = 120,
-                    ['metalscrap'] = 120,
-                    ['rubber'] = 20,
-                    ['steel'] = 90,
-                    ['lockpick'] = 14,
-                },
-                type = 'weapon',
-                slot = 3,
-                rep = 'craftingrep',
-                points = 2,
-                threshold = 0,
-                time = 12000,
-                chance = 100
-            }
-        }
-    },
-    [2] = {
-        name = 'Attachment Crafting',
-        isjob = false,
-        grades = 'all',
-        text = '[E] - Craft Attachment',
-        blip = {
-            enabled = true,
-            title = 'Attachment Crafting',
-            scale = 1.0,
-            display = 4,
-            colour = 0,
-            id = 365
-        },
-        location = vec3(90.303299, 3745.503418, 39.771484),
-        items = {
-            [1] = {
-                name = 'pistol_extendedclip',
-                amount = 50,
-                info = {},
-                costs = {
-                    ['metalscrap'] = 140,
-                    ['steel'] = 250,
-                    ['rubber'] = 60,
-                },
-                type = 'item',
-                slot = 1,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 8000,
-                chance = 90
-            },
-            [2] = {
-                name = 'pistol_suppressor',
-                amount = 50,
-                info = {},
-                costs = {
-                    ['metalscrap'] = 165,
-                    ['steel'] = 285,
-                    ['rubber'] = 75,
-                },
-                type = 'item',
-                slot = 2,
-                rep = 'attachmentcraftingrep',
-                points = 1,
-                threshold = 0,
-                time = 8000,
-                chance = 90
-            },
-        }
-    },
-    [3] = {
-        name = 'Cat Cafe Crafting',
-        isjob = 'catcafé',
-        grades = 'all',
-        text = '[E] - Craft Cat Cafe Items',
-        blip = {
-            enabled = true,
-            title = 'Cat Cafe Crafting',
-            scale = 1.0,
-            display = 4,
-            colour = 0,
-            id = 433 -- Placeholder blip ID, can be changed
-        },
-        location = vec3(-290.94, -82.96, 49.5), -- Placeholder location, please update
-        items = {
-            [1] = {
-                name = 'catcookie',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['flour'] = 1,
-                    ['sugar'] = 2,
-                },
-                type = 'item',
-                slot = 1,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2000,
-                chance = 100
-            },
-            [2] = {
-                name = 'catdonut',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['flour'] = 1,
-                    ['sugar'] = 1,
-                },
-                type = 'item',
-                slot = 2,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2500,
-                chance = 100
-            },
-             [3] = {
-                name = 'catpizza',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['flour'] = 1,
-                    ['cheese'] = 1, -- Assuming cheese is an item
-                    ['tomato'] = 1, -- Assuming tomato is an item
-                },
-                type = 'item',
-                slot = 3,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 4000,
-                chance = 100
-            },
-            [4] = {
-                name = 'latte',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['coffebeans'] = 1, -- Assuming coffeebeans is an item
-                    ['milk'] = 1,
-                },
-                type = 'item',
-                slot = 4,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3000,
-                chance = 100
-            },
-            [6] = {
                 name = 'mochiblue',
                 amount = 1,
                 info = {},
                 costs = {
+                    ['flour'] = 2,
                     ['sugar'] = 1,
-                    ['rice'] = 1,
-                    ['blueberry'] = 1,
+                    ['blueberry'] = 2,
                 },
                 type = 'item',
-                slot = 6,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2500,
-                chance = 100
-            },
-            [7] = {
-                name = 'bento',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['rice'] = 1,
-                    ['nori'] = 1,
-                    ['fish'] = 1, -- Assuming fish is an item
-                },
-                type = 'item',
-                slot = 7,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
+                slot = 1,
                 time = 5000,
                 chance = 100
             },
-            [8] = {
-                name = 'boba',
+            [2] = {
+                name = 'mochipink',
                 amount = 1,
                 info = {},
                 costs = {
+                    ['flour'] = 2,
                     ['sugar'] = 1,
-                    ['tapioca'] = 1, -- Assuming tapioca is an item
+                    ['strawberry'] = 2,
                 },
                 type = 'item',
-                slot = 8,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2000,
+                slot = 2,
+                time = 5000,
                 chance = 100
             },
-            [9] = {
+            [3] = {
+                name = 'mochigreen',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['matcha'] = 2,
+                },
+                type = 'item',
+                slot = 3,
+                time = 5000,
+                chance = 100
+            },
+            [4] = {
+                name = 'mochiorange',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['orange'] = 2,
+                },
+                type = 'item',
+                slot = 4,
+                time = 5000,
+                chance = 100
+            },
+            -- Boba Teas
+            [5] = {
                 name = 'bubbletea',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['boba'] = 1,
                     ['milk'] = 1,
-                    ['tea'] = 1, -- Assuming tea is an item
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
                 },
                 type = 'item',
-                slot = 9,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3500,
+                slot = 5,
+                time = 4000,
                 chance = 100
             },
-            [10] = {
+            [6] = {
                 name = 'bubbleteablue',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['boba'] = 1,
                     ['milk'] = 1,
-                    ['blueberry'] = 1, -- Assuming bluefoodcoloring is an item
-                    ['tea'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['blueberry'] = 1,
                 },
                 type = 'item',
-                slot = 10,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3500,
+                slot = 6,
+                time = 4000,
                 chance = 100
             },
-            [11] = {
+            [7] = {
                 name = 'bubbleteagreen',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['boba'] = 1,
                     ['milk'] = 1,
-                    ['matcha'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['mint'] = 1,
                 },
                 type = 'item',
-                slot = 11,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3500,
+                slot = 7,
+                time = 4000,
                 chance = 100
             },
-            [12] = {
+            [8] = {
                 name = 'bubbleteapink',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['boba'] = 1,
                     ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
                     ['strawberry'] = 1,
-                    ['tea'] = 1,
+                },
+                type = 'item',
+                slot = 8,
+                time = 4000,
+                chance = 100
+            },
+            [9] = {
+                name = 'bubbleteaorange',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                    ['boba'] = 2,
+                    ['orange'] = 1,
+                },
+                type = 'item',
+                slot = 9,
+                time = 4000,
+                chance = 100
+            },
+            -- Autres boissons
+            [10] = {
+                name = 'latte',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['milk'] = 1,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 10,
+                time = 4000,
+                chance = 100
+            },
+            [11] = {
+                name = 'sake',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['rice'] = 2,
+                    ['sugar'] = 1,
+                },
+                type = 'item',
+                slot = 11,
+                time = 6000,
+                chance = 100
+            },
+            -- Plats
+            [12] = {
+                name = 'miso',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
                 },
                 type = 'item',
                 slot = 12,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3500,
+                time = 5000,
                 chance = 100
             },
-             [14] = {
+            [13] = {
                 name = 'cake',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['flour'] = 1,
-                    ['sugar'] = 1,
-                    ['egg'] = 1, -- Assuming egg is an item
+                    ['flour'] = 2,
+                    ['sugar'] = 2,
+                    ['strawberry'] = 3,
                     ['milk'] = 1,
                 },
                 type = 'item',
-                slot = 14,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 4500,
+                slot = 13,
+                time = 8000,
                 chance = 100
             },
-             [15] = {
-                name = 'cakepop',
+            [14] = {
+                name = 'bento',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['cake'] = 1,
-                    ['sugar'] = 1,
-                    ['stick'] = 1, -- Assuming stick is an item
+                    ['rice'] = 2,
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
                 },
                 type = 'item',
-                slot = 15,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3000,
+                slot = 14,
+                time = 7000,
                 chance = 100
             },
-            [16] = {
+            [15] = {
                 name = 'catrice',
                 amount = 1,
                 info = {},
@@ -495,27 +351,36 @@ Config.CraftingTables = {
                     ['nori'] = 1,
                 },
                 type = 'item',
-                slot = 16,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2000,
+                slot = 15,
+                time = 4000,
                 chance = 100
             },
-            [17] = {
-                name = 'miso',
+            [16] = {
+                name = 'catcookie',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['soybeans'] = 1, -- Assuming soybeans is an item
-                    ['salt'] = 1, -- Assuming salt is an item
+                    ['flour'] = 1,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
+                },
+                type = 'item',
+                slot = 16,
+                time = 4000,
+                chance = 100
+            },
+            [17] = {
+                name = 'catdonut',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 1,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
                 },
                 type = 'item',
                 slot = 17,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2500,
+                time = 4000,
                 chance = 100
             },
             [18] = {
@@ -523,103 +388,81 @@ Config.CraftingTables = {
                 amount = 1,
                 info = {},
                 costs = {
+                    ['milk'] = 1,
                     ['sugar'] = 1,
-                    ['rice'] = 1,
-                    ['chocolate'] = 1, -- Assuming chocolate is an item
                 },
                 type = 'item',
                 slot = 18,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2500,
-                chance = 100
-            },
-            [19] = {
-                name = 'mochigreen',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['sugar'] = 1,
-                    ['rice'] = 1,
-                    ['matcha'] = 1,
-                },
-                type = 'item',
-                slot = 19,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2500,
-                chance = 100
-            },
-             [20] = {
-                name = 'mochipink',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['sugar'] = 1,
-                    ['rice'] = 1,
-                    ['strawberry'] = 1,
-                },
-                type = 'item',
-                slot = 20,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 2500,
-                chance = 100
-            },
-            [21] = {
-                name = 'noodlebowl',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['noodles'] = 1,
-                    ['meat'] = 1, -- Assuming meat is an item
-                    ['vegetables'] = 1,
-                },
-                type = 'item',
-                slot = 21,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
                 time = 4000,
                 chance = 100
             },
-             [22] = {
-                name = 'pawcakes',
+            [19] = {
+                name = 'cakepop',
                 amount = 1,
                 info = {},
                 costs = {
                     ['flour'] = 1,
                     ['sugar'] = 1,
-                    ['egg'] = 1,
                     ['milk'] = 1,
                 },
                 type = 'item',
-                slot = 22,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3000,
+                slot = 19,
+                time = 4000,
                 chance = 100
             },
-            [23] = {
+            [20] = {
+                name = 'pawcakes',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['sugar'] = 1,
+                    ['milk'] = 1,
+                },
+                type = 'item',
+                slot = 20,
+                time = 5000,
+                chance = 100
+            },
+            [21] = {
+                name = 'catpizza',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['flour'] = 2,
+                    ['mozarella'] = 1,
+                    ['tomato'] = 1,
+                },
+                type = 'item',
+                slot = 21,
+                time = 7000,
+                chance = 100
+            },
+            [22] = {
                 name = 'purrito',
                 amount = 1,
                 info = {},
                 costs = {
-                    ['tortilla'] = 1, -- Assuming tortilla is an item
-                    ['rice'] = 1,
-                    ['meat'] = 1,
-                    ['vegetables'] = 1,
+                    ['flour'] = 2,
+                    ['tofu'] = 1,
+                    ['nori'] = 1,
+                },
+                type = 'item',
+                slot = 22,
+                time = 6000,
+                chance = 100
+            },
+            [23] = {
+                name = 'noodlebowl',
+                amount = 1,
+                info = {},
+                costs = {
+                    ['noodles'] = 1,
+                    ['tofu'] = 1,
                 },
                 type = 'item',
                 slot = 23,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 3500,
+                time = 5000,
                 chance = 100
             },
             [24] = {
@@ -628,34 +471,188 @@ Config.CraftingTables = {
                 info = {},
                 costs = {
                     ['noodles'] = 1,
-                    ['meat'] = 1,
-                    ['egg'] = 1,
+                    ['tofu'] = 1,
                     ['nori'] = 1,
                 },
                 type = 'item',
                 slot = 24,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 4000,
+                time = 6000,
                 chance = 100
+            }
+        }
+    }
+}
+
+Config.CraftingTables[2] = {
+    name = 'Burger Shot Crafting',
+    isjob = 'popdiner',
+    grades = 'all',
+    text = '[E] - Burger Shot Crafting',
+    blip = {
+        enabled = true,
+        title = 'Burger Shot Crafting',
+        scale = 1.0,
+        display = 4,
+        colour = 1,
+        id = 106
+    },
+    location = vec3(1588.23, 6457.92, 26.01),
+    items = {
+        [1] = {
+            name = 'bsmoneyshot',
+            amount = 1,
+            info = {},
+            costs = {
+                ['meat'] = 2,
+                ['bread'] = 1,
+                ['bscheese'] = 1,
+                ['bslettuce'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
             },
-            [25] = {
-                name = 'sake',
-                amount = 1,
-                info = {},
-                costs = {
-                    ['rice'] = 1,
-                    ['yeast'] = 1, -- Assuming yeast is an item
-                },
-                type = 'item',
-                slot = 25,
-                rep = 'craftingrep',
-                points = 1,
-                threshold = 0,
-                time = 5000,
-                chance = 100
+            type = 'item',
+            slot = 1,
+            time = 5000,
+            chance = 100
+        },
+        [2] = {
+            name = 'bsmysteryburger',
+            amount = 1,
+            info = {},
+            costs = {
+                ['meat'] = 1,
+                ['bread'] = 1,
+                ['bscheese'] = 1,
+                ['bsmushroom'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
             },
+            type = 'item',
+            slot = 2,
+            time = 5000,
+            chance = 100
+        },
+        [3] = {
+            name = 'bsnamuh',
+            amount = 1,
+            info = {},
+            costs = {
+                ['meat'] = 2,
+                ['bread'] = 1,
+                ['bscheese'] = 1,
+                ['bscarrot'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
+            },
+            type = 'item',
+            slot = 3,
+            time = 5000,
+            chance = 100
+        },
+        [4] = {
+            name = 'bstorpedo',
+            amount = 1,
+            info = {},
+            costs = {
+                ['bread'] = 1,
+                ['sausage'] = 1,
+                ['bscheese'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+                ['cornichon'] = 1,
+            },
+            type = 'item',
+            slot = 4,
+            time = 4000,
+            chance = 100
+        },
+        [5] = {
+            name = 'bsweiner',
+            amount = 1,
+            info = {},
+            costs = {
+                ['bread'] = 1,
+                ['sausage'] = 1,
+                ['bslettuce'] = 1,
+                ['ketchup'] = 1,
+                ['moutarde'] = 1,
+            },
+            type = 'item',
+            slot = 5,
+            time = 4000,
+            chance = 100
+        },
+        [6] = {
+            name = 'bscreampie',
+            amount = 1,
+            info = {},
+            costs = {
+                ['flour'] = 2,
+                ['sugar'] = 1,
+                ['milk'] = 1,
+            },
+            type = 'item',
+            slot = 6,
+            time = 4000,
+            chance = 100
+        },
+        [7] = {
+            name = 'bsdonut',
+            amount = 1,
+            info = {},
+            costs = {
+                ['flour'] = 2,
+                ['sugar'] = 1,
+                ['milk'] = 1,
+            },
+            type = 'item',
+            slot = 7,
+            time = 4000,
+            chance = 100
+        },
+        [8] = {
+            name = 'bsfries',
+            amount = 1,
+            info = {},
+            costs = {
+                ['potato'] = 2,
+                ['salt'] = 1,
+            },
+            type = 'item',
+            slot = 8,
+            time = 3000,
+            chance = 100
+        },
+        [9] = {
+            name = 'bsmilkshake',
+            amount = 1,
+            info = {},
+            costs = {
+                ['milk'] = 2,
+                ['sugar'] = 1,
+                ['vanille'] = 1,
+            },
+            type = 'item',
+            slot = 9,
+            time = 4000,
+            chance = 100
+        },
+        [10] = {
+            name = 'bscoffee',
+            amount = 1,
+            info = {},
+            costs = {
+                ['bscoffeebeans'] = 1,
+                ['water_bottle'] = 1,
+                ['sugar'] = 1,
+            },
+            type = 'item',
+            slot = 10,
+            time = 3000,
+            chance = 100
         }
     }
 }

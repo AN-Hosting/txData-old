@@ -59,6 +59,7 @@ RegisterNetEvent(Config.InventoryPrefix .. ':client:UseWeapon', function(weaponD
                     if attachment.urltint ~= 'none' then
                         ChangeWeaponTintWithUrl(weaponHash, attachment.urltint)
                     else
+                        Debug('Weapon tint: ' .. attachment.tint)
                         SetPedWeaponTintIndex(ped, weaponHash, attachment.tint)
                     end
                 else
