@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N Multicharacter</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body class="overflow-hidden">
+    <div id="app" class="relative flex w-full h-[100vh] custom-gradient" style="background-size: 100% 100%; display: flex; opacity: 0; transition: opacity 300ms ease-in-out;">
+      <div style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;  z-index: 10;" class="first" id="Accept_Cancel_Box">
+          <div class="mainbg">
+              <div class="mainheader" id="Character_Delete_Popup_Text">DELETE CHARACTER</div>
+          <div class="maindesc" id="Character_Delete_Popup_Desc">Are you sure you want to delete your character? This action is irreversible!</div>
+          <button class="btn accept" onclick='Button("Delete_Accept")'>
+              <i class="fas fa-check"></i>
+              ACCEPT
+          </button>
+          <button class="btn cancel" onclick='Button("Delete_Cancel")'>
+              <i class="fas fa-times"></i>
+              CANCEL
+          </button>
+          </div>
+      </div>
+      <div style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;" class="notifymain" id="Notify">
+        <div class="notifybg">
+            <div class="circle-progress">
+                <div class="progress"></div>
+            </div>
+            <div class="notifyicon"></div>
+            <div class="notifytext" id="Notify_Text">lorem ipsum dolor sit amet consectetur adipiscing</div>
+        </div>
+    </div>
+      <div id="First_Menu" class="relative flex w-full h-full" style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;">
+        <div class="flex flex-col w-[33.3333%] h-full  py-[8.3333vh] px-[2.9167vw] "><div class="w-full h-full  flex flex-col gap-y-[1.1111vh]" style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;" id="Left_Side"></div></div>
+         <div class="w-[33.3333%] h-full flex flex-col justify-between items-center">
+          <div class="w-[38.6596vw] h-[11.5741vh]" style="background-size: 100% 100%;"></div>
+         </div>
+         <div class="flex flex-col  w-[33.3333%] h-full  py-[8.3333vh]"  style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;" id="Right_Side">
+          <div class="w-full h-full items-end flex flex-col gap-y-[6.9444vh]  px-[2.6042vw]">
+            <div class="flex flex-col w-[20.8333vw] h-[11.0648vh] gap-y-[0.9259vh]">
+              <div class="flex items-center justify-end w-full h-[3.2407vh] gap-x-[.5208vw]">
+                <div class="w-fit h-[1.45vw]">
+                  <p id="Select_Job_Text" class="text-white text-right [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Job</p>
+                  <p id="Select_Job_Desc" class="text-[rgba(255,255,255,0.50)] text-right [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Current Job</p>
+                </div>
+                <div class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.1979vw" height="1.8519vh" viewBox="0 0 23 20" fill="none">
+                    <path d="M20.8867 4.74009H1.84086C0.824084 4.74009 0 5.56453 0 6.581V9.10216L9.38861 11.0822V9.82691H13.2847V11.0822L22.7272 9.08956V6.581C22.7272 5.56453 21.9031 4.74009 20.8867 4.74009Z" fill="#B2C7FA"/>
+                    <path d="M13.2847 15.0217H9.38861V12.4908L0.649546 10.7552V18.1592C0.649546 19.1756 1.47327 20 2.4897 20H20.2375C21.2539 20 22.078 19.1756 22.078 18.1592V10.7423L13.2847 12.4907V15.0217Z" fill="#B2C7FA"/>
+                    <path d="M12.3106 10.801H10.3627V14.0472H12.3106V10.801Z" fill="#B2C7FA"/>
+                    <path d="M8.60199 1.84157C8.60234 1.76598 8.63031 1.70587 8.67967 1.65478C8.72969 1.60582 8.7902 1.57852 8.86504 1.57781H13.8622C13.9371 1.57852 13.998 1.60582 14.048 1.65478C14.097 1.70587 14.1246 1.76598 14.1249 1.84157V3.15669H15.7028V1.84157C15.7031 1.33509 15.4957 0.87056 15.1638 0.539683C14.8332 0.207431 14.3677 -0.000354658 13.8622 4.54451e-07H8.86504C8.35927 -0.000354658 7.89403 0.207431 7.56355 0.539683C7.23196 0.87056 7.02387 1.33505 7.02489 1.84157V3.15669H8.60199V1.84157Z" fill="#B2C7FA"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex justify-center items-center w-[20.8333vw] h-[6.9444vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.15)_0%,rgba(178,199,250,0.00)_100%)]">
+                <div id="Character_Job_Value" class="flex justify-end pr-[1vw] px-[.5208vw] items-center w-[19.5313vw] h-[4.6296vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.50)_0%,rgba(178,199,250,0.00)_100%)] text-white text-right [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal]">Civilian Freelancer</div>
+              </div>
+            </div>
+            <div class="flex flex-col w-[20.8333vw] h-[11.0648vh] gap-y-[0.9259vh]">
+              <div class="flex items-center justify-end w-full h-[3.2407vh] gap-x-[.5208vw]">
+                <div class="w-fit h-[1.45vw]">
+                  <p id="Select_Cash_Text" class="text-white text-right [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Cash</p>
+                  <p id="Select_Cash_Desc" class="text-[rgba(255,255,255,0.50)] text-right [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Money available in your wallet</p>
+                </div>
+                <div class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.0417vw" height="1.8519vh" viewBox="0 0 20 20" fill="none">
+                    <path d="M19 0H2C1.46957 0 0.960859 0.234126 0.585786 0.650874C0.210714 1.06762 0 1.63285 0 2.22222V17.7778C0 18.3671 0.210714 18.9324 0.585786 19.3491C0.960859 19.7659 1.46957 20 2 20H18C18.5304 20 19.0391 19.7659 19.4142 19.3491C19.7893 18.9324 20 18.3671 20 17.7778V5.55556C20 5.26087 19.8946 4.97826 19.7071 4.76988C19.5196 4.56151 19.2652 4.44444 19 4.44444H3C2.73478 4.44444 2.48043 4.32738 2.29289 4.11901C2.10536 3.91063 2 3.62802 2 3.33333C2 3.03865 2.10536 2.75603 2.29289 2.54766C2.48043 2.33929 2.73478 2.22222 3 2.22222H20V1.11111C20 0.816426 19.8946 0.533811 19.7071 0.325437C19.5196 0.117063 19.2652 0 19 0ZM16.5 10.5556C16.7967 10.5556 17.0867 10.6533 17.3334 10.8364C17.58 11.0196 17.7723 11.2799 17.8858 11.5844C17.9993 11.889 18.0291 12.2241 17.9712 12.5474C17.9133 12.8707 17.7704 13.1676 17.5607 13.4007C17.3509 13.6338 17.0836 13.7926 16.7926 13.8569C16.5017 13.9212 16.2001 13.8882 15.926 13.762C15.6519 13.6359 15.4176 13.4223 15.2528 13.1482C15.088 12.8741 15 12.5519 15 12.2222C15 11.7802 15.158 11.3563 15.4393 11.0437C15.7206 10.7312 16.1022 10.5556 16.5 10.5556Z" fill="#B2C7FA"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex justify-center items-center w-[20.8333vw] h-[6.9444vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.15)_0%,rgba(178,199,250,0.00)_100%)]">
+                <div id="Character_Cash_Value" class="flex justify-end pr-[1vw] px-[.5208vw] items-center w-[19.5313vw] h-[4.6296vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.50)_0%,rgba(178,199,250,0.00)_100%)] text-white text-right [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal]">5,000$</div>
+              </div>
+            </div>
+            <div class="flex flex-col w-[20.8333vw] h-[11.0648vh] gap-y-[0.9259vh]">
+              <div class="flex items-center justify-end w-full h-[3.2407vh] gap-x-[.5208vw]">
+                <div class="w-fit h-[1.45vw]">
+                  <p id="Select_Bank_Text" class="text-white text-right [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Bank</p>
+                  <p id="Select_Bank_Desc" class="text-[rgba(255,255,255,0.50)] text-right [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Money available at your bank</p>
+                </div>
+                <div class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.0417vw" height="1.8519vh" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 0L0 3.29156V5.19025H0.833333V5.75985H19.1667V5.19025H20V3.29156L10 0Z" fill="#B2C7FA"/>
+                    <path d="M19.1667 16.9621H0.833333V18.4811H0V20H20V18.4811H19.1667V16.9621Z" fill="#B2C7FA"/>
+                    <path d="M14.5833 15.4432V16.2026H17.9167V15.4432H17.5V7.2788H17.9167V6.51933H14.5833V7.2788H15V15.4432H14.5833Z" fill="#B2C7FA"/>
+                    <path d="M8.33333 15.4432V16.2026H11.6667V15.4432H11.25V7.2788H11.6667V6.51933H8.33333V7.2788H8.75V15.4432H8.33333Z" fill="#B2C7FA"/>
+                    <path d="M2.08333 15.4432V16.2026H5.41667V15.4432H5V7.2788H5.41667V6.51933H2.08333V7.2788H2.5V15.4432H2.08333Z" fill="#B2C7FA"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex justify-center items-center w-[20.8333vw] h-[6.9444vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.15)_0%,rgba(178,199,250,0.00)_100%)]">
+                <div id="Character_Bank_Value" class="flex justify-end pr-[1vw] px-[.5208vw] items-center w-[19.5313vw] h-[4.6296vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.50)_0%,rgba(178,199,250,0.00)_100%)] text-white text-right [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal]">500.000$</div>
+              </div>
+            </div>
+            <div class="flex flex-col w-[20.8333vw] h-[11.0648vh] gap-y-[0.9259vh]">
+              <div class="flex items-center justify-end w-full h-[3.2407vh] gap-x-[.5208vw]">
+                <div class="w-fit h-[1.45vw]">
+                  <p id="Select_Nationality_Text" class="text-white text-right [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Nationality</p>
+                  <p id="Select_Nationality_Desc" class="text-[rgba(255,255,255,0.50)] text-right [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Place of birth</p>
+                </div>
+                <div class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M19.2 4.825H12.8V2C12.8 1.5575 12.4425 1.2 12 1.2H1.8V0.2C1.8 0.09 1.71 0 1.6 0H0.2C0.09 0 0 0.09 0 0.2V19.8C0 19.91 0.09 20 0.2 20H1.6C1.71 20 1.8 19.91 1.8 19.8V13.2H8V16.025C8 16.4675 8.3575 16.825 8.8 16.825H19.2C19.6425 16.825 20 16.4675 20 16.025V5.625C20 5.1825 19.6425 4.825 19.2 4.825Z" fill="#B2C7FA"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex justify-center items-center w-[20.8333vw] h-[6.9444vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.15)_0%,rgba(178,199,250,0.00)_100%)]">
+                <div id="Character_Nationality_Value" class="flex justify-end pr-[1vw] px-[.5208vw] items-center w-[19.5313vw] h-[4.6296vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.50)_0%,rgba(178,199,250,0.00)_100%)] text-white text-right [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal]">Japan</div>
+              </div>
+            </div>
+            <div class="flex flex-col w-[20.8333vw] h-[11.0648vh] gap-y-[0.9259vh]">
+              <div class="flex items-center justify-end w-full h-[3.2407vh] gap-x-[.5208vw]">
+                <div class="w-fit h-[1.45vw]">
+                  <p id="Select_Birth_Text" class="text-white text-right [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Date of Birth</p>
+                  <p id="Select_Birth_Desc" class="text-[rgba(255,255,255,0.50)] text-right [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Year of birth</p>
+                </div>
+                <div class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width=".9896vw" height="1.8519vh" viewBox="0 0 19 20" fill="none">
+                    <path d="M18 7.33333H0.666667C0.3 7.33333 0 7.63333 0 8V18C0 19.1 0.9 20 2 20H16.6667C17.7667 20 18.6667 19.1 18.6667 18V8C18.6667 7.63333 18.3667 7.33333 18 7.33333ZM6 16.6667C6 17.0333 5.7 17.3333 5.33333 17.3333H4C3.63333 17.3333 3.33333 17.0333 3.33333 16.6667V15.3333C3.33333 14.9667 3.63333 14.6667 4 14.6667H5.33333C5.7 14.6667 6 14.9667 6 15.3333V16.6667ZM10.6667 16.6667C10.6667 17.0333 10.3667 17.3333 10 17.3333H8.66667C8.3 17.3333 8 17.0333 8 16.6667V15.3333C8 14.9667 8.3 14.6667 8.66667 14.6667H10C10.3667 14.6667 10.6667 14.9667 10.6667 15.3333V16.6667ZM10.6667 12C10.6667 12.3667 10.3667 12.6667 10 12.6667H8.66667C8.3 12.6667 8 12.3667 8 12V10.6667C8 10.3 8.3 10 8.66667 10H10C10.3667 10 10.6667 10.3 10.6667 10.6667V12ZM15.3333 12C15.3333 12.3667 15.0333 12.6667 14.6667 12.6667H13.3333C12.9667 12.6667 12.6667 12.3667 12.6667 12V10.6667C12.6667 10.3 12.9667 10 13.3333 10H14.6667C15.0333 10 15.3333 10.3 15.3333 10.6667V12ZM16.6667 2H15V1.33333C15 0.6 14.4 0 13.6667 0C12.9333 0 12.3333 0.6 12.3333 1.33333V2H6.33333V1.33333C6.33333 0.6 5.73333 0 5 0C4.26667 0 3.66667 0.6 3.66667 1.33333V2H2C0.9 2 0 2.9 0 4V4.66667C0 5.03333 0.3 5.33333 0.666667 5.33333H18C18.3667 5.33333 18.6667 5.03333 18.6667 4.66667V4C18.6667 2.9 17.7667 2 16.6667 2Z" fill="#B2C7FA"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex justify-end px-[.5208vw] items-center w-[20.8333vw] h-[6.9444vh] shrink-0 rounded [background:linear-gradient(270deg,rgba(178,199,250,0.15)_0%,rgba(178,199,250,0.00)_100%)] gap-x-[.5208vw]">
+                <p id="Character_Day_Value" class="text-white [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal] flex h-[4.6296vh] justify-center items-center gap-[.5208vw] rounded [background:rgba(178,199,250,0.50)] px-[1.0417vw] ">05</p>
+                <p id="Character_Month_Value" class="text-white [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal] flex h-[4.6296vh] justify-center items-center gap-[.5208vw] rounded [background:rgba(178,199,250,0.50)] px-[1.0417vw] ">11</p>
+                <p id="Character_Year_Value" class="text-white [font-family:GilroyRegular] text-[.9375vw] font-medium leading-[normal] flex h-[4.6296vh] justify-center items-center gap-[.5208vw] rounded [background:rgba(178,199,250,0.50)] px-[1.0417vw] ">24</p>
+              </div>
+            </div>
+            <div class="w-fit h-fit flex gap-[0.5vw] mt-[-4vh]">
+              <div class="flex justify-center items-center  w-[2.0833vw] h-[3.7037vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]" onclick='Button("Spawn_Character")' id="Play_Button">
+                <svg xmlns="http://www.w3.org/2000/svg" width=".9375vw" height="1.8519vh" viewBox="0 0 17 20" fill="none">
+                  <path d="M1 1L16 10L1 19V1Z" stroke="white" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="flex justify-center items-center  w-[2.0833vw] h-[3.7037vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]" onclick='Button("Character_Settings")' id="Edit_Button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.1458vw" height="1.8519vh" viewBox="0 0 22 20" fill="none">
+                  <path d="M19.176 7.05474C17.2584 7.05474 16.4744 5.69865 17.4279 4.03532C17.9788 3.07123 17.6504 1.84227 16.6863 1.29136L14.8534 0.242508C14.0165 -0.255431 12.9358 0.0412139 12.4379 0.878176L12.3214 1.07947C11.3678 2.7428 9.79987 2.7428 8.83577 1.07947L8.71924 0.878176C8.24249 0.0412139 7.16185 -0.255431 6.32489 0.242508L4.49205 1.29136C3.52795 1.84227 3.19953 3.08182 3.75044 4.04592C4.71453 5.69865 3.93054 7.05474 2.01295 7.05474C0.911123 7.05474 0 7.95527 0 9.06769V10.9323C0 12.0341 0.900529 12.9453 2.01295 12.9453C3.93054 12.9453 4.71453 14.3013 3.75044 15.9647C3.19953 16.9288 3.52795 18.1577 4.49205 18.7086L6.32489 19.7575C7.16185 20.2554 8.24249 19.9588 8.74042 19.1218L8.85696 18.9205C9.81046 17.2572 11.3784 17.2572 12.3425 18.9205L12.4591 19.1218C12.957 19.9588 14.0377 20.2554 14.8746 19.7575L16.7075 18.7086C17.6715 18.1577 18 16.9182 17.4491 15.9647C16.485 14.3013 17.269 12.9453 19.1866 12.9453C20.2884 12.9453 21.1995 12.0447 21.1995 10.9323V9.06769C21.1889 7.96586 20.2884 7.05474 19.176 7.05474ZM10.5945 13.4432C8.69805 13.4432 7.15126 11.8964 7.15126 10C7.15126 8.10359 8.69805 6.5568 10.5945 6.5568C12.4909 6.5568 14.0377 8.10359 14.0377 10C14.0377 11.8964 12.4909 13.4432 10.5945 13.4432Z" fill="white" fill-opacity="0.5"/>
+                </svg>
+              </div>
+              <div class="flex justify-center items-center  w-[2.0833vw] h-[3.7037vh] shrink-0 rounded [background:rgba(178,199,250,0.15)]" onclick='Button("Delete_Character")' id="Delete_Button">
+                <svg xmlns="http://www.w3.org/2000/svg" width=".9375vw" height="1.8519vh" viewBox="0 0 18 20" fill="none">
+                  <path d="M1 5H17M7 9V15M11 9V15M2 5L3 17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19H13C13.5304 19 14.0391 18.7893 14.4142 18.4142C14.7893 18.0391 15 17.5304 15 17L16 5M6 5V2C6 1.73478 6.10536 1.48043 6.29289 1.29289C6.48043 1.10536 6.73478 1 7 1H11C11.2652 1 11.5196 1.10536 11.7071 1.29289C11.8946 1.48043 12 1.73478 12 2V5" stroke="white" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+         </div>
+         <div class="flex flex-col  w-[33.3333%] h-full items-end py-[8.3333vh] px-[2.6042vw] gap-y-[2.3148vh]"  style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;" id="Settings">
+            <div class="w-[20.8333vw] h-[89.3519vh]  space-y-[0.9259vh]">
+              <div class="w-[20.8333vw] h-[41.2037vh] shrink-0 space-y-[0.463vh]">
+                <div class="relative flex  items-center px-[0.5vw] w-[20.8333vw] h-[3.7037vh] shrink-0 [background:#B2C7FA] rounded-[4px_4px_0px_0px]">
+                  <p class=" w-full h-full absolute flex justify-center items-center text-[#282828] text-center [font-family:GilroyBold] text-[.9375vw] font-bold leading-[normal] tracking-[9px]">VEHICLES</p>
+                </div>
+                <div class="flex flex-wrap w-[20.8333vw] h-[37.037vh] shrink-0 [background:rgba(255,255,255,0.15)] rounded-[0px_0px_4px_4px] overflow-y-auto overflow-x-hidden py-[2.6852vh]  justify-start px-[.625vw] py-[2.3148vh]">
+                  <div class="flex flex-wrap w-full h-fit gap-x-[1.3021vw] gap-y-[1.2037vh]" id="Vehicle_List"></div>
+              </div>
+              </div>
+              <div class="w-[20.8333vw] h-[41.2037vh] shrink-0 space-y-[0.463vh]">
+                <div class="relative flex  items-center px-[0.5vw] w-[20.8333vw] h-[3.7037vh] shrink-0 [background:#B2C7FA] rounded-[4px_4px_0px_0px]">
+                  <p class=" w-full h-full absolute flex justify-center items-center text-[#282828] text-center [font-family:GilroyBold] text-[.9375vw] font-bold leading-[normal] tracking-[9px]">ANIMATONS</p>
+                </div>
+                <div class="flex flex-wrap w-[20.8333vw] h-[37.037vh] shrink-0 [background:rgba(255,255,255,0.15)] rounded-[0px_0px_4px_4px] overflow-y-auto overflow-x-hidden py-[2.6852vh]  justify-start px-[.625vw] py-[2.3148vh]">
+                    <div class="flex flex-wrap w-full h-fit gap-x-[1.3021vw] gap-y-[1.2037vh]" id="Animation_List"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-[20.8333vw] h-[3.7037vh] shrink-0 rounded [background:rgba(255,255,255,0.15)] px-[.625vw] cursor-pointer back-button" onclick='Button("Settings_Back")' id="Edit_Back_Button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.8519vh" viewBox="0 0 24 20" fill="none">
+                <path d="M3.21568 10.7999L2.41558 9.99999L3.21567 9.2001H22.2961C22.5532 9.2001 22.7998 9.28438 22.9817 9.43439C23.1635 9.5844 23.2656 9.78785 23.2656 10C23.2656 10.2121 23.1635 10.4156 22.9817 10.5656C22.7998 10.7156 22.5532 10.7999 22.2961 10.7999H3.21568Z" fill="white" fill-opacity="0.5"/>
+                <path d="M2.41558 9.99999L10.7084 18.291C10.8962 18.4787 11.0017 18.7333 11.0017 18.9989C11.0017 19.2644 10.8962 19.519 10.7084 19.7068C10.5207 19.8945 10.266 20 10.0005 20C9.73501 20 9.48036 19.8945 9.29261 19.7068L0.29375 10.7079C0.200636 10.615 0.126759 10.5047 0.076353 10.3832C0.0259464 10.2617 0 10.1315 0 10C0 9.86848 0.0259464 9.73826 0.076353 9.61678C0.126759 9.49531 0.200636 9.38497 0.29375 9.29209L9.29261 0.293226C9.48036 0.105476 9.73501 0 10.0005 0C10.266 0 10.5207 0.105476 10.7084 0.293226C10.8962 0.480976 11.0017 0.735619 11.0017 1.00114C11.0017 1.26665 10.8962 1.5213 10.7084 1.70905L2.41558 9.99999Z" fill="white" fill-opacity="0.5"/>
+              </svg>
+              <p id="Back_Button_Text" class="text-[rgba(255,255,255,0.50)] text-center [font-family:GilroyBold] text-[1.0417vw] font-bold leading-[normal] tracking-[.5208vw]">BACK</p>
+              <p></p>
+            </div>
+         </div>
+      </div>
+      <div class="relative flex w-full h-full mt-[3vw]" style="display: none; opacity: 0; transition: opacity 300ms ease-in-out;" id="Register_Menu">
+        <div class="flex items-center w-[33.3333%] h-full gap-x-[1.3021vw] px-[1.3542vw]">
+          <div class="flex flex-col items-center justify-center gap-y-[3.0556vh] w-[1.6667vw] h-[60.3704vh] mb-[7.5vw]" id="Symbol_List">
+            <svg class="symbol" id="step1" xmlns="http://www.w3.org/2000/svg" width="1.4583vw" height="2.5926vh" viewBox="0 0 28 28" fill="none">
+              <path d="M11.1716 1.82843C12.7337 0.266331 15.2663 0.26633 16.8284 1.82843L26.1716 11.1716C27.7337 12.7337 27.7337 15.2663 26.1716 16.8284L16.8284 26.1716C15.2663 27.7337 12.7337 27.7337 11.1716 26.1716L1.82843 16.8284C0.266331 15.2663 0.26633 12.7337 1.82843 11.1716L11.1716 1.82843Z" fill="white" fill-opacity="0.25"/>
+            </svg>
+            <div id="line1" class="w-[.1042vw] h-[9.2593vh] shrink-0 [background:rgba(255,255,255,0.25)] rounded-sm"></div>
+            <svg class="symbol" id="step2" xmlns="http://www.w3.org/2000/svg" width="1.4583vw" height="2.5926vh" viewBox="0 0 28 28" fill="none">
+              <path d="M11.1716 1.82843C12.7337 0.266331 15.2663 0.26633 16.8284 1.82843L26.1716 11.1716C27.7337 12.7337 27.7337 15.2663 26.1716 16.8284L16.8284 26.1716C15.2663 27.7337 12.7337 27.7337 11.1716 26.1716L1.82843 16.8284C0.266331 15.2663 0.26633 12.7337 1.82843 11.1716L11.1716 1.82843Z" fill="white" fill-opacity="0.25"/>
+            </svg>
+            <div id="line2" class="w-[.1042vw] h-[9.2593vh] shrink-0 [background:rgba(255,255,255,0.25)] rounded-sm"></div>
+            <svg class="symbol" id="step3" xmlns="http://www.w3.org/2000/svg" width="1.4583vw" height="2.5926vh" viewBox="0 0 28 28" fill="none">
+              <path d="M11.1716 1.82843C12.7337 0.266331 15.2663 0.26633 16.8284 1.82843L26.1716 11.1716C27.7337 12.7337 27.7337 15.2663 26.1716 16.8284L16.8284 26.1716C15.2663 27.7337 12.7337 27.7337 11.1716 26.1716L1.82843 16.8284C0.266331 15.2663 0.26633 12.7337 1.82843 11.1716L11.1716 1.82843Z" fill="white" fill-opacity="0.25"/>
+            </svg>
+            <div id="line3" class="w-[.1042vw] h-[9.2593vh] shrink-0 [background:rgba(255,255,255,0.25)] rounded-sm"></div>
+            <svg class="symbol" id="step4" xmlns="http://www.w3.org/2000/svg" width="1.4583vw" height="2.5926vh" viewBox="0 0 28 28" fill="none">
+              <path d="M11.1716 1.82843C12.7337 0.266331 15.2663 0.26633 16.8284 1.82843L26.1716 11.1716C27.7337 12.7337 27.7337 15.2663 26.1716 16.8284L16.8284 26.1716C15.2663 27.7337 12.7337 27.7337 11.1716 26.1716L1.82843 16.8284C0.266331 15.2663 0.26633 12.7337 1.82843 11.1716L11.1716 1.82843Z" fill="white" fill-opacity="0.25"/>
+            </svg>
+          </div>
+          <div class="w-fit h-fit flex flex-col  justify-center">
+            
+            <div class="flex w-[20.8333vw] h-[83.3333vh] flex-col items-center gap-[6.9444vh] shrink-0">
+              <div class="flex flex-col gap-y-[0.9259vh] w-[20.8333vw] h-[11.1111vh]">
+                <div class="flex items-center justify-start w-full h-[3.2407vh] gap-x-[.5208vw]">
+                  <div id="Name_Side" class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width=".8333vw" height="1.8519vh" viewBox="0 0 16 20" fill="none">
+                      <path d="M8 8C10.2091 8 12 6.20914 12 4C12 1.79086 10.2091 0 8 0C5.79086 0 4 1.79086 4 4C4 6.20914 5.79086 8 8 8Z" fill="#FFFFFF" fill-opacity="0.5"/>
+                      <path d="M16 15.5C16 17.9853 16 20 8 20C0 20 0 17.9853 0 15.5C0 13.0147 3.58172 11 8 11C12.4183 11 16 13.0147 16 15.5Z" fill="#FFFFFF" fill-opacity="0.5"/>
+                    </svg>
+                  </div>
+                  <div class="w-fit h-[1.45vw]">
+                    <p id="Register_Name_Side_Text" class="text-white  [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">First & Last Name</p>
+                    <p id="Register_Name_Side_Desc" class="text-[rgba(255,255,255,0.50)]  [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Enter your full name.</p>
+                  </div>
+                  
+                </div>
+                <div class="flex w-full h-[6.9444vh] gap-x-[.5208vw]">
+                  <div id="Firstname_Back_1" class="flex justify-center items-center w-[10.1563vw] h-[6.9444vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <div id="Firstname_Back_2" class="w-[8.8021vw] h-[4.6296vh] shrink-0 rounded [background:rgba(141,141,141,255)]">
+                      <input id="Firstname_Input" type="text" class="flex justify-center items-center w-full h-full border-none otuline-none bg-transparent text-[rgba(255,255,255,0.75)] [font-family:GilroyBold] text-[.7375vw] px-[.5208vw] font-bold leading-[normal] placeholder-white placeholder-opacity-20" placeholder="Firstname">
+                    </div>
+                  </div>
+                  <div id="Lastname_Back_1" class="flex justify-center items-center w-[10.1563vw] h-[6.9444vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <div id="Lastname_Back_2" class="w-[8.8021vw] h-[4.6296vh] shrink-0 rounded [background:rgba(141,141,141,255)]">
+                      <input id="Lastname_Input" type="text" class="flex justify-center items-center w-full h-full border-none otuline-none bg-transparent text-[rgba(255,255,255,0.75)] [font-family:GilroyBold] text-[.7375vw] px-[.5208vw] font-bold leading-[normal] placeholder-white placeholder-opacity-20" placeholder="Lastname">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-y-[0.9259vh] w-[20.8333vw] h-[11.1111vh]">
+                <div class="flex items-center justify-start w-full h-[3.2407vh] gap-x-[.5208vw]">
+                  <div id="Date_Of_Birth_Side" class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 7.33333H0.666667C0.3 7.33333 0 7.63333 0 8V18C0 19.1 0.9 20 2 20H16.6667C17.7667 20 18.6667 19.1 18.6667 18V8C18.6667 7.63333 18.3667 7.33333 18 7.33333ZM6 16.6667C6 17.0333 5.7 17.3333 5.33333 17.3333H4C3.63333 17.3333 3.33333 17.0333 3.33333 16.6667V15.3333C3.33333 14.9667 3.63333 14.6667 4 14.6667H5.33333C5.7 14.6667 6 14.9667 6 15.3333V16.6667ZM10.6667 16.6667C10.6667 17.0333 10.3667 17.3333 10 17.3333H8.66667C8.3 17.3333 8 17.0333 8 16.6667V15.3333C8 14.9667 8.3 14.6667 8.66667 14.6667H10C10.3667 14.6667 10.6667 14.9667 10.6667 15.3333V16.6667ZM10.6667 12C10.6667 12.3667 10.3667 12.6667 10 12.6667H8.66667C8.3 12.6667 8 12.3667 8 12V10.6667C8 10.3 8.3 10 8.66667 10H10C10.3667 10 10.6667 10.3 10.6667 10.6667V12ZM15.3333 12C15.3333 12.3667 15.0333 12.6667 14.6667 12.6667H13.3333C12.9667 12.6667 12.6667 12.3667 12.6667 12V10.6667C12.6667 10.3 12.9667 10 13.3333 10H14.6667C15.0333 10 15.3333 10.3 15.3333 10.6667V12ZM16.6667 2H15V1.33333C15 0.6 14.4 0 13.6667 0C12.9333 0 12.3333 0.6 12.3333 1.33333V2H6.33333V1.33333C6.33333 0.6 5.73333 0 5 0C4.26667 0 3.66667 0.6 3.66667 1.33333V2H2C0.9 2 0 2.9 0 4V4.66667C0 5.03333 0.3 5.33333 0.666667 5.33333H18C18.3667 5.33333 18.6667 5.03333 18.6667 4.66667V4C18.6667 2.9 17.7667 2 16.6667 2Z" fill="white" fill-opacity="0.5"/>
+                    </svg>
+                  </div>
+                  <div class="w-fit h-[1.45vw]">
+                    <p id="Register_Birth_Side_Text" class="text-white  [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Date of Birth</p>
+                    <p id="Register_Birth_Side_Desc" class="text-[rgba(141,141,141,255)]  [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Enter your date of birth.</p>
+                  </div>
+                </div>
+                <div class="flex w-full h-[6.9444vh] gap-x-[.5208vw]">
+                  <div id="Date_Of_Birth_Back_1" class="flex justify-center items-center w-full h-[6.9444vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <div id="Date_Of_Birth_Back_2" class="w-[19.5313vw] h-[4.6296vh] shrink-0 rounded [background:rgba(141,141,141,255)]">
+                      <input
+                        id="Date_Of_Birth_Input"
+                        type="text"
+                        maxlength="10"
+                        class="flex justify-center items-center w-full h-full border-none outline-none bg-transparent text-white [font-family:GilroyBold] text-[.7375vw] px-[.5208vw] font-bold leading-[normal] placeholder-white placeholder-opacity-20"
+                        placeholder="DD/MM/YYYY"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-y-[0.9259vh] w-[20.8333vw] h-[11.1111vh]">
+                <div class="flex items-center justify-start w-full h-[3.2407vh] gap-x-[.5208vw]">
+                  <div id="Nationality_Side" class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.2 4.825H12.8V2C12.8 1.5575 12.4425 1.2 12 1.2H1.8V0.2C1.8 0.09 1.71 0 1.6 0H0.2C0.09 0 0 0.09 0 0.2V19.8C0 19.91 0.09 20 0.2 20H1.6C1.71 20 1.8 19.91 1.8 19.8V13.2H8V16.025C8 16.4675 8.3575 16.825 8.8 16.825H19.2C19.6425 16.825 20 16.4675 20 16.025V5.625C20 5.1825 19.6425 4.825 19.2 4.825Z" fill="white" fill-opacity="0.5" />
+                    </svg>
+                  </div>
+                  <div class="w-fit h-[1.45vw]">
+                    <p id="Register_Nationality_Side_Text" class="text-white [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Nationality</p>
+                    <p id="Register_Nationality_Side_Desc" class="text-[rgba(141,141,141,255)] [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Enter your nationality.</p>
+                  </div>
+                </div>
+                <div class="flex w-full h-[6.9444vh] gap-x-[.5208vw]">
+                  <div id="Nationality_Back_1" class="flex justify-center items-center w-full h-[6.9444vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <div id="Nationality_Back_2" class="w-[19.5313vw] h-[4.6296vh] shrink-0 rounded [background:rgba(255,255,255,0.50)]">
+                      <input id="Nationality_Input"  type="text" class="flex justify-center items-center w-full h-full border-none otuline-none bg-transparent text-[rgba(255,255,255,0.75)] [font-family:GilroyBold] text-[.7375vw] px-[.5208vw] font-bold leading-[normal] placeholder-white placeholder-opacity-20" placeholder="Nationality">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-y-[0.9259vh] w-[20.8333vw] h-[11.1111vh]">
+                <div class="flex items-center justify-start w-full h-[3.2407vh] gap-x-[.5208vw]">
+                  <div id="Gender_Side" class="flex justify-center items-center w-[2.6042vw] h-[3.2407vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4156 8.35195C9.8129 7.74707 9.07911 7.26914 8.26334 6.95889C7.87818 7.38691 7.61592 7.90801 7.5064 8.47305C7.47662 8.62539 7.45875 8.77812 7.45054 8.93013C7.51758 8.95317 7.58316 8.97778 7.64727 9.00571C8.35796 9.30703 8.96812 9.81142 9.39571 10.4469C9.73912 10.9549 9.9671 11.5431 10.0439 12.1805C10.064 12.3395 10.0736 12.5016 10.0736 12.6669C10.0736 13.219 9.96265 13.739 9.76226 14.2135C9.51343 14.7987 9.12828 15.3165 8.64478 15.7191C8.542 15.8059 8.43394 15.8864 8.32222 15.962C7.68677 16.3911 6.92838 16.6399 6.10069 16.6399C5.55015 16.6399 5.03091 16.5286 4.55562 16.3285C3.84341 16.0272 3.2355 15.5225 2.8064 14.8874C2.37877 14.253 2.12994 13.4928 2.12994 12.6669C2.12994 12.1153 2.23946 11.596 2.44058 11.1204C2.71104 10.4819 3.14683 9.92471 3.69439 9.50864C3.68394 9.36445 3.67945 9.22031 3.67945 9.07617C3.67945 8.33569 3.79566 7.61304 4.01695 6.92988C3.16988 7.23794 2.41002 7.72773 1.78721 8.35205C0.68316 9.45278 -0.00224059 10.9848 5.50357e-06 12.667C-0.00219176 14.3496 0.683209 15.8816 1.78721 16.9827C2.7065 17.9034 3.9253 18.5303 5.28116 18.7125V20.6144H2.45396V22.2526H5.28116V25H6.92012V22.2525H9.74957V20.6144H6.92012V18.7124C8.27676 18.5303 9.49703 17.9034 10.4156 16.9826C10.7225 16.6757 10.996 16.3367 11.2336 15.9698C11.8482 15.0181 12.205 13.8809 12.2035 12.6669C12.2035 12.382 12.1834 12.1 12.1461 11.8251C11.9592 10.4767 11.3319 9.26606 10.4156 8.35195Z" fill="white" fill-opacity="0.5"/>
+                      <path d="M14.3803 0V1.63823H16.8805L14.2969 4.22183C13.2092 3.39268 11.9018 2.97358 10.601 2.97476C9.04326 2.97358 7.47509 3.57144 6.28608 4.7627C5.4353 5.61123 4.88852 6.65303 4.64414 7.74707C4.64116 7.76045 4.63969 7.77388 4.63593 7.78506C4.62627 7.82754 4.61806 7.87036 4.60991 7.91099C4.59497 7.98994 4.58159 8.06855 4.56894 8.14712C4.56074 8.19443 4.55405 8.24399 4.54882 8.29126C4.53916 8.36318 4.53095 8.43692 4.525 8.51065C4.52129 8.55313 4.51679 8.596 4.5146 8.63843C4.51313 8.65967 4.51162 8.68125 4.51015 8.704C4.50639 8.74683 4.50493 8.79077 4.50341 8.8332C4.50044 8.91367 4.49819 8.99561 4.49819 9.07608C4.49819 9.13828 4.50044 9.20049 4.50195 9.26416C4.50493 9.32676 4.50869 9.38858 4.51162 9.45269L4.52129 9.59048C4.52129 9.61323 4.525 9.63628 4.52646 9.66089C4.65761 11.0219 5.24536 12.3525 6.28608 13.3914C6.91635 14.022 7.65385 14.4869 8.43833 14.7837C8.67593 14.5219 8.86967 14.2187 9.00898 13.8924C9.15273 13.5501 9.23471 13.188 9.25107 12.8144C8.71845 12.623 8.2208 12.3149 7.7917 11.8858C7.40356 11.4958 7.11303 11.05 6.92007 10.5716C6.78227 10.2337 6.6936 9.87993 6.65483 9.52305C6.62954 9.31182 6.62358 9.09878 6.63325 8.8876C6.63623 8.83506 6.63994 8.78442 6.64292 8.7334C6.64663 8.6958 6.64961 8.65816 6.6563 8.62017C6.6563 8.60562 6.65928 8.59111 6.66079 8.57622C6.6645 8.54009 6.66899 8.50249 6.67568 8.4667C6.68388 8.41753 6.69209 8.36651 6.70176 8.31773C6.74492 8.09458 6.80678 7.8752 6.88872 7.66211C6.90366 7.623 6.9185 7.5854 6.93642 7.5459C6.95283 7.50493 6.97065 7.46397 6.99004 7.423C7.00644 7.38203 7.02583 7.34102 7.04741 7.30156C7.06528 7.26099 7.08686 7.22149 7.11001 7.18237C7.21801 6.98198 7.34546 6.78906 7.49145 6.60537C7.52124 6.56777 7.55254 6.53018 7.5831 6.49399C7.65088 6.41689 7.71943 6.34165 7.79316 6.26792C7.88476 6.17627 7.97793 6.09097 8.07475 6.01235C8.39214 5.74863 8.73999 5.54189 9.10503 5.39478C9.82095 5.10464 10.6091 5.03086 11.3608 5.17686C12.1133 5.32285 12.8254 5.68272 13.411 6.26787C13.8007 6.65786 14.089 7.10371 14.2819 7.58164C14.574 8.29756 14.6478 9.08423 14.5017 9.83633C14.3542 10.588 13.9936 11.3006 13.411 11.8858C13.2829 12.0135 13.1488 12.1316 13.0095 12.2363C13.0177 12.3804 13.0222 12.5246 13.0222 12.6668C13.0244 13.401 12.9074 14.1248 12.6832 14.8131C13.499 14.5181 14.264 14.0432 14.9159 13.3913C16.1057 12.2035 16.7054 10.6353 16.7039 9.07603C16.7053 7.7749 16.2859 6.46973 15.4553 5.38018L18.0389 2.79658V5.29785H19.677V0H14.3803Z" fill="white" fill-opacity="0.5"/>
+                      </svg>                    
+                  </div>
+                  <div class="w-fit h-[1.45vw]">
+                    <p id="Register_Gender_Side_Text" class="text-white  [font-family:GilroyRegular] text-[.7333vw] font-medium leading-[normal]">Gender</p>
+                    <p id="Register_Gender_Side_Desc" class="text-[rgba(141,141,141,255)]  [font-family:GilroyRegular] text-[.5729vw] font-medium leading-[normal]">Select your gender.</p>
+                  </div>
+                  
+                </div>
+                <div class="flex w-full h-[6.9444vh] gap-x-[.5208vw]">
+                  <div id="Male_Button_Background" class="flex justify-center items-center w-[10.1563vw] h-[6.9444vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <div id="Male_Button" class="flex justify-center items-center w-[8.8021vw] h-[4.6296vh] shrink-0 rounded [background:rgba(255,255,255,0.50)] text-[rgba(255,255,255,0.75)] [font-family:GilroyRegular] text-[.7375vw] px-[.5208vw] font-medium leading-[normal]">
+                    Male
+                    </div>
+                  </div>
+                  <div id="Female_Button_Background" class="flex justify-center items-center w-[10.1563vw] h-[6.9444vh] shrink-0 rounded [background:rgba(255,255,255,0.15)]">
+                    <div id="Female_Button" class="flex justify-center items-center w-[8.8021vw] h-[4.6296vh] shrink-0 rounded [background:rgba(255,255,255,0.50)] text-[rgba(255,255,255,0.75)] [font-family:GilroyRegular] text-[.7375vw] px-[.5208vw] font-medium leading-[normal]">
+                      Female
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-fit h-fit flex flex-col gap-y-[1vh] mt-[-3.7vh]">
+                <div class=" flex justify-between items-center w-[20.8333vw] h-[3.7037vh] shrink-0 rounded [background:rgba(255,255,255,0.15)] px-[.625vw] cursor-pointer back-button" onclick='Button("Register_Back")' id="Register_Back_Button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.8519vh" viewBox="0 0 24 20" fill="none">
+                    <path d="M3.21568 10.7999L2.41558 9.99999L3.21567 9.2001H22.2961C22.5532 9.2001 22.7998 9.28438 22.9817 9.43439C23.1635 9.5844 23.2656 9.78785 23.2656 10C23.2656 10.2121 23.1635 10.4156 22.9817 10.5656C22.7998 10.7156 22.5532 10.7999 22.2961 10.7999H3.21568Z" fill="white" fill-opacity="0.5"/>
+                    <path d="M2.41558 9.99999L10.7084 18.291C10.8962 18.4787 11.0017 18.7333 11.0017 18.9989C11.0017 19.2644 10.8962 19.519 10.7084 19.7068C10.5207 19.8945 10.266 20 10.0005 20C9.73501 20 9.48036 19.8945 9.29261 19.7068L0.29375 10.7079C0.200636 10.615 0.126759 10.5047 0.076353 10.3832C0.0259464 10.2617 0 10.1315 0 10C0 9.86848 0.0259464 9.73826 0.076353 9.61678C0.126759 9.49531 0.200636 9.38497 0.29375 9.29209L9.29261 0.293226C9.48036 0.105476 9.73501 0 10.0005 0C10.266 0 10.5207 0.105476 10.7084 0.293226C10.8962 0.480976 11.0017 0.735619 11.0017 1.00114C11.0017 1.26665 10.8962 1.5213 10.7084 1.70905L2.41558 9.99999Z" fill="white" fill-opacity="0.5"/>
+                  </svg>
+                  <p id="Back_Button_Text" class="text-[rgba(255,255,255,0.50)] text-center [font-family:GilroyBold] text-[1.0417vw] font-bold leading-[normal] tracking-[.5208vw]">BACK</p>
+                  <p></p>
+                </div>
+                <div class=" flex justify-between items-center w-[20.8333vw] h-[3.7037vh] shrink-0 rounded [background:rgba(255,255,255,0.15)] px-[.625vw] cursor-pointer back-button" style="display: flex; opacity: 0; transition: opacity 300ms ease-in-out;" onclick='Button("Create_Character")' id="Create_Button">
+                  <svg width="1.5vw" height="1.8vw" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: -0.2vw">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z" fill="white" fill-opacity="0.5"/>
+                  </svg>
+                  <p id="Create_Button_Text" class="text-[rgba(255,255,255,0.50)] text-center [font-family:GilroyBold] text-[1.0417vw] font-bold leading-[normal] tracking-[.5208vw]">CREATE</p>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
