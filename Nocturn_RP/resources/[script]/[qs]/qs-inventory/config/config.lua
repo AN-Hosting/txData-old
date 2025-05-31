@@ -186,8 +186,8 @@ Config.notStoredItems = {
 Config.Pages = {
     ['clothing'] = true,
     ['pause_menu'] = true,
-    ['quest'] = true,
-    ['skill'] = true
+    ['quest'] = false,
+    ['skill'] = false
 }
 
 -- Enables or disables clothing system integration. Refer to the documentation for your framework setup:

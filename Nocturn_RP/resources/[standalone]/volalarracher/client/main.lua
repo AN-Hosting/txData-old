@@ -345,8 +345,8 @@ local function PlayBagStruggleAnimation(player, victim)
     local randomTime = math.random(2000, 4000)
     Citizen.Wait(randomTime)
     
-    -- 15% de chance de réussir le vol (85% d'échec)
-    if math.random(100) > 85 then
+    -- 40% de chance de réussir le vol (60% d'échec)
+    if math.random(100) > 60 then
         -- Vol réussi
         ClearPedTasks(player)
         ClearPedTasks(victim)
@@ -434,7 +434,7 @@ local function PlayBagStruggleAnimation(player, victim)
             end
         end)
     else
-        -- 85% de chance d'échec - Animation de la claque
+        -- 60% de chance d'échec - Animation de la claque
         DeleteObject(obj)
         ClearPedTasks(victim)
         ClearPedTasks(player)
@@ -481,36 +481,47 @@ local function PlayBagStruggleAnimation(player, victim)
     isStruggling = false
 end
 
--- Modifier la fonction RobNPC
-function RobNPC()
-    local player = PlayerPedId()
-    local closestPed = GetClosestNPC(player, Config.Distance)
-    
-    if closestPed then
-        -- Vérifier si le PNJ a déjà été ciblé
-        if hasBeenTargeted(closestPed) then
-            QBCore.Functions.Notify('Vous avez déjà essayé de voler cette personne!', 'error')
-            return
-        end
-
-        if IsPedFemale(closestPed) then
-            if not IsEntityDead(closestPed) then
-                -- Marquer le PNJ comme ciblé immédiatement
-                markPedAsTargeted(closestPed)
-                
-                -- Lancer directement l'animation de vol
-                PlayBagStruggleAnimation(player, closestPed)
-            end
-        end
-    end
-end
-
--- Thread pour vérifier la touche E
+-- Supprimer le thread de vérification de la touche E et ajouter l'initialisation du target
 Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if IsControlJustPressed(0, 38) then -- 38 est le code pour la touche E
-            RobNPC()
+    -- Charger les animations
+    RequestAnimDict(Config.Animation.dict)
+    RequestAnimDict(Config.Animation.victimAnim)
+    while not HasAnimDictLoaded(Config.Animation.dict) or not HasAnimDictLoaded(Config.Animation.victimAnim) do
+        Citizen.Wait(100)
+    end
+
+    -- Ajouter l'option de vol à tous les PNJs féminins
+    exports['qb-target']:AddTargetModel(Config.FemalePeds, {
+        options = {
+            {
+                type = "client",
+                event = "volalarracher:client:tryRob",
+                icon = "fas fa-hand-paper",
+                label = "Voler le sac",
+                canInteract = function(entity)
+                    return not hasBeenTargeted(entity) and not IsEntityDead(entity)
+                end
+            }
+        },
+        distance = Config.Distance
+    })
+end)
+
+-- Ajouter l'événement pour le vol
+RegisterNetEvent('volalarracher:client:tryRob')
+AddEventHandler('volalarracher:client:tryRob', function(data)
+    local player = PlayerPedId()
+    local targetPed = data.entity
+    
+    if targetPed then
+        if IsPedFemale(targetPed) then
+            if not IsEntityDead(targetPed) then
+                -- Marquer le PNJ comme ciblé immédiatement
+                markPedAsTargeted(targetPed)
+                
+                -- Lancer l'animation de vol
+                PlayBagStruggleAnimation(player, targetPed)
+            end
         end
     end
 end)

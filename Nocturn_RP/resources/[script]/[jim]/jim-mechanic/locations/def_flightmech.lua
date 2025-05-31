@@ -4,7 +4,7 @@ Locations = Locations or {}
 --[[ Default Location ]]--
 
 Locations["flightmech"] = {
-    Enabled = true,
+    Enabled = false,
     autoClock = { enter = false, exit = false, },
     job = "mechanic",
     label = "Flight Mech",
