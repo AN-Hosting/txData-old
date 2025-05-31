@@ -4,7 +4,7 @@ Locations = Locations or {}
 --[[ Default Location ]]--
 
 Locations["route_68"] = {
-	Enabled = true,
+	Enabled = false,
 	autoClock = { enter = false, exit = false, },
 	job = "mechanic",
 	label = "68 Cyles & Repairs",

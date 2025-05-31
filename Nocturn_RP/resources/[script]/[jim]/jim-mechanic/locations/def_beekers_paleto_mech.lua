@@ -4,7 +4,7 @@ Locations = Locations or {}
 --[[ Default Location ]]--
 
 Locations["beekers_mech"] = {
-    Enabled = true,
+    Enabled = false,
     autoClock = { enter = false, exit = false, },
     job = "mechanic",
     label = "Beekers Mechanic",

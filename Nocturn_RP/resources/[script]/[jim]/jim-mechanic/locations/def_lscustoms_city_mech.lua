@@ -4,7 +4,7 @@ Locations = Locations or {}
 --[[ Default Location ]]--
 
 Locations["ls_customs"] = {
-	Enabled = true,
+	Enabled = false,
 	autoClock = { enter = false, exit = false, },
 	job = "mechanic",
 	label = "LS Customs",
