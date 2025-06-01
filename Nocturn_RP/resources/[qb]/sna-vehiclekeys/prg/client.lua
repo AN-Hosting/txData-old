@@ -216,7 +216,7 @@ end
 local function GetVehicleInDirection(coordFromOffset, coordToOffset)
     local ped = PlayerPedId()
     local coordFrom = GetOffsetFromEntityInWorldCoords(ped, coordFromOffset.x, coordFromOffset.y, coordFromOffset.z)
-    local coordTo = GetOffsetFromEntityInWorldCoords(ped, coordToOffset.x, coordToOffset.y, coordTo.z)
+    local coordTo = GetOffsetFromEntityInWorldCoords(ped, coordToOffset.x, coordToOffset.y, coordToOffset.z)
 
     local rayHandle = CastRayPointToPoint(coordFrom.x, coordFrom.y, coordFrom.z, coordTo.x, coordTo.y, coordTo.z, 10, ped, 0)
     local _, _, _, _, vehicle = GetShapeTestResult(rayHandle)
