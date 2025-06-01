@@ -26,7 +26,7 @@ Config.DatabaseChecker.Enabled = true -- if true, the phone will check the datab
 Config.DatabaseChecker.AutoFix = true
 
 --[[ FRAMEWORK OPTIONS ]] --
-Config.Framework = "auto"
+Config.Framework = "qb"
 --[[
     Supported frameworks:
         * auto: auto-detect framework
