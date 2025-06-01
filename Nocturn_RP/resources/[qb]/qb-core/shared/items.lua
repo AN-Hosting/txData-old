@@ -227,7 +227,8 @@ QBShared.Items = {
     security_card_02             = { name = 'security_card_02', label = 'Carte de Sécurité B', weight = 0, type = 'item', image = 'security_card_02.png', unique = false, useable = true, shouldClose = true, description = 'Une carte de sécurité mystérieuse de niveau B' },
 
     cash                         = { name = 'cash', label = 'Cash', weight = 0, type = 'item', image = 'money.png', unique = false, useable = false, shouldClose = false, description = 'De l\'argent liquide' },
-
+    vehiclekey                   = { name = 'vehiclekey', label = 'Clée Vehicule', weight = 10, type = 'item', image = 'vehiclekey.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = ".." },
+    
     -- Eat ITEMS
     tosti                        = { name = 'tosti', label = 'Croque-Monsieur', weight = 200, type = 'item', image = 'tosti.png', unique = false, useable = true, shouldClose = true, description = 'Un délicieux sandwich grillé au fromage' },
     twerks_candy                 = { name = 'twerks_candy', label = 'Bonbons Twerks', weight = 100, type = 'item', image = 'twerks_candy.png', unique = false, useable = true, shouldClose = true, description = 'De délicieux bonbons sucrés' },

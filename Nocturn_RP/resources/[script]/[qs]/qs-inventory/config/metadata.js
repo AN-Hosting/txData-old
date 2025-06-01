@@ -124,6 +124,9 @@ function FormatItemInfo(itemData) {
                 itemData.info.slots +
                 "</span></p>"
             );
+        } else if (itemData.name == "vehiclekey") {                                         //Change Add
+            $(".item-info-title").html('<p>' + itemData.info.model + '</p>');               //Change Add
+            $(".item-info-description").html('<p>Plaque : ' + itemData.info.plate + '</p>');
         } else if (itemData.name == "paramedicbag") {
             $(".item-info-title").html("<p>" + label + "</p>");
             $(".item-info-description").html(
