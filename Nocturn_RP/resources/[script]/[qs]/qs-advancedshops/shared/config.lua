@@ -139,7 +139,7 @@ Config.Shops = {
                 description = 'Health Supplies',
                 icon = 'fa-solid fa-notes-medical',
                 items = {
-                    { name = 'bandage', label = 'Bandage', perPrice = 100, description = 'First Aid' }
+                    { name = 'bandage', label = 'Bandage', perPrice = 50, description = 'First Aid' }
                 }
             },
             [3] = {
@@ -147,9 +147,9 @@ Config.Shops = {
                 description = 'Alcoholic Beverages',
                 icon = 'fa-solid fa-wine-bottle',
                 items = {
-                    { name = 'vodka',   label = 'Vodka',   perPrice = 150, description = 'Spirits' },
-                    { name = 'whiskey', label = 'Whiskey', perPrice = 150, description = 'Spirits' },
-                    { name = 'beer',    label = 'Beer',    perPrice = 150, description = 'Beer' }
+                    { name = 'vodka',   label = 'Vodka',   perPrice = 50, description = 'Spirits' },
+                    { name = 'whiskey', label = 'Whiskey', perPrice = 50, description = 'Spirits' },
+                    { name = 'beer',    label = 'Beer',    perPrice = 50, description = 'Beer' }
                 }
             },
             [4] = {
@@ -157,9 +157,9 @@ Config.Shops = {
                 description = 'Snacks & Sweets',
                 icon = 'fa-solid fa-cookie-bite',
                 items = {
-                    { name = 'tosti',         label = 'Tosti',         perPrice = 150, description = 'Toasted Snack' },
-                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 150, description = 'Sweet Snack' },
-                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 150, description = 'Sweet Snack' }
+                    { name = 'tosti',         label = 'Tosti',         perPrice = 50, description = 'Toasted Snack' },
+                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 50, description = 'Sweet Snack' },
+                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 50, description = 'Sweet Snack' }
                 }
             }
         },
@@ -193,15 +193,15 @@ Config.Shops = {
                 description = 'Everyday Essentials',
                 icon = 'fa-solid fa-wallet',
                 items = {
-                    { name = 'water_bottle',  label = 'Water',         perPrice = 150, description = 'Refreshment' },
-                    { name = 'sandwich',      label = 'Sandwich',      perPrice = 150, description = 'Quick Meal' },
-                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 150, description = 'Sweet Snack' },
-                    { name = 'tosti',         label = 'Tosti',         perPrice = 150, description = 'Toasted Snack' },
-                    { name = 'whiskey',       label = 'Whiskey',       perPrice = 150, description = 'Alcohol' },
-                    { name = 'lighter',       label = 'Lighter',       perPrice = 200, description = 'For Lighting' },
-                    { name = 'beer',          label = 'Beer',          perPrice = 150, description = 'Alcohol' },
-                    { name = 'cola',          label = 'Cola',          perPrice = 150, description = 'Soft Drink' },
-                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 150, description = 'Sweet Snack' }
+                    { name = 'water_bottle',  label = 'Water',         perPrice = 50, description = 'Refreshment' },
+                    { name = 'sandwich',      label = 'Sandwich',      perPrice = 50, description = 'Quick Meal' },
+                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 50, description = 'Sweet Snack' },
+                    { name = 'tosti',         label = 'Tosti',         perPrice = 50, description = 'Toasted Snack' },
+                    { name = 'whiskey',       label = 'Whiskey',       perPrice = 50, description = 'Alcohol' },
+                    { name = 'lighter',       label = 'Lighter',       perPrice = 50, description = 'For Lighting' },
+                    { name = 'beer',          label = 'Beer',          perPrice = 50, description = 'Alcohol' },
+                    { name = 'cola',          label = 'Cola',          perPrice = 50, description = 'Soft Drink' },
+                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 50, description = 'Sweet Snack' }
                 }
             },
             [2] = {
@@ -209,7 +209,7 @@ Config.Shops = {
                 description = 'Health Supplies',
                 icon = 'fa-solid fa-notes-medical',
                 items = {
-                    { name = 'bandage', label = 'Bandage', perPrice = 100, description = 'First Aid' }
+                    { name = 'bandage', label = 'Bandage', perPrice = 50, description = 'First Aid' }
                 }
             },
             [3] = {
@@ -217,9 +217,9 @@ Config.Shops = {
                 description = 'Alcoholic Beverages',
                 icon = 'fa-solid fa-wine-bottle',
                 items = {
-                    { name = 'vodka',   label = 'Vodka',   perPrice = 150, description = 'Spirits' },
-                    { name = 'whiskey', label = 'Whiskey', perPrice = 150, description = 'Spirits' },
-                    { name = 'beer',    label = 'Beer',    perPrice = 150, description = 'Beer' }
+                    { name = 'vodka',   label = 'Vodka',   perPrice = 50, description = 'Spirits' },
+                    { name = 'whiskey', label = 'Whiskey', perPrice = 50, description = 'Spirits' },
+                    { name = 'beer',    label = 'Beer',    perPrice = 50, description = 'Beer' }
                 }
             },
             [4] = {
@@ -227,9 +227,9 @@ Config.Shops = {
                 description = 'Snacks & Sweets',
                 icon = 'fa-solid fa-cookie-bite',
                 items = {
-                    { name = 'tosti',         label = 'Tosti',         perPrice = 150, description = 'Toasted Snack' },
-                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 150, description = 'Sweet Snack' },
-                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 150, description = 'Sweet Snack' }
+                    { name = 'tosti',         label = 'Tosti',         perPrice = 50, description = 'Toasted Snack' },
+                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 50, description = 'Sweet Snack' },
+                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 50, description = 'Sweet Snack' }
                 }
             }
         },
@@ -259,14 +259,14 @@ Config.Shops = {
                 description = '24/7',
                 icon = 'fa-solid fa-wine-bottle',
                 items = {
-                    { name = 'water_bottle',  label = 'Water',         perPrice = 150, description = 'Drinks' },
-                    { name = 'sandwich',      label = 'Sandwich',      perPrice = 150, description = 'Food' },
-                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 150, description = 'General' },
-                    { name = 'tosti',         label = 'Tosti',         perPrice = 150, description = 'General' },
-                    { name = 'beer',          label = 'Beer',          perPrice = 150, description = 'Alcohol' },
-                    { name = 'cola',          label = 'Cola',          perPrice = 150, description = 'Drinks' },
-                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 150, description = 'Candy' },
-                    { name = 'whiskey',       label = 'Whiskey',       perPrice = 150, description = 'Alcohol' }
+                    { name = 'water_bottle',  label = 'Water',         perPrice = 50, description = 'Drinks' },
+                    { name = 'sandwich',      label = 'Sandwich',      perPrice = 50, description = 'Food' },
+                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 50, description = 'General' },
+                    { name = 'tosti',         label = 'Tosti',         perPrice = 50, description = 'General' },
+                    { name = 'beer',          label = 'Beer',          perPrice = 50, description = 'Alcohol' },
+                    { name = 'cola',          label = 'Cola',          perPrice = 50, description = 'Drinks' },
+                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 50, description = 'Candy' },
+                    { name = 'whiskey',       label = 'Whiskey',       perPrice = 50, description = 'Alcohol' }
                 }
             },
             [2] = {
@@ -274,9 +274,9 @@ Config.Shops = {
                 description = 'Snacks & Sweets',
                 icon = 'fa-solid fa-cookie-bite',
                 items = {
-                    { name = 'tosti',         label = 'Tosti',         perPrice = 150, description = 'Snacks' },
-                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 150, description = 'Candy' },
-                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 150, description = 'Candy' }
+                    { name = 'tosti',         label = 'Tosti',         perPrice = 50, description = 'Snacks' },
+                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 50, description = 'Candy' },
+                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 50, description = 'Candy' }
                 }
             }
         },
