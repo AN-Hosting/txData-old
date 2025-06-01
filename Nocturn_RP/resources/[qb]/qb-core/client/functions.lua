@@ -169,32 +169,26 @@ end
 -- NUI Calls
 
 function QBCore.Functions.Notify(text, texttype, length, icon)
-    local message = {
-        action = 'notify',
-        type = texttype or 'primary',
-        length = length or 5000,
-    }
-
-    if type(text) == 'table' then
-        message.text = text.text or 'Placeholder'
-        message.caption = text.caption or 'Placeholder'
-    else
-        message.text = text
-    end
-
-    if icon then
-        message.icon = icon
-    end
-
-    SendNUIMessage(message)
+    if texttype == 'primary' then texttype = 'Inform' end
+    if texttype == 'success' then texttype = 'Succès' end
+    if texttype == 'error' then texttype = 'Erreur' end
+    if texttype == 'warning' then texttype = 'Attention' end
+    
+    local message = text
+    local title = texttype ~= nil and texttype or 'Inform'
+    local duration = length ~= nil and length or 5000
+    local icon = icon or 'fas fa-info-circle'
+    
+    exports['qs-interface']:AddNotify(message, title, duration, icon)
 end
--- function QBCore.Functions.Notify(text, texttype, length, icon)
---     if texttype == 'primary' then texttype = 'Inform' end
---     local message = text
---     local title = texttype ~= nil and texttype or 'Inform'
---     local duration = length ~= nil and length or 5000
---     exports['qs-interface']:AddNotify(message, title, duration, icon)
--- end
+
+--[[function QBCore.Functions.Notify(text, texttype, length, icon)
+    if texttype == 'primary' then texttype = 'Inform' end
+    local message = text
+    local title = texttype ~= nil and texttype or 'Inform'
+    local duration = length ~= nil and length or 5000
+    exports['qs-interface']:AddNotify(message, title, duration, icon)
+end]]
 
 --[[function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
     if GetResourceState('progressbar') ~= 'started' then error('progressbar needs to be started in order for QBCore.Functions.Progressbar to work') end
@@ -233,9 +227,10 @@ function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCa
         anim.clip = animation.anim
         anim.flags = animation.flags
     end
-    if lib.progressBar({
+    if lib.progressCircle({
         label = label,
         duration = duration,
+        position = 'bottom',
         useWhileDead = useWhileDead,
         canCancel = canCancel,
         disable = disable,

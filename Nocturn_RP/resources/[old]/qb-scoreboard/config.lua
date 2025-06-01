@@ -3,7 +3,7 @@ Config = Config or {}
 Config.Toggle = true
 Config.OpenKey = 'HOME'
 Config.ShowIDforALL = false
-Config.MaxPlayers = GetConvarInt('sv_maxclients', 48)
+Config.MaxPlayers = GetConvarInt('sv_maxclients', 64)
 
 Config.IllegalActions = {
     ['storerobbery'] = {
