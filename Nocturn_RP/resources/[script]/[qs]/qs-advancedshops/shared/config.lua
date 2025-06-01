@@ -123,15 +123,15 @@ Config.Shops = {
                 description = 'Everyday Essentials',
                 icon = 'fa-solid fa-wallet',
                 items = {
-                    { name = 'water_bottle',  label = 'Water',         perPrice = 150, description = 'Refreshment' },
-                    { name = 'sandwich',      label = 'Sandwich',      perPrice = 150, description = 'Quick Meal' },
-                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 150, description = 'Sweet Snack' },
-                    { name = 'tosti',         label = 'Tosti',         perPrice = 150, description = 'Toasted Snack' },
-                    { name = 'whiskey',       label = 'Whiskey',       perPrice = 150, description = 'Alcohol' },
-                    { name = 'lighter',       label = 'Lighter',       perPrice = 200, description = 'For Lighting' },
-                    { name = 'beer',          label = 'Beer',          perPrice = 150, description = 'Alcohol' },
-                    { name = 'cola',          label = 'Cola',          perPrice = 150, description = 'Soft Drink' },
-                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 150, description = 'Sweet Snack' }
+                    { name = 'water_bottle',  label = 'Water',         perPrice = 50, description = 'Refreshment' },
+                    { name = 'sandwich',      label = 'Sandwich',      perPrice = 50, description = 'Quick Meal' },
+                    { name = 'snikkel_candy', label = 'Snikkel Candy', perPrice = 50, description = 'Sweet Snack' },
+                    { name = 'tosti',         label = 'Tosti',         perPrice = 50, description = 'Toasted Snack' },
+                    { name = 'whiskey',       label = 'Whiskey',       perPrice = 50, description = 'Alcohol' },
+                    { name = 'lighter',       label = 'Lighter',       perPrice = 50, description = 'For Lighting' },
+                    { name = 'beer',          label = 'Beer',          perPrice = 50, description = 'Alcohol' },
+                    { name = 'cola',          label = 'Cola',          perPrice = 50, description = 'Soft Drink' },
+                    { name = 'twerks_candy',  label = 'Twerks Candy',  perPrice = 50, description = 'Sweet Snack' }
                 }
             },
             [2] = {

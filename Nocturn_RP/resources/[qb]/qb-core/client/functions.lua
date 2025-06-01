@@ -227,9 +227,10 @@ function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCa
         anim.clip = animation.anim
         anim.flags = animation.flags
     end
-    if lib.progressBar({
+    if lib.progressCircle({
         label = label,
         duration = duration,
+        position = 'bottom',
         useWhileDead = useWhileDead,
         canCancel = canCancel,
         disable = disable,
