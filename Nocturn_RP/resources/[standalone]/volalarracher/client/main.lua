@@ -345,183 +345,172 @@ local function PlayBagStruggleAnimation(player, victim)
     local randomTime = math.random(2000, 4000)
     Citizen.Wait(randomTime)
     
-    -- 40% de chance de réussir le vol (60% d'échec)
-    if math.random(100) > 60 then
-        -- Vol réussi
-        ClearPedTasks(player)
-        ClearPedTasks(victim)
-        DeleteObject(obj)
-        
-        -- Créer le sac volé attaché au joueur (même modèle de sac)
-        bagObj = CreateObject(GetHashKey('prop_ld_handbag'), 0, 0, 0, true)
-        AttachEntityToEntity(bagObj, player, GetPedBoneIndex(player, 28422), -0.02, 0.00, -0.43, 0.00, 2.4, -58.05, 1, 1, 0, 1, 0, 1)
-        
-        -- Faire fuir le PNJ immédiatement
-        ClearPedTasks(victim)
-        PlayAmbientSpeech1(victim, 'FALL_BACK', 'SPEECH_PARAMS_FORCE_SHOUTED_CRITICAL')
-        TaskReactAndFleePed(victim, player)
-        
-        -- Notification
-        QBCore.Functions.Notify('Vous avez réussi à voler le sac!', 'success')
-        
-        -- Activer le mode "transport de sac"
-        carryingBag = true
-        
-        -- Démarrer le thread pour gérer le sac volé
-        Citizen.CreateThread(function()
-            while carryingBag do
-                Citizen.Wait(0)
-                -- Afficher les instructions
-                DrawTextOnScreen("Appuyez sur ~y~[E]~w~ pour fouiller le sac ou ~r~[X]~w~ pour le jeter")
+    -- Vol toujours réussi
+    -- Vol réussi
+    ClearPedTasks(player)
+    ClearPedTasks(victim)
+    DeleteObject(obj)
+    
+    -- Créer le sac volé attaché au joueur (même modèle de sac)
+    bagObj = CreateObject(GetHashKey('prop_ld_handbag'), 0, 0, 0, true)
+    AttachEntityToEntity(bagObj, player, GetPedBoneIndex(player, 28422), -0.02, 0.00, -0.43, 0.00, 2.4, -58.05, 1, 1, 0, 1, 0, 1)
+    
+    -- Faire fuir le PNJ immédiatement
+    ClearPedTasks(victim)
+    PlayAmbientSpeech1(victim, 'FALL_BACK', 'SPEECH_PARAMS_FORCE_SHOUTED_CRITICAL')
+    TaskReactAndFleePed(victim, player)
+    
+    -- Notification
+    QBCore.Functions.Notify('Vous avez réussi à voler le sac!', 'success')
+    
+    -- Activer le mode "transport de sac"
+    carryingBag = true
+    
+    -- Démarrer le thread pour gérer le sac volé
+    Citizen.CreateThread(function()
+        while carryingBag do
+            Citizen.Wait(0)
+            -- Afficher les instructions avec un style plus élégant
+            SetTextScale(0.35, 0.35)
+            SetTextFont(4)
+            SetTextProportional(1)
+            SetTextColour(255, 255, 255, 255)
+            SetTextEntry("STRING")
+            SetTextCentre(true)
+            AddTextComponentString("~y~[E]~w~ Fouiller le sac  |  ~r~[X]~w~ Jeter le sac")
+            DrawText(0.5, 0.95)
+            
+            -- Touche E pour fouiller le sac
+            if IsControlJustPressed(0, 38) then -- E
+                -- Animation de fouille plus réaliste
+                RequestAnimDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
+                RequestAnimDict("mp_common")
+                while not HasAnimDictLoaded("anim@amb@clubhouse@tutorial@bkr_tut_ig3@") or not HasAnimDictLoaded("mp_common") do
+                    Citizen.Wait(10)
+                end
+
+                -- Animation de fouille plus longue et plus réaliste
+                TaskPlayAnim(player, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 8.0, -8.0, 5000, 1, 0, false, false, false)
                 
-                -- Touche E pour fouiller le sac
-                if IsControlJustPressed(0, 38) then -- E
-                    -- Animation de fouille du sac
-                    RequestAnimDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
-                    while not HasAnimDictLoaded("anim@amb@clubhouse@tutorial@bkr_tut_ig3@") do
-                        Citizen.Wait(10)
+                -- Effet de progression
+                local startTime = GetGameTimer()
+                local endTime = startTime + 5000
+                
+                while GetGameTimer() < endTime do
+                    Citizen.Wait(0)
+                    local progress = (GetGameTimer() - startTime) / 5000
+                    local text = "Fouille en cours"
+                    for i = 1, math.floor(progress * 3) do
+                        text = text .. "."
                     end
-
-                    -- Jouer l'animation de fouille
-                    TaskPlayAnim(player, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 8.0, -8.0, 3000, 1, 0, false, false, false)
                     
-                    -- Timer pour l'animation
-                    Citizen.Wait(3000)
-                    
-                    -- Supprimer le sac visuel
-                    DeleteEntity(bagObj)
-                    carryingBag = false
+                    -- Afficher la progression
+                    SetTextScale(0.35, 0.35)
+                    SetTextFont(4)
+                    SetTextProportional(1)
+                    SetTextColour(255, 255, 255, 255)
+                    SetTextEntry("STRING")
+                    SetTextCentre(true)
+                    AddTextComponentString(text)
+                    DrawText(0.5, 0.85)
+                end
+                
+                -- Animation de fin de fouille
+                TaskPlayAnim(player, "mp_common", "givetake1_a", 8.0, -8.0, 2000, 0, 0, false, false, false)
+                Citizen.Wait(2000)
+                
+                -- Supprimer le sac visuel
+                DeleteEntity(bagObj)
+                carryingBag = false
 
+                -- 60% de chance d'avoir des objets dans le sac (augmenté de 30% à 50%)
+                if math.random(100) <= 70 then
                     -- Donner des items aléatoires
-                    local totalItems = math.random(2, 4)
+                    local totalItems = math.random(1, 2)
                     local itemsFound = {}
                     
+                    -- Animation de découverte d'objets
                     for i = 1, totalItems do
                         local item = Config.Items[math.random(#Config.Items)]
-                        if math.random(100) <= item.chance then
+                        if math.random(100) <= (item.chance / 2) then
                             local amount = math.random(item.min, item.max)
                             table.insert(itemsFound, {name = item.name, amount = amount, label = item.label})
                             TriggerServerEvent('rob_npc:giveItem', item.name, amount)
+                            
+                            -- Notification stylisée pour chaque item
+                            Citizen.Wait(800) -- Délai entre chaque notification
+                            QBCore.Functions.Notify('~g~Trouvé: ~w~' .. item.amount .. 'x ~y~' .. item.label, 'success', 3000)
                         end
                     end
 
-                    -- Notification des items trouvés
-                    Citizen.Wait(500)
-                    for _, item in ipairs(itemsFound) do
-                        QBCore.Functions.Notify('Trouvé: ' .. item.amount .. 'x ' .. item.label, 'success')
-                    end
-                    
                     if #itemsFound == 0 then
-                        QBCore.Functions.Notify('Le sac était vide!', 'error')
+                        -- Animation de déception
+                        TaskPlayAnim(player, "mp_common", "givetake1_b", 8.0, -8.0, 2000, 0, 0, false, false, false)
+                        Citizen.Wait(1000)
+                        QBCore.Functions.Notify('Le sac était vide!', 'error', 3000)
                     end
+                else
+                    -- Animation de déception
+                    TaskPlayAnim(player, "mp_common", "givetake1_b", 8.0, -8.0, 2000, 0, 0, false, false, false)
+                    Citizen.Wait(1000)
+                    QBCore.Functions.Notify('Le sac était vide!', 'error', 3000)
+                end
 
-                    ClearPedTasks(player)
-                end
-                
-                -- Touche X pour jeter le sac
-                if IsControlJustPressed(0, 73) then -- X
-                    -- Détacher et jeter le sac
-                    DetachEntity(bagObj, true, true)
-                    local coords = GetEntityCoords(player)
-                    local forward = GetEntityForwardVector(player)
-                    SetEntityCoords(bagObj, coords.x + forward.x * 1.0, coords.y + forward.y * 1.0, coords.z - 0.5, true, true, true, false)
-                    SetEntityVelocity(bagObj, forward.x * 3.0, forward.y * 3.0, forward.z * 0.2)
-                    
-                    carryingBag = false
-                    Citizen.Wait(30000)
-                    DeleteEntity(bagObj)
-                end
+                ClearPedTasks(player)
             end
-        end)
-    else
-        -- 60% de chance d'échec - Animation de la claque
-        DeleteObject(obj)
-        ClearPedTasks(victim)
-        ClearPedTasks(player)
-
-        -- Charger l'animation de la claque
-        RequestAnimDict("melee@unarmed@streamed_variations")
-        while not HasAnimDictLoaded("melee@unarmed@streamed_variations") do
-            Citizen.Wait(100)
+            
+            -- Touche X pour jeter le sac
+            if IsControlJustPressed(0, 73) then -- X
+                -- Animation de jet du sac
+                TaskPlayAnim(player, "mp_common", "givetake1_a", 8.0, -8.0, 1000, 0, 0, false, false, false)
+                Citizen.Wait(1000)
+                
+                -- Détacher et jeter le sac avec plus de force
+                DetachEntity(bagObj, true, true)
+                local coords = GetEntityCoords(player)
+                local forward = GetEntityForwardVector(player)
+                SetEntityCoords(bagObj, coords.x + forward.x * 1.5, coords.y + forward.y * 1.5, coords.z - 0.5, true, true, true, false)
+                SetEntityVelocity(bagObj, forward.x * 5.0, forward.y * 5.0, forward.z * 0.5)
+                SetEntityRotation(bagObj, math.random(-180, 180), math.random(-180, 180), math.random(-180, 180), 2, true)
+                
+                carryingBag = false
+                Citizen.Wait(30000)
+                DeleteEntity(bagObj)
+            end
         end
-
-        -- Faire face l'un à l'autre pour la claque
-        TaskTurnPedToFaceEntity(victim, player, 1000)
-        TaskTurnPedToFaceEntity(player, victim, 1000)
-        Citizen.Wait(1000)
-
-        -- Le PNJ donne une claque
-        TaskPlayAnim(victim, "melee@unarmed@streamed_variations", "plyr_takedown_front_slap", 8.0, -8.0, 1500, 0, 0, false, false, false)
-        Citizen.Wait(300) -- Petit délai pour synchroniser l'animation
-
-        -- Le joueur reçoit la claque et tombe
-        TaskPlayAnim(player, "melee@unarmed@streamed_variations", "victim_takedown_front_slap", 8.0, -8.0, 1500, 0, 0, false, false, false)
-        Citizen.Wait(400)
-        
-        -- Effet de ragdoll après la claque
-        SetPedToRagdoll(player, 5000, 5000, 0, 0, 0, 0)
-        
-        -- Effets supplémentaires
-        ShakeGameplayCam("SMALL_EXPLOSION_SHAKE", 0.7)
-        PlayPedAmbientSpeechNative(victim, "GENERIC_INSULT_HIGH", "SPEECH_PARAMS_FORCE_NORMAL_CLEAR")
-        
-        -- Notification
-        QBCore.Functions.Notify('Elle vous a giflé! Vol échoué!', 'error')
-        
-        -- Faire fuir le PNJ en riant
-        Citizen.Wait(1500)
-        TaskSmartFleePed(victim, player, 100.0, -1)
-    end
-    
-    -- Nettoyer les animations
-    Citizen.Wait(3000)
-    ClearPedTasks(player)
-    ClearPedTasks(victim)
-    SetPedAsNoLongerNeeded(victim)
-    isStruggling = false
+    end)
 end
 
--- Supprimer le thread de vérification de la touche E et ajouter l'initialisation du target
-Citizen.CreateThread(function()
-    -- Charger les animations
-    RequestAnimDict(Config.Animation.dict)
-    RequestAnimDict(Config.Animation.victimAnim)
-    while not HasAnimDictLoaded(Config.Animation.dict) or not HasAnimDictLoaded(Config.Animation.victimAnim) do
-        Citizen.Wait(100)
-    end
-
-    -- Ajouter l'option de vol à tous les PNJs féminins
-    exports['qb-target']:AddTargetModel(Config.FemalePeds, {
-        options = {
-            {
-                type = "client",
-                event = "volalarracher:client:tryRob",
-                icon = "fas fa-hand-paper",
-                label = "Voler le sac",
-                canInteract = function(entity)
-                    return not hasBeenTargeted(entity) and not IsEntityDead(entity)
-                end
-            }
-        },
-        distance = Config.Distance
-    })
-end)
-
--- Ajouter l'événement pour le vol
-RegisterNetEvent('volalarracher:client:tryRob')
-AddEventHandler('volalarracher:client:tryRob', function(data)
+-- Modifier la fonction RobNPC
+function RobNPC()
     local player = PlayerPedId()
-    local targetPed = data.entity
+    local closestPed = GetClosestNPC(player, Config.Distance)
     
-    if targetPed then
-        if IsPedFemale(targetPed) then
-            if not IsEntityDead(targetPed) then
+    if closestPed then
+        -- Vérifier si le PNJ a déjà été ciblé
+        if hasBeenTargeted(closestPed) then
+            QBCore.Functions.Notify('Vous avez déjà essayé de voler cette personne!', 'error')
+            return
+        end
+
+        if IsPedFemale(closestPed) then
+            if not IsEntityDead(closestPed) then
                 -- Marquer le PNJ comme ciblé immédiatement
-                markPedAsTargeted(targetPed)
+                markPedAsTargeted(closestPed)
                 
-                -- Lancer l'animation de vol
-                PlayBagStruggleAnimation(player, targetPed)
+                -- Lancer directement l'animation de vol
+                PlayBagStruggleAnimation(player, closestPed)
             end
+        end
+    end
+end
+
+-- Thread pour vérifier la touche N
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if IsControlJustPressed(0, 249) then -- 249 est le code pour la touche N
+            RobNPC()
         end
     end
 end)

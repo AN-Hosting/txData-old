@@ -3,7 +3,7 @@
 
     This configuration file includes the essential parameters to personalize and fine-tune your **advancedshops** system. Before making any modifications, we strongly recommend reviewing the corresponding sections of the documentation linked below. It provides step-by-step guidance and detailed explanations for every configurable feature.
 
-    The settings provided here are built for adaptability. You are encouraged to tailor them to match your server’s framework and economy, ensuring a smooth and immersive shopping experience for your players.
+    The settings provided here are built for adaptability. You are encouraged to tailor them to match your server's framework and economy, ensuring a smooth and immersive shopping experience for your players.
 
     Most editable configurations can be found in the **client/custom/** and **server/custom/** directories, allowing for a clean and organized setup process.
 
@@ -541,6 +541,59 @@ Config.Shops = {
         coords = {
             { ped = nil, coords = vector4(466.41, -979.24, 23.31, 257.51) }
         }
+    },
+    {
+        name = 'Cat Café',
+        label = '[E] - Cat Café',
+        blip = true,
+        blipSprite = 89,
+        blipColor = 5,
+        blipScale = 0.5,
+        -- requiredLicense = 'police_license',
+        jobs = { 'catcafe' },
+        -- grades = { 2, 3, 4 },
+        categories = {
+            [1] = {
+                name = 'General',
+                description = 'Ingrédients de Base',
+                icon = 'fa-solid fa-wallet',
+                items = {
+                    { name = 'flour',    label = 'Farine',     perPrice = 8, description = 'Ingrédient' },
+                    { name = 'sugar',    label = 'Sucre',      perPrice = 6, description = 'Ingrédient' },
+                    { name = 'rice',     label = 'Riz',        perPrice = 12, description = 'Ingrédient' },
+                    { name = 'noodles',  label = 'Nouilles',   perPrice = 10, description = 'Ingrédient' },
+                    { name = 'matcha',   label = 'Matcha',     perPrice = 25, description = 'Ingrédient' },
+                    { name = 'nori',     label = 'Algue Nori', perPrice = 18, description = 'Ingrédient' },
+                    { name = 'tofu',     label = 'Tofu',       perPrice = 15, description = 'Ingrédient' },
+                    { name = 'mozarella', label = 'Mozarella', perPrice = 20, description = 'Ingrédient' },
+                    { name = 'boba',     label = 'Perles de Tapioca', perPrice = 12, description = 'Ingrédient' }
+                }
+            },
+            [2] = {
+                name = 'Ingrédients Spéciaux',
+                description = 'Ingrédients Uniques',
+                icon = 'fa-solid fa-leaf',
+                items = {
+                    { name = 'matcha',   label = 'Matcha',     perPrice = 25, description = 'Ingrédient' },
+                    { name = 'nori',     label = 'Algue Nori', perPrice = 18, description = 'Ingrédient' },
+                    { name = 'tofu',     label = 'Tofu',       perPrice = 15, description = 'Ingrédient' },
+                    { name = 'mozarella', label = 'Mozarella', perPrice = 20, description = 'Ingrédient' }
+                }
+            },
+            [3] = {
+                name = 'Boissons',
+                description = 'Boissons Spéciales',
+                icon = 'fa-solid fa-mug-hot',
+                items = {
+                    { name = 'boba',     label = 'Perles de Tapioca', perPrice = 12, description = 'Ingrédient' }
+                }
+            }
+        },
+        pedHash = 'a_f_y_hippie_01',
+        scenario = 'WORLD_HUMAN_AA_SMOKE',
+        coords = {
+            { ped = nil, coords = vector4(2683.43, 3496.01, 56.73, 335.2) }
+        }
     }
 }
 
@@ -626,7 +679,7 @@ Config.Stashes = {
     identifying issues and fine-tuning the script during the development stage.
 
     NOTE: Enable these options only if you are actively developing or troubleshooting,
-    as they may increase server load and provide detailed output that isn’t necessary
+    as they may increase server load and provide detailed output that isn't necessary
     for standard gameplay.
 ]]
 

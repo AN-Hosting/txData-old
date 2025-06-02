@@ -62,7 +62,7 @@ Config.Locations = {                -- Edit the various interaction points for p
         vector3(309.78, -596.6, 43.29),
     },
     ['beds'] = {
-        { coords = vector4(318.98, -1441.02, 29.34, 29.34),   taken = false, model = 436178685 },
+        { coords = vector4(-454.96, -1042.52, 34.6, 90.83),   taken = false, model = 436178685 },
         { coords = vector4(324.25, -1445.13, 29.34, 58.37), taken = false, model = 436178685 },
         { coords = vector4(330.46, -1447.91, 29.34, 73.46),  taken = false, model = 436178685 },
         { coords = vector4(337.47, -1445.3, 29.45, 84.36),   taken = false, model = -1091386327 },
@@ -79,9 +79,9 @@ Config.Locations = {                -- Edit the various interaction points for p
     ['hospital'] = {
         {
             ['name'] = Lang:t('info.pb_hospital'),
-            ['location'] = vector3(341.92, -1397.24, 32.51),
+            ['location'] = vector3(-470.43, -1023.05, 33.69),
             ['beds'] = {
-                { coords = vector4(318.98, -1441.02, 29.34, 29.34),   taken = false, model = 436178685 },
+                { coords = vector4(-454.96, -1042.52, 34.6, 90.83),   taken = false, model = 436178685 },
                 { coords = vector4(324.25, -1445.13, 29.34, 58.37), taken = false, model = 436178685 },
                 { coords = vector4(330.46, -1447.91, 29.34, 73.46),  taken = false, model = 436178685 },
                 { coords = vector4(337.47, -1445.3, 29.45, 84.36),   taken = false, model = -1091386327 },
